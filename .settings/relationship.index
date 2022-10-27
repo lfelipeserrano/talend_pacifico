@@ -90,6 +90,21 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_72WuEFNUEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - pos_bill",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_8cs_kFNYEe238LO94I1QtA",
     "version" : "0.1",
     "type" : "job"
@@ -100,6 +115,21 @@
     "type" : "property"
   }, {
     "id" : "_nASfkEt8Ee2Th9nO_wSelQ - sale_order",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_8d1aQFNTEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - sale_order_template_line",
     "version" : "Latest",
     "type" : "schema"
   } ]
@@ -240,6 +270,32 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_OQQTAFNUEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - sale_order_template_option",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_Pu5wcFKSEe2zh6J62jcYQw",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_QfimIFWmEe2D6fLcYiILvA",
     "version" : "0.1",
     "type" : "job"
@@ -255,6 +311,36 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_SpGNcFNSEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - sale_order_template",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_WTTuAFNVEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - pos_config",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_Wb9hQFWmEe2D6fLcYiILvA",
     "version" : "0.1",
     "type" : "job"
@@ -265,6 +351,21 @@
     "type" : "property"
   }, {
     "id" : "_nASfkEt8Ee2Th9nO_wSelQ - res_partner",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_aYnocFNTEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - sale_order_option",
     "version" : "Latest",
     "type" : "schema"
   } ]
@@ -308,6 +409,60 @@
     "id" : "_nASfkEt8Ee2Th9nO_wSelQ - product_attribute",
     "version" : "Latest",
     "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_o7VOgFNUEe2BbexQ5lqZRg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - account_tax",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_pjcAEFW0Ee2lMvfMjAhNYg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "PACIFICO:_72WuEFNUEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_8d1aQFNTEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_OQQTAFNUEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_Pu5wcFKSEe2zh6J62jcYQw",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_SpGNcFNSEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_WTTuAFNVEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_aYnocFNTEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
+  }, {
+    "id" : "PACIFICO:_o7VOgFNUEe2BbexQ5lqZRg",
+    "version" : "Latest",
+    "type" : "job"
   } ]
 }, {
   "baseItem" : {
