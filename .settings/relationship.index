@@ -30,6 +30,21 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_3Bg5UFW1Ee2Y24RTdOX_pw",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - pos_session",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_4dzd4FNUEe2qqevTgzNEFw",
     "version" : "0.1",
     "type" : "job"
@@ -180,6 +195,21 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_DWEbMFW2Ee2Y24RTdOX_pw",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - pos_payment_method",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_DuVZ8FWlEe2D6fLcYiILvA",
     "version" : "0.1",
     "type" : "job"
@@ -250,6 +280,21 @@
     "type" : "property"
   }, {
     "id" : "_nASfkEt8Ee2Th9nO_wSelQ - product_category",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_MO-VkFW2Ee2Y24RTdOX_pw",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - product_template",
     "version" : "Latest",
     "type" : "schema"
   } ]
@@ -496,7 +541,33 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_vPK-YFW1Ee2Y24RTdOX_pw",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - pos_payment",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_yCpbgFNYEe238LO94I1QtA",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_yMGfAFW0Ee2T6-kEx1z53w",
     "version" : "0.1",
     "type" : "job"
   },
