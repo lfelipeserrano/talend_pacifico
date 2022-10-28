@@ -270,6 +270,21 @@
   } ]
 }, {
   "baseItem" : {
+    "id" : "_LQ_qUFZ6Ee2trNUBn6sVkA",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_nASfkEt8Ee2Th9nO_wSelQ - sale_order",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
     "id" : "_MKDakFKbEe2qqevTgzNEFw",
     "version" : "0.1",
     "type" : "job"
