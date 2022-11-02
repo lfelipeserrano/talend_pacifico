@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:tL1VeWmIW+VAzJ0JQAjUf9BhKecVjKXVXuV9Cd2N" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:l/x7LfSWS8IycvuDihRIUFcTARUeacNnbuRnY6Eu" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:Vn4jlIdwcmE/owEqRlXd3LgOMaSthfIgz193DcjA" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:xYwcyfHEBocAQNIZdLI9ujGL3ScsUB3phujfCrD6" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -113,7 +113,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;AKIAVMNG53PS4OCUVYGK&quot;"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:Wt1yfSt9aATBlmiwuM93Se+rS0R6KibhsiiLgiTt7GtAwQctavKlHgI23CxZwPwkIps5S/1PhdXrHp+AmNJ9aF2/N0F8sA=="/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:muHZmkwX4GDwyq35e+B4TeVol//PZj69oUIWS6mhBniYOz6pAwxE2+NdojanICZKMwI9cLwVx70g+CrcuZGfFaifZvpg2g=="/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -124,8 +124,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:AOA4FDvAExT/FCjM+xDXL2HHRA+KdZnnpamdgKzM" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:xmxBo1KUfjOimND7lOT6NmtbPZevzP1D1EElyMQP" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:Gv/U7DL8dndJ1HoreMYcuzKC052t9UQGB8XGfk45" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:GofwCFGM2SYE6aqRJoHxCIMtQMxWVptWYbeKXJft" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
@@ -387,7 +387,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value="&quot;C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/temp&quot;"/>
     <elementParameter field="IMAGE" name="PREVIEW" value="_mLiRAFmiEe2EtZD-YglpCA-tMap_1-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
@@ -397,8 +397,40 @@
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="metadata" name="out">
-      <column comment="" key="false" length="2" name="Column0_1" nullable="true" originalDbColumnName="Column0" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+    <metadata connector="FLOW" name="out1">
+      <column comment="" key="false" length="2" name="Column0" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="9" name="Column1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="Column2" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column3" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="Column4" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="Column5" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="Column6" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column7" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column8" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column9" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Column10" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="2" name="Column11" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column12" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column13" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="Column14" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Column15" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Column16" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Column17" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column18" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="Column19" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column20" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Column21" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="5" name="Column22" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="5" name="Column23" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="5" name="Column24" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column25" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column26" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="Column27" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="1" name="Column28" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="Column29" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Column30" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="FLOW" name="stage">
       <column comment="" key="false" length="2" name="Column0" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="9" name="Column1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="Column2" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
@@ -434,41 +466,73 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="out" activateCondensedTool="true" rejectInnerJoin="true">
-        <mapperTableEntries name="Column0_1" expression="row1.Column0 " type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column0" expression="row1.Column0" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column1" expression="row1.Column1" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column2" expression="row1.Column2" type="id_Date" nullable="true"/>
-        <mapperTableEntries name="Column3" expression="row1.Column3" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column4" expression="row1.Column4" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column5" expression="row1.Column5" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column6" expression="row1.Column6" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column7" expression="row1.Column7" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column8" expression="row1.Column8" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column9" expression="row1.Column9" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column10" expression="row1.Column10" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column11" expression="row1.Column11" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column12" expression="row1.Column12" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column13" expression="row1.Column13" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column14" expression="row1.Column14" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column15" expression="row1.Column15" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column16" expression="row1.Column16" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column17" expression="row1.Column17" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column18" expression="row1.Column18" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column19" expression="row1.Column19" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column20" expression="row1.Column20" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column21" expression="row1.Column21" type="id_String" nullable="true"/>
-        <mapperTableEntries name="Column22" expression="row1.Column22" type="id_Boolean" nullable="true"/>
-        <mapperTableEntries name="Column23" expression="row1.Column23" type="id_Boolean" nullable="true"/>
-        <mapperTableEntries name="Column24" expression="row1.Column24" type="id_Boolean" nullable="true"/>
-        <mapperTableEntries name="Column25" expression="row1.Column25" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column26" expression="row1.Column26" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column27" expression="row1.Column27" type="id_Date" nullable="true"/>
-        <mapperTableEntries name="Column28" expression="row1.Column28" type="id_Integer" nullable="true"/>
-        <mapperTableEntries name="Column29" expression="row1.Column29" type="id_Date" nullable="true"/>
-        <mapperTableEntries name="Column30" expression="row1.Column30" type="id_String" nullable="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="out1" activateCondensedTool="true" rejectInnerJoin="true">
+        <mapperTableEntries name="Column0" expression="row1.Column0 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column1" expression="row1.Column1 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column2" expression="row1.Column2 " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Column3" expression="row1.Column3 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column4" expression="row1.Column4 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column5" expression="row1.Column5 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column6" expression="row1.Column6 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column7" expression="row1.Column7 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column8" expression="row1.Column8 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column9" expression="row1.Column9 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column10" expression="row1.Column10 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column11" expression="row1.Column11 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column12" expression="row1.Column12 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column13" expression="row1.Column13 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column14" expression="row1.Column14 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column15" expression="row1.Column15 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column16" expression="row1.Column16 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column17" expression="row1.Column17 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column18" expression="row1.Column18 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column19" expression="row1.Column19 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column20" expression="row1.Column20 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column21" expression="row1.Column21 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column22" expression="row1.Column22 " type="id_Boolean" nullable="true"/>
+        <mapperTableEntries name="Column23" expression="row1.Column23 " type="id_Boolean" nullable="true"/>
+        <mapperTableEntries name="Column24" expression="row1.Column24 " type="id_Boolean" nullable="true"/>
+        <mapperTableEntries name="Column25" expression="row1.Column25 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column26" expression="row1.Column26 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column27" expression="row1.Column27 " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Column28" expression="row1.Column28 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column29" expression="row1.Column29 " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Column30" expression="row1.Column30 " type="id_String" nullable="true"/>
       </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="row1" activateExpressionFilter="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+      <outputTables sizeState="INTERMEDIATE" name="stage" activateCondensedTool="true" reject="true">
+        <mapperTableEntries name="Column0" expression="row1.Column0 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column1" expression="row1.Column1 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column2" expression="row1.Column2 " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Column3" expression="row1.Column3 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column4" expression="row1.Column4 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column5" expression="row1.Column5 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column6" expression="row1.Column6 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column7" expression="row1.Column7 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column8" expression="row1.Column8 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column9" expression="row1.Column9 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column10" expression="row1.Column10 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column11" expression="row1.Column11 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column12" expression="row1.Column12 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column13" expression="row1.Column13 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column14" expression="row1.Column14 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column15" expression="row1.Column15 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column16" expression="row1.Column16 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column17" expression="row1.Column17 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column18" expression="row1.Column18 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column19" expression="row1.Column19 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column20" expression="row1.Column20 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column21" expression="row1.Column21 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Column22" expression="row1.Column22 " type="id_Boolean" nullable="true"/>
+        <mapperTableEntries name="Column23" expression="row1.Column23 " type="id_Boolean" nullable="true"/>
+        <mapperTableEntries name="Column24" expression="row1.Column24 " type="id_Boolean" nullable="true"/>
+        <mapperTableEntries name="Column25" expression="row1.Column25 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column26" expression="row1.Column26 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column27" expression="row1.Column27 " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Column28" expression="row1.Column28 " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="Column29" expression="row1.Column29 " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Column30" expression="row1.Column30 " type="id_String" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="row1" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="Column0" type="id_Integer" nullable="true"/>
         <mapperTableEntries name="Column1" type="id_String" nullable="true"/>
         <mapperTableEntries name="Column2" type="id_Date" nullable="true"/>
@@ -501,8 +565,8 @@
         <mapperTableEntries name="Column29" type="id_Date" nullable="true"/>
         <mapperTableEntries name="Column30" type="id_String" nullable="true"/>
       </inputTables>
-      <inputTables sizeState="INTERMEDIATE" name="row2" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
-        <mapperTableEntries name="Column0" expression="row1.Column0 " type="id_Integer" nullable="true" operator="="/>
+      <inputTables sizeState="INTERMEDIATE" name="row2" activateExpressionFilter="true" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
+        <mapperTableEntries name="Column0" expression=" row1.Column0 " type="id_Integer" nullable="true" operator="="/>
         <mapperTableEntries name="Column1" type="id_String" nullable="true"/>
         <mapperTableEntries name="Column2" type="id_Date" nullable="true"/>
         <mapperTableEntries name="Column3" type="id_Integer" nullable="true"/>
@@ -536,7 +600,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="-1" offsetLabelY="0" posX="576" posY="64">
+  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="-7" offsetLabelY="0" posX="576" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1" show="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_Qk-sYFmvEe2Vzov9eWiZmw - metadata" show="false"/>
@@ -767,90 +831,84 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="192">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
-    <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
-    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
-    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;" show="false"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" value="false" show="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false" show="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false" show="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false" show="false"/>
-    <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="Column0_1"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="992" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_Qk-sYFmvEe2Vzov9eWiZmw - metadata" show="false"/>
+    <elementParameter field="TEXT" name="NB_ROWS" value="1"/>
+    <elementParameter field="RADIO" name="USE_SINGLEMODE" value="true"/>
+    <elementParameter field="TABLE" name="VALUES">
       <elementValue elementRef="SCHEMA_COLUMN" value="Column0"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column1"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column2"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column3"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column4"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column5"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column6"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column7"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column8"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column9"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column10"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column11"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column12"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column13"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column14"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column15"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column16"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column17"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column18"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column19"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column20"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column21"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column22"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column23"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column24"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column25"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column26"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column27"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column28"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column29"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Column30"/>
-      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="VALUE" value=""/>
     </elementParameter>
-    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
-    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="RADIO" name="USE_INTABLE" value="false"/>
+    <elementParameter field="TABLE" name="INTABLE" show="false"/>
+    <elementParameter field="RADIO" name="USE_INLINECONTENT" value="false"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;" show="false"/>
+    <elementParameter field="MEMO" name="INLINECONTENT" value="" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="metadata" name="tLogRow_1">
-      <column comment="" key="false" length="2" name="Column0_1" nullable="true" originalDbColumnName="Column0" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+    <metadata connector="FLOW" label="metadata" name="tFixedFlowInput_1">
       <column comment="" key="false" length="2" name="Column0" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="9" name="Column1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="10" name="Column2" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
@@ -888,15 +946,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="out" lineStyle="0" metaname="out" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tLogRow_1">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="Column0_1"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="out" show="false"/>
-  </connection>
   <connection connectorName="FLOW" label="row2" lineStyle="8" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2" show="false"/>
@@ -908,6 +957,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>

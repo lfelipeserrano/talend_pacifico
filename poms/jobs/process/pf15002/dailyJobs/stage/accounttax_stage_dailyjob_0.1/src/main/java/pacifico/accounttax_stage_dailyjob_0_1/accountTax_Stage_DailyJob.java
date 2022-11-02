@@ -304,7 +304,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tLogRow_1_error(Exception exception, String errorComponent,
+	public void tFileOutputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -360,15 +360,9 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 	}
 
-	public static class outStruct implements routines.system.IPersistableRow<outStruct> {
+	public static class out1Struct implements routines.system.IPersistableRow<out1Struct> {
 		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
 		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
-
-		public Integer Column0_1;
-
-		public Integer getColumn0_1() {
-			return this.Column0_1;
-		}
 
 		public Integer Column0;
 
@@ -708,8 +702,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 					int length = 0;
 
-					this.Column0_1 = readInteger(dis);
-
 					this.Column0 = readInteger(dis);
 
 					this.Column1 = readString(dis);
@@ -804,8 +796,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 					int length = 0;
 
-					this.Column0_1 = readInteger(dis);
-
 					this.Column0 = readInteger(dis);
 
 					this.Column1 = readString(dis);
@@ -894,10 +884,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 		public void writeData(ObjectOutputStream dos) {
 			try {
-
-				// Integer
-
-				writeInteger(this.Column0_1, dos);
 
 				// Integer
 
@@ -1049,10 +1035,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 				// Integer
 
-				writeInteger(this.Column0_1, dos);
-
-				// Integer
-
 				writeInteger(this.Column0, dos);
 
 				// String
@@ -1201,8 +1183,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("Column0_1=" + String.valueOf(Column0_1));
-			sb.append(",Column0=" + String.valueOf(Column0));
+			sb.append("Column0=" + String.valueOf(Column0));
 			sb.append(",Column1=" + Column1);
 			sb.append(",Column2=" + String.valueOf(Column2));
 			sb.append(",Column3=" + String.valueOf(Column3));
@@ -1241,7 +1222,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(outStruct other) {
+		public int compareTo(out1Struct other) {
 
 			int returnValue = -1;
 
@@ -3079,386 +3060,101 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				tFileInputDelimited_1Process(globalMap);
 
 				row1Struct row1 = new row1Struct();
-				outStruct out = new outStruct();
+				out1Struct out1 = new out1Struct();
 
 				/**
-				 * [tLogRow_1 begin ] start
+				 * [tFileOutputDelimited_1 begin ] start
 				 */
 
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+				ok_Hash.put("tFileOutputDelimited_1", false);
+				start_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
-				currentComponent = "tLogRow_1";
+				currentComponent = "tFileOutputDelimited_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out1");
 				}
 
-				int tos_count_tLogRow_1 = 0;
+				int tos_count_tFileOutputDelimited_1 = 0;
 
-				///////////////////////
-
-				class Util_tLogRow_1 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[32];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 32; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
+				String fileName_tFileOutputDelimited_1 = "";
+				fileName_tFileOutputDelimited_1 = (new java.io.File(
+						"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/outPosDelta.csv")).getAbsolutePath()
+								.replace("\\", "/");
+				String fullName_tFileOutputDelimited_1 = null;
+				String extension_tFileOutputDelimited_1 = null;
+				String directory_tFileOutputDelimited_1 = null;
+				if ((fileName_tFileOutputDelimited_1.indexOf("/") != -1)) {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") < fileName_tFileOutputDelimited_1
+							.lastIndexOf("/")) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+								fileName_tFileOutputDelimited_1.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
 					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
+					directory_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+							fileName_tFileOutputDelimited_1.lastIndexOf("/"));
+				} else {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") != -1) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+								fileName_tFileOutputDelimited_1.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
 					}
+					directory_tFileOutputDelimited_1 = "";
+				}
+				boolean isFileGenerated_tFileOutputDelimited_1 = true;
+				java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
+				if (filetFileOutputDelimited_1.exists()) {
+					throw new RuntimeException("The particular file \"" + filetFileOutputDelimited_1.getAbsoluteFile()
+							+ "\" already exist. If you want to overwrite the file, please uncheck the"
+							+ " \"Throw an error if the file already exist\" option in Advanced settings.");
+				}
+				int nb_line_tFileOutputDelimited_1 = 0;
+				int splitedFileNo_tFileOutputDelimited_1 = 0;
+				int currentRow_tFileOutputDelimited_1 = 0;
 
-					public StringBuilder format() {
+				final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */
+						";"/** End field tFileOutputDelimited_1:FIELDSEPARATOR */
+				;
 
-						StringBuilder sb = new StringBuilder();
+				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /**
+																		 * Start field
+																		 * tFileOutputDelimited_1:ROWSEPARATOR
+																		 */
+						"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */
+				;
 
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 31 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 31 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
-							sbformat.append("s");
-
-							sbformat.append("|%13$-");
-							sbformat.append(colLengths[12]);
-							sbformat.append("s");
-
-							sbformat.append("|%14$-");
-							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|%15$-");
-							sbformat.append(colLengths[14]);
-							sbformat.append("s");
-
-							sbformat.append("|%16$-");
-							sbformat.append(colLengths[15]);
-							sbformat.append("s");
-
-							sbformat.append("|%17$-");
-							sbformat.append(colLengths[16]);
-							sbformat.append("s");
-
-							sbformat.append("|%18$-");
-							sbformat.append(colLengths[17]);
-							sbformat.append("s");
-
-							sbformat.append("|%19$-");
-							sbformat.append(colLengths[18]);
-							sbformat.append("s");
-
-							sbformat.append("|%20$-");
-							sbformat.append(colLengths[19]);
-							sbformat.append("s");
-
-							sbformat.append("|%21$-");
-							sbformat.append(colLengths[20]);
-							sbformat.append("s");
-
-							sbformat.append("|%22$-");
-							sbformat.append(colLengths[21]);
-							sbformat.append("s");
-
-							sbformat.append("|%23$-");
-							sbformat.append(colLengths[22]);
-							sbformat.append("s");
-
-							sbformat.append("|%24$-");
-							sbformat.append(colLengths[23]);
-							sbformat.append("s");
-
-							sbformat.append("|%25$-");
-							sbformat.append(colLengths[24]);
-							sbformat.append("s");
-
-							sbformat.append("|%26$-");
-							sbformat.append(colLengths[25]);
-							sbformat.append("s");
-
-							sbformat.append("|%27$-");
-							sbformat.append(colLengths[26]);
-							sbformat.append("s");
-
-							sbformat.append("|%28$-");
-							sbformat.append(colLengths[27]);
-							sbformat.append("s");
-
-							sbformat.append("|%29$-");
-							sbformat.append(colLengths[28]);
-							sbformat.append("s");
-
-							sbformat.append("|%30$-");
-							sbformat.append(colLengths[29]);
-							sbformat.append("s");
-
-							sbformat.append("|%31$-");
-							sbformat.append(colLengths[30]);
-							sbformat.append("s");
-
-							sbformat.append("|%32$-");
-							sbformat.append(colLengths[31]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[22] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[23] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[24] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[25] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[26] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[27] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[28] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[29] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[30] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[31] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
+				// create directory only if not exists
+				if (directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
+					java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
+					if (!dir_tFileOutputDelimited_1.exists()) {
+						dir_tFileOutputDelimited_1.mkdirs();
 					}
 				}
-				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
-				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "Column0_1", "Column0", "Column1", "Column2", "Column3", "Column4",
-						"Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12",
-						"Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20",
-						"Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28",
-						"Column29", "Column30", });
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
-///////////////////////    			
+
+				// routines.system.Row
+				java.io.Writer outtFileOutputDelimited_1 = null;
+
+				java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+				if (fileToDelete_tFileOutputDelimited_1.exists()) {
+					fileToDelete_tFileOutputDelimited_1.delete();
+				}
+				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
+
+				resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
+				resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
 				/**
-				 * [tLogRow_1 begin ] stop
+				 * [tFileOutputDelimited_1 begin ] stop
 				 */
 
 				/**
@@ -3495,7 +3191,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-				outStruct out_tmp = new outStruct();
+				out1Struct out1_tmp = new out1Struct();
 // ###############################
 
 				/**
@@ -4238,48 +3934,51 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 								// ###############################
 								// # Output tables
 
-								out = null;
+								out1 = null;
 
+								boolean rejected_tMap_1 = true;
 								if (!rejectedInnerJoin_tMap_1) {
 								} // closing inner join bracket (1)
+								else {
+									rejected_tMap_1 = false;
+								} // closing else inner join bracket (1)
 // ###### START REJECTS ##### 
 
-// # Output reject table : 'out'
+// # Output reject table : 'out1'
 // # Filter conditions 
 								if (rejectedInnerJoin_tMap_1) {
-									out_tmp.Column0_1 = row1.Column0;
-									out_tmp.Column0 = row1.Column0;
-									out_tmp.Column1 = row1.Column1;
-									out_tmp.Column2 = row1.Column2;
-									out_tmp.Column3 = row1.Column3;
-									out_tmp.Column4 = row1.Column4;
-									out_tmp.Column5 = row1.Column5;
-									out_tmp.Column6 = row1.Column6;
-									out_tmp.Column7 = row1.Column7;
-									out_tmp.Column8 = row1.Column8;
-									out_tmp.Column9 = row1.Column9;
-									out_tmp.Column10 = row1.Column10;
-									out_tmp.Column11 = row1.Column11;
-									out_tmp.Column12 = row1.Column12;
-									out_tmp.Column13 = row1.Column13;
-									out_tmp.Column14 = row1.Column14;
-									out_tmp.Column15 = row1.Column15;
-									out_tmp.Column16 = row1.Column16;
-									out_tmp.Column17 = row1.Column17;
-									out_tmp.Column18 = row1.Column18;
-									out_tmp.Column19 = row1.Column19;
-									out_tmp.Column20 = row1.Column20;
-									out_tmp.Column21 = row1.Column21;
-									out_tmp.Column22 = row1.Column22;
-									out_tmp.Column23 = row1.Column23;
-									out_tmp.Column24 = row1.Column24;
-									out_tmp.Column25 = row1.Column25;
-									out_tmp.Column26 = row1.Column26;
-									out_tmp.Column27 = row1.Column27;
-									out_tmp.Column28 = row1.Column28;
-									out_tmp.Column29 = row1.Column29;
-									out_tmp.Column30 = row1.Column30;
-									out = out_tmp;
+									out1_tmp.Column0 = row1.Column0;
+									out1_tmp.Column1 = row1.Column1;
+									out1_tmp.Column2 = row1.Column2;
+									out1_tmp.Column3 = row1.Column3;
+									out1_tmp.Column4 = row1.Column4;
+									out1_tmp.Column5 = row1.Column5;
+									out1_tmp.Column6 = row1.Column6;
+									out1_tmp.Column7 = row1.Column7;
+									out1_tmp.Column8 = row1.Column8;
+									out1_tmp.Column9 = row1.Column9;
+									out1_tmp.Column10 = row1.Column10;
+									out1_tmp.Column11 = row1.Column11;
+									out1_tmp.Column12 = row1.Column12;
+									out1_tmp.Column13 = row1.Column13;
+									out1_tmp.Column14 = row1.Column14;
+									out1_tmp.Column15 = row1.Column15;
+									out1_tmp.Column16 = row1.Column16;
+									out1_tmp.Column17 = row1.Column17;
+									out1_tmp.Column18 = row1.Column18;
+									out1_tmp.Column19 = row1.Column19;
+									out1_tmp.Column20 = row1.Column20;
+									out1_tmp.Column21 = row1.Column21;
+									out1_tmp.Column22 = row1.Column22;
+									out1_tmp.Column23 = row1.Column23;
+									out1_tmp.Column24 = row1.Column24;
+									out1_tmp.Column25 = row1.Column25;
+									out1_tmp.Column26 = row1.Column26;
+									out1_tmp.Column27 = row1.Column27;
+									out1_tmp.Column28 = row1.Column28;
+									out1_tmp.Column29 = row1.Column29;
+									out1_tmp.Column30 = row1.Column30;
+									out1 = out1_tmp;
 								} // closing filter/reject
 // ###############################
 
@@ -4302,222 +4001,184 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 							/**
 							 * [tMap_1 process_data_begin ] stop
 							 */
-// Start of branch "out"
-							if (out != null) {
+// Start of branch "out1"
+							if (out1 != null) {
 
 								/**
-								 * [tLogRow_1 main ] start
+								 * [tFileOutputDelimited_1 main ] start
 								 */
 
-								currentComponent = "tLogRow_1";
+								currentComponent = "tFileOutputDelimited_1";
 
 								if (execStat) {
 									runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "out"
+											, "out1"
 
 									);
 								}
 
-///////////////////////		
-
-								String[] row_tLogRow_1 = new String[32];
-
-								if (out.Column0_1 != null) { //
-									row_tLogRow_1[0] = String.valueOf(out.Column0_1);
-
-								} //
-
-								if (out.Column0 != null) { //
-									row_tLogRow_1[1] = String.valueOf(out.Column0);
-
-								} //
-
-								if (out.Column1 != null) { //
-									row_tLogRow_1[2] = String.valueOf(out.Column1);
-
-								} //
-
-								if (out.Column2 != null) { //
-									row_tLogRow_1[3] = FormatterUtils.format_Date(out.Column2, "dd-MM-yyyy");
-
-								} //
-
-								if (out.Column3 != null) { //
-									row_tLogRow_1[4] = String.valueOf(out.Column3);
-
-								} //
-
-								if (out.Column4 != null) { //
-									row_tLogRow_1[5] = String.valueOf(out.Column4);
-
-								} //
-
-								if (out.Column5 != null) { //
-									row_tLogRow_1[6] = String.valueOf(out.Column5);
-
-								} //
-
-								if (out.Column6 != null) { //
-									row_tLogRow_1[7] = String.valueOf(out.Column6);
-
-								} //
-
-								if (out.Column7 != null) { //
-									row_tLogRow_1[8] = String.valueOf(out.Column7);
-
-								} //
-
-								if (out.Column8 != null) { //
-									row_tLogRow_1[9] = String.valueOf(out.Column8);
-
-								} //
-
-								if (out.Column9 != null) { //
-									row_tLogRow_1[10] = String.valueOf(out.Column9);
-
-								} //
-
-								if (out.Column10 != null) { //
-									row_tLogRow_1[11] = String.valueOf(out.Column10);
-
-								} //
-
-								if (out.Column11 != null) { //
-									row_tLogRow_1[12] = String.valueOf(out.Column11);
-
-								} //
-
-								if (out.Column12 != null) { //
-									row_tLogRow_1[13] = String.valueOf(out.Column12);
-
-								} //
-
-								if (out.Column13 != null) { //
-									row_tLogRow_1[14] = String.valueOf(out.Column13);
-
-								} //
-
-								if (out.Column14 != null) { //
-									row_tLogRow_1[15] = String.valueOf(out.Column14);
-
-								} //
-
-								if (out.Column15 != null) { //
-									row_tLogRow_1[16] = String.valueOf(out.Column15);
-
-								} //
-
-								if (out.Column16 != null) { //
-									row_tLogRow_1[17] = String.valueOf(out.Column16);
-
-								} //
-
-								if (out.Column17 != null) { //
-									row_tLogRow_1[18] = String.valueOf(out.Column17);
-
-								} //
-
-								if (out.Column18 != null) { //
-									row_tLogRow_1[19] = String.valueOf(out.Column18);
-
-								} //
-
-								if (out.Column19 != null) { //
-									row_tLogRow_1[20] = String.valueOf(out.Column19);
-
-								} //
-
-								if (out.Column20 != null) { //
-									row_tLogRow_1[21] = String.valueOf(out.Column20);
-
-								} //
-
-								if (out.Column21 != null) { //
-									row_tLogRow_1[22] = String.valueOf(out.Column21);
-
-								} //
-
-								if (out.Column22 != null) { //
-									row_tLogRow_1[23] = String.valueOf(out.Column22);
-
-								} //
-
-								if (out.Column23 != null) { //
-									row_tLogRow_1[24] = String.valueOf(out.Column23);
-
-								} //
-
-								if (out.Column24 != null) { //
-									row_tLogRow_1[25] = String.valueOf(out.Column24);
-
-								} //
-
-								if (out.Column25 != null) { //
-									row_tLogRow_1[26] = String.valueOf(out.Column25);
-
-								} //
-
-								if (out.Column26 != null) { //
-									row_tLogRow_1[27] = String.valueOf(out.Column26);
-
-								} //
-
-								if (out.Column27 != null) { //
-									row_tLogRow_1[28] = FormatterUtils.format_Date(out.Column27, "dd-MM-yyyy");
-
-								} //
-
-								if (out.Column28 != null) { //
-									row_tLogRow_1[29] = String.valueOf(out.Column28);
-
-								} //
-
-								if (out.Column29 != null) { //
-									row_tLogRow_1[30] = FormatterUtils.format_Date(out.Column29, "dd-MM-yyyy");
-
-								} //
-
-								if (out.Column30 != null) { //
-									row_tLogRow_1[31] = String.valueOf(out.Column30);
-
-								} //
-
-								util_tLogRow_1.addRow(row_tLogRow_1);
-								nb_line_tLogRow_1++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-								tos_count_tLogRow_1++;
+								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+								if (out1.Column0 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column0);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column1 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column1);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column2 != null) {
+									sb_tFileOutputDelimited_1
+											.append(FormatterUtils.format_Date(out1.Column2, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column3 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column3);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column4 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column4);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column5 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column5);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column6 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column6);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column7 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column7);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column8 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column8);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column9 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column9);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column10 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column10);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column11 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column11);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column12 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column12);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column13 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column13);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column14 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column14);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column15 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column15);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column16 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column16);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column17 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column17);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column18 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column18);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column19 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column19);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column20 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column20);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column21 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column21);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column22 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column22);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column23 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column23);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column24 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column24);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column25 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column25);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column26 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column26);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column27 != null) {
+									sb_tFileOutputDelimited_1
+											.append(FormatterUtils.format_Date(out1.Column27, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column28 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column28);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column29 != null) {
+									sb_tFileOutputDelimited_1
+											.append(FormatterUtils.format_Date(out1.Column29, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.Column30 != null) {
+									sb_tFileOutputDelimited_1.append(out1.Column30);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+
+								nb_line_tFileOutputDelimited_1++;
+								resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+
+								outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+
+								tos_count_tFileOutputDelimited_1++;
 
 								/**
-								 * [tLogRow_1 main ] stop
+								 * [tFileOutputDelimited_1 main ] stop
 								 */
 
 								/**
-								 * [tLogRow_1 process_data_begin ] start
+								 * [tFileOutputDelimited_1 process_data_begin ] start
 								 */
 
-								currentComponent = "tLogRow_1";
+								currentComponent = "tFileOutputDelimited_1";
 
 								/**
-								 * [tLogRow_1 process_data_begin ] stop
+								 * [tFileOutputDelimited_1 process_data_begin ] stop
 								 */
 
 								/**
-								 * [tLogRow_1 process_data_end ] start
+								 * [tFileOutputDelimited_1 process_data_end ] start
 								 */
 
-								currentComponent = "tLogRow_1";
+								currentComponent = "tFileOutputDelimited_1";
 
 								/**
-								 * [tLogRow_1 process_data_end ] stop
+								 * [tFileOutputDelimited_1 process_data_end ] stop
 								 */
 
-							} // End of branch "out"
+							} // End of branch "out1"
 
 							/**
 							 * [tMap_1 process_data_end ] start
@@ -4594,37 +4255,30 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				 */
 
 				/**
-				 * [tLogRow_1 end ] start
+				 * [tFileOutputDelimited_1 end ] start
 				 */
 
-				currentComponent = "tLogRow_1";
+				currentComponent = "tFileOutputDelimited_1";
 
-//////
-
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+				if (outtFileOutputDelimited_1 != null) {
+					outtFileOutputDelimited_1.flush();
+					outtFileOutputDelimited_1.close();
 				}
 
-				consoleOut_tLogRow_1.println(util_tLogRow_1.format().toString());
-				consoleOut_tLogRow_1.flush();
-//////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
+				globalMap.put("tFileOutputDelimited_1_NB_LINE", nb_line_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
 
-///////////////////////    			
+				resourceMap.put("finish_tFileOutputDelimited_1", true);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "out");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "out1");
 				}
 
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
+				ok_Hash.put("tFileOutputDelimited_1", true);
+				end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
 				/**
-				 * [tLogRow_1 end ] stop
+				 * [tFileOutputDelimited_1 end ] stop
 				 */
 
 			} // end the resume
@@ -4667,13 +4321,24 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				 */
 
 				/**
-				 * [tLogRow_1 finally ] start
+				 * [tFileOutputDelimited_1 finally ] start
 				 */
 
-				currentComponent = "tLogRow_1";
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (resourceMap.get("finish_tFileOutputDelimited_1") == null) {
+
+					java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer) resourceMap
+							.get("out_tFileOutputDelimited_1");
+					if (outtFileOutputDelimited_1 != null) {
+						outtFileOutputDelimited_1.flush();
+						outtFileOutputDelimited_1.close();
+					}
+
+				}
 
 				/**
-				 * [tLogRow_1 finally ] stop
+				 * [tFileOutputDelimited_1 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -5674,7 +5339,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				// source node:tFileInputDelimited_1 - inputs:(after_tFileInputDelimited_2)
 				// outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2)
 				// outputs:()
-				// linked node: tMap_1 - inputs:(row1,row2) outputs:(out)
+				// linked node: tMap_1 - inputs:(row1,row2) outputs:(out1)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 
@@ -6588,7 +6253,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:0XtIfrDIE1HYjrgLSadLfqPMumpnpCgO2Ws/GJMfNJ5hmhT+EWDg536fO/wz2bzVoSy4zMwmSlSD6NHJ21OPXaW57mU=");
+						"enc:routine.encryption.key.v1:AgglM6yeCHkH7r50lwGLQwxpMwxzavT8rU42KiqwRe4+EsQkyFIxaLnNl+Oo2kPRPWjsf4t7qses1aakQdS6bUmy6rw=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -7111,6 +6776,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 208851 characters generated by Talend Open Studio for Data Integration on the
- * November 1, 2022 at 1:23:20 AM CST
+ * 200152 characters generated by Talend Open Studio for Data Integration on the
+ * November 1, 2022 at 11:25:51 PM CST
  ************************************************************************************************/
