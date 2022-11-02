@@ -284,14 +284,14 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 		}
 	}
 
-	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
@@ -301,7 +301,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tLogRow_1_error(Exception exception, String errorComponent,
@@ -311,27 +311,67 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
+	public void tFileOutputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tS3Connection_1_error(Exception exception, String errorComponent,
+	public void tUnite_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
 
 		status = "failure";
 
-		tS3Connection_1_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileOutputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tAdvancedHash_row2_error(Exception exception, String errorComponent,
@@ -341,10 +381,10 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 		status = "failure";
 
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
+	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -352,23 +392,9 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 	}
 
-	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public static class outStruct implements routines.system.IPersistableRow<outStruct> {
+	public static class row7Struct implements routines.system.IPersistableRow<row7Struct> {
 		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
 		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
-
-		public Integer Column0_1;
-
-		public Integer getColumn0_1() {
-			return this.Column0_1;
-		}
 
 		public Integer Column0;
 
@@ -708,8 +734,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 					int length = 0;
 
-					this.Column0_1 = readInteger(dis);
-
 					this.Column0 = readInteger(dis);
 
 					this.Column1 = readString(dis);
@@ -804,8 +828,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 					int length = 0;
 
-					this.Column0_1 = readInteger(dis);
-
 					this.Column0 = readInteger(dis);
 
 					this.Column1 = readString(dis);
@@ -894,10 +916,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 		public void writeData(ObjectOutputStream dos) {
 			try {
-
-				// Integer
-
-				writeInteger(this.Column0_1, dos);
 
 				// Integer
 
@@ -1049,7 +1067,895 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 				// Integer
 
-				writeInteger(this.Column0_1, dos);
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("Column0=" + String.valueOf(Column0));
+			sb.append(",Column1=" + Column1);
+			sb.append(",Column2=" + String.valueOf(Column2));
+			sb.append(",Column3=" + String.valueOf(Column3));
+			sb.append(",Column4=" + String.valueOf(Column4));
+			sb.append(",Column5=" + String.valueOf(Column5));
+			sb.append(",Column6=" + String.valueOf(Column6));
+			sb.append(",Column7=" + String.valueOf(Column7));
+			sb.append(",Column8=" + String.valueOf(Column8));
+			sb.append(",Column9=" + String.valueOf(Column9));
+			sb.append(",Column10=" + Column10);
+			sb.append(",Column11=" + String.valueOf(Column11));
+			sb.append(",Column12=" + String.valueOf(Column12));
+			sb.append(",Column13=" + String.valueOf(Column13));
+			sb.append(",Column14=" + Column14);
+			sb.append(",Column15=" + Column15);
+			sb.append(",Column16=" + Column16);
+			sb.append(",Column17=" + Column17);
+			sb.append(",Column18=" + String.valueOf(Column18));
+			sb.append(",Column19=" + Column19);
+			sb.append(",Column20=" + String.valueOf(Column20));
+			sb.append(",Column21=" + Column21);
+			sb.append(",Column22=" + String.valueOf(Column22));
+			sb.append(",Column23=" + String.valueOf(Column23));
+			sb.append(",Column24=" + String.valueOf(Column24));
+			sb.append(",Column25=" + String.valueOf(Column25));
+			sb.append(",Column26=" + String.valueOf(Column26));
+			sb.append(",Column27=" + String.valueOf(Column27));
+			sb.append(",Column28=" + String.valueOf(Column28));
+			sb.append(",Column29=" + String.valueOf(Column29));
+			sb.append(",Column30=" + Column30);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row7Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+
+		public Integer Column0;
+
+		public Integer getColumn0() {
+			return this.Column0;
+		}
+
+		public String Column1;
+
+		public String getColumn1() {
+			return this.Column1;
+		}
+
+		public java.util.Date Column2;
+
+		public java.util.Date getColumn2() {
+			return this.Column2;
+		}
+
+		public Integer Column3;
+
+		public Integer getColumn3() {
+			return this.Column3;
+		}
+
+		public Integer Column4;
+
+		public Integer getColumn4() {
+			return this.Column4;
+		}
+
+		public Integer Column5;
+
+		public Integer getColumn5() {
+			return this.Column5;
+		}
+
+		public Integer Column6;
+
+		public Integer getColumn6() {
+			return this.Column6;
+		}
+
+		public Integer Column7;
+
+		public Integer getColumn7() {
+			return this.Column7;
+		}
+
+		public Integer Column8;
+
+		public Integer getColumn8() {
+			return this.Column8;
+		}
+
+		public Integer Column9;
+
+		public Integer getColumn9() {
+			return this.Column9;
+		}
+
+		public String Column10;
+
+		public String getColumn10() {
+			return this.Column10;
+		}
+
+		public Integer Column11;
+
+		public Integer getColumn11() {
+			return this.Column11;
+		}
+
+		public Integer Column12;
+
+		public Integer getColumn12() {
+			return this.Column12;
+		}
+
+		public Integer Column13;
+
+		public Integer getColumn13() {
+			return this.Column13;
+		}
+
+		public String Column14;
+
+		public String getColumn14() {
+			return this.Column14;
+		}
+
+		public String Column15;
+
+		public String getColumn15() {
+			return this.Column15;
+		}
+
+		public String Column16;
+
+		public String getColumn16() {
+			return this.Column16;
+		}
+
+		public String Column17;
+
+		public String getColumn17() {
+			return this.Column17;
+		}
+
+		public Integer Column18;
+
+		public Integer getColumn18() {
+			return this.Column18;
+		}
+
+		public String Column19;
+
+		public String getColumn19() {
+			return this.Column19;
+		}
+
+		public Integer Column20;
+
+		public Integer getColumn20() {
+			return this.Column20;
+		}
+
+		public String Column21;
+
+		public String getColumn21() {
+			return this.Column21;
+		}
+
+		public Boolean Column22;
+
+		public Boolean getColumn22() {
+			return this.Column22;
+		}
+
+		public Boolean Column23;
+
+		public Boolean getColumn23() {
+			return this.Column23;
+		}
+
+		public Boolean Column24;
+
+		public Boolean getColumn24() {
+			return this.Column24;
+		}
+
+		public Integer Column25;
+
+		public Integer getColumn25() {
+			return this.Column25;
+		}
+
+		public Integer Column26;
+
+		public Integer getColumn26() {
+			return this.Column26;
+		}
+
+		public java.util.Date Column27;
+
+		public java.util.Date getColumn27() {
+			return this.Column27;
+		}
+
+		public Integer Column28;
+
+		public Integer getColumn28() {
+			return this.Column28;
+		}
+
+		public java.util.Date Column29;
+
+		public java.util.Date getColumn29() {
+			return this.Column29;
+		}
+
+		public String Column30;
+
+		public String getColumn30() {
+			return this.Column30;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
 
 				// Integer
 
@@ -1201,8 +2107,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("Column0_1=" + String.valueOf(Column0_1));
-			sb.append(",Column0=" + String.valueOf(Column0));
+			sb.append("Column0=" + String.valueOf(Column0));
 			sb.append(",Column1=" + Column1);
 			sb.append(",Column2=" + String.valueOf(Column2));
 			sb.append(",Column3=" + String.valueOf(Column3));
@@ -1241,7 +2146,2683 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(outStruct other) {
+		public int compareTo(row6Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+
+		public Integer Column0;
+
+		public Integer getColumn0() {
+			return this.Column0;
+		}
+
+		public String Column1;
+
+		public String getColumn1() {
+			return this.Column1;
+		}
+
+		public java.util.Date Column2;
+
+		public java.util.Date getColumn2() {
+			return this.Column2;
+		}
+
+		public Integer Column3;
+
+		public Integer getColumn3() {
+			return this.Column3;
+		}
+
+		public Integer Column4;
+
+		public Integer getColumn4() {
+			return this.Column4;
+		}
+
+		public Integer Column5;
+
+		public Integer getColumn5() {
+			return this.Column5;
+		}
+
+		public Integer Column6;
+
+		public Integer getColumn6() {
+			return this.Column6;
+		}
+
+		public Integer Column7;
+
+		public Integer getColumn7() {
+			return this.Column7;
+		}
+
+		public Integer Column8;
+
+		public Integer getColumn8() {
+			return this.Column8;
+		}
+
+		public Integer Column9;
+
+		public Integer getColumn9() {
+			return this.Column9;
+		}
+
+		public String Column10;
+
+		public String getColumn10() {
+			return this.Column10;
+		}
+
+		public Integer Column11;
+
+		public Integer getColumn11() {
+			return this.Column11;
+		}
+
+		public Integer Column12;
+
+		public Integer getColumn12() {
+			return this.Column12;
+		}
+
+		public Integer Column13;
+
+		public Integer getColumn13() {
+			return this.Column13;
+		}
+
+		public String Column14;
+
+		public String getColumn14() {
+			return this.Column14;
+		}
+
+		public String Column15;
+
+		public String getColumn15() {
+			return this.Column15;
+		}
+
+		public String Column16;
+
+		public String getColumn16() {
+			return this.Column16;
+		}
+
+		public String Column17;
+
+		public String getColumn17() {
+			return this.Column17;
+		}
+
+		public Integer Column18;
+
+		public Integer getColumn18() {
+			return this.Column18;
+		}
+
+		public String Column19;
+
+		public String getColumn19() {
+			return this.Column19;
+		}
+
+		public Integer Column20;
+
+		public Integer getColumn20() {
+			return this.Column20;
+		}
+
+		public String Column21;
+
+		public String getColumn21() {
+			return this.Column21;
+		}
+
+		public Boolean Column22;
+
+		public Boolean getColumn22() {
+			return this.Column22;
+		}
+
+		public Boolean Column23;
+
+		public Boolean getColumn23() {
+			return this.Column23;
+		}
+
+		public Boolean Column24;
+
+		public Boolean getColumn24() {
+			return this.Column24;
+		}
+
+		public Integer Column25;
+
+		public Integer getColumn25() {
+			return this.Column25;
+		}
+
+		public Integer Column26;
+
+		public Integer getColumn26() {
+			return this.Column26;
+		}
+
+		public java.util.Date Column27;
+
+		public java.util.Date getColumn27() {
+			return this.Column27;
+		}
+
+		public Integer Column28;
+
+		public Integer getColumn28() {
+			return this.Column28;
+		}
+
+		public java.util.Date Column29;
+
+		public java.util.Date getColumn29() {
+			return this.Column29;
+		}
+
+		public String Column30;
+
+		public String getColumn30() {
+			return this.Column30;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("Column0=" + String.valueOf(Column0));
+			sb.append(",Column1=" + Column1);
+			sb.append(",Column2=" + String.valueOf(Column2));
+			sb.append(",Column3=" + String.valueOf(Column3));
+			sb.append(",Column4=" + String.valueOf(Column4));
+			sb.append(",Column5=" + String.valueOf(Column5));
+			sb.append(",Column6=" + String.valueOf(Column6));
+			sb.append(",Column7=" + String.valueOf(Column7));
+			sb.append(",Column8=" + String.valueOf(Column8));
+			sb.append(",Column9=" + String.valueOf(Column9));
+			sb.append(",Column10=" + Column10);
+			sb.append(",Column11=" + String.valueOf(Column11));
+			sb.append(",Column12=" + String.valueOf(Column12));
+			sb.append(",Column13=" + String.valueOf(Column13));
+			sb.append(",Column14=" + Column14);
+			sb.append(",Column15=" + Column15);
+			sb.append(",Column16=" + Column16);
+			sb.append(",Column17=" + Column17);
+			sb.append(",Column18=" + String.valueOf(Column18));
+			sb.append(",Column19=" + Column19);
+			sb.append(",Column20=" + String.valueOf(Column20));
+			sb.append(",Column21=" + Column21);
+			sb.append(",Column22=" + String.valueOf(Column22));
+			sb.append(",Column23=" + String.valueOf(Column23));
+			sb.append(",Column24=" + String.valueOf(Column24));
+			sb.append(",Column25=" + String.valueOf(Column25));
+			sb.append(",Column26=" + String.valueOf(Column26));
+			sb.append(",Column27=" + String.valueOf(Column27));
+			sb.append(",Column28=" + String.valueOf(Column28));
+			sb.append(",Column29=" + String.valueOf(Column29));
+			sb.append(",Column30=" + Column30);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row4Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+
+		public Integer Column0;
+
+		public Integer getColumn0() {
+			return this.Column0;
+		}
+
+		public String Column1;
+
+		public String getColumn1() {
+			return this.Column1;
+		}
+
+		public java.util.Date Column2;
+
+		public java.util.Date getColumn2() {
+			return this.Column2;
+		}
+
+		public Integer Column3;
+
+		public Integer getColumn3() {
+			return this.Column3;
+		}
+
+		public Integer Column4;
+
+		public Integer getColumn4() {
+			return this.Column4;
+		}
+
+		public Integer Column5;
+
+		public Integer getColumn5() {
+			return this.Column5;
+		}
+
+		public Integer Column6;
+
+		public Integer getColumn6() {
+			return this.Column6;
+		}
+
+		public Integer Column7;
+
+		public Integer getColumn7() {
+			return this.Column7;
+		}
+
+		public Integer Column8;
+
+		public Integer getColumn8() {
+			return this.Column8;
+		}
+
+		public Integer Column9;
+
+		public Integer getColumn9() {
+			return this.Column9;
+		}
+
+		public String Column10;
+
+		public String getColumn10() {
+			return this.Column10;
+		}
+
+		public Integer Column11;
+
+		public Integer getColumn11() {
+			return this.Column11;
+		}
+
+		public Integer Column12;
+
+		public Integer getColumn12() {
+			return this.Column12;
+		}
+
+		public Integer Column13;
+
+		public Integer getColumn13() {
+			return this.Column13;
+		}
+
+		public String Column14;
+
+		public String getColumn14() {
+			return this.Column14;
+		}
+
+		public String Column15;
+
+		public String getColumn15() {
+			return this.Column15;
+		}
+
+		public String Column16;
+
+		public String getColumn16() {
+			return this.Column16;
+		}
+
+		public String Column17;
+
+		public String getColumn17() {
+			return this.Column17;
+		}
+
+		public Integer Column18;
+
+		public Integer getColumn18() {
+			return this.Column18;
+		}
+
+		public String Column19;
+
+		public String getColumn19() {
+			return this.Column19;
+		}
+
+		public Integer Column20;
+
+		public Integer getColumn20() {
+			return this.Column20;
+		}
+
+		public String Column21;
+
+		public String getColumn21() {
+			return this.Column21;
+		}
+
+		public Boolean Column22;
+
+		public Boolean getColumn22() {
+			return this.Column22;
+		}
+
+		public Boolean Column23;
+
+		public Boolean getColumn23() {
+			return this.Column23;
+		}
+
+		public Boolean Column24;
+
+		public Boolean getColumn24() {
+			return this.Column24;
+		}
+
+		public Integer Column25;
+
+		public Integer getColumn25() {
+			return this.Column25;
+		}
+
+		public Integer Column26;
+
+		public Integer getColumn26() {
+			return this.Column26;
+		}
+
+		public java.util.Date Column27;
+
+		public java.util.Date getColumn27() {
+			return this.Column27;
+		}
+
+		public Integer Column28;
+
+		public Integer getColumn28() {
+			return this.Column28;
+		}
+
+		public java.util.Date Column29;
+
+		public java.util.Date getColumn29() {
+			return this.Column29;
+		}
+
+		public String Column30;
+
+		public String getColumn30() {
+			return this.Column30;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("Column0=" + String.valueOf(Column0));
+			sb.append(",Column1=" + Column1);
+			sb.append(",Column2=" + String.valueOf(Column2));
+			sb.append(",Column3=" + String.valueOf(Column3));
+			sb.append(",Column4=" + String.valueOf(Column4));
+			sb.append(",Column5=" + String.valueOf(Column5));
+			sb.append(",Column6=" + String.valueOf(Column6));
+			sb.append(",Column7=" + String.valueOf(Column7));
+			sb.append(",Column8=" + String.valueOf(Column8));
+			sb.append(",Column9=" + String.valueOf(Column9));
+			sb.append(",Column10=" + Column10);
+			sb.append(",Column11=" + String.valueOf(Column11));
+			sb.append(",Column12=" + String.valueOf(Column12));
+			sb.append(",Column13=" + String.valueOf(Column13));
+			sb.append(",Column14=" + Column14);
+			sb.append(",Column15=" + Column15);
+			sb.append(",Column16=" + Column16);
+			sb.append(",Column17=" + Column17);
+			sb.append(",Column18=" + String.valueOf(Column18));
+			sb.append(",Column19=" + Column19);
+			sb.append(",Column20=" + String.valueOf(Column20));
+			sb.append(",Column21=" + Column21);
+			sb.append(",Column22=" + String.valueOf(Column22));
+			sb.append(",Column23=" + String.valueOf(Column23));
+			sb.append(",Column24=" + String.valueOf(Column24));
+			sb.append(",Column25=" + String.valueOf(Column25));
+			sb.append(",Column26=" + String.valueOf(Column26));
+			sb.append(",Column27=" + String.valueOf(Column27));
+			sb.append(",Column28=" + String.valueOf(Column28));
+			sb.append(",Column29=" + String.valueOf(Column29));
+			sb.append(",Column30=" + Column30);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row3Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class posOrderStage2Struct implements routines.system.IPersistableRow<posOrderStage2Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+
+		public Integer Column0;
+
+		public Integer getColumn0() {
+			return this.Column0;
+		}
+
+		public String Column1;
+
+		public String getColumn1() {
+			return this.Column1;
+		}
+
+		public java.util.Date Column2;
+
+		public java.util.Date getColumn2() {
+			return this.Column2;
+		}
+
+		public Integer Column3;
+
+		public Integer getColumn3() {
+			return this.Column3;
+		}
+
+		public Integer Column4;
+
+		public Integer getColumn4() {
+			return this.Column4;
+		}
+
+		public Integer Column5;
+
+		public Integer getColumn5() {
+			return this.Column5;
+		}
+
+		public Integer Column6;
+
+		public Integer getColumn6() {
+			return this.Column6;
+		}
+
+		public Integer Column7;
+
+		public Integer getColumn7() {
+			return this.Column7;
+		}
+
+		public Integer Column8;
+
+		public Integer getColumn8() {
+			return this.Column8;
+		}
+
+		public Integer Column9;
+
+		public Integer getColumn9() {
+			return this.Column9;
+		}
+
+		public String Column10;
+
+		public String getColumn10() {
+			return this.Column10;
+		}
+
+		public Integer Column11;
+
+		public Integer getColumn11() {
+			return this.Column11;
+		}
+
+		public Integer Column12;
+
+		public Integer getColumn12() {
+			return this.Column12;
+		}
+
+		public Integer Column13;
+
+		public Integer getColumn13() {
+			return this.Column13;
+		}
+
+		public String Column14;
+
+		public String getColumn14() {
+			return this.Column14;
+		}
+
+		public String Column15;
+
+		public String getColumn15() {
+			return this.Column15;
+		}
+
+		public String Column16;
+
+		public String getColumn16() {
+			return this.Column16;
+		}
+
+		public String Column17;
+
+		public String getColumn17() {
+			return this.Column17;
+		}
+
+		public Integer Column18;
+
+		public Integer getColumn18() {
+			return this.Column18;
+		}
+
+		public String Column19;
+
+		public String getColumn19() {
+			return this.Column19;
+		}
+
+		public Integer Column20;
+
+		public Integer getColumn20() {
+			return this.Column20;
+		}
+
+		public String Column21;
+
+		public String getColumn21() {
+			return this.Column21;
+		}
+
+		public Boolean Column22;
+
+		public Boolean getColumn22() {
+			return this.Column22;
+		}
+
+		public Boolean Column23;
+
+		public Boolean getColumn23() {
+			return this.Column23;
+		}
+
+		public Boolean Column24;
+
+		public Boolean getColumn24() {
+			return this.Column24;
+		}
+
+		public Integer Column25;
+
+		public Integer getColumn25() {
+			return this.Column25;
+		}
+
+		public Integer Column26;
+
+		public Integer getColumn26() {
+			return this.Column26;
+		}
+
+		public java.util.Date Column27;
+
+		public java.util.Date getColumn27() {
+			return this.Column27;
+		}
+
+		public Integer Column28;
+
+		public Integer getColumn28() {
+			return this.Column28;
+		}
+
+		public java.util.Date Column29;
+
+		public java.util.Date getColumn29() {
+			return this.Column29;
+		}
+
+		public String Column30;
+
+		public String getColumn30() {
+			return this.Column30;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("Column0=" + String.valueOf(Column0));
+			sb.append(",Column1=" + Column1);
+			sb.append(",Column2=" + String.valueOf(Column2));
+			sb.append(",Column3=" + String.valueOf(Column3));
+			sb.append(",Column4=" + String.valueOf(Column4));
+			sb.append(",Column5=" + String.valueOf(Column5));
+			sb.append(",Column6=" + String.valueOf(Column6));
+			sb.append(",Column7=" + String.valueOf(Column7));
+			sb.append(",Column8=" + String.valueOf(Column8));
+			sb.append(",Column9=" + String.valueOf(Column9));
+			sb.append(",Column10=" + Column10);
+			sb.append(",Column11=" + String.valueOf(Column11));
+			sb.append(",Column12=" + String.valueOf(Column12));
+			sb.append(",Column13=" + String.valueOf(Column13));
+			sb.append(",Column14=" + Column14);
+			sb.append(",Column15=" + Column15);
+			sb.append(",Column16=" + Column16);
+			sb.append(",Column17=" + Column17);
+			sb.append(",Column18=" + String.valueOf(Column18));
+			sb.append(",Column19=" + Column19);
+			sb.append(",Column20=" + String.valueOf(Column20));
+			sb.append(",Column21=" + Column21);
+			sb.append(",Column22=" + String.valueOf(Column22));
+			sb.append(",Column23=" + String.valueOf(Column23));
+			sb.append(",Column24=" + String.valueOf(Column24));
+			sb.append(",Column25=" + String.valueOf(Column25));
+			sb.append(",Column26=" + String.valueOf(Column26));
+			sb.append(",Column27=" + String.valueOf(Column27));
+			sb.append(",Column28=" + String.valueOf(Column28));
+			sb.append(",Column29=" + String.valueOf(Column29));
+			sb.append(",Column30=" + Column30);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(posOrderStage2Struct other) {
 
 			int returnValue = -1;
 
@@ -2163,8 +5744,8 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 	}
 
-	public static class after_tFileInputDelimited_2Struct
-			implements routines.system.IPersistableRow<after_tFileInputDelimited_2Struct> {
+	public static class after_tFileInputDelimited_1Struct
+			implements routines.system.IPersistableRow<after_tFileInputDelimited_1Struct> {
 		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
 		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
 
@@ -3026,7 +6607,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(after_tFileInputDelimited_2Struct other) {
+		public int compareTo(after_tFileInputDelimited_1Struct other) {
 
 			int returnValue = -1;
 
@@ -3056,8 +6637,900 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
+	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+		static byte[] commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[0];
+
+		public Integer Column0;
+
+		public Integer getColumn0() {
+			return this.Column0;
+		}
+
+		public String Column1;
+
+		public String getColumn1() {
+			return this.Column1;
+		}
+
+		public java.util.Date Column2;
+
+		public java.util.Date getColumn2() {
+			return this.Column2;
+		}
+
+		public Integer Column3;
+
+		public Integer getColumn3() {
+			return this.Column3;
+		}
+
+		public Integer Column4;
+
+		public Integer getColumn4() {
+			return this.Column4;
+		}
+
+		public Integer Column5;
+
+		public Integer getColumn5() {
+			return this.Column5;
+		}
+
+		public Integer Column6;
+
+		public Integer getColumn6() {
+			return this.Column6;
+		}
+
+		public Integer Column7;
+
+		public Integer getColumn7() {
+			return this.Column7;
+		}
+
+		public Integer Column8;
+
+		public Integer getColumn8() {
+			return this.Column8;
+		}
+
+		public Integer Column9;
+
+		public Integer getColumn9() {
+			return this.Column9;
+		}
+
+		public String Column10;
+
+		public String getColumn10() {
+			return this.Column10;
+		}
+
+		public Integer Column11;
+
+		public Integer getColumn11() {
+			return this.Column11;
+		}
+
+		public Integer Column12;
+
+		public Integer getColumn12() {
+			return this.Column12;
+		}
+
+		public Integer Column13;
+
+		public Integer getColumn13() {
+			return this.Column13;
+		}
+
+		public String Column14;
+
+		public String getColumn14() {
+			return this.Column14;
+		}
+
+		public String Column15;
+
+		public String getColumn15() {
+			return this.Column15;
+		}
+
+		public String Column16;
+
+		public String getColumn16() {
+			return this.Column16;
+		}
+
+		public String Column17;
+
+		public String getColumn17() {
+			return this.Column17;
+		}
+
+		public Integer Column18;
+
+		public Integer getColumn18() {
+			return this.Column18;
+		}
+
+		public String Column19;
+
+		public String getColumn19() {
+			return this.Column19;
+		}
+
+		public Integer Column20;
+
+		public Integer getColumn20() {
+			return this.Column20;
+		}
+
+		public String Column21;
+
+		public String getColumn21() {
+			return this.Column21;
+		}
+
+		public Boolean Column22;
+
+		public Boolean getColumn22() {
+			return this.Column22;
+		}
+
+		public Boolean Column23;
+
+		public Boolean getColumn23() {
+			return this.Column23;
+		}
+
+		public Boolean Column24;
+
+		public Boolean getColumn24() {
+			return this.Column24;
+		}
+
+		public Integer Column25;
+
+		public Integer getColumn25() {
+			return this.Column25;
+		}
+
+		public Integer Column26;
+
+		public Integer getColumn26() {
+			return this.Column26;
+		}
+
+		public java.util.Date Column27;
+
+		public java.util.Date getColumn27() {
+			return this.Column27;
+		}
+
+		public Integer Column28;
+
+		public Integer getColumn28() {
+			return this.Column28;
+		}
+
+		public java.util.Date Column29;
+
+		public java.util.Date getColumn29() {
+			return this.Column29;
+		}
+
+		public String Column30;
+
+		public String getColumn30() {
+			return this.Column30;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_accountTax_Stage_DailyJob.length == 0) {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_accountTax_Stage_DailyJob = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_accountTax_Stage_DailyJob, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_accountTax_Stage_DailyJob) {
+
+				try {
+
+					int length = 0;
+
+					this.Column0 = readInteger(dis);
+
+					this.Column1 = readString(dis);
+
+					this.Column2 = readDate(dis);
+
+					this.Column3 = readInteger(dis);
+
+					this.Column4 = readInteger(dis);
+
+					this.Column5 = readInteger(dis);
+
+					this.Column6 = readInteger(dis);
+
+					this.Column7 = readInteger(dis);
+
+					this.Column8 = readInteger(dis);
+
+					this.Column9 = readInteger(dis);
+
+					this.Column10 = readString(dis);
+
+					this.Column11 = readInteger(dis);
+
+					this.Column12 = readInteger(dis);
+
+					this.Column13 = readInteger(dis);
+
+					this.Column14 = readString(dis);
+
+					this.Column15 = readString(dis);
+
+					this.Column16 = readString(dis);
+
+					this.Column17 = readString(dis);
+
+					this.Column18 = readInteger(dis);
+
+					this.Column19 = readString(dis);
+
+					this.Column20 = readInteger(dis);
+
+					this.Column21 = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column22 = null;
+					} else {
+						this.Column22 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column23 = null;
+					} else {
+						this.Column23 = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.Column24 = null;
+					} else {
+						this.Column24 = dis.readBoolean();
+					}
+
+					this.Column25 = readInteger(dis);
+
+					this.Column26 = readInteger(dis);
+
+					this.Column27 = readDate(dis);
+
+					this.Column28 = readInteger(dis);
+
+					this.Column29 = readDate(dis);
+
+					this.Column30 = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.Column0, dos);
+
+				// String
+
+				writeString(this.Column1, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column2, dos);
+
+				// Integer
+
+				writeInteger(this.Column3, dos);
+
+				// Integer
+
+				writeInteger(this.Column4, dos);
+
+				// Integer
+
+				writeInteger(this.Column5, dos);
+
+				// Integer
+
+				writeInteger(this.Column6, dos);
+
+				// Integer
+
+				writeInteger(this.Column7, dos);
+
+				// Integer
+
+				writeInteger(this.Column8, dos);
+
+				// Integer
+
+				writeInteger(this.Column9, dos);
+
+				// String
+
+				writeString(this.Column10, dos);
+
+				// Integer
+
+				writeInteger(this.Column11, dos);
+
+				// Integer
+
+				writeInteger(this.Column12, dos);
+
+				// Integer
+
+				writeInteger(this.Column13, dos);
+
+				// String
+
+				writeString(this.Column14, dos);
+
+				// String
+
+				writeString(this.Column15, dos);
+
+				// String
+
+				writeString(this.Column16, dos);
+
+				// String
+
+				writeString(this.Column17, dos);
+
+				// Integer
+
+				writeInteger(this.Column18, dos);
+
+				// String
+
+				writeString(this.Column19, dos);
+
+				// Integer
+
+				writeInteger(this.Column20, dos);
+
+				// String
+
+				writeString(this.Column21, dos);
+
+				// Boolean
+
+				if (this.Column22 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column22);
+				}
+
+				// Boolean
+
+				if (this.Column23 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column23);
+				}
+
+				// Boolean
+
+				if (this.Column24 == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.Column24);
+				}
+
+				// Integer
+
+				writeInteger(this.Column25, dos);
+
+				// Integer
+
+				writeInteger(this.Column26, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column27, dos);
+
+				// Integer
+
+				writeInteger(this.Column28, dos);
+
+				// java.util.Date
+
+				writeDate(this.Column29, dos);
+
+				// String
+
+				writeString(this.Column30, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("Column0=" + String.valueOf(Column0));
+			sb.append(",Column1=" + Column1);
+			sb.append(",Column2=" + String.valueOf(Column2));
+			sb.append(",Column3=" + String.valueOf(Column3));
+			sb.append(",Column4=" + String.valueOf(Column4));
+			sb.append(",Column5=" + String.valueOf(Column5));
+			sb.append(",Column6=" + String.valueOf(Column6));
+			sb.append(",Column7=" + String.valueOf(Column7));
+			sb.append(",Column8=" + String.valueOf(Column8));
+			sb.append(",Column9=" + String.valueOf(Column9));
+			sb.append(",Column10=" + Column10);
+			sb.append(",Column11=" + String.valueOf(Column11));
+			sb.append(",Column12=" + String.valueOf(Column12));
+			sb.append(",Column13=" + String.valueOf(Column13));
+			sb.append(",Column14=" + Column14);
+			sb.append(",Column15=" + Column15);
+			sb.append(",Column16=" + Column16);
+			sb.append(",Column17=" + Column17);
+			sb.append(",Column18=" + String.valueOf(Column18));
+			sb.append(",Column19=" + Column19);
+			sb.append(",Column20=" + String.valueOf(Column20));
+			sb.append(",Column21=" + Column21);
+			sb.append(",Column22=" + String.valueOf(Column22));
+			sb.append(",Column23=" + String.valueOf(Column23));
+			sb.append(",Column24=" + String.valueOf(Column24));
+			sb.append(",Column25=" + String.valueOf(Column25));
+			sb.append(",Column26=" + String.valueOf(Column26));
+			sb.append(",Column27=" + String.valueOf(Column27));
+			sb.append(",Column28=" + String.valueOf(Column28));
+			sb.append(",Column29=" + String.valueOf(Column29));
+			sb.append(",Column30=" + Column30);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row5Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
@@ -3076,29 +7549,126 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
-				tFileInputDelimited_1Process(globalMap);
+				tFileInputDelimited_2Process(globalMap);
 
 				row1Struct row1 = new row1Struct();
-				outStruct out = new outStruct();
+				posOrderStage2Struct posOrderStage2 = new posOrderStage2Struct();
+				posOrderStage2Struct row3 = posOrderStage2;
+				posOrderStage2Struct row4 = posOrderStage2;
+
+				row5Struct row5 = new row5Struct();
+
+				row6Struct row6 = new row6Struct();
+				row6Struct row7 = row6;
 
 				/**
-				 * [tLogRow_1 begin ] start
+				 * [tFileOutputDelimited_2 begin ] start
 				 */
 
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+				ok_Hash.put("tFileOutputDelimited_2", false);
+				start_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
 
-				currentComponent = "tLogRow_1";
+				currentComponent = "tFileOutputDelimited_2";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row7");
 				}
 
-				int tos_count_tLogRow_1 = 0;
+				int tos_count_tFileOutputDelimited_2 = 0;
+
+				String fileName_tFileOutputDelimited_2 = "";
+				fileName_tFileOutputDelimited_2 = (new java.io.File(
+						"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/outStage.csv")).getAbsolutePath()
+								.replace("\\", "/");
+				String fullName_tFileOutputDelimited_2 = null;
+				String extension_tFileOutputDelimited_2 = null;
+				String directory_tFileOutputDelimited_2 = null;
+				if ((fileName_tFileOutputDelimited_2.indexOf("/") != -1)) {
+					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") < fileName_tFileOutputDelimited_2
+							.lastIndexOf("/")) {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
+						extension_tFileOutputDelimited_2 = "";
+					} else {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
+								fileName_tFileOutputDelimited_2.lastIndexOf("."));
+						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
+								.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
+					}
+					directory_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
+							fileName_tFileOutputDelimited_2.lastIndexOf("/"));
+				} else {
+					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") != -1) {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
+								fileName_tFileOutputDelimited_2.lastIndexOf("."));
+						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
+								.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
+					} else {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
+						extension_tFileOutputDelimited_2 = "";
+					}
+					directory_tFileOutputDelimited_2 = "";
+				}
+				boolean isFileGenerated_tFileOutputDelimited_2 = true;
+				java.io.File filetFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
+				int nb_line_tFileOutputDelimited_2 = 0;
+				int splitedFileNo_tFileOutputDelimited_2 = 0;
+				int currentRow_tFileOutputDelimited_2 = 0;
+
+				final String OUT_DELIM_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:FIELDSEPARATOR */
+						";"/** End field tFileOutputDelimited_2:FIELDSEPARATOR */
+				;
+
+				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_2 = /**
+																		 * Start field
+																		 * tFileOutputDelimited_2:ROWSEPARATOR
+																		 */
+						"\n"/** End field tFileOutputDelimited_2:ROWSEPARATOR */
+				;
+
+				// create directory only if not exists
+				if (directory_tFileOutputDelimited_2 != null && directory_tFileOutputDelimited_2.trim().length() != 0) {
+					java.io.File dir_tFileOutputDelimited_2 = new java.io.File(directory_tFileOutputDelimited_2);
+					if (!dir_tFileOutputDelimited_2.exists()) {
+						dir_tFileOutputDelimited_2.mkdirs();
+					}
+				}
+
+				// routines.system.Row
+				java.io.Writer outtFileOutputDelimited_2 = null;
+
+				java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+				if (fileToDelete_tFileOutputDelimited_2.exists()) {
+					fileToDelete_tFileOutputDelimited_2.delete();
+				}
+				outtFileOutputDelimited_2 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+						new java.io.FileOutputStream(fileName_tFileOutputDelimited_2, false), "ISO-8859-15"));
+
+				resourceMap.put("out_tFileOutputDelimited_2", outtFileOutputDelimited_2);
+				resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+
+				/**
+				 * [tFileOutputDelimited_2 begin ] stop
+				 */
+
+				/**
+				 * [tLogRow_2 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_2", false);
+				start_Hash.put("tLogRow_2", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
+				}
+
+				int tos_count_tLogRow_2 = 0;
 
 				///////////////////////
 
-				class Util_tLogRow_1 {
+				class Util_tLogRow_2 {
 
 					String[] des_top = { ".", ".", "-", "+" };
 
@@ -3110,11 +7680,11 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[32];
+					int[] colLengths = new int[31];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 32; i++) {
+						for (int i = 0; i < 31; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -3141,11 +7711,11 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 31 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 30 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 31 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 30 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -3281,10 +7851,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							sbformat.append("|%31$-");
 							sbformat.append(colLengths[30]);
-							sbformat.append("s");
-
-							sbformat.append("|%32$-");
-							sbformat.append(colLengths[31]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -3426,13 +7992,492 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[30] - fillChars[3].length() + 1; i++) {
+
+						// last column
+						for (int i = 0; i < colLengths[30] - fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
+				util_tLogRow_2.setTableName("tLogRow_2");
+				util_tLogRow_2.addRow(new String[] { "Column0", "Column1", "Column2", "Column3", "Column4", "Column5",
+						"Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13",
+						"Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21",
+						"Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28", "Column29",
+						"Column30", });
+				StringBuilder strBuffer_tLogRow_2 = null;
+				int nb_line_tLogRow_2 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_2 begin ] stop
+				 */
+
+				/**
+				 * [tUnite_1 begin ] start
+				 */
+
+				ok_Hash.put("tUnite_1", false);
+				start_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				currentComponent = "tUnite_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5", "row4");
+				}
+
+				int tos_count_tUnite_1 = 0;
+
+				int nb_line_tUnite_1 = 0;
+
+				/**
+				 * [tUnite_1 begin ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_1 begin ] start
+				 */
+
+				ok_Hash.put("tFileOutputDelimited_1", false);
+				start_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
+
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
+				}
+
+				int tos_count_tFileOutputDelimited_1 = 0;
+
+				String fileName_tFileOutputDelimited_1 = "";
+				fileName_tFileOutputDelimited_1 = (new java.io.File(
+						"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/temp.csv")).getAbsolutePath()
+								.replace("\\", "/");
+				String fullName_tFileOutputDelimited_1 = null;
+				String extension_tFileOutputDelimited_1 = null;
+				String directory_tFileOutputDelimited_1 = null;
+				if ((fileName_tFileOutputDelimited_1.indexOf("/") != -1)) {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") < fileName_tFileOutputDelimited_1
+							.lastIndexOf("/")) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+								fileName_tFileOutputDelimited_1.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
+					}
+					directory_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+							fileName_tFileOutputDelimited_1.lastIndexOf("/"));
+				} else {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") != -1) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+								fileName_tFileOutputDelimited_1.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
+					}
+					directory_tFileOutputDelimited_1 = "";
+				}
+				boolean isFileGenerated_tFileOutputDelimited_1 = true;
+				java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
+				int nb_line_tFileOutputDelimited_1 = 0;
+				int splitedFileNo_tFileOutputDelimited_1 = 0;
+				int currentRow_tFileOutputDelimited_1 = 0;
+
+				final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */
+						";"/** End field tFileOutputDelimited_1:FIELDSEPARATOR */
+				;
+
+				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /**
+																		 * Start field
+																		 * tFileOutputDelimited_1:ROWSEPARATOR
+																		 */
+						"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */
+				;
+
+				// create directory only if not exists
+				if (directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
+					java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
+					if (!dir_tFileOutputDelimited_1.exists()) {
+						dir_tFileOutputDelimited_1.mkdirs();
+					}
+				}
+
+				// routines.system.Row
+				java.io.Writer outtFileOutputDelimited_1 = null;
+
+				java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+				if (fileToDelete_tFileOutputDelimited_1.exists()) {
+					fileToDelete_tFileOutputDelimited_1.delete();
+				}
+				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
+
+				resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
+				resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+
+				/**
+				 * [tFileOutputDelimited_1 begin ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_1", false);
+				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "posOrderStage2");
+				}
+
+				int tos_count_tLogRow_1 = 0;
+
+				///////////////////////
+
+				class Util_tLogRow_1 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[31];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 31; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i], row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 30 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 30 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
+							sbformat.append("s");
+
+							sbformat.append("|%4$-");
+							sbformat.append(colLengths[3]);
+							sbformat.append("s");
+
+							sbformat.append("|%5$-");
+							sbformat.append(colLengths[4]);
+							sbformat.append("s");
+
+							sbformat.append("|%6$-");
+							sbformat.append(colLengths[5]);
+							sbformat.append("s");
+
+							sbformat.append("|%7$-");
+							sbformat.append(colLengths[6]);
+							sbformat.append("s");
+
+							sbformat.append("|%8$-");
+							sbformat.append(colLengths[7]);
+							sbformat.append("s");
+
+							sbformat.append("|%9$-");
+							sbformat.append(colLengths[8]);
+							sbformat.append("s");
+
+							sbformat.append("|%10$-");
+							sbformat.append(colLengths[9]);
+							sbformat.append("s");
+
+							sbformat.append("|%11$-");
+							sbformat.append(colLengths[10]);
+							sbformat.append("s");
+
+							sbformat.append("|%12$-");
+							sbformat.append(colLengths[11]);
+							sbformat.append("s");
+
+							sbformat.append("|%13$-");
+							sbformat.append(colLengths[12]);
+							sbformat.append("s");
+
+							sbformat.append("|%14$-");
+							sbformat.append(colLengths[13]);
+							sbformat.append("s");
+
+							sbformat.append("|%15$-");
+							sbformat.append(colLengths[14]);
+							sbformat.append("s");
+
+							sbformat.append("|%16$-");
+							sbformat.append(colLengths[15]);
+							sbformat.append("s");
+
+							sbformat.append("|%17$-");
+							sbformat.append(colLengths[16]);
+							sbformat.append("s");
+
+							sbformat.append("|%18$-");
+							sbformat.append(colLengths[17]);
+							sbformat.append("s");
+
+							sbformat.append("|%19$-");
+							sbformat.append(colLengths[18]);
+							sbformat.append("s");
+
+							sbformat.append("|%20$-");
+							sbformat.append(colLengths[19]);
+							sbformat.append("s");
+
+							sbformat.append("|%21$-");
+							sbformat.append(colLengths[20]);
+							sbformat.append("s");
+
+							sbformat.append("|%22$-");
+							sbformat.append(colLengths[21]);
+							sbformat.append("s");
+
+							sbformat.append("|%23$-");
+							sbformat.append(colLengths[22]);
+							sbformat.append("s");
+
+							sbformat.append("|%24$-");
+							sbformat.append(colLengths[23]);
+							sbformat.append("s");
+
+							sbformat.append("|%25$-");
+							sbformat.append(colLengths[24]);
+							sbformat.append("s");
+
+							sbformat.append("|%26$-");
+							sbformat.append(colLengths[25]);
+							sbformat.append("s");
+
+							sbformat.append("|%27$-");
+							sbformat.append(colLengths[26]);
+							sbformat.append("s");
+
+							sbformat.append("|%28$-");
+							sbformat.append(colLengths[27]);
+							sbformat.append("s");
+
+							sbformat.append("|%29$-");
+							sbformat.append(colLengths[28]);
+							sbformat.append("s");
+
+							sbformat.append("|%30$-");
+							sbformat.append(colLengths[29]);
+							sbformat.append("s");
+
+							sbformat.append("|%31$-");
+							sbformat.append(colLengths[30]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(), (Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[22] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[23] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[24] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[25] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[26] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[27] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[28] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[29] - fillChars[3].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[31] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[30] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -3448,11 +8493,11 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "Column0_1", "Column0", "Column1", "Column2", "Column3", "Column4",
-						"Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12",
-						"Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20",
-						"Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28",
-						"Column29", "Column30", });
+				util_tLogRow_1.addRow(new String[] { "Column0", "Column1", "Column2", "Column3", "Column4", "Column5",
+						"Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13",
+						"Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21",
+						"Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28", "Column29",
+						"Column30", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -3495,7 +8540,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-				outStruct out_tmp = new outStruct();
+				posOrderStage2Struct posOrderStage2_tmp = new posOrderStage2Struct();
 // ###############################
 
 				/**
@@ -3503,73 +8548,73 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				 */
 
 				/**
-				 * [tFileInputDelimited_2 begin ] start
+				 * [tFileInputDelimited_1 begin ] start
 				 */
 
-				ok_Hash.put("tFileInputDelimited_2", false);
-				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_1", false);
+				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
-				currentComponent = "tFileInputDelimited_2";
+				currentComponent = "tFileInputDelimited_1";
 
-				int tos_count_tFileInputDelimited_2 = 0;
+				int tos_count_tFileInputDelimited_1 = 0;
 
-				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
+				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
 
-				int nb_line_tFileInputDelimited_2 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
-				int limit_tFileInputDelimited_2 = -1;
+				int nb_line_tFileInputDelimited_1 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posOrder.csv";
-					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
+					Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv";
+					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
-						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
+						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
 							throw new java.lang.Exception(
 									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
 						}
 
 					}
 					try {
-						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posOrder.csv", "ISO-8859-15", ";",
-								"\n", true, 1, 0, limit_tFileInputDelimited_2, -1, false);
+						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv", "ISO-8859-15", ";",
+								"\n", false, 1, 0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
 
 						System.err.println(e.getMessage());
 
 					}
 
-					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
-						rowstate_tFileInputDelimited_2.reset();
+					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
+						rowstate_tFileInputDelimited_1.reset();
 
 						row1 = null;
 
-						boolean whetherReject_tFileInputDelimited_2 = false;
+						boolean whetherReject_tFileInputDelimited_1 = false;
 						row1 = new row1Struct();
 						try {
 
-							int columnIndexWithD_tFileInputDelimited_2 = 0;
+							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
 							String temp = "";
 
-							columnIndexWithD_tFileInputDelimited_2 = 0;
+							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column0 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column0", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column0", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3578,26 +8623,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 1;
+							columnIndexWithD_tFileInputDelimited_1 = 1;
 
-							row1.Column1 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column1 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 2;
+							columnIndexWithD_tFileInputDelimited_1 = 2;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column2 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column2", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column2", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3606,22 +8651,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 3;
+							columnIndexWithD_tFileInputDelimited_1 = 3;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column3 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column3", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column3", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3630,22 +8675,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 4;
+							columnIndexWithD_tFileInputDelimited_1 = 4;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column4 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column4", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column4", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3654,22 +8699,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 5;
+							columnIndexWithD_tFileInputDelimited_1 = 5;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column5 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column5", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column5", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3678,22 +8723,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 6;
+							columnIndexWithD_tFileInputDelimited_1 = 6;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column6 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column6", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column6", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3702,22 +8747,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 7;
+							columnIndexWithD_tFileInputDelimited_1 = 7;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column7 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column7", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column7", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3726,22 +8771,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 8;
+							columnIndexWithD_tFileInputDelimited_1 = 8;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column8 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column8", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column8", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3750,22 +8795,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 9;
+							columnIndexWithD_tFileInputDelimited_1 = 9;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column9 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column9", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column9", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3774,26 +8819,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 10;
+							columnIndexWithD_tFileInputDelimited_1 = 10;
 
-							row1.Column10 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column10 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 11;
+							columnIndexWithD_tFileInputDelimited_1 = 11;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column11 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column11", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column11", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3802,22 +8847,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 12;
+							columnIndexWithD_tFileInputDelimited_1 = 12;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column12 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column12", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column12", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3826,22 +8871,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 13;
+							columnIndexWithD_tFileInputDelimited_1 = 13;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column13 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column13", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column13", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3850,38 +8895,38 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 14;
+							columnIndexWithD_tFileInputDelimited_1 = 14;
 
-							row1.Column14 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column14 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 15;
+							columnIndexWithD_tFileInputDelimited_1 = 15;
 
-							row1.Column15 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column15 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 16;
+							columnIndexWithD_tFileInputDelimited_1 = 16;
 
-							row1.Column16 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column16 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 17;
+							columnIndexWithD_tFileInputDelimited_1 = 17;
 
-							row1.Column17 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column17 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 18;
+							columnIndexWithD_tFileInputDelimited_1 = 18;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column18 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column18", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column18", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3890,26 +8935,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 19;
+							columnIndexWithD_tFileInputDelimited_1 = 19;
 
-							row1.Column19 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column19 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 20;
+							columnIndexWithD_tFileInputDelimited_1 = 20;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column20 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column20", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column20", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3918,26 +8963,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 21;
+							columnIndexWithD_tFileInputDelimited_1 = 21;
 
-							row1.Column21 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column21 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_2 = 22;
+							columnIndexWithD_tFileInputDelimited_1 = 22;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column22 = ParserUtils.parseTo_Boolean(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column22", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column22", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3946,22 +8991,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 23;
+							columnIndexWithD_tFileInputDelimited_1 = 23;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column23 = ParserUtils.parseTo_Boolean(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column23", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column23", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3970,22 +9015,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 24;
+							columnIndexWithD_tFileInputDelimited_1 = 24;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column24 = ParserUtils.parseTo_Boolean(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column24", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column24", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -3994,22 +9039,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 25;
+							columnIndexWithD_tFileInputDelimited_1 = 25;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column25 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column25", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column25", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -4018,22 +9063,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 26;
+							columnIndexWithD_tFileInputDelimited_1 = 26;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column26 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column26", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column26", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -4042,22 +9087,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 27;
+							columnIndexWithD_tFileInputDelimited_1 = 27;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column27 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column27", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column27", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -4066,22 +9111,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 28;
+							columnIndexWithD_tFileInputDelimited_1 = 28;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column28 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column28", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column28", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -4090,22 +9135,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 29;
+							columnIndexWithD_tFileInputDelimited_1 = 29;
 
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 							if (temp.length() > 0) {
 
 								try {
 
 									row1.Column29 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column29", "row1", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
+											"Column29", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
 								}
 
 							} else {
@@ -4114,17 +9159,17 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_2 = 30;
+							columnIndexWithD_tFileInputDelimited_1 = 30;
 
-							row1.Column30 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							row1.Column30 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							if (rowstate_tFileInputDelimited_2.getException() != null) {
-								throw rowstate_tFileInputDelimited_2.getException();
+							if (rowstate_tFileInputDelimited_1.getException() != null) {
+								throw rowstate_tFileInputDelimited_1.getException();
 							}
 
 						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_2 = true;
+							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_1 = true;
 
 							System.err.println(e.getMessage());
 							row1 = null;
@@ -4132,29 +9177,29 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 						}
 
 						/**
-						 * [tFileInputDelimited_2 begin ] stop
+						 * [tFileInputDelimited_1 begin ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_2 main ] start
+						 * [tFileInputDelimited_1 main ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_2";
+						currentComponent = "tFileInputDelimited_1";
 
-						tos_count_tFileInputDelimited_2++;
+						tos_count_tFileInputDelimited_1++;
 
 						/**
-						 * [tFileInputDelimited_2 main ] stop
+						 * [tFileInputDelimited_1 main ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_2 process_data_begin ] start
+						 * [tFileInputDelimited_1 process_data_begin ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_2";
+						currentComponent = "tFileInputDelimited_1";
 
 						/**
-						 * [tFileInputDelimited_2 process_data_begin ] stop
+						 * [tFileInputDelimited_1 process_data_begin ] stop
 						 */
 // Start of branch "row1"
 						if (row1 != null) {
@@ -4238,48 +9283,47 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 								// ###############################
 								// # Output tables
 
-								out = null;
+								posOrderStage2 = null;
 
 								if (!rejectedInnerJoin_tMap_1) {
 								} // closing inner join bracket (1)
 // ###### START REJECTS ##### 
 
-// # Output reject table : 'out'
+// # Output reject table : 'posOrderStage2'
 // # Filter conditions 
 								if (rejectedInnerJoin_tMap_1) {
-									out_tmp.Column0_1 = row1.Column0;
-									out_tmp.Column0 = row1.Column0;
-									out_tmp.Column1 = row1.Column1;
-									out_tmp.Column2 = row1.Column2;
-									out_tmp.Column3 = row1.Column3;
-									out_tmp.Column4 = row1.Column4;
-									out_tmp.Column5 = row1.Column5;
-									out_tmp.Column6 = row1.Column6;
-									out_tmp.Column7 = row1.Column7;
-									out_tmp.Column8 = row1.Column8;
-									out_tmp.Column9 = row1.Column9;
-									out_tmp.Column10 = row1.Column10;
-									out_tmp.Column11 = row1.Column11;
-									out_tmp.Column12 = row1.Column12;
-									out_tmp.Column13 = row1.Column13;
-									out_tmp.Column14 = row1.Column14;
-									out_tmp.Column15 = row1.Column15;
-									out_tmp.Column16 = row1.Column16;
-									out_tmp.Column17 = row1.Column17;
-									out_tmp.Column18 = row1.Column18;
-									out_tmp.Column19 = row1.Column19;
-									out_tmp.Column20 = row1.Column20;
-									out_tmp.Column21 = row1.Column21;
-									out_tmp.Column22 = row1.Column22;
-									out_tmp.Column23 = row1.Column23;
-									out_tmp.Column24 = row1.Column24;
-									out_tmp.Column25 = row1.Column25;
-									out_tmp.Column26 = row1.Column26;
-									out_tmp.Column27 = row1.Column27;
-									out_tmp.Column28 = row1.Column28;
-									out_tmp.Column29 = row1.Column29;
-									out_tmp.Column30 = row1.Column30;
-									out = out_tmp;
+									posOrderStage2_tmp.Column0 = row1.Column0;
+									posOrderStage2_tmp.Column1 = row1.Column1;
+									posOrderStage2_tmp.Column2 = row1.Column2;
+									posOrderStage2_tmp.Column3 = row1.Column3;
+									posOrderStage2_tmp.Column4 = row1.Column4;
+									posOrderStage2_tmp.Column5 = row1.Column5;
+									posOrderStage2_tmp.Column6 = row1.Column6;
+									posOrderStage2_tmp.Column7 = row1.Column7;
+									posOrderStage2_tmp.Column8 = row1.Column8;
+									posOrderStage2_tmp.Column9 = row1.Column9;
+									posOrderStage2_tmp.Column10 = row1.Column10;
+									posOrderStage2_tmp.Column11 = row1.Column11;
+									posOrderStage2_tmp.Column12 = row1.Column12;
+									posOrderStage2_tmp.Column13 = row1.Column13;
+									posOrderStage2_tmp.Column14 = row1.Column14;
+									posOrderStage2_tmp.Column15 = row1.Column15;
+									posOrderStage2_tmp.Column16 = row1.Column16;
+									posOrderStage2_tmp.Column17 = row1.Column17;
+									posOrderStage2_tmp.Column18 = row1.Column18;
+									posOrderStage2_tmp.Column19 = row1.Column19;
+									posOrderStage2_tmp.Column20 = row1.Column20;
+									posOrderStage2_tmp.Column21 = row1.Column21;
+									posOrderStage2_tmp.Column22 = row1.Column22;
+									posOrderStage2_tmp.Column23 = row1.Column23;
+									posOrderStage2_tmp.Column24 = row1.Column24;
+									posOrderStage2_tmp.Column25 = row1.Column25;
+									posOrderStage2_tmp.Column26 = row1.Column26;
+									posOrderStage2_tmp.Column27 = row1.Column27;
+									posOrderStage2_tmp.Column28 = row1.Column28;
+									posOrderStage2_tmp.Column29 = row1.Column29;
+									posOrderStage2_tmp.Column30 = row1.Column30;
+									posOrderStage2 = posOrderStage2_tmp;
 								} // closing filter/reject
 // ###############################
 
@@ -4302,8 +9346,8 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 							/**
 							 * [tMap_1 process_data_begin ] stop
 							 */
-// Start of branch "out"
-							if (out != null) {
+// Start of branch "posOrderStage2"
+							if (posOrderStage2 != null) {
 
 								/**
 								 * [tLogRow_1 main ] start
@@ -4314,172 +9358,169 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 								if (execStat) {
 									runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "out"
+											, "posOrderStage2"
 
 									);
 								}
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[32];
+								String[] row_tLogRow_1 = new String[31];
 
-								if (out.Column0_1 != null) { //
-									row_tLogRow_1[0] = String.valueOf(out.Column0_1);
-
-								} //
-
-								if (out.Column0 != null) { //
-									row_tLogRow_1[1] = String.valueOf(out.Column0);
+								if (posOrderStage2.Column0 != null) { //
+									row_tLogRow_1[0] = String.valueOf(posOrderStage2.Column0);
 
 								} //
 
-								if (out.Column1 != null) { //
-									row_tLogRow_1[2] = String.valueOf(out.Column1);
+								if (posOrderStage2.Column1 != null) { //
+									row_tLogRow_1[1] = String.valueOf(posOrderStage2.Column1);
 
 								} //
 
-								if (out.Column2 != null) { //
-									row_tLogRow_1[3] = FormatterUtils.format_Date(out.Column2, "dd-MM-yyyy");
+								if (posOrderStage2.Column2 != null) { //
+									row_tLogRow_1[2] = FormatterUtils.format_Date(posOrderStage2.Column2, "dd-MM-yyyy");
 
 								} //
 
-								if (out.Column3 != null) { //
-									row_tLogRow_1[4] = String.valueOf(out.Column3);
+								if (posOrderStage2.Column3 != null) { //
+									row_tLogRow_1[3] = String.valueOf(posOrderStage2.Column3);
 
 								} //
 
-								if (out.Column4 != null) { //
-									row_tLogRow_1[5] = String.valueOf(out.Column4);
+								if (posOrderStage2.Column4 != null) { //
+									row_tLogRow_1[4] = String.valueOf(posOrderStage2.Column4);
 
 								} //
 
-								if (out.Column5 != null) { //
-									row_tLogRow_1[6] = String.valueOf(out.Column5);
+								if (posOrderStage2.Column5 != null) { //
+									row_tLogRow_1[5] = String.valueOf(posOrderStage2.Column5);
 
 								} //
 
-								if (out.Column6 != null) { //
-									row_tLogRow_1[7] = String.valueOf(out.Column6);
+								if (posOrderStage2.Column6 != null) { //
+									row_tLogRow_1[6] = String.valueOf(posOrderStage2.Column6);
 
 								} //
 
-								if (out.Column7 != null) { //
-									row_tLogRow_1[8] = String.valueOf(out.Column7);
+								if (posOrderStage2.Column7 != null) { //
+									row_tLogRow_1[7] = String.valueOf(posOrderStage2.Column7);
 
 								} //
 
-								if (out.Column8 != null) { //
-									row_tLogRow_1[9] = String.valueOf(out.Column8);
+								if (posOrderStage2.Column8 != null) { //
+									row_tLogRow_1[8] = String.valueOf(posOrderStage2.Column8);
 
 								} //
 
-								if (out.Column9 != null) { //
-									row_tLogRow_1[10] = String.valueOf(out.Column9);
+								if (posOrderStage2.Column9 != null) { //
+									row_tLogRow_1[9] = String.valueOf(posOrderStage2.Column9);
 
 								} //
 
-								if (out.Column10 != null) { //
-									row_tLogRow_1[11] = String.valueOf(out.Column10);
+								if (posOrderStage2.Column10 != null) { //
+									row_tLogRow_1[10] = String.valueOf(posOrderStage2.Column10);
 
 								} //
 
-								if (out.Column11 != null) { //
-									row_tLogRow_1[12] = String.valueOf(out.Column11);
+								if (posOrderStage2.Column11 != null) { //
+									row_tLogRow_1[11] = String.valueOf(posOrderStage2.Column11);
 
 								} //
 
-								if (out.Column12 != null) { //
-									row_tLogRow_1[13] = String.valueOf(out.Column12);
+								if (posOrderStage2.Column12 != null) { //
+									row_tLogRow_1[12] = String.valueOf(posOrderStage2.Column12);
 
 								} //
 
-								if (out.Column13 != null) { //
-									row_tLogRow_1[14] = String.valueOf(out.Column13);
+								if (posOrderStage2.Column13 != null) { //
+									row_tLogRow_1[13] = String.valueOf(posOrderStage2.Column13);
 
 								} //
 
-								if (out.Column14 != null) { //
-									row_tLogRow_1[15] = String.valueOf(out.Column14);
+								if (posOrderStage2.Column14 != null) { //
+									row_tLogRow_1[14] = String.valueOf(posOrderStage2.Column14);
 
 								} //
 
-								if (out.Column15 != null) { //
-									row_tLogRow_1[16] = String.valueOf(out.Column15);
+								if (posOrderStage2.Column15 != null) { //
+									row_tLogRow_1[15] = String.valueOf(posOrderStage2.Column15);
 
 								} //
 
-								if (out.Column16 != null) { //
-									row_tLogRow_1[17] = String.valueOf(out.Column16);
+								if (posOrderStage2.Column16 != null) { //
+									row_tLogRow_1[16] = String.valueOf(posOrderStage2.Column16);
 
 								} //
 
-								if (out.Column17 != null) { //
-									row_tLogRow_1[18] = String.valueOf(out.Column17);
+								if (posOrderStage2.Column17 != null) { //
+									row_tLogRow_1[17] = String.valueOf(posOrderStage2.Column17);
 
 								} //
 
-								if (out.Column18 != null) { //
-									row_tLogRow_1[19] = String.valueOf(out.Column18);
+								if (posOrderStage2.Column18 != null) { //
+									row_tLogRow_1[18] = String.valueOf(posOrderStage2.Column18);
 
 								} //
 
-								if (out.Column19 != null) { //
-									row_tLogRow_1[20] = String.valueOf(out.Column19);
+								if (posOrderStage2.Column19 != null) { //
+									row_tLogRow_1[19] = String.valueOf(posOrderStage2.Column19);
 
 								} //
 
-								if (out.Column20 != null) { //
-									row_tLogRow_1[21] = String.valueOf(out.Column20);
+								if (posOrderStage2.Column20 != null) { //
+									row_tLogRow_1[20] = String.valueOf(posOrderStage2.Column20);
 
 								} //
 
-								if (out.Column21 != null) { //
-									row_tLogRow_1[22] = String.valueOf(out.Column21);
+								if (posOrderStage2.Column21 != null) { //
+									row_tLogRow_1[21] = String.valueOf(posOrderStage2.Column21);
 
 								} //
 
-								if (out.Column22 != null) { //
-									row_tLogRow_1[23] = String.valueOf(out.Column22);
+								if (posOrderStage2.Column22 != null) { //
+									row_tLogRow_1[22] = String.valueOf(posOrderStage2.Column22);
 
 								} //
 
-								if (out.Column23 != null) { //
-									row_tLogRow_1[24] = String.valueOf(out.Column23);
+								if (posOrderStage2.Column23 != null) { //
+									row_tLogRow_1[23] = String.valueOf(posOrderStage2.Column23);
 
 								} //
 
-								if (out.Column24 != null) { //
-									row_tLogRow_1[25] = String.valueOf(out.Column24);
+								if (posOrderStage2.Column24 != null) { //
+									row_tLogRow_1[24] = String.valueOf(posOrderStage2.Column24);
 
 								} //
 
-								if (out.Column25 != null) { //
-									row_tLogRow_1[26] = String.valueOf(out.Column25);
+								if (posOrderStage2.Column25 != null) { //
+									row_tLogRow_1[25] = String.valueOf(posOrderStage2.Column25);
 
 								} //
 
-								if (out.Column26 != null) { //
-									row_tLogRow_1[27] = String.valueOf(out.Column26);
+								if (posOrderStage2.Column26 != null) { //
+									row_tLogRow_1[26] = String.valueOf(posOrderStage2.Column26);
 
 								} //
 
-								if (out.Column27 != null) { //
-									row_tLogRow_1[28] = FormatterUtils.format_Date(out.Column27, "dd-MM-yyyy");
+								if (posOrderStage2.Column27 != null) { //
+									row_tLogRow_1[27] = FormatterUtils.format_Date(posOrderStage2.Column27,
+											"dd-MM-yyyy");
 
 								} //
 
-								if (out.Column28 != null) { //
-									row_tLogRow_1[29] = String.valueOf(out.Column28);
+								if (posOrderStage2.Column28 != null) { //
+									row_tLogRow_1[28] = String.valueOf(posOrderStage2.Column28);
 
 								} //
 
-								if (out.Column29 != null) { //
-									row_tLogRow_1[30] = FormatterUtils.format_Date(out.Column29, "dd-MM-yyyy");
+								if (posOrderStage2.Column29 != null) { //
+									row_tLogRow_1[29] = FormatterUtils.format_Date(posOrderStage2.Column29,
+											"dd-MM-yyyy");
 
 								} //
 
-								if (out.Column30 != null) { //
-									row_tLogRow_1[31] = String.valueOf(out.Column30);
+								if (posOrderStage2.Column30 != null) { //
+									row_tLogRow_1[30] = String.valueOf(posOrderStage2.Column30);
 
 								} //
 
@@ -4490,6 +9531,8 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 //////                    
 
 ///////////////////////    			
+
+								row3 = posOrderStage2;
 
 								tos_count_tLogRow_1++;
 
@@ -4508,6 +9551,646 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 								 */
 
 								/**
+								 * [tFileOutputDelimited_1 main ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row3"
+
+									);
+								}
+
+								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+								if (row3.Column0 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column0);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column1 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column1);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column2 != null) {
+									sb_tFileOutputDelimited_1
+											.append(FormatterUtils.format_Date(row3.Column2, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column3 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column3);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column4 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column4);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column5 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column5);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column6 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column6);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column7 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column7);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column8 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column8);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column9 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column9);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column10 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column10);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column11 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column11);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column12 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column12);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column13 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column13);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column14 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column14);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column15 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column15);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column16 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column16);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column17 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column17);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column18 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column18);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column19 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column19);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column20 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column20);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column21 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column21);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column22 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column22);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column23 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column23);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column24 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column24);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column25 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column25);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column26 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column26);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column27 != null) {
+									sb_tFileOutputDelimited_1
+											.append(FormatterUtils.format_Date(row3.Column27, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column28 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column28);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column29 != null) {
+									sb_tFileOutputDelimited_1
+											.append(FormatterUtils.format_Date(row3.Column29, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row3.Column30 != null) {
+									sb_tFileOutputDelimited_1.append(row3.Column30);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+
+								nb_line_tFileOutputDelimited_1++;
+								resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+
+								outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+
+								row4 = row3;
+
+								tos_count_tFileOutputDelimited_1++;
+
+								/**
+								 * [tFileOutputDelimited_1 main ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_1";
+
+								/**
+								 * [tFileOutputDelimited_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tUnite_1 main ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row4"
+
+									);
+								}
+
+//////////
+
+// for output
+								row6 = new row6Struct();
+
+								row6.Column0 = row4.Column0;
+								row6.Column1 = row4.Column1;
+								row6.Column2 = row4.Column2;
+								row6.Column3 = row4.Column3;
+								row6.Column4 = row4.Column4;
+								row6.Column5 = row4.Column5;
+								row6.Column6 = row4.Column6;
+								row6.Column7 = row4.Column7;
+								row6.Column8 = row4.Column8;
+								row6.Column9 = row4.Column9;
+								row6.Column10 = row4.Column10;
+								row6.Column11 = row4.Column11;
+								row6.Column12 = row4.Column12;
+								row6.Column13 = row4.Column13;
+								row6.Column14 = row4.Column14;
+								row6.Column15 = row4.Column15;
+								row6.Column16 = row4.Column16;
+								row6.Column17 = row4.Column17;
+								row6.Column18 = row4.Column18;
+								row6.Column19 = row4.Column19;
+								row6.Column20 = row4.Column20;
+								row6.Column21 = row4.Column21;
+								row6.Column22 = row4.Column22;
+								row6.Column23 = row4.Column23;
+								row6.Column24 = row4.Column24;
+								row6.Column25 = row4.Column25;
+								row6.Column26 = row4.Column26;
+								row6.Column27 = row4.Column27;
+								row6.Column28 = row4.Column28;
+								row6.Column29 = row4.Column29;
+								row6.Column30 = row4.Column30;
+
+								nb_line_tUnite_1++;
+
+//////////
+
+								tos_count_tUnite_1++;
+
+								/**
+								 * [tUnite_1 main ] stop
+								 */
+
+								/**
+								 * [tUnite_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								/**
+								 * [tUnite_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tLogRow_2 main ] start
+								 */
+
+								currentComponent = "tLogRow_2";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row6"
+
+									);
+								}
+
+///////////////////////		
+
+								String[] row_tLogRow_2 = new String[31];
+
+								if (row6.Column0 != null) { //
+									row_tLogRow_2[0] = String.valueOf(row6.Column0);
+
+								} //
+
+								if (row6.Column1 != null) { //
+									row_tLogRow_2[1] = String.valueOf(row6.Column1);
+
+								} //
+
+								if (row6.Column2 != null) { //
+									row_tLogRow_2[2] = FormatterUtils.format_Date(row6.Column2, "dd-MM-yyyy");
+
+								} //
+
+								if (row6.Column3 != null) { //
+									row_tLogRow_2[3] = String.valueOf(row6.Column3);
+
+								} //
+
+								if (row6.Column4 != null) { //
+									row_tLogRow_2[4] = String.valueOf(row6.Column4);
+
+								} //
+
+								if (row6.Column5 != null) { //
+									row_tLogRow_2[5] = String.valueOf(row6.Column5);
+
+								} //
+
+								if (row6.Column6 != null) { //
+									row_tLogRow_2[6] = String.valueOf(row6.Column6);
+
+								} //
+
+								if (row6.Column7 != null) { //
+									row_tLogRow_2[7] = String.valueOf(row6.Column7);
+
+								} //
+
+								if (row6.Column8 != null) { //
+									row_tLogRow_2[8] = String.valueOf(row6.Column8);
+
+								} //
+
+								if (row6.Column9 != null) { //
+									row_tLogRow_2[9] = String.valueOf(row6.Column9);
+
+								} //
+
+								if (row6.Column10 != null) { //
+									row_tLogRow_2[10] = String.valueOf(row6.Column10);
+
+								} //
+
+								if (row6.Column11 != null) { //
+									row_tLogRow_2[11] = String.valueOf(row6.Column11);
+
+								} //
+
+								if (row6.Column12 != null) { //
+									row_tLogRow_2[12] = String.valueOf(row6.Column12);
+
+								} //
+
+								if (row6.Column13 != null) { //
+									row_tLogRow_2[13] = String.valueOf(row6.Column13);
+
+								} //
+
+								if (row6.Column14 != null) { //
+									row_tLogRow_2[14] = String.valueOf(row6.Column14);
+
+								} //
+
+								if (row6.Column15 != null) { //
+									row_tLogRow_2[15] = String.valueOf(row6.Column15);
+
+								} //
+
+								if (row6.Column16 != null) { //
+									row_tLogRow_2[16] = String.valueOf(row6.Column16);
+
+								} //
+
+								if (row6.Column17 != null) { //
+									row_tLogRow_2[17] = String.valueOf(row6.Column17);
+
+								} //
+
+								if (row6.Column18 != null) { //
+									row_tLogRow_2[18] = String.valueOf(row6.Column18);
+
+								} //
+
+								if (row6.Column19 != null) { //
+									row_tLogRow_2[19] = String.valueOf(row6.Column19);
+
+								} //
+
+								if (row6.Column20 != null) { //
+									row_tLogRow_2[20] = String.valueOf(row6.Column20);
+
+								} //
+
+								if (row6.Column21 != null) { //
+									row_tLogRow_2[21] = String.valueOf(row6.Column21);
+
+								} //
+
+								if (row6.Column22 != null) { //
+									row_tLogRow_2[22] = String.valueOf(row6.Column22);
+
+								} //
+
+								if (row6.Column23 != null) { //
+									row_tLogRow_2[23] = String.valueOf(row6.Column23);
+
+								} //
+
+								if (row6.Column24 != null) { //
+									row_tLogRow_2[24] = String.valueOf(row6.Column24);
+
+								} //
+
+								if (row6.Column25 != null) { //
+									row_tLogRow_2[25] = String.valueOf(row6.Column25);
+
+								} //
+
+								if (row6.Column26 != null) { //
+									row_tLogRow_2[26] = String.valueOf(row6.Column26);
+
+								} //
+
+								if (row6.Column27 != null) { //
+									row_tLogRow_2[27] = FormatterUtils.format_Date(row6.Column27, "dd-MM-yyyy");
+
+								} //
+
+								if (row6.Column28 != null) { //
+									row_tLogRow_2[28] = String.valueOf(row6.Column28);
+
+								} //
+
+								if (row6.Column29 != null) { //
+									row_tLogRow_2[29] = FormatterUtils.format_Date(row6.Column29, "dd-MM-yyyy");
+
+								} //
+
+								if (row6.Column30 != null) { //
+									row_tLogRow_2[30] = String.valueOf(row6.Column30);
+
+								} //
+
+								util_tLogRow_2.addRow(row_tLogRow_2);
+								nb_line_tLogRow_2++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+								row7 = row6;
+
+								tos_count_tLogRow_2++;
+
+								/**
+								 * [tLogRow_2 main ] stop
+								 */
+
+								/**
+								 * [tLogRow_2 process_data_begin ] start
+								 */
+
+								currentComponent = "tLogRow_2";
+
+								/**
+								 * [tLogRow_2 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_2 main ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_2";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row7"
+
+									);
+								}
+
+								StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
+								if (row7.Column0 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column0);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column1 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column1);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column2 != null) {
+									sb_tFileOutputDelimited_2
+											.append(FormatterUtils.format_Date(row7.Column2, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column3 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column3);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column4 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column4);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column5 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column5);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column6 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column6);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column7 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column7);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column8 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column8);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column9 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column9);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column10 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column10);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column11 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column11);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column12 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column12);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column13 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column13);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column14 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column14);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column15 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column15);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column16 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column16);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column17 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column17);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column18 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column18);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column19 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column19);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column20 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column20);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column21 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column21);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column22 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column22);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column23 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column23);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column24 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column24);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column25 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column25);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column26 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column26);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column27 != null) {
+									sb_tFileOutputDelimited_2
+											.append(FormatterUtils.format_Date(row7.Column27, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column28 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column28);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column29 != null) {
+									sb_tFileOutputDelimited_2
+											.append(FormatterUtils.format_Date(row7.Column29, "dd-MM-yyyy"));
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (row7.Column30 != null) {
+									sb_tFileOutputDelimited_2.append(row7.Column30);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
+
+								nb_line_tFileOutputDelimited_2++;
+								resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+
+								outtFileOutputDelimited_2.write(sb_tFileOutputDelimited_2.toString());
+
+								tos_count_tFileOutputDelimited_2++;
+
+								/**
+								 * [tFileOutputDelimited_2 main ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_begin ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_2";
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_end ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_2";
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_end ] stop
+								 */
+
+								/**
+								 * [tLogRow_2 process_data_end ] start
+								 */
+
+								currentComponent = "tLogRow_2";
+
+								/**
+								 * [tLogRow_2 process_data_end ] stop
+								 */
+
+								/**
+								 * [tUnite_1 process_data_end ] start
+								 */
+
+								currentComponent = "tUnite_1";
+
+								/**
+								 * [tUnite_1 process_data_end ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_1 process_data_end ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_1";
+
+								/**
+								 * [tFileOutputDelimited_1 process_data_end ] stop
+								 */
+
+								/**
 								 * [tLogRow_1 process_data_end ] start
 								 */
 
@@ -4517,7 +10200,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 								 * [tLogRow_1 process_data_end ] stop
 								 */
 
-							} // End of branch "out"
+							} // End of branch "posOrderStage2"
 
 							/**
 							 * [tMap_1 process_data_end ] start
@@ -4532,39 +10215,39 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 						} // End of branch "row1"
 
 						/**
-						 * [tFileInputDelimited_2 process_data_end ] start
+						 * [tFileInputDelimited_1 process_data_end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_2";
+						currentComponent = "tFileInputDelimited_1";
 
 						/**
-						 * [tFileInputDelimited_2 process_data_end ] stop
+						 * [tFileInputDelimited_1 process_data_end ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_2 end ] start
+						 * [tFileInputDelimited_1 end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_2";
+						currentComponent = "tFileInputDelimited_1";
 
 					}
 				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posOrder.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_2 != null) {
-							fid_tFileInputDelimited_2.close();
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_1 != null) {
+							fid_tFileInputDelimited_1.close();
 						}
 					}
-					if (fid_tFileInputDelimited_2 != null) {
-						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
+					if (fid_tFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
 
 					}
 				}
 
-				ok_Hash.put("tFileInputDelimited_2", true);
-				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_1", true);
+				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
 				/**
-				 * [tFileInputDelimited_2 end ] stop
+				 * [tFileInputDelimited_1 end ] stop
 				 */
 
 				/**
@@ -4617,7 +10300,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 ///////////////////////    			
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "out");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "posOrderStage2");
 				}
 
 				ok_Hash.put("tLogRow_1", true);
@@ -4625,6 +10308,1271 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 				/**
 				 * [tLogRow_1 end ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_1 end ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (outtFileOutputDelimited_1 != null) {
+					outtFileOutputDelimited_1.flush();
+					outtFileOutputDelimited_1.close();
+				}
+
+				globalMap.put("tFileOutputDelimited_1_NB_LINE", nb_line_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
+
+				resourceMap.put("finish_tFileOutputDelimited_1", true);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
+				}
+
+				ok_Hash.put("tFileOutputDelimited_1", true);
+				end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
+
+				/**
+				 * [tFileOutputDelimited_1 end ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_3 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_3", false);
+				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_3";
+
+				int tos_count_tFileInputDelimited_3 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_3 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
+				int limit_tFileInputDelimited_3 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_3 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+					if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
+						if (footer_value_tFileInputDelimited_3 > 0 || random_value_tFileInputDelimited_3 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15", ";",
+								"\n", true, 1, 0, limit_tFileInputDelimited_3, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_3 != null && fid_tFileInputDelimited_3.nextRecord()) {
+						rowstate_tFileInputDelimited_3.reset();
+
+						row5 = null;
+
+						boolean whetherReject_tFileInputDelimited_3 = false;
+						row5 = new row5Struct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_3 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_3 = 0;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column0 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column0", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column0 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 1;
+
+							row5.Column1 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 2;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column2 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column2", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column2 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 3;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column3 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column3", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column3 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 4;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column4 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column4", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column4 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 5;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column5 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column5", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column5 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 6;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column6 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column6", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column6 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 7;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column7 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column7", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column7 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 8;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column8 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column8", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column8 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 9;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column9 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column9", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column9 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 10;
+
+							row5.Column10 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 11;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column11 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column11", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column11 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 12;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column12 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column12", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column12 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 13;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column13 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column13", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column13 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 14;
+
+							row5.Column14 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 15;
+
+							row5.Column15 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 16;
+
+							row5.Column16 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 17;
+
+							row5.Column17 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 18;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column18 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column18", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column18 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 19;
+
+							row5.Column19 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 20;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column20 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column20", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column20 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 21;
+
+							row5.Column21 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 22;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column22 = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column22", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column22 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 23;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column23 = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column23", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column23 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 24;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column24 = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column24", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column24 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 25;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column25 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column25", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column25 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 26;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column26 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column26", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column26 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 27;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column27 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column27", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column27 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 28;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column28 = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column28", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column28 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 29;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.Column29 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Column29", "row5", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.Column29 = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 30;
+
+							row5.Column30 = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							if (rowstate_tFileInputDelimited_3.getException() != null) {
+								throw rowstate_tFileInputDelimited_3.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_3 = true;
+
+							System.err.println(e.getMessage());
+							row5 = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_3 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						tos_count_tFileInputDelimited_3++;
+
+						/**
+						 * [tFileInputDelimited_3 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						/**
+						 * [tFileInputDelimited_3 process_data_begin ] stop
+						 */
+// Start of branch "row5"
+						if (row5 != null) {
+
+							/**
+							 * [tUnite_1 main ] start
+							 */
+
+							currentComponent = "tUnite_1";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row5"
+
+								);
+							}
+
+//////////
+
+// for output
+							row6 = new row6Struct();
+
+							row6.Column0 = row5.Column0;
+							row6.Column1 = row5.Column1;
+							row6.Column2 = row5.Column2;
+							row6.Column3 = row5.Column3;
+							row6.Column4 = row5.Column4;
+							row6.Column5 = row5.Column5;
+							row6.Column6 = row5.Column6;
+							row6.Column7 = row5.Column7;
+							row6.Column8 = row5.Column8;
+							row6.Column9 = row5.Column9;
+							row6.Column10 = row5.Column10;
+							row6.Column11 = row5.Column11;
+							row6.Column12 = row5.Column12;
+							row6.Column13 = row5.Column13;
+							row6.Column14 = row5.Column14;
+							row6.Column15 = row5.Column15;
+							row6.Column16 = row5.Column16;
+							row6.Column17 = row5.Column17;
+							row6.Column18 = row5.Column18;
+							row6.Column19 = row5.Column19;
+							row6.Column20 = row5.Column20;
+							row6.Column21 = row5.Column21;
+							row6.Column22 = row5.Column22;
+							row6.Column23 = row5.Column23;
+							row6.Column24 = row5.Column24;
+							row6.Column25 = row5.Column25;
+							row6.Column26 = row5.Column26;
+							row6.Column27 = row5.Column27;
+							row6.Column28 = row5.Column28;
+							row6.Column29 = row5.Column29;
+							row6.Column30 = row5.Column30;
+
+							nb_line_tUnite_1++;
+
+//////////
+
+							tos_count_tUnite_1++;
+
+							/**
+							 * [tUnite_1 main ] stop
+							 */
+
+							/**
+							 * [tUnite_1 process_data_begin ] start
+							 */
+
+							currentComponent = "tUnite_1";
+
+							/**
+							 * [tUnite_1 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tLogRow_2 main ] start
+							 */
+
+							currentComponent = "tLogRow_2";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row6"
+
+								);
+							}
+
+///////////////////////		
+
+							String[] row_tLogRow_2 = new String[31];
+
+							if (row6.Column0 != null) { //
+								row_tLogRow_2[0] = String.valueOf(row6.Column0);
+
+							} //
+
+							if (row6.Column1 != null) { //
+								row_tLogRow_2[1] = String.valueOf(row6.Column1);
+
+							} //
+
+							if (row6.Column2 != null) { //
+								row_tLogRow_2[2] = FormatterUtils.format_Date(row6.Column2, "dd-MM-yyyy");
+
+							} //
+
+							if (row6.Column3 != null) { //
+								row_tLogRow_2[3] = String.valueOf(row6.Column3);
+
+							} //
+
+							if (row6.Column4 != null) { //
+								row_tLogRow_2[4] = String.valueOf(row6.Column4);
+
+							} //
+
+							if (row6.Column5 != null) { //
+								row_tLogRow_2[5] = String.valueOf(row6.Column5);
+
+							} //
+
+							if (row6.Column6 != null) { //
+								row_tLogRow_2[6] = String.valueOf(row6.Column6);
+
+							} //
+
+							if (row6.Column7 != null) { //
+								row_tLogRow_2[7] = String.valueOf(row6.Column7);
+
+							} //
+
+							if (row6.Column8 != null) { //
+								row_tLogRow_2[8] = String.valueOf(row6.Column8);
+
+							} //
+
+							if (row6.Column9 != null) { //
+								row_tLogRow_2[9] = String.valueOf(row6.Column9);
+
+							} //
+
+							if (row6.Column10 != null) { //
+								row_tLogRow_2[10] = String.valueOf(row6.Column10);
+
+							} //
+
+							if (row6.Column11 != null) { //
+								row_tLogRow_2[11] = String.valueOf(row6.Column11);
+
+							} //
+
+							if (row6.Column12 != null) { //
+								row_tLogRow_2[12] = String.valueOf(row6.Column12);
+
+							} //
+
+							if (row6.Column13 != null) { //
+								row_tLogRow_2[13] = String.valueOf(row6.Column13);
+
+							} //
+
+							if (row6.Column14 != null) { //
+								row_tLogRow_2[14] = String.valueOf(row6.Column14);
+
+							} //
+
+							if (row6.Column15 != null) { //
+								row_tLogRow_2[15] = String.valueOf(row6.Column15);
+
+							} //
+
+							if (row6.Column16 != null) { //
+								row_tLogRow_2[16] = String.valueOf(row6.Column16);
+
+							} //
+
+							if (row6.Column17 != null) { //
+								row_tLogRow_2[17] = String.valueOf(row6.Column17);
+
+							} //
+
+							if (row6.Column18 != null) { //
+								row_tLogRow_2[18] = String.valueOf(row6.Column18);
+
+							} //
+
+							if (row6.Column19 != null) { //
+								row_tLogRow_2[19] = String.valueOf(row6.Column19);
+
+							} //
+
+							if (row6.Column20 != null) { //
+								row_tLogRow_2[20] = String.valueOf(row6.Column20);
+
+							} //
+
+							if (row6.Column21 != null) { //
+								row_tLogRow_2[21] = String.valueOf(row6.Column21);
+
+							} //
+
+							if (row6.Column22 != null) { //
+								row_tLogRow_2[22] = String.valueOf(row6.Column22);
+
+							} //
+
+							if (row6.Column23 != null) { //
+								row_tLogRow_2[23] = String.valueOf(row6.Column23);
+
+							} //
+
+							if (row6.Column24 != null) { //
+								row_tLogRow_2[24] = String.valueOf(row6.Column24);
+
+							} //
+
+							if (row6.Column25 != null) { //
+								row_tLogRow_2[25] = String.valueOf(row6.Column25);
+
+							} //
+
+							if (row6.Column26 != null) { //
+								row_tLogRow_2[26] = String.valueOf(row6.Column26);
+
+							} //
+
+							if (row6.Column27 != null) { //
+								row_tLogRow_2[27] = FormatterUtils.format_Date(row6.Column27, "dd-MM-yyyy");
+
+							} //
+
+							if (row6.Column28 != null) { //
+								row_tLogRow_2[28] = String.valueOf(row6.Column28);
+
+							} //
+
+							if (row6.Column29 != null) { //
+								row_tLogRow_2[29] = FormatterUtils.format_Date(row6.Column29, "dd-MM-yyyy");
+
+							} //
+
+							if (row6.Column30 != null) { //
+								row_tLogRow_2[30] = String.valueOf(row6.Column30);
+
+							} //
+
+							util_tLogRow_2.addRow(row_tLogRow_2);
+							nb_line_tLogRow_2++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+							row7 = row6;
+
+							tos_count_tLogRow_2++;
+
+							/**
+							 * [tLogRow_2 main ] stop
+							 */
+
+							/**
+							 * [tLogRow_2 process_data_begin ] start
+							 */
+
+							currentComponent = "tLogRow_2";
+
+							/**
+							 * [tLogRow_2 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tFileOutputDelimited_2 main ] start
+							 */
+
+							currentComponent = "tFileOutputDelimited_2";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row7"
+
+								);
+							}
+
+							StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
+							if (row7.Column0 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column0);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column1 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column1);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column2 != null) {
+								sb_tFileOutputDelimited_2
+										.append(FormatterUtils.format_Date(row7.Column2, "dd-MM-yyyy"));
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column3 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column3);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column4 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column4);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column5 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column5);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column6 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column6);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column7 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column7);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column8 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column8);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column9 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column9);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column10 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column10);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column11 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column11);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column12 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column12);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column13 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column13);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column14 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column14);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column15 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column15);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column16 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column16);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column17 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column17);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column18 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column18);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column19 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column19);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column20 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column20);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column21 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column21);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column22 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column22);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column23 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column23);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column24 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column24);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column25 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column25);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column26 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column26);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column27 != null) {
+								sb_tFileOutputDelimited_2
+										.append(FormatterUtils.format_Date(row7.Column27, "dd-MM-yyyy"));
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column28 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column28);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column29 != null) {
+								sb_tFileOutputDelimited_2
+										.append(FormatterUtils.format_Date(row7.Column29, "dd-MM-yyyy"));
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+							if (row7.Column30 != null) {
+								sb_tFileOutputDelimited_2.append(row7.Column30);
+							}
+							sb_tFileOutputDelimited_2.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
+
+							nb_line_tFileOutputDelimited_2++;
+							resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+
+							outtFileOutputDelimited_2.write(sb_tFileOutputDelimited_2.toString());
+
+							tos_count_tFileOutputDelimited_2++;
+
+							/**
+							 * [tFileOutputDelimited_2 main ] stop
+							 */
+
+							/**
+							 * [tFileOutputDelimited_2 process_data_begin ] start
+							 */
+
+							currentComponent = "tFileOutputDelimited_2";
+
+							/**
+							 * [tFileOutputDelimited_2 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tFileOutputDelimited_2 process_data_end ] start
+							 */
+
+							currentComponent = "tFileOutputDelimited_2";
+
+							/**
+							 * [tFileOutputDelimited_2 process_data_end ] stop
+							 */
+
+							/**
+							 * [tLogRow_2 process_data_end ] start
+							 */
+
+							currentComponent = "tLogRow_2";
+
+							/**
+							 * [tLogRow_2 process_data_end ] stop
+							 */
+
+							/**
+							 * [tUnite_1 process_data_end ] start
+							 */
+
+							currentComponent = "tUnite_1";
+
+							/**
+							 * [tUnite_1 process_data_end ] stop
+							 */
+
+						} // End of branch "row5"
+
+						/**
+						 * [tFileInputDelimited_3 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						/**
+						 * [tFileInputDelimited_3 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_3 != null) {
+							fid_tFileInputDelimited_3.close();
+						}
+					}
+					if (fid_tFileInputDelimited_3 != null) {
+						globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_3", true);
+				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_3 end ] stop
+				 */
+
+				/**
+				 * [tUnite_1 end ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5", "row4");
+				}
+
+				ok_Hash.put("tUnite_1", true);
+				end_Hash.put("tUnite_1", System.currentTimeMillis());
+
+				/**
+				 * [tUnite_1 end ] stop
+				 */
+
+				/**
+				 * [tLogRow_2 end ] start
+				 */
+
+				currentComponent = "tLogRow_2";
+
+//////
+
+				java.io.PrintStream consoleOut_tLogRow_2 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_2 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_2);
+				}
+
+				consoleOut_tLogRow_2.println(util_tLogRow_2.format().toString());
+				consoleOut_tLogRow_2.flush();
+//////
+				globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
+				}
+
+				ok_Hash.put("tLogRow_2", true);
+				end_Hash.put("tLogRow_2", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_2 end ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_2 end ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_2";
+
+				if (outtFileOutputDelimited_2 != null) {
+					outtFileOutputDelimited_2.flush();
+					outtFileOutputDelimited_2.close();
+				}
+
+				globalMap.put("tFileOutputDelimited_2_NB_LINE", nb_line_tFileOutputDelimited_2);
+				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
+
+				resourceMap.put("finish_tFileOutputDelimited_2", true);
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row7");
+				}
+
+				ok_Hash.put("tFileOutputDelimited_2", true);
+				end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
+
+				/**
+				 * [tFileOutputDelimited_2 end ] stop
 				 */
 
 			} // end the resume
@@ -4647,13 +11595,13 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputDelimited_2 finally ] start
+				 * [tFileInputDelimited_1 finally ] start
 				 */
 
-				currentComponent = "tFileInputDelimited_2";
+				currentComponent = "tFileInputDelimited_1";
 
 				/**
-				 * [tFileInputDelimited_2 finally ] stop
+				 * [tFileInputDelimited_1 finally ] stop
 				 */
 
 				/**
@@ -4676,6 +11624,78 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				 * [tLogRow_1 finally ] stop
 				 */
 
+				/**
+				 * [tFileOutputDelimited_1 finally ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (resourceMap.get("finish_tFileOutputDelimited_1") == null) {
+
+					java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer) resourceMap
+							.get("out_tFileOutputDelimited_1");
+					if (outtFileOutputDelimited_1 != null) {
+						outtFileOutputDelimited_1.flush();
+						outtFileOutputDelimited_1.close();
+					}
+
+				}
+
+				/**
+				 * [tFileOutputDelimited_1 finally ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_3 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_3";
+
+				/**
+				 * [tFileInputDelimited_3 finally ] stop
+				 */
+
+				/**
+				 * [tUnite_1 finally ] start
+				 */
+
+				currentComponent = "tUnite_1";
+
+				/**
+				 * [tUnite_1 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_2 finally ] start
+				 */
+
+				currentComponent = "tLogRow_2";
+
+				/**
+				 * [tLogRow_2 finally ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_2 finally ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_2";
+
+				if (resourceMap.get("finish_tFileOutputDelimited_2") == null) {
+
+					java.io.Writer outtFileOutputDelimited_2 = (java.io.Writer) resourceMap
+							.get("out_tFileOutputDelimited_2");
+					if (outtFileOutputDelimited_2 != null) {
+						outtFileOutputDelimited_2.flush();
+						outtFileOutputDelimited_2.close();
+					}
+
+				}
+
+				/**
+				 * [tFileOutputDelimited_2 finally ] stop
+				 */
+
 			} catch (java.lang.Exception e) {
 				// ignore
 			} catch (java.lang.Error error) {
@@ -4684,7 +11704,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
 	}
 
 	public static class row2Struct implements routines.system.IPersistableComparableLookupRow<row2Struct> {
@@ -5633,8 +12653,8 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
+	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
@@ -5671,10 +12691,10 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				int tos_count_tAdvancedHash_row2 = 0;
 
 				// connection name:row2
-				// source node:tFileInputDelimited_1 - inputs:(after_tFileInputDelimited_2)
+				// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1)
 				// outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2)
 				// outputs:()
-				// linked node: tMap_1 - inputs:(row1,row2) outputs:(out)
+				// linked node: tMap_1 - inputs:(row1,row2) outputs:(posOrderStage2)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 
@@ -5688,75 +12708,75 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 				 */
 
 				/**
-				 * [tFileInputDelimited_1 begin ] start
+				 * [tFileInputDelimited_2 begin ] start
 				 */
 
-				ok_Hash.put("tFileInputDelimited_1", false);
-				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_2", false);
+				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
 
-				currentComponent = "tFileInputDelimited_1";
+				currentComponent = "tFileInputDelimited_2";
 
-				int tos_count_tFileInputDelimited_1 = 0;
+				int tos_count_tFileInputDelimited_2 = 0;
 
-				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
+				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
 
-				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
+				int nb_line_tFileInputDelimited_2 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
+				int limit_tFileInputDelimited_2 = -1;
 				try {
 
-					Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posOrder_20221031.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+					Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
 
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
+						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
+						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
 							throw new java.lang.Exception(
 									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
 						}
 
 					}
 					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posOrder_20221031.csv",
-								"ISO-8859-15", ";", "\n", false, 1, 0, limit_tFileInputDelimited_1, -1, false);
+						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15", ";",
+								"\n", true, 1, 0, limit_tFileInputDelimited_2, -1, false);
 					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+						globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
 
 						System.err.println(e.getMessage());
 
 					}
 
-					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
+					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
+						rowstate_tFileInputDelimited_2.reset();
 
 						row2 = null;
 
 						row2 = null;
 
-						boolean whetherReject_tFileInputDelimited_1 = false;
+						boolean whetherReject_tFileInputDelimited_2 = false;
 						row2 = new row2Struct();
 						try {
 
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
+							int columnIndexWithD_tFileInputDelimited_2 = 0;
 
 							String temp = "";
 
-							columnIndexWithD_tFileInputDelimited_1 = 0;
+							columnIndexWithD_tFileInputDelimited_2 = 0;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column0 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column0", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column0", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5765,26 +12785,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 1;
+							columnIndexWithD_tFileInputDelimited_2 = 1;
 
-							row2.Column1 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column1 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 2;
+							columnIndexWithD_tFileInputDelimited_2 = 2;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column2 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column2", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column2", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5793,22 +12813,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 3;
+							columnIndexWithD_tFileInputDelimited_2 = 3;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column3 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column3", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column3", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5817,22 +12837,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 4;
+							columnIndexWithD_tFileInputDelimited_2 = 4;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column4 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column4", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column4", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5841,22 +12861,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 5;
+							columnIndexWithD_tFileInputDelimited_2 = 5;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column5 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column5", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column5", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5865,22 +12885,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 6;
+							columnIndexWithD_tFileInputDelimited_2 = 6;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column6 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column6", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column6", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5889,22 +12909,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 7;
+							columnIndexWithD_tFileInputDelimited_2 = 7;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column7 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column7", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column7", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5913,22 +12933,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 8;
+							columnIndexWithD_tFileInputDelimited_2 = 8;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column8 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column8", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column8", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5937,22 +12957,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 9;
+							columnIndexWithD_tFileInputDelimited_2 = 9;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column9 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column9", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column9", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5961,26 +12981,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 10;
+							columnIndexWithD_tFileInputDelimited_2 = 10;
 
-							row2.Column10 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column10 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 11;
+							columnIndexWithD_tFileInputDelimited_2 = 11;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column11 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column11", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column11", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -5989,22 +13009,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 12;
+							columnIndexWithD_tFileInputDelimited_2 = 12;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column12 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column12", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column12", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6013,22 +13033,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 13;
+							columnIndexWithD_tFileInputDelimited_2 = 13;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column13 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column13", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column13", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6037,38 +13057,38 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 14;
+							columnIndexWithD_tFileInputDelimited_2 = 14;
 
-							row2.Column14 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column14 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 15;
+							columnIndexWithD_tFileInputDelimited_2 = 15;
 
-							row2.Column15 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column15 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 16;
+							columnIndexWithD_tFileInputDelimited_2 = 16;
 
-							row2.Column16 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column16 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 17;
+							columnIndexWithD_tFileInputDelimited_2 = 17;
 
-							row2.Column17 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column17 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 18;
+							columnIndexWithD_tFileInputDelimited_2 = 18;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column18 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column18", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column18", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6077,26 +13097,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 19;
+							columnIndexWithD_tFileInputDelimited_2 = 19;
 
-							row2.Column19 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column19 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 20;
+							columnIndexWithD_tFileInputDelimited_2 = 20;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column20 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column20", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column20", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6105,26 +13125,26 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 21;
+							columnIndexWithD_tFileInputDelimited_2 = 21;
 
-							row2.Column21 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column21 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_1 = 22;
+							columnIndexWithD_tFileInputDelimited_2 = 22;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column22 = ParserUtils.parseTo_Boolean(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column22", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column22", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6133,22 +13153,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 23;
+							columnIndexWithD_tFileInputDelimited_2 = 23;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column23 = ParserUtils.parseTo_Boolean(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column23", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column23", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6157,22 +13177,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 24;
+							columnIndexWithD_tFileInputDelimited_2 = 24;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column24 = ParserUtils.parseTo_Boolean(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column24", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column24", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6181,22 +13201,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 25;
+							columnIndexWithD_tFileInputDelimited_2 = 25;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column25 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column25", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column25", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6205,22 +13225,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 26;
+							columnIndexWithD_tFileInputDelimited_2 = 26;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column26 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column26", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column26", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6229,22 +13249,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 27;
+							columnIndexWithD_tFileInputDelimited_2 = 27;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column27 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column27", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column27", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6253,22 +13273,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 28;
+							columnIndexWithD_tFileInputDelimited_2 = 28;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column28 = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column28", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column28", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6277,22 +13297,22 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 29;
+							columnIndexWithD_tFileInputDelimited_2 = 29;
 
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 							if (temp.length() > 0) {
 
 								try {
 
 									row2.Column29 = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"Column29", "row2", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
+											"Column29", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
@@ -6301,17 +13321,17 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 30;
+							columnIndexWithD_tFileInputDelimited_2 = 30;
 
-							row2.Column30 = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row2.Column30 = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							if (rowstate_tFileInputDelimited_1.getException() != null) {
-								throw rowstate_tFileInputDelimited_1.getException();
+							if (rowstate_tFileInputDelimited_2.getException() != null) {
+								throw rowstate_tFileInputDelimited_2.getException();
 							}
 
 						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_1 = true;
+							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_2 = true;
 
 							System.err.println(e.getMessage());
 							row2 = null;
@@ -6319,29 +13339,29 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 						}
 
 						/**
-						 * [tFileInputDelimited_1 begin ] stop
+						 * [tFileInputDelimited_2 begin ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_1 main ] start
+						 * [tFileInputDelimited_2 main ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_1";
+						currentComponent = "tFileInputDelimited_2";
 
-						tos_count_tFileInputDelimited_1++;
+						tos_count_tFileInputDelimited_2++;
 
 						/**
-						 * [tFileInputDelimited_1 main ] stop
+						 * [tFileInputDelimited_2 main ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_1 process_data_begin ] start
+						 * [tFileInputDelimited_2 process_data_begin ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_1";
+						currentComponent = "tFileInputDelimited_2";
 
 						/**
-						 * [tFileInputDelimited_1 process_data_begin ] stop
+						 * [tFileInputDelimited_2 process_data_begin ] stop
 						 */
 // Start of branch "row2"
 						if (row2 != null) {
@@ -6455,39 +13475,39 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 						} // End of branch "row2"
 
 						/**
-						 * [tFileInputDelimited_1 process_data_end ] start
+						 * [tFileInputDelimited_2 process_data_end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_1";
+						currentComponent = "tFileInputDelimited_2";
 
 						/**
-						 * [tFileInputDelimited_1 process_data_end ] stop
+						 * [tFileInputDelimited_2 process_data_end ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_1 end ] start
+						 * [tFileInputDelimited_2 end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_1";
+						currentComponent = "tFileInputDelimited_2";
 
 					}
 				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posOrder_20221031.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_2 != null) {
+							fid_tFileInputDelimited_2.close();
 						}
 					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
+					if (fid_tFileInputDelimited_2 != null) {
+						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
 
 					}
 				}
 
-				ok_Hash.put("tFileInputDelimited_1", true);
-				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_2", true);
+				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
 
 				/**
-				 * [tFileInputDelimited_1 end ] stop
+				 * [tFileInputDelimited_2 end ] stop
 				 */
 
 				/**
@@ -6526,13 +13546,13 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputDelimited_1 finally ] start
+				 * [tFileInputDelimited_2 finally ] start
 				 */
 
-				currentComponent = "tFileInputDelimited_1";
+				currentComponent = "tFileInputDelimited_2";
 
 				/**
-				 * [tFileInputDelimited_1 finally ] stop
+				 * [tFileInputDelimited_2 finally ] stop
 				 */
 
 				/**
@@ -6553,168 +13573,7 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
-	}
-
-	public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tS3Connection_1 begin ] start
-				 */
-
-				ok_Hash.put("tS3Connection_1", false);
-				start_Hash.put("tS3Connection_1", System.currentTimeMillis());
-
-				currentComponent = "tS3Connection_1";
-
-				int tos_count_tS3Connection_1 = 0;
-
-				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:0XtIfrDIE1HYjrgLSadLfqPMumpnpCgO2Ws/GJMfNJ5hmhT+EWDg536fO/wz2bzVoSy4zMwmSlSD6NHJ21OPXaW57mU=");
-
-				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
-						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
-				com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(
-						credentials_tS3Connection_1);
-
-				com.amazonaws.ClientConfiguration cc_tS3Connection_1 = new com.amazonaws.ClientConfiguration();
-				cc_tS3Connection_1.setUserAgent("APN/1.0 Talend/8.0 Studio/8.0 (Talend Open Studio)");
-
-				com.amazonaws.services.s3.AmazonS3ClientBuilder builder_tS3Connection_1 = com.amazonaws.services.s3.AmazonS3ClientBuilder
-						.standard();
-
-				final boolean useRegionEndpoint_tS3Connection_1 = false;
-				final String regionEndpoint_tS3Connection_1 = "s3.amazonaws.com";
-				final boolean enableAccelerateMode_tS3Connection_1 = false;
-				final boolean enablePathStyleAccess_tS3Connection_1 = false;
-
-				if (useRegionEndpoint_tS3Connection_1 && regionEndpoint_tS3Connection_1 != null
-						&& !regionEndpoint_tS3Connection_1.isEmpty()) {
-					builder_tS3Connection_1.withEndpointConfiguration(
-							new com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration(
-									regionEndpoint_tS3Connection_1, "us-east-2"));
-				} else {
-					builder_tS3Connection_1.withRegion("us-east-2");
-				}
-
-				if (enableAccelerateMode_tS3Connection_1) {
-					builder_tS3Connection_1.withAccelerateModeEnabled(true);
-				}
-
-				builder_tS3Connection_1.withCredentials(credentialsProvider_tS3Connection_1)
-						.withClientConfiguration(cc_tS3Connection_1);
-
-				if (useRegionEndpoint_tS3Connection_1 && enablePathStyleAccess_tS3Connection_1) {
-					builder_tS3Connection_1.enablePathStyleAccess();
-				}
-
-				com.amazonaws.services.s3.AmazonS3 conn_tS3Connection_1 = builder_tS3Connection_1.build();
-
-				// This method is just for test connection.
-				conn_tS3Connection_1.getS3AccountOwner();
-
-				globalMap.put("conn_" + "tS3Connection_1", conn_tS3Connection_1);
-
-				/**
-				 * [tS3Connection_1 begin ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 main ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				tos_count_tS3Connection_1++;
-
-				/**
-				 * [tS3Connection_1 main ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 process_data_begin ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 process_data_begin ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 process_data_end ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 process_data_end ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 end ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				ok_Hash.put("tS3Connection_1", true);
-				end_Hash.put("tS3Connection_1", System.currentTimeMillis());
-
-				/**
-				 * [tS3Connection_1 end ] stop
-				 */
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tS3Connection_1 finally ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 finally ] stop
-				 */
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 1);
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -6922,26 +13781,14 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 		try {
 			errorCode = null;
-			tFileInputDelimited_2Process(globalMap);
+			tFileInputDelimited_1Process(globalMap);
 			if (!"failure".equals(status)) {
 				status = "end";
 			}
-		} catch (TalendException e_tFileInputDelimited_2) {
-			globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", -1);
+		} catch (TalendException e_tFileInputDelimited_1) {
+			globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", -1);
 
-			e_tFileInputDelimited_2.printStackTrace();
-
-		}
-		try {
-			errorCode = null;
-			tS3Connection_1Process(globalMap);
-			if (!"failure".equals(status)) {
-				status = "end";
-			}
-		} catch (TalendException e_tS3Connection_1) {
-			globalMap.put("tS3Connection_1_SUBPROCESS_STATE", -1);
-
-			e_tS3Connection_1.printStackTrace();
+			e_tFileInputDelimited_1.printStackTrace();
 
 		}
 
@@ -6979,25 +13826,11 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 
 	// only for OSGi env
 	public void destroy() {
-		closeS3Connections();
 
-	}
-
-	private void closeS3Connections() {
-		try {
-			com.amazonaws.services.s3.AmazonS3Client conn_tS3Connection_1 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
-					.get("conn_tS3Connection_1");
-			if (conn_tS3Connection_1 != null) {
-				conn_tS3Connection_1.shutdown();
-			}
-		} catch (java.lang.Exception e) {
-		}
 	}
 
 	private java.util.Map<String, Object> getSharedConnections4REST() {
 		java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
-
-		connections.put("conn_tS3Connection_1", globalMap.get("conn_tS3Connection_1"));
 
 		return connections;
 	}
@@ -7111,6 +13944,6 @@ public class accountTax_Stage_DailyJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 208851 characters generated by Talend Open Studio for Data Integration on the
- * November 1, 2022 at 1:23:20 AM CST
+ * 416234 characters generated by Talend Open Studio for Data Integration on the
+ * November 1, 2022 at 11:28:41 PM CST
  ************************************************************************************************/
