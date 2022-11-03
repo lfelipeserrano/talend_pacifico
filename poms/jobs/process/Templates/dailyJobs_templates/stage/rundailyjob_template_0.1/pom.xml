@@ -16,13 +16,13 @@
     <talend.job.type>Standard</talend.job.type>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
     <talend.pigudf.groupid>org.example.pacifico.pigudf</talend.pigudf.groupid>
-    <talend.job.folder></talend.job.folder>
+    <talend.job.folder>templates/dailyjobs_templates/stage/</talend.job.folder>
     <talend.job.context>Default</talend.job.context>
     <talend.job.path>pacifico</talend.job.path>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
     <talend.job.stat>true</talend.job.stat>
-    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8</talend.job.jvmargs>
-    <talend.job.id>_-AQ7UFpvEe2ls9afLJpI4Q</talend.job.id>
+    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8 </talend.job.jvmargs>
+    <talend.job.id>_At0RMFs1Ee2XlMEsqpP_qA</talend.job.id>
     <talend.job.version>0.1</talend.job.version>
     <talend.job.framework></talend.job.framework>
     <talend.routine.groupid>org.example.pacifico.code</talend.routine.groupid>
