@@ -729,11 +729,7 @@
     "version" : "0.1",
     "type" : "job"
   },
-  "relatedItems" : [ {
-    "id" : "_Qk-sYFmvEe2Vzov9eWiZmw - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  } ]
+  "relatedItems" : [ ]
 }, {
   "baseItem" : {
     "id" : "_nFUgAFpjEe2ls9afLJpI4Q",
