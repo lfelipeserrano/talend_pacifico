@@ -47,7 +47,7 @@ import java.util.Comparator;
  * Job: first_load_res_country_job Purpose: <br>
  * Description: <br>
  * 
- * @author user@talend.com
+ * @author
  * @version 8.0.1.20211109_1610
  * @status
  */
@@ -351,12 +351,6 @@ public class first_load_res_country_job implements TalendJob {
 	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
 		final static byte[] commonByteArrayLock_PACIFICO_first_load_res_country_job = new byte[0];
 		static byte[] commonByteArray_PACIFICO_first_load_res_country_job = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
 
 		public int id;
 
@@ -374,12 +368,6 @@ public class first_load_res_country_job implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public Integer address_view_id;
@@ -446,62 +434,6 @@ public class first_load_res_country_job implements TalendJob {
 
 		public java.util.Date getWrite_date() {
 			return this.write_date;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + (int) this.id;
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row1Struct other = (row1Struct) obj;
-
-			if (this.id != other.id)
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row1Struct other) {
-
-			other.id = this.id;
-			other.name = this.name;
-			other.code = this.code;
-			other.address_format = this.address_format;
-			other.address_view_id = this.address_view_id;
-			other.currency_id = this.currency_id;
-			other.phone_code = this.phone_code;
-			other.name_position = this.name_position;
-			other.vat_label = this.vat_label;
-			other.state_required = this.state_required;
-			other.zip_required = this.zip_required;
-			other.create_uid = this.create_uid;
-			other.create_date = this.create_date;
-			other.write_uid = this.write_uid;
-			other.write_date = this.write_date;
-
-		}
-
-		public void copyKeysDataTo(row1Struct other) {
-
-			other.id = this.id;
-
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -662,8 +594,6 @@ public class first_load_res_country_job implements TalendJob {
 
 					this.code = readString(dis);
 
-					this.address_format = readString(dis);
-
 					this.address_view_id = readInteger(dis);
 
 					this.currency_id = readInteger(dis);
@@ -718,8 +648,6 @@ public class first_load_res_country_job implements TalendJob {
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readInteger(dis);
 
@@ -776,10 +704,6 @@ public class first_load_res_country_job implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// Integer
 
@@ -856,10 +780,6 @@ public class first_load_res_country_job implements TalendJob {
 
 				writeString(this.code, dos);
 
-				// String
-
-				writeString(this.address_format, dos);
-
 				// Integer
 
 				writeInteger(this.address_view_id, dos);
@@ -928,7 +848,6 @@ public class first_load_res_country_job implements TalendJob {
 			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + String.valueOf(address_view_id));
 			sb.append(",currency_id=" + String.valueOf(currency_id));
 			sb.append(",phone_code=" + String.valueOf(phone_code));
@@ -951,11 +870,6 @@ public class first_load_res_country_job implements TalendJob {
 		public int compareTo(row1Struct other) {
 
 			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.id, other.id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
 
 			return returnValue;
 		}
@@ -1094,8 +1008,6 @@ public class first_load_res_country_job implements TalendJob {
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("code");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("address_format");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("address_view_id");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("currency_id");
@@ -1146,7 +1058,7 @@ public class first_load_res_country_job implements TalendJob {
 				String dbUser_tDBInput_1 = "openpg";
 
 				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:84RI1zrDnghOGLmWMjuFjZ+kz7STs7R1FxWjyrBjcq1ZNVH2nw==");
+						"enc:routine.encryption.key.v1:kJFiVVdsoCl87FcQ8KJhwGapk5jXENnMS6AMVx8BgiuoFaITrQ==");
 
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 
@@ -1159,7 +1071,11 @@ public class first_load_res_country_job implements TalendJob {
 
 				java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
 
-				String dbquery_tDBInput_1 = "select * from res_country";
+				String dbquery_tDBInput_1 = "SELECT \n  \"res_country\".\"id\", \n  \"res_country\".\"name\", \n  \"res_country\".\"code\", \n  \"res_country\".\"addres"
+						+ "s_view_id\", \n  \"res_country\".\"currency_id\", \n  \"res_country\".\"phone_code\", \n  \"res_country\".\"name_position\""
+						+ ", \n  \"res_country\".\"vat_label\", \n  \"res_country\".\"state_required\", \n  \"res_country\".\"zip_required\", \n  \"res"
+						+ "_country\".\"create_uid\", \n  \"res_country\".\"create_date\", \n  \"res_country\".\"write_uid\", \n  \"res_country\".\"wr"
+						+ "ite_date\"\nFROM \"res_country\"";
 
 				globalMap.put("tDBInput_1_QUERY", dbquery_tDBInput_1);
 				java.sql.ResultSet rs_tDBInput_1 = null;
@@ -1196,97 +1112,91 @@ public class first_load_res_country_job implements TalendJob {
 							row1.code = routines.system.JDBCUtil.getString(rs_tDBInput_1, 3, false);
 						}
 						if (colQtyInRs_tDBInput_1 < 4) {
-							row1.address_format = null;
-						} else {
-
-							row1.address_format = routines.system.JDBCUtil.getString(rs_tDBInput_1, 4, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 5) {
 							row1.address_view_id = null;
 						} else {
 
-							row1.address_view_id = rs_tDBInput_1.getInt(5);
+							row1.address_view_id = rs_tDBInput_1.getInt(4);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.address_view_id = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 6) {
+						if (colQtyInRs_tDBInput_1 < 5) {
 							row1.currency_id = null;
 						} else {
 
-							row1.currency_id = rs_tDBInput_1.getInt(6);
+							row1.currency_id = rs_tDBInput_1.getInt(5);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.currency_id = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 7) {
+						if (colQtyInRs_tDBInput_1 < 6) {
 							row1.phone_code = null;
 						} else {
 
-							row1.phone_code = rs_tDBInput_1.getInt(7);
+							row1.phone_code = rs_tDBInput_1.getInt(6);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.phone_code = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 8) {
+						if (colQtyInRs_tDBInput_1 < 7) {
 							row1.name_position = null;
 						} else {
 
-							row1.name_position = routines.system.JDBCUtil.getString(rs_tDBInput_1, 8, false);
+							row1.name_position = routines.system.JDBCUtil.getString(rs_tDBInput_1, 7, false);
 						}
-						if (colQtyInRs_tDBInput_1 < 9) {
+						if (colQtyInRs_tDBInput_1 < 8) {
 							row1.vat_label = null;
 						} else {
 
-							row1.vat_label = routines.system.JDBCUtil.getString(rs_tDBInput_1, 9, false);
+							row1.vat_label = routines.system.JDBCUtil.getString(rs_tDBInput_1, 8, false);
 						}
-						if (colQtyInRs_tDBInput_1 < 10) {
+						if (colQtyInRs_tDBInput_1 < 9) {
 							row1.state_required = null;
 						} else {
 
-							row1.state_required = rs_tDBInput_1.getBoolean(10);
+							row1.state_required = rs_tDBInput_1.getBoolean(9);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.state_required = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 11) {
+						if (colQtyInRs_tDBInput_1 < 10) {
 							row1.zip_required = null;
 						} else {
 
-							row1.zip_required = rs_tDBInput_1.getBoolean(11);
+							row1.zip_required = rs_tDBInput_1.getBoolean(10);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.zip_required = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 12) {
+						if (colQtyInRs_tDBInput_1 < 11) {
 							row1.create_uid = null;
 						} else {
 
-							row1.create_uid = rs_tDBInput_1.getInt(12);
+							row1.create_uid = rs_tDBInput_1.getInt(11);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.create_uid = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 13) {
+						if (colQtyInRs_tDBInput_1 < 12) {
 							row1.create_date = null;
 						} else {
 
-							row1.create_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 13);
+							row1.create_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 12);
 						}
-						if (colQtyInRs_tDBInput_1 < 14) {
+						if (colQtyInRs_tDBInput_1 < 13) {
 							row1.write_uid = null;
 						} else {
 
-							row1.write_uid = rs_tDBInput_1.getInt(14);
+							row1.write_uid = rs_tDBInput_1.getInt(13);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.write_uid = null;
 							}
 						}
-						if (colQtyInRs_tDBInput_1 < 15) {
+						if (colQtyInRs_tDBInput_1 < 14) {
 							row1.write_date = null;
 						} else {
 
-							row1.write_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 15);
+							row1.write_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 14);
 						}
 
 						/**
@@ -1338,10 +1248,6 @@ public class first_load_res_country_job implements TalendJob {
 						sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 						if (row1.code != null) {
 							sb_tFileOutputDelimited_1.append(row1.code);
-						}
-						sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-						if (row1.address_format != null) {
-							sb_tFileOutputDelimited_1.append(row1.address_format);
 						}
 						sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 						if (row1.address_view_id != null) {
@@ -1591,7 +1497,7 @@ public class first_load_res_country_job implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:WAuS2xhyibj6TZ+cUMSCqefnuL8cACKFO5mcap5pw6BX3YoziubBic4pytJWVwnFTYYJZHtf+LDKLIv7EEva7hPwCRs=");
+						"enc:routine.encryption.key.v1:cKGYZd9HD3M7CZ6qHaPR7JOvQc+qpRbOlAbWMKwgVo7pcCBbwhqOFAgm0f+wmEvm4F/lY6acTAOnV18FJG+plBLn/W0=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -2396,6 +2302,6 @@ public class first_load_res_country_job implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 81739 characters generated by Talend Open Studio for Data Integration on the
- * October 26, 2022 at 11:05:23 PM CST
+ * 79176 characters generated by Talend Open Studio for Data Integration on the
+ * December 3, 2022 at 11:46:19 PM CST
  ************************************************************************************************/

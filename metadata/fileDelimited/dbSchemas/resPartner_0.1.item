@@ -5,7 +5,7 @@
     <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_o3liQ1s8Ee2XlMEsqpP_qA" id="_jiwLkFs8Ee2XlMEsqpP_qA" label="metadata">
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liRFs8Ee2XlMEsqpP_qA" label="id" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liRVs8Ee2XlMEsqpP_qA" label="name" length="21" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liRls8Ee2XlMEsqpP_qA" label="company_id" length="1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liRls8Ee2XlMEsqpP_qA" label="company_id" length="-1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liR1s8Ee2XlMEsqpP_qA" label="create_date" length="10" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liSFs8Ee2XlMEsqpP_qA" label="display_name" length="31" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liSVs8Ee2XlMEsqpP_qA" label="date" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
@@ -28,7 +28,7 @@
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liWls8Ee2XlMEsqpP_qA" label="zip" length="5" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liW1s8Ee2XlMEsqpP_qA" label="city" length="13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liXFs8Ee2XlMEsqpP_qA" label="state_id" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liXVs8Ee2XlMEsqpP_qA" label="country_id" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liXVs8Ee2XlMEsqpP_qA" label="country_id" length="-1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liXls8Ee2XlMEsqpP_qA" label="partner_latitude" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liX1s8Ee2XlMEsqpP_qA" label="partner_longitude" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_o3liYFs8Ee2XlMEsqpP_qA" label="email" length="30" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>

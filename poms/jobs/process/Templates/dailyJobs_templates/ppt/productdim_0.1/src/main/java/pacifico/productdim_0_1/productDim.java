@@ -412,6 +412,12 @@ public class productDim implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
 		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
 
+		public Integer product_key;
+
+		public Integer getProduct_key() {
+			return this.product_key;
+		}
+
 		public String product_name;
 
 		public String getProduct_name() {
@@ -458,6 +464,48 @@ public class productDim implements TalendJob {
 
 		public String getProduct_code() {
 			return this.product_code;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -528,6 +576,8 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
+					this.product_key = readInteger(dis);
+
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -561,6 +611,8 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
+					this.product_key = readInteger(dis);
+
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -588,6 +640,10 @@ public class productDim implements TalendJob {
 
 		public void writeData(ObjectOutputStream dos) {
 			try {
+
+				// Integer
+
+				writeInteger(this.product_key, dos);
 
 				// String
 
@@ -629,6 +685,10 @@ public class productDim implements TalendJob {
 
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
+
+				// Integer
+
+				writeInteger(this.product_key, dos);
 
 				// String
 
@@ -673,7 +733,8 @@ public class productDim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("product_name=" + product_name);
+			sb.append("product_key=" + String.valueOf(product_key));
+			sb.append(",product_name=" + product_name);
 			sb.append(",product_description=" + product_description);
 			sb.append(",category=" + category);
 			sb.append(",category_description=" + category_description);
@@ -723,6 +784,12 @@ public class productDim implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
 		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
 
+		public Integer product_key;
+
+		public Integer getProduct_key() {
+			return this.product_key;
+		}
+
 		public String product_name;
 
 		public String getProduct_name() {
@@ -769,6 +836,48 @@ public class productDim implements TalendJob {
 
 		public String getProduct_code() {
 			return this.product_code;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -839,6 +948,8 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
+					this.product_key = readInteger(dis);
+
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -872,6 +983,8 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
+					this.product_key = readInteger(dis);
+
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -899,6 +1012,10 @@ public class productDim implements TalendJob {
 
 		public void writeData(ObjectOutputStream dos) {
 			try {
+
+				// Integer
+
+				writeInteger(this.product_key, dos);
 
 				// String
 
@@ -940,6 +1057,10 @@ public class productDim implements TalendJob {
 
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
+
+				// Integer
+
+				writeInteger(this.product_key, dos);
 
 				// String
 
@@ -984,7 +1105,8 @@ public class productDim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("product_name=" + product_name);
+			sb.append("product_key=" + String.valueOf(product_key));
+			sb.append(",product_name=" + product_name);
 			sb.append(",product_description=" + product_description);
 			sb.append(",category=" + category);
 			sb.append(",category_description=" + category_description);
@@ -2239,6 +2361,8 @@ public class productDim implements TalendJob {
 				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
 						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
 				if (filetFileOutputDelimited_1.length() == 0) {
+					outtFileOutputDelimited_1.write("product_key");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_name");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_description");
@@ -2294,11 +2418,11 @@ public class productDim implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[8];
+					int[] colLengths = new int[9];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 8; i++) {
+						for (int i = 0; i < 9; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -2325,11 +2449,11 @@ public class productDim implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 7 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 8 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 7 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 8 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -2373,6 +2497,10 @@ public class productDim implements TalendJob {
 
 							sbformat.append("|%8$-");
 							sbformat.append(colLengths[7]);
+							sbformat.append("s");
+
+							sbformat.append("|%9$-");
+							sbformat.append(colLengths[8]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -2422,9 +2550,13 @@ public class productDim implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[7] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[8] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -2440,7 +2572,7 @@ public class productDim implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "product_name", "product_description", "category",
+				util_tLogRow_1.addRow(new String[] { "product_key", "product_name", "product_description", "category",
 						"category_description", "weight", "volume", "barcode", "product_code", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
@@ -2948,6 +3080,7 @@ public class productDim implements TalendJob {
 								if (!rejectedInnerJoin_tMap_1) {
 
 // # Output table : 'DimProduct'
+									DimProduct_tmp.product_key = Numeric.sequence("DimProductSeq", 1, 1);
 									DimProduct_tmp.product_name = productTemplate.name;
 									DimProduct_tmp.product_description = productTemplate.description_sale;
 									DimProduct_tmp.category = productCategory.name;
@@ -2998,45 +3131,50 @@ public class productDim implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[8];
+								String[] row_tLogRow_1 = new String[9];
+
+								if (DimProduct.product_key != null) { //
+									row_tLogRow_1[0] = String.valueOf(DimProduct.product_key);
+
+								} //
 
 								if (DimProduct.product_name != null) { //
-									row_tLogRow_1[0] = String.valueOf(DimProduct.product_name);
+									row_tLogRow_1[1] = String.valueOf(DimProduct.product_name);
 
 								} //
 
 								if (DimProduct.product_description != null) { //
-									row_tLogRow_1[1] = String.valueOf(DimProduct.product_description);
+									row_tLogRow_1[2] = String.valueOf(DimProduct.product_description);
 
 								} //
 
 								if (DimProduct.category != null) { //
-									row_tLogRow_1[2] = String.valueOf(DimProduct.category);
+									row_tLogRow_1[3] = String.valueOf(DimProduct.category);
 
 								} //
 
 								if (DimProduct.category_description != null) { //
-									row_tLogRow_1[3] = String.valueOf(DimProduct.category_description);
+									row_tLogRow_1[4] = String.valueOf(DimProduct.category_description);
 
 								} //
 
 								if (DimProduct.weight != null) { //
-									row_tLogRow_1[4] = String.valueOf(DimProduct.weight);
+									row_tLogRow_1[5] = String.valueOf(DimProduct.weight);
 
 								} //
 
 								if (DimProduct.volume != null) { //
-									row_tLogRow_1[5] = String.valueOf(DimProduct.volume);
+									row_tLogRow_1[6] = String.valueOf(DimProduct.volume);
 
 								} //
 
 								if (DimProduct.barcode != null) { //
-									row_tLogRow_1[6] = String.valueOf(DimProduct.barcode);
+									row_tLogRow_1[7] = String.valueOf(DimProduct.barcode);
 
 								} //
 
 								if (DimProduct.product_code != null) { //
-									row_tLogRow_1[7] = String.valueOf(DimProduct.product_code);
+									row_tLogRow_1[8] = String.valueOf(DimProduct.product_code);
 
 								} //
 
@@ -3081,6 +3219,10 @@ public class productDim implements TalendJob {
 								}
 
 								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+								if (row1.product_key != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row1.product_name != null) {
 									sb_tFileOutputDelimited_1.append(row1.product_name);
 								}
@@ -3418,7 +3560,7 @@ public class productDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:MHXkh8u9FCeZUAprRWTmRXjKyxzkab2D0kCyIoDSgbkZp2yaUEtCCYI1l08CCSK+DeUfKPerhz1fErQYc1EqWwBqoI0=");
+						"enc:routine.encryption.key.v1:hLTBWlQ0qCFLCGfU0/dWDbViBBse5PWHm3WxPlt2iBFcxtdtxAMzZKmZ3US6abh2zbL/ZY1CWjMSM+yI3mM4exuHybQ=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -7367,6 +7509,6 @@ public class productDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 230508 characters generated by Talend Open Studio for Data Integration on the
- * November 2, 2022 at 6:51:35 PM CST
+ * 234671 characters generated by Talend Open Studio for Data Integration on the
+ * December 3, 2022 at 11:05:58 PM CST
  ************************************************************************************************/

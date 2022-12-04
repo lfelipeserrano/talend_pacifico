@@ -460,7 +460,7 @@ public class dailyJobStage_resCountry implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:qurQzs3r8575/8Y7bCgAFuqByvzbEY7sA5ezoWjyGBEpUGNFL5kxFbq33nA/jk6t4ExYjup6CXRCrRfF725bEgpUHTI=");
+						"enc:routine.encryption.key.v1:R3itVYL0g3PXW/1t7yFRoTaxdY/AuzVRZtIKovVCNZ1qLCgJfrcvXDP80C97NaM1Bw5F1Yqi54xx62bUrmGdbW5zULo=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -889,9 +889,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String loopKey;
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -905,12 +905,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -1019,7 +1013,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 			other.id = this.id;
 			other.name = this.name;
 			other.code = this.code;
-			other.address_format = this.address_format;
 			other.address_view_id = this.address_view_id;
 			other.currency_id = this.currency_id;
 			other.phone_code = this.phone_code;
@@ -1040,63 +1033,45 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		}
 
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
 			int length = 0;
-			length = dis.readInt();
+			length = dis.readByte();
 			if (length == -1) {
-				strReturn = null;
+				intReturn = null;
 			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_resCountry.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_resCountry.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_resCountry, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_resCountry, 0, length, utf8Charset);
+				intReturn = dis.readInt();
 			}
-			return strReturn;
+			return intReturn;
 		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
 			int length = 0;
-			length = unmarshaller.readInt();
+			length = dis.readByte();
 			if (length == -1) {
-				strReturn = null;
+				intReturn = null;
 			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_resCountry.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_resCountry.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_resCountry, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_resCountry, 0, length, utf8Charset);
+				intReturn = dis.readInt();
 			}
-			return strReturn;
+			return intReturn;
 		}
 
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
 			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
+				dos.writeByte(0);
+				dos.writeInt(intNum);
 			}
 		}
 
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
 			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
 			}
 		}
 
@@ -1158,7 +1133,7 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1177,7 +1152,7 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1191,9 +1166,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeKeysData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1204,9 +1179,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1225,8 +1200,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				this.name = readString(dis, ois);
 
 				this.code = readString(dis, ois);
-
-				this.address_format = readString(dis, ois);
 
 				this.address_view_id = readString(dis, ois);
 
@@ -1264,8 +1237,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				this.name = readString(dis, objectIn);
 
 				this.code = readString(dis, objectIn);
-
-				this.address_format = readString(dis, objectIn);
 
 				this.address_view_id = readString(dis, objectIn);
 
@@ -1306,8 +1277,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 				writeString(this.code, dos, oos);
 
-				writeString(this.address_format, dos, oos);
-
 				writeString(this.address_view_id, dos, oos);
 
 				writeString(this.currency_id, dos, oos);
@@ -1342,8 +1311,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				writeString(this.name, dos, objectOut);
 
 				writeString(this.code, dos, objectOut);
-
-				writeString(this.address_format, dos, objectOut);
 
 				writeString(this.address_view_id, dos, objectOut);
 
@@ -1381,10 +1348,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -1545,9 +1511,30 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							int columnIndexWithD_tFileInputDelimited_2 = 0;
 
+							String temp = "";
+
 							columnIndexWithD_tFileInputDelimited_2 = 0;
 
-							row2.id = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.id = null;
+
+							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 1;
 
@@ -1559,50 +1546,46 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							columnIndexWithD_tFileInputDelimited_2 = 3;
 
-							row2.address_format = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 4;
-
 							row2.address_view_id = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 5;
+							columnIndexWithD_tFileInputDelimited_2 = 4;
 
 							row2.currency_id = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 6;
+							columnIndexWithD_tFileInputDelimited_2 = 5;
 
 							row2.phone_code = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 7;
+							columnIndexWithD_tFileInputDelimited_2 = 6;
 
 							row2.name_position = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 8;
+							columnIndexWithD_tFileInputDelimited_2 = 7;
 
 							row2.vat_label = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 9;
+							columnIndexWithD_tFileInputDelimited_2 = 8;
 
 							row2.state_required = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 10;
+							columnIndexWithD_tFileInputDelimited_2 = 9;
 
 							row2.zip_required = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 11;
+							columnIndexWithD_tFileInputDelimited_2 = 10;
 
 							row2.create_uid = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 12;
+							columnIndexWithD_tFileInputDelimited_2 = 11;
 
 							row2.create_date = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 13;
+							columnIndexWithD_tFileInputDelimited_2 = 12;
 
 							row2.write_uid = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
-							columnIndexWithD_tFileInputDelimited_2 = 14;
+							columnIndexWithD_tFileInputDelimited_2 = 13;
 
 							row2.write_date = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
@@ -1668,8 +1651,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 							row2_HashRow.name = row2.name;
 
 							row2_HashRow.code = row2.code;
-
-							row2_HashRow.address_format = row2.address_format;
 
 							row2_HashRow.address_view_id = row2.address_view_id;
 
@@ -1829,9 +1810,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -1845,12 +1826,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -1917,6 +1892,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -1987,13 +2004,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -2034,13 +2049,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -2076,9 +2089,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -2087,10 +2100,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -2145,9 +2154,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -2156,10 +2165,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -2216,10 +2221,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -2273,9 +2277,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -2289,12 +2293,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -2361,6 +2359,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -2431,13 +2471,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -2478,13 +2516,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -2520,9 +2556,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -2531,10 +2567,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -2589,9 +2621,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -2600,10 +2632,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -2660,10 +2688,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -2717,9 +2744,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -2733,12 +2760,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -2805,6 +2826,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -2875,13 +2938,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -2922,13 +2983,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -2964,9 +3023,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -2975,10 +3034,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -3033,9 +3088,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -3044,10 +3099,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -3104,10 +3155,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -3161,9 +3211,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -3177,12 +3227,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -3249,6 +3293,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -3319,13 +3405,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -3366,13 +3450,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -3408,9 +3490,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -3419,10 +3501,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -3477,9 +3555,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -3488,10 +3566,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -3548,10 +3622,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -3605,9 +3678,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -3621,12 +3694,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -3693,6 +3760,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -3763,13 +3872,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -3810,13 +3917,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -3852,9 +3957,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -3863,10 +3968,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -3921,9 +4022,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -3932,10 +4033,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -3992,10 +4089,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -4049,9 +4145,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -4065,12 +4161,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -4137,6 +4227,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -4207,13 +4339,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -4254,13 +4384,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -4296,9 +4424,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -4307,10 +4435,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -4365,9 +4489,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -4376,10 +4500,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -4436,10 +4556,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -4493,9 +4612,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -4509,12 +4628,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -4581,6 +4694,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -4651,13 +4806,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -4698,13 +4851,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -4740,9 +4891,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -4751,10 +4902,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -4809,9 +4956,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -4820,10 +4967,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -4880,10 +5023,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -4938,9 +5080,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_resCountry = new byte[0];
 		static byte[] commonByteArray_PACIFICO_dailyJobStage_resCountry = new byte[0];
 
-		public String id;
+		public Integer id;
 
-		public String getId() {
+		public Integer getId() {
 			return this.id;
 		}
 
@@ -4954,12 +5096,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getCode() {
 			return this.code;
-		}
-
-		public String address_format;
-
-		public String getAddress_format() {
-			return this.address_format;
 		}
 
 		public String address_view_id;
@@ -5026,6 +5162,48 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 		public String getWrite_date() {
 			return this.write_date;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -5096,13 +5274,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -5143,13 +5319,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					int length = 0;
 
-					this.id = readString(dis);
+					this.id = readInteger(dis);
 
 					this.name = readString(dis);
 
 					this.code = readString(dis);
-
-					this.address_format = readString(dis);
 
 					this.address_view_id = readString(dis);
 
@@ -5185,9 +5359,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -5196,10 +5370,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -5254,9 +5424,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.id, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
@@ -5265,10 +5435,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 				// String
 
 				writeString(this.code, dos);
-
-				// String
-
-				writeString(this.address_format, dos);
 
 				// String
 
@@ -5325,10 +5491,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("id=" + id);
+			sb.append("id=" + String.valueOf(id));
 			sb.append(",name=" + name);
 			sb.append(",code=" + code);
-			sb.append(",address_format=" + address_format);
 			sb.append(",address_view_id=" + address_view_id);
 			sb.append(",currency_id=" + currency_id);
 			sb.append(",phone_code=" + phone_code);
@@ -5499,8 +5664,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("code");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("address_format");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("address_view_id");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("currency_id");
@@ -5562,11 +5725,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[15];
+					int[] colLengths = new int[14];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 15; i++) {
+						for (int i = 0; i < 14; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -5593,11 +5756,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 14 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 13 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 14 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 13 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -5665,10 +5828,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							sbformat.append("|%14$-");
 							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|%15$-");
-							sbformat.append(colLengths[14]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -5742,13 +5901,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[14] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[13] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -5764,9 +5919,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "id", "name", "code", "address_format", "address_view_id",
-						"currency_id", "phone_code", "name_position", "vat_label", "state_required", "zip_required",
-						"create_uid", "create_date", "write_uid", "write_date", });
+				util_tLogRow_1.addRow(new String[] { "id", "name", "code", "address_view_id", "currency_id",
+						"phone_code", "name_position", "vat_label", "state_required", "zip_required", "create_uid",
+						"create_date", "write_uid", "write_date", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -5846,9 +6001,30 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							int columnIndexWithD_tFileInputDelimited_3 = 0;
 
+							String temp = "";
+
 							columnIndexWithD_tFileInputDelimited_3 = 0;
 
-							row5.id = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row5.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row5.id = null;
+
+							}
 
 							columnIndexWithD_tFileInputDelimited_3 = 1;
 
@@ -5860,50 +6036,46 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							columnIndexWithD_tFileInputDelimited_3 = 3;
 
-							row5.address_format = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 4;
-
 							row5.address_view_id = fid_tFileInputDelimited_3
 									.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 5;
+							columnIndexWithD_tFileInputDelimited_3 = 4;
 
 							row5.currency_id = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 6;
+							columnIndexWithD_tFileInputDelimited_3 = 5;
 
 							row5.phone_code = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 7;
+							columnIndexWithD_tFileInputDelimited_3 = 6;
 
 							row5.name_position = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 8;
+							columnIndexWithD_tFileInputDelimited_3 = 7;
 
 							row5.vat_label = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 9;
+							columnIndexWithD_tFileInputDelimited_3 = 8;
 
 							row5.state_required = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 10;
+							columnIndexWithD_tFileInputDelimited_3 = 9;
 
 							row5.zip_required = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 11;
+							columnIndexWithD_tFileInputDelimited_3 = 10;
 
 							row5.create_uid = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 12;
+							columnIndexWithD_tFileInputDelimited_3 = 11;
 
 							row5.create_date = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 13;
+							columnIndexWithD_tFileInputDelimited_3 = 12;
 
 							row5.write_uid = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
-							columnIndexWithD_tFileInputDelimited_3 = 14;
+							columnIndexWithD_tFileInputDelimited_3 = 13;
 
 							row5.write_date = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
 
@@ -5970,7 +6142,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 							row6.id = row5.id;
 							row6.name = row5.name;
 							row6.code = row5.code;
-							row6.address_format = row5.address_format;
 							row6.address_view_id = row5.address_view_id;
 							row6.currency_id = row5.currency_id;
 							row6.phone_code = row5.phone_code;
@@ -6019,7 +6190,7 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 ///////////////////////		
 
-							String[] row_tLogRow_1 = new String[15];
+							String[] row_tLogRow_1 = new String[14];
 
 							if (row6.id != null) { //
 								row_tLogRow_1[0] = String.valueOf(row6.id);
@@ -6036,63 +6207,58 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							} //
 
-							if (row6.address_format != null) { //
-								row_tLogRow_1[3] = String.valueOf(row6.address_format);
-
-							} //
-
 							if (row6.address_view_id != null) { //
-								row_tLogRow_1[4] = String.valueOf(row6.address_view_id);
+								row_tLogRow_1[3] = String.valueOf(row6.address_view_id);
 
 							} //
 
 							if (row6.currency_id != null) { //
-								row_tLogRow_1[5] = String.valueOf(row6.currency_id);
+								row_tLogRow_1[4] = String.valueOf(row6.currency_id);
 
 							} //
 
 							if (row6.phone_code != null) { //
-								row_tLogRow_1[6] = String.valueOf(row6.phone_code);
+								row_tLogRow_1[5] = String.valueOf(row6.phone_code);
 
 							} //
 
 							if (row6.name_position != null) { //
-								row_tLogRow_1[7] = String.valueOf(row6.name_position);
+								row_tLogRow_1[6] = String.valueOf(row6.name_position);
 
 							} //
 
 							if (row6.vat_label != null) { //
-								row_tLogRow_1[8] = String.valueOf(row6.vat_label);
+								row_tLogRow_1[7] = String.valueOf(row6.vat_label);
 
 							} //
 
 							if (row6.state_required != null) { //
-								row_tLogRow_1[9] = String.valueOf(row6.state_required);
+								row_tLogRow_1[8] = String.valueOf(row6.state_required);
 
 							} //
 
 							if (row6.zip_required != null) { //
-								row_tLogRow_1[10] = String.valueOf(row6.zip_required);
+								row_tLogRow_1[9] = String.valueOf(row6.zip_required);
 
 							} //
 
 							if (row6.create_uid != null) { //
-								row_tLogRow_1[11] = String.valueOf(row6.create_uid);
+								row_tLogRow_1[10] = String.valueOf(row6.create_uid);
 
 							} //
 
 							if (row6.create_date != null) { //
-								row_tLogRow_1[12] = String.valueOf(row6.create_date);
+								row_tLogRow_1[11] = String.valueOf(row6.create_date);
 
 							} //
 
 							if (row6.write_uid != null) { //
-								row_tLogRow_1[13] = String.valueOf(row6.write_uid);
+								row_tLogRow_1[12] = String.valueOf(row6.write_uid);
 
 							} //
 
 							if (row6.write_date != null) { //
-								row_tLogRow_1[14] = String.valueOf(row6.write_date);
+								row_tLogRow_1[13] = String.valueOf(row6.write_date);
 
 							} //
 
@@ -6147,10 +6313,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 							if (row7.code != null) {
 								sb_tFileOutputDelimited_1.append(row7.code);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.address_format != null) {
-								sb_tFileOutputDelimited_1.append(row7.address_format);
 							}
 							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 							if (row7.address_view_id != null) {
@@ -6406,11 +6568,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[15];
+					int[] colLengths = new int[14];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 15; i++) {
+						for (int i = 0; i < 14; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -6437,11 +6599,11 @@ public class dailyJobStage_resCountry implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 14 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 13 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 14 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 13 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -6509,10 +6671,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							sbformat.append("|%14$-");
 							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|%15$-");
-							sbformat.append(colLengths[14]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -6586,13 +6744,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[14] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[13] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -6608,9 +6762,9 @@ public class dailyJobStage_resCountry implements TalendJob {
 				}
 				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
 				util_tLogRow_2.setTableName("tLogRow_2");
-				util_tLogRow_2.addRow(new String[] { "id", "name", "code", "address_format", "address_view_id",
-						"currency_id", "phone_code", "name_position", "vat_label", "state_required", "zip_required",
-						"create_uid", "create_date", "write_uid", "write_date", });
+				util_tLogRow_2.addRow(new String[] { "id", "name", "code", "address_view_id", "currency_id",
+						"phone_code", "name_position", "vat_label", "state_required", "zip_required", "create_uid",
+						"create_date", "write_uid", "write_date", });
 				StringBuilder strBuffer_tLogRow_2 = null;
 				int nb_line_tLogRow_2 = 0;
 ///////////////////////    			
@@ -6710,9 +6864,30 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
+							String temp = "";
+
 							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-							row1.id = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.id = null;
+
+							}
 
 							columnIndexWithD_tFileInputDelimited_1 = 1;
 
@@ -6724,50 +6899,46 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 							columnIndexWithD_tFileInputDelimited_1 = 3;
 
-							row1.address_format = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 4;
-
 							row1.address_view_id = fid_tFileInputDelimited_1
 									.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 5;
+							columnIndexWithD_tFileInputDelimited_1 = 4;
 
 							row1.currency_id = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 6;
+							columnIndexWithD_tFileInputDelimited_1 = 5;
 
 							row1.phone_code = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 7;
+							columnIndexWithD_tFileInputDelimited_1 = 6;
 
 							row1.name_position = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 8;
+							columnIndexWithD_tFileInputDelimited_1 = 7;
 
 							row1.vat_label = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 9;
+							columnIndexWithD_tFileInputDelimited_1 = 8;
 
 							row1.state_required = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 10;
+							columnIndexWithD_tFileInputDelimited_1 = 9;
 
 							row1.zip_required = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 11;
+							columnIndexWithD_tFileInputDelimited_1 = 10;
 
 							row1.create_uid = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 12;
+							columnIndexWithD_tFileInputDelimited_1 = 11;
 
 							row1.create_date = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 13;
+							columnIndexWithD_tFileInputDelimited_1 = 12;
 
 							row1.write_uid = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
-							columnIndexWithD_tFileInputDelimited_1 = 14;
+							columnIndexWithD_tFileInputDelimited_1 = 13;
 
 							row1.write_date = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
@@ -6903,7 +7074,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 									out1_tmp.id = row1.id;
 									out1_tmp.name = row1.name;
 									out1_tmp.code = row1.code;
-									out1_tmp.address_format = row1.address_format;
 									out1_tmp.address_view_id = row1.address_view_id;
 									out1_tmp.currency_id = row1.currency_id;
 									out1_tmp.phone_code = row1.phone_code;
@@ -6957,7 +7127,7 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_2 = new String[15];
+								String[] row_tLogRow_2 = new String[14];
 
 								if (out1.id != null) { //
 									row_tLogRow_2[0] = String.valueOf(out1.id);
@@ -6974,63 +7144,58 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 								} //
 
-								if (out1.address_format != null) { //
-									row_tLogRow_2[3] = String.valueOf(out1.address_format);
-
-								} //
-
 								if (out1.address_view_id != null) { //
-									row_tLogRow_2[4] = String.valueOf(out1.address_view_id);
+									row_tLogRow_2[3] = String.valueOf(out1.address_view_id);
 
 								} //
 
 								if (out1.currency_id != null) { //
-									row_tLogRow_2[5] = String.valueOf(out1.currency_id);
+									row_tLogRow_2[4] = String.valueOf(out1.currency_id);
 
 								} //
 
 								if (out1.phone_code != null) { //
-									row_tLogRow_2[6] = String.valueOf(out1.phone_code);
+									row_tLogRow_2[5] = String.valueOf(out1.phone_code);
 
 								} //
 
 								if (out1.name_position != null) { //
-									row_tLogRow_2[7] = String.valueOf(out1.name_position);
+									row_tLogRow_2[6] = String.valueOf(out1.name_position);
 
 								} //
 
 								if (out1.vat_label != null) { //
-									row_tLogRow_2[8] = String.valueOf(out1.vat_label);
+									row_tLogRow_2[7] = String.valueOf(out1.vat_label);
 
 								} //
 
 								if (out1.state_required != null) { //
-									row_tLogRow_2[9] = String.valueOf(out1.state_required);
+									row_tLogRow_2[8] = String.valueOf(out1.state_required);
 
 								} //
 
 								if (out1.zip_required != null) { //
-									row_tLogRow_2[10] = String.valueOf(out1.zip_required);
+									row_tLogRow_2[9] = String.valueOf(out1.zip_required);
 
 								} //
 
 								if (out1.create_uid != null) { //
-									row_tLogRow_2[11] = String.valueOf(out1.create_uid);
+									row_tLogRow_2[10] = String.valueOf(out1.create_uid);
 
 								} //
 
 								if (out1.create_date != null) { //
-									row_tLogRow_2[12] = String.valueOf(out1.create_date);
+									row_tLogRow_2[11] = String.valueOf(out1.create_date);
 
 								} //
 
 								if (out1.write_uid != null) { //
-									row_tLogRow_2[13] = String.valueOf(out1.write_uid);
+									row_tLogRow_2[12] = String.valueOf(out1.write_uid);
 
 								} //
 
 								if (out1.write_date != null) { //
-									row_tLogRow_2[14] = String.valueOf(out1.write_date);
+									row_tLogRow_2[13] = String.valueOf(out1.write_date);
 
 								} //
 
@@ -7085,10 +7250,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
 								if (row3.code != null) {
 									sb_tFileOutputDelimited_2.append(row3.code);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.address_format != null) {
-									sb_tFileOutputDelimited_2.append(row3.address_format);
 								}
 								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
 								if (row3.address_view_id != null) {
@@ -7181,7 +7342,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 								row6.id = row4.id;
 								row6.name = row4.name;
 								row6.code = row4.code;
-								row6.address_format = row4.address_format;
 								row6.address_view_id = row4.address_view_id;
 								row6.currency_id = row4.currency_id;
 								row6.phone_code = row4.phone_code;
@@ -7230,7 +7390,7 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[15];
+								String[] row_tLogRow_1 = new String[14];
 
 								if (row6.id != null) { //
 									row_tLogRow_1[0] = String.valueOf(row6.id);
@@ -7247,63 +7407,58 @@ public class dailyJobStage_resCountry implements TalendJob {
 
 								} //
 
-								if (row6.address_format != null) { //
-									row_tLogRow_1[3] = String.valueOf(row6.address_format);
-
-								} //
-
 								if (row6.address_view_id != null) { //
-									row_tLogRow_1[4] = String.valueOf(row6.address_view_id);
+									row_tLogRow_1[3] = String.valueOf(row6.address_view_id);
 
 								} //
 
 								if (row6.currency_id != null) { //
-									row_tLogRow_1[5] = String.valueOf(row6.currency_id);
+									row_tLogRow_1[4] = String.valueOf(row6.currency_id);
 
 								} //
 
 								if (row6.phone_code != null) { //
-									row_tLogRow_1[6] = String.valueOf(row6.phone_code);
+									row_tLogRow_1[5] = String.valueOf(row6.phone_code);
 
 								} //
 
 								if (row6.name_position != null) { //
-									row_tLogRow_1[7] = String.valueOf(row6.name_position);
+									row_tLogRow_1[6] = String.valueOf(row6.name_position);
 
 								} //
 
 								if (row6.vat_label != null) { //
-									row_tLogRow_1[8] = String.valueOf(row6.vat_label);
+									row_tLogRow_1[7] = String.valueOf(row6.vat_label);
 
 								} //
 
 								if (row6.state_required != null) { //
-									row_tLogRow_1[9] = String.valueOf(row6.state_required);
+									row_tLogRow_1[8] = String.valueOf(row6.state_required);
 
 								} //
 
 								if (row6.zip_required != null) { //
-									row_tLogRow_1[10] = String.valueOf(row6.zip_required);
+									row_tLogRow_1[9] = String.valueOf(row6.zip_required);
 
 								} //
 
 								if (row6.create_uid != null) { //
-									row_tLogRow_1[11] = String.valueOf(row6.create_uid);
+									row_tLogRow_1[10] = String.valueOf(row6.create_uid);
 
 								} //
 
 								if (row6.create_date != null) { //
-									row_tLogRow_1[12] = String.valueOf(row6.create_date);
+									row_tLogRow_1[11] = String.valueOf(row6.create_date);
 
 								} //
 
 								if (row6.write_uid != null) { //
-									row_tLogRow_1[13] = String.valueOf(row6.write_uid);
+									row_tLogRow_1[12] = String.valueOf(row6.write_uid);
 
 								} //
 
 								if (row6.write_date != null) { //
-									row_tLogRow_1[14] = String.valueOf(row6.write_date);
+									row_tLogRow_1[13] = String.valueOf(row6.write_date);
 
 								} //
 
@@ -7358,10 +7513,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row7.code != null) {
 									sb_tFileOutputDelimited_1.append(row7.code);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.address_format != null) {
-									sb_tFileOutputDelimited_1.append(row7.address_format);
 								}
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row7.address_view_id != null) {
@@ -8215,6 +8366,6 @@ public class dailyJobStage_resCountry implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 248556 characters generated by Talend Open Studio for Data Integration on the
- * November 2, 2022 at 11:48:22 PM CST
+ * 250692 characters generated by Talend Open Studio for Data Integration on the
+ * December 3, 2022 at 11:53:19 PM CST
  ************************************************************************************************/
