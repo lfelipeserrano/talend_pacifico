@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_1=>" expression="Numeric.sequence(&quot;productAttributeSeq&quot;, 1, 1)">
+  <variables name="productAttribute.id" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttribute.name" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttribute.outstanding_account_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttribute.receivable_account_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttribute.is_cash_count" value="null" talendType="id_Boolean" nullable="true"/>
+  <variables name="productAttribute.journal_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttribute.split_transactions" value="null" talendType="id_Boolean" nullable="true"/>
+  <variables name="productAttribute.company_id" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttribute.use_payment_terminal" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttribute.active" value="null" talendType="id_Boolean" nullable="true"/>
+  <variables name="productAttribute.create_uid" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttribute.create_date" value="null" talendType="id_Date" nullable="true"/>
+  <variables name="productAttribute.write_uid" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttribute.write_date" value="null" talendType="id_Date" nullable="true"/>
+  <variables name="productAttributeValue.id" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttributeValue.name" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.outstanding_account_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.receivable_account_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.is_cash_count" value="null" talendType="id_Boolean" nullable="true"/>
+  <variables name="productAttributeValue.journal_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.split_transactions" value="null" talendType="id_Boolean" nullable="true"/>
+  <variables name="productAttributeValue.company_id" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttributeValue.use_payment_terminal" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.active" value="null" talendType="id_Boolean" nullable="true"/>
+  <variables name="productAttributeValue.create_uid" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttributeValue.create_date" value="null" talendType="id_Date" nullable="true"/>
+  <variables name="productAttributeValue.write_uid" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttributeValue.write_date" value="null" talendType="id_Date" nullable="true"/>
+  <variables name="productAttribute.sequence" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttribute.create_variant" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttribute.display_type" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.sequence" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.attribute_id" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="productAttributeValue.is_custom" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.html_color" value="null" talendType="id_String" nullable="true"/>
+  <variables name="productAttributeValue.color" value="null" talendType="id_Integer" nullable="true"/>
+</expression:EMFExpression>
