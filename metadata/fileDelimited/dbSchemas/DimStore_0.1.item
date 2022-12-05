@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_YHm7sHRbEe2iCY_i5o0tjA" name="DimStore" dataPackage="_YHm7sXRbEe2iCY_i5o0tjA" Server="Localhost 127.0.0.1" FilePath="C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimStore.csv" Encoding="US-ASCII" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_YHm7sXRbEe2iCY_i5o0tjA" name="default" dataManager="_YHm7sHRbEe2iCY_i5o0tjA">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_YHm7snRbEe2iCY_i5o0tjA" id="_UzSrQHRbEe2iCY_i5o0tjA" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YHm7s3RbEe2iCY_i5o0tjA" label="store_key" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YHm7tHRbEe2iCY_i5o0tjA" label="name" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
