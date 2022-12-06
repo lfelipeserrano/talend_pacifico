@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_1=>" expression="">
+<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_1=>" expression="Numeric.sequence(&quot;SalesFactSeq&quot;, 1, 1)">
   <variables name="DimProduct.product_key" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="DimProduct.attribute_group_key" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="DimProduct.product_name" value="null" talendType="id_String" nullable="true"/>
@@ -77,22 +77,6 @@
   <variables name="PosOrder.write_uid" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="PosOrder.write_date" value="null" talendType="id_Date" nullable="true"/>
   <variables name="PosOrder.crm_team_id" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.DateNum" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.Date" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.YearMonthNum" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.Calendar_Quarter" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.MonthNum" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.MonthName" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.MonthShortName" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.WeekNum" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.DayNumOfYear" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.DayNumOfMonth" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.DayNumOfWeek" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.DayName" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.DayShortName" value="null" talendType="id_String" nullable="true"/>
-  <variables name="DateDim.Quarter" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.YearQuarterNum" value="null" talendType="id_Integer" nullable="true"/>
-  <variables name="DateDim.DayNumOfQuarter" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="DimDate.DateNum" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="DimDate.Date" value="null" talendType="id_Date" nullable="true"/>
   <variables name="DimDate.YearMonthNum" value="null" talendType="id_Integer" nullable="true"/>

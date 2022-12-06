@@ -492,6 +492,12 @@ public class SalesFact implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_SalesFact = new byte[0];
 		static byte[] commonByteArray_PACIFICO_SalesFact = new byte[0];
 
+		public Integer sale_id;
+
+		public Integer getSale_id() {
+			return this.sale_id;
+		}
+
 		public Integer date_key;
 
 		public Integer getDate_key() {
@@ -620,6 +626,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.sale_id = readInteger(dis);
+
 					this.date_key = readInteger(dis);
 
 					this.product_key = readInteger(dis);
@@ -693,6 +701,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.sale_id = readInteger(dis);
+
 					this.date_key = readInteger(dis);
 
 					this.product_key = readInteger(dis);
@@ -760,6 +770,10 @@ public class SalesFact implements TalendJob {
 
 		public void writeData(ObjectOutputStream dos) {
 			try {
+
+				// Integer
+
+				writeInteger(this.sale_id, dos);
 
 				// Integer
 
@@ -854,6 +868,10 @@ public class SalesFact implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.sale_id, dos);
+
+				// Integer
+
 				writeInteger(this.date_key, dos);
 
 				// Integer
@@ -945,7 +963,8 @@ public class SalesFact implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("date_key=" + String.valueOf(date_key));
+			sb.append("sale_id=" + String.valueOf(sale_id));
+			sb.append(",date_key=" + String.valueOf(date_key));
 			sb.append(",product_key=" + String.valueOf(product_key));
 			sb.append(",customer_key=" + String.valueOf(customer_key));
 			sb.append(",store_key=" + String.valueOf(store_key));
@@ -1000,6 +1019,12 @@ public class SalesFact implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_SalesFact = new byte[0];
 		static byte[] commonByteArray_PACIFICO_SalesFact = new byte[0];
 
+		public Integer sale_id;
+
+		public Integer getSale_id() {
+			return this.sale_id;
+		}
+
 		public Integer date_key;
 
 		public Integer getDate_key() {
@@ -1128,6 +1153,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.sale_id = readInteger(dis);
+
 					this.date_key = readInteger(dis);
 
 					this.product_key = readInteger(dis);
@@ -1201,6 +1228,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.sale_id = readInteger(dis);
+
 					this.date_key = readInteger(dis);
 
 					this.product_key = readInteger(dis);
@@ -1268,6 +1297,10 @@ public class SalesFact implements TalendJob {
 
 		public void writeData(ObjectOutputStream dos) {
 			try {
+
+				// Integer
+
+				writeInteger(this.sale_id, dos);
 
 				// Integer
 
@@ -1362,6 +1395,10 @@ public class SalesFact implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.sale_id, dos);
+
+				// Integer
+
 				writeInteger(this.date_key, dos);
 
 				// Integer
@@ -1453,7 +1490,8 @@ public class SalesFact implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("date_key=" + String.valueOf(date_key));
+			sb.append("sale_id=" + String.valueOf(sale_id));
+			sb.append(",date_key=" + String.valueOf(date_key));
 			sb.append(",product_key=" + String.valueOf(product_key));
 			sb.append(",customer_key=" + String.valueOf(customer_key));
 			sb.append(",store_key=" + String.valueOf(store_key));
@@ -2401,6 +2439,8 @@ public class SalesFact implements TalendJob {
 				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
 						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
 				if (filetFileOutputDelimited_1.length() == 0) {
+					outtFileOutputDelimited_1.write("sale_id");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("date_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_key");
@@ -2466,11 +2506,11 @@ public class SalesFact implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[13];
+					int[] colLengths = new int[14];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 13; i++) {
+						for (int i = 0; i < 14; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -2497,11 +2537,11 @@ public class SalesFact implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 12 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 13 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 12 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 13 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -2565,6 +2605,10 @@ public class SalesFact implements TalendJob {
 
 							sbformat.append("|%13$-");
 							sbformat.append(colLengths[12]);
+							sbformat.append("s");
+
+							sbformat.append("|%14$-");
+							sbformat.append(colLengths[13]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -2634,9 +2678,13 @@ public class SalesFact implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[12] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[13] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -2652,7 +2700,7 @@ public class SalesFact implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "date_key", "product_key", "customer_key", "store_key",
+				util_tLogRow_1.addRow(new String[] { "sale_id", "date_key", "product_key", "customer_key", "store_key",
 						"payment_method_key", "pos_transaction", "sales_quantity", "regular_unit_price",
 						"discount_unit_price", "net_unit_price", "extended_discount_dollar_amount",
 						"extended_sales_dollar_amount", "extended_gross_profit_dollar_amount", });
@@ -3261,6 +3309,7 @@ public class SalesFact implements TalendJob {
 												if (!rejectedInnerJoin_tMap_1) {
 
 // # Output table : 'SalesFact'
+													SalesFact_tmp.sale_id = Numeric.sequence("SalesFactSeq", 1, 1);
 													SalesFact_tmp.date_key = DimDate.DateNum;
 													SalesFact_tmp.product_key = DimProduct.product_key;
 													SalesFact_tmp.customer_key = DimCustomer.customer_key;
@@ -3329,75 +3378,80 @@ public class SalesFact implements TalendJob {
 
 ///////////////////////		
 
-												String[] row_tLogRow_1 = new String[13];
+												String[] row_tLogRow_1 = new String[14];
+
+												if (SalesFact.sale_id != null) { //
+													row_tLogRow_1[0] = String.valueOf(SalesFact.sale_id);
+
+												} //
 
 												if (SalesFact.date_key != null) { //
-													row_tLogRow_1[0] = String.valueOf(SalesFact.date_key);
+													row_tLogRow_1[1] = String.valueOf(SalesFact.date_key);
 
 												} //
 
 												if (SalesFact.product_key != null) { //
-													row_tLogRow_1[1] = String.valueOf(SalesFact.product_key);
+													row_tLogRow_1[2] = String.valueOf(SalesFact.product_key);
 
 												} //
 
 												if (SalesFact.customer_key != null) { //
-													row_tLogRow_1[2] = String.valueOf(SalesFact.customer_key);
+													row_tLogRow_1[3] = String.valueOf(SalesFact.customer_key);
 
 												} //
 
 												if (SalesFact.store_key != null) { //
-													row_tLogRow_1[3] = String.valueOf(SalesFact.store_key);
+													row_tLogRow_1[4] = String.valueOf(SalesFact.store_key);
 
 												} //
 
 												if (SalesFact.payment_method_key != null) { //
-													row_tLogRow_1[4] = String.valueOf(SalesFact.payment_method_key);
+													row_tLogRow_1[5] = String.valueOf(SalesFact.payment_method_key);
 
 												} //
 
 												if (SalesFact.pos_transaction != null) { //
-													row_tLogRow_1[5] = String.valueOf(SalesFact.pos_transaction);
+													row_tLogRow_1[6] = String.valueOf(SalesFact.pos_transaction);
 
 												} //
 
 												if (SalesFact.sales_quantity != null) { //
-													row_tLogRow_1[6] = String.valueOf(SalesFact.sales_quantity);
+													row_tLogRow_1[7] = String.valueOf(SalesFact.sales_quantity);
 
 												} //
 
 												if (SalesFact.regular_unit_price != null) { //
-													row_tLogRow_1[7] = FormatterUtils
+													row_tLogRow_1[8] = FormatterUtils
 															.formatUnwithE(SalesFact.regular_unit_price);
 
 												} //
 
 												if (SalesFact.discount_unit_price != null) { //
-													row_tLogRow_1[8] = FormatterUtils
+													row_tLogRow_1[9] = FormatterUtils
 															.formatUnwithE(SalesFact.discount_unit_price);
 
 												} //
 
 												if (SalesFact.net_unit_price != null) { //
-													row_tLogRow_1[9] = FormatterUtils
+													row_tLogRow_1[10] = FormatterUtils
 															.formatUnwithE(SalesFact.net_unit_price);
 
 												} //
 
 												if (SalesFact.extended_discount_dollar_amount != null) { //
-													row_tLogRow_1[10] = FormatterUtils
+													row_tLogRow_1[11] = FormatterUtils
 															.formatUnwithE(SalesFact.extended_discount_dollar_amount);
 
 												} //
 
 												if (SalesFact.extended_sales_dollar_amount != null) { //
-													row_tLogRow_1[11] = FormatterUtils
+													row_tLogRow_1[12] = FormatterUtils
 															.formatUnwithE(SalesFact.extended_sales_dollar_amount);
 
 												} //
 
 												if (SalesFact.extended_gross_profit_dollar_amount != null) { //
-													row_tLogRow_1[12] = FormatterUtils.formatUnwithE(
+													row_tLogRow_1[13] = FormatterUtils.formatUnwithE(
 															SalesFact.extended_gross_profit_dollar_amount);
 
 												} //
@@ -3443,6 +3497,10 @@ public class SalesFact implements TalendJob {
 												}
 
 												StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+												if (row1.sale_id != null) {
+													sb_tFileOutputDelimited_1.append(row1.sale_id);
+												}
+												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 												if (row1.date_key != null) {
 													sb_tFileOutputDelimited_1.append(row1.date_key);
 												}
@@ -3844,7 +3902,7 @@ public class SalesFact implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:RIgbGAQrzSKL2e3UwJy9+IbP9Ae0jgw3REBgAZDh8bAZ8SUIj3Z/XTDb1GBKvoMJkwVEEVdeIul1WV2V7Rws24hwX+w=");
+						"enc:routine.encryption.key.v1:MqVsWFPoeQhAPONK78wdDBLBC8LI59BZ5PQ3xeh/zvKy4H/YrvFbulUQGOiZr4O3e7NhHjFOD+14L/Yq0SSjPSSJELc=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -11149,6 +11207,6 @@ public class SalesFact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 346819 characters generated by Talend Open Studio for Data Integration on the
- * December 5, 2022 at 11:23:30 PM CST
+ * 348796 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 1:25:39 AM CST
  ************************************************************************************************/
