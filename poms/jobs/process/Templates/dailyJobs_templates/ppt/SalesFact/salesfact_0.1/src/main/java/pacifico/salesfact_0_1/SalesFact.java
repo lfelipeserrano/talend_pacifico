@@ -394,6 +394,16 @@ public class SalesFact implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_7_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tAdvancedHash_DimCustomer_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -444,6 +454,16 @@ public class SalesFact implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tAdvancedHash_DimDate_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -471,6 +491,12 @@ public class SalesFact implements TalendJob {
 	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
 		final static byte[] commonByteArrayLock_PACIFICO_SalesFact = new byte[0];
 		static byte[] commonByteArray_PACIFICO_SalesFact = new byte[0];
+
+		public Integer date_key;
+
+		public Integer getDate_key() {
+			return this.date_key;
+		}
 
 		public Integer product_key;
 
@@ -508,39 +534,39 @@ public class SalesFact implements TalendJob {
 			return this.sales_quantity;
 		}
 
-		public Integer regular_unit_price;
+		public Float regular_unit_price;
 
-		public Integer getRegular_unit_price() {
+		public Float getRegular_unit_price() {
 			return this.regular_unit_price;
 		}
 
-		public Integer discount_unit_price;
+		public Float discount_unit_price;
 
-		public Integer getDiscount_unit_price() {
+		public Float getDiscount_unit_price() {
 			return this.discount_unit_price;
 		}
 
-		public Integer net_unit_price;
+		public Float net_unit_price;
 
-		public Integer getNet_unit_price() {
+		public Float getNet_unit_price() {
 			return this.net_unit_price;
 		}
 
-		public Integer extended_discount_dollar_amount;
+		public Float extended_discount_dollar_amount;
 
-		public Integer getExtended_discount_dollar_amount() {
+		public Float getExtended_discount_dollar_amount() {
 			return this.extended_discount_dollar_amount;
 		}
 
-		public Integer extended_sales_dollar_amount;
+		public Float extended_sales_dollar_amount;
 
-		public Integer getExtended_sales_dollar_amount() {
+		public Float getExtended_sales_dollar_amount() {
 			return this.extended_sales_dollar_amount;
 		}
 
-		public Integer extended_gross_profit_dollar_amount;
+		public Float extended_gross_profit_dollar_amount;
 
-		public Integer getExtended_gross_profit_dollar_amount() {
+		public Float getExtended_gross_profit_dollar_amount() {
 			return this.extended_gross_profit_dollar_amount;
 		}
 
@@ -594,6 +620,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.date_key = readInteger(dis);
+
 					this.product_key = readInteger(dis);
 
 					this.customer_key = readInteger(dis);
@@ -606,17 +634,47 @@ public class SalesFact implements TalendJob {
 
 					this.sales_quantity = readInteger(dis);
 
-					this.regular_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.regular_unit_price = null;
+					} else {
+						this.regular_unit_price = dis.readFloat();
+					}
 
-					this.discount_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount_unit_price = null;
+					} else {
+						this.discount_unit_price = dis.readFloat();
+					}
 
-					this.net_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.net_unit_price = null;
+					} else {
+						this.net_unit_price = dis.readFloat();
+					}
 
-					this.extended_discount_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_discount_dollar_amount = null;
+					} else {
+						this.extended_discount_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_sales_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_sales_dollar_amount = null;
+					} else {
+						this.extended_sales_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_gross_profit_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_gross_profit_dollar_amount = null;
+					} else {
+						this.extended_gross_profit_dollar_amount = dis.readFloat();
+					}
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -635,6 +693,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.date_key = readInteger(dis);
+
 					this.product_key = readInteger(dis);
 
 					this.customer_key = readInteger(dis);
@@ -647,17 +707,47 @@ public class SalesFact implements TalendJob {
 
 					this.sales_quantity = readInteger(dis);
 
-					this.regular_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.regular_unit_price = null;
+					} else {
+						this.regular_unit_price = dis.readFloat();
+					}
 
-					this.discount_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount_unit_price = null;
+					} else {
+						this.discount_unit_price = dis.readFloat();
+					}
 
-					this.net_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.net_unit_price = null;
+					} else {
+						this.net_unit_price = dis.readFloat();
+					}
 
-					this.extended_discount_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_discount_dollar_amount = null;
+					} else {
+						this.extended_discount_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_sales_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_sales_dollar_amount = null;
+					} else {
+						this.extended_sales_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_gross_profit_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_gross_profit_dollar_amount = null;
+					} else {
+						this.extended_gross_profit_dollar_amount = dis.readFloat();
+					}
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -673,6 +763,10 @@ public class SalesFact implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.date_key, dos);
+
+				// Integer
+
 				writeInteger(this.product_key, dos);
 
 				// Integer
@@ -695,29 +789,59 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.sales_quantity, dos);
 
-				// Integer
+				// Float
 
-				writeInteger(this.regular_unit_price, dos);
+				if (this.regular_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.regular_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.discount_unit_price, dos);
+				if (this.discount_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.net_unit_price, dos);
+				if (this.net_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.net_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_discount_dollar_amount, dos);
+				if (this.extended_discount_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_discount_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_sales_dollar_amount, dos);
+				if (this.extended_sales_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_sales_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_gross_profit_dollar_amount, dos);
+				if (this.extended_gross_profit_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_gross_profit_dollar_amount);
+				}
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -730,6 +854,10 @@ public class SalesFact implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.date_key, dos);
+
+				// Integer
+
 				writeInteger(this.product_key, dos);
 
 				// Integer
@@ -752,29 +880,59 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.sales_quantity, dos);
 
-				// Integer
+				// Float
 
-				writeInteger(this.regular_unit_price, dos);
+				if (this.regular_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.regular_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.discount_unit_price, dos);
+				if (this.discount_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.net_unit_price, dos);
+				if (this.net_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.net_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_discount_dollar_amount, dos);
+				if (this.extended_discount_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_discount_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_sales_dollar_amount, dos);
+				if (this.extended_sales_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_sales_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_gross_profit_dollar_amount, dos);
+				if (this.extended_gross_profit_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_gross_profit_dollar_amount);
+				}
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -787,7 +945,8 @@ public class SalesFact implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
+			sb.append("date_key=" + String.valueOf(date_key));
+			sb.append(",product_key=" + String.valueOf(product_key));
 			sb.append(",customer_key=" + String.valueOf(customer_key));
 			sb.append(",store_key=" + String.valueOf(store_key));
 			sb.append(",payment_method_key=" + String.valueOf(payment_method_key));
@@ -841,6 +1000,12 @@ public class SalesFact implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_SalesFact = new byte[0];
 		static byte[] commonByteArray_PACIFICO_SalesFact = new byte[0];
 
+		public Integer date_key;
+
+		public Integer getDate_key() {
+			return this.date_key;
+		}
+
 		public Integer product_key;
 
 		public Integer getProduct_key() {
@@ -877,39 +1042,39 @@ public class SalesFact implements TalendJob {
 			return this.sales_quantity;
 		}
 
-		public Integer regular_unit_price;
+		public Float regular_unit_price;
 
-		public Integer getRegular_unit_price() {
+		public Float getRegular_unit_price() {
 			return this.regular_unit_price;
 		}
 
-		public Integer discount_unit_price;
+		public Float discount_unit_price;
 
-		public Integer getDiscount_unit_price() {
+		public Float getDiscount_unit_price() {
 			return this.discount_unit_price;
 		}
 
-		public Integer net_unit_price;
+		public Float net_unit_price;
 
-		public Integer getNet_unit_price() {
+		public Float getNet_unit_price() {
 			return this.net_unit_price;
 		}
 
-		public Integer extended_discount_dollar_amount;
+		public Float extended_discount_dollar_amount;
 
-		public Integer getExtended_discount_dollar_amount() {
+		public Float getExtended_discount_dollar_amount() {
 			return this.extended_discount_dollar_amount;
 		}
 
-		public Integer extended_sales_dollar_amount;
+		public Float extended_sales_dollar_amount;
 
-		public Integer getExtended_sales_dollar_amount() {
+		public Float getExtended_sales_dollar_amount() {
 			return this.extended_sales_dollar_amount;
 		}
 
-		public Integer extended_gross_profit_dollar_amount;
+		public Float extended_gross_profit_dollar_amount;
 
-		public Integer getExtended_gross_profit_dollar_amount() {
+		public Float getExtended_gross_profit_dollar_amount() {
 			return this.extended_gross_profit_dollar_amount;
 		}
 
@@ -963,6 +1128,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.date_key = readInteger(dis);
+
 					this.product_key = readInteger(dis);
 
 					this.customer_key = readInteger(dis);
@@ -975,17 +1142,47 @@ public class SalesFact implements TalendJob {
 
 					this.sales_quantity = readInteger(dis);
 
-					this.regular_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.regular_unit_price = null;
+					} else {
+						this.regular_unit_price = dis.readFloat();
+					}
 
-					this.discount_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount_unit_price = null;
+					} else {
+						this.discount_unit_price = dis.readFloat();
+					}
 
-					this.net_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.net_unit_price = null;
+					} else {
+						this.net_unit_price = dis.readFloat();
+					}
 
-					this.extended_discount_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_discount_dollar_amount = null;
+					} else {
+						this.extended_discount_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_sales_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_sales_dollar_amount = null;
+					} else {
+						this.extended_sales_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_gross_profit_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_gross_profit_dollar_amount = null;
+					} else {
+						this.extended_gross_profit_dollar_amount = dis.readFloat();
+					}
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1004,6 +1201,8 @@ public class SalesFact implements TalendJob {
 
 					int length = 0;
 
+					this.date_key = readInteger(dis);
+
 					this.product_key = readInteger(dis);
 
 					this.customer_key = readInteger(dis);
@@ -1016,17 +1215,47 @@ public class SalesFact implements TalendJob {
 
 					this.sales_quantity = readInteger(dis);
 
-					this.regular_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.regular_unit_price = null;
+					} else {
+						this.regular_unit_price = dis.readFloat();
+					}
 
-					this.discount_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount_unit_price = null;
+					} else {
+						this.discount_unit_price = dis.readFloat();
+					}
 
-					this.net_unit_price = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.net_unit_price = null;
+					} else {
+						this.net_unit_price = dis.readFloat();
+					}
 
-					this.extended_discount_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_discount_dollar_amount = null;
+					} else {
+						this.extended_discount_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_sales_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_sales_dollar_amount = null;
+					} else {
+						this.extended_sales_dollar_amount = dis.readFloat();
+					}
 
-					this.extended_gross_profit_dollar_amount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.extended_gross_profit_dollar_amount = null;
+					} else {
+						this.extended_gross_profit_dollar_amount = dis.readFloat();
+					}
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1042,6 +1271,10 @@ public class SalesFact implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.date_key, dos);
+
+				// Integer
+
 				writeInteger(this.product_key, dos);
 
 				// Integer
@@ -1064,29 +1297,59 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.sales_quantity, dos);
 
-				// Integer
+				// Float
 
-				writeInteger(this.regular_unit_price, dos);
+				if (this.regular_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.regular_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.discount_unit_price, dos);
+				if (this.discount_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.net_unit_price, dos);
+				if (this.net_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.net_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_discount_dollar_amount, dos);
+				if (this.extended_discount_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_discount_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_sales_dollar_amount, dos);
+				if (this.extended_sales_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_sales_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_gross_profit_dollar_amount, dos);
+				if (this.extended_gross_profit_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_gross_profit_dollar_amount);
+				}
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1099,6 +1362,10 @@ public class SalesFact implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.date_key, dos);
+
+				// Integer
+
 				writeInteger(this.product_key, dos);
 
 				// Integer
@@ -1121,29 +1388,59 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.sales_quantity, dos);
 
-				// Integer
+				// Float
 
-				writeInteger(this.regular_unit_price, dos);
+				if (this.regular_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.regular_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.discount_unit_price, dos);
+				if (this.discount_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.net_unit_price, dos);
+				if (this.net_unit_price == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.net_unit_price);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_discount_dollar_amount, dos);
+				if (this.extended_discount_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_discount_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_sales_dollar_amount, dos);
+				if (this.extended_sales_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_sales_dollar_amount);
+				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.extended_gross_profit_dollar_amount, dos);
+				if (this.extended_gross_profit_dollar_amount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.extended_gross_profit_dollar_amount);
+				}
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1156,7 +1453,8 @@ public class SalesFact implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
+			sb.append("date_key=" + String.valueOf(date_key));
+			sb.append(",product_key=" + String.valueOf(product_key));
 			sb.append(",customer_key=" + String.valueOf(customer_key));
 			sb.append(",store_key=" + String.valueOf(store_key));
 			sb.append(",payment_method_key=" + String.valueOf(payment_method_key));
@@ -2014,6 +2312,7 @@ public class SalesFact implements TalendJob {
 				tFileInputDelimited_4Process(globalMap);
 				tFileInputDelimited_5Process(globalMap);
 				tFileInputDelimited_6Process(globalMap);
+				tFileInputDelimited_7Process(globalMap);
 
 				DimProductStruct DimProduct = new DimProductStruct();
 				SalesFactStruct SalesFact = new SalesFactStruct();
@@ -2102,6 +2401,8 @@ public class SalesFact implements TalendJob {
 				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
 						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
 				if (filetFileOutputDelimited_1.length() == 0) {
+					outtFileOutputDelimited_1.write("date_key");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("customer_key");
@@ -2165,11 +2466,11 @@ public class SalesFact implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[12];
+					int[] colLengths = new int[13];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 12; i++) {
+						for (int i = 0; i < 13; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -2196,11 +2497,11 @@ public class SalesFact implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 11 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 12 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 11 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 12 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -2260,6 +2561,10 @@ public class SalesFact implements TalendJob {
 
 							sbformat.append("|%12$-");
 							sbformat.append(colLengths[11]);
+							sbformat.append("s");
+
+							sbformat.append("|%13$-");
+							sbformat.append(colLengths[12]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -2325,9 +2630,13 @@ public class SalesFact implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[11] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[12] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -2343,10 +2652,10 @@ public class SalesFact implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "product_key", "customer_key", "store_key", "payment_method_key",
-						"pos_transaction", "sales_quantity", "regular_unit_price", "discount_unit_price",
-						"net_unit_price", "extended_discount_dollar_amount", "extended_sales_dollar_amount",
-						"extended_gross_profit_dollar_amount", });
+				util_tLogRow_1.addRow(new String[] { "date_key", "product_key", "customer_key", "store_key",
+						"payment_method_key", "pos_transaction", "sales_quantity", "regular_unit_price",
+						"discount_unit_price", "net_unit_price", "extended_discount_dollar_amount",
+						"extended_sales_dollar_amount", "extended_gross_profit_dollar_amount", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -2410,6 +2719,12 @@ public class SalesFact implements TalendJob {
 
 				PosOrderStruct PosOrderHashKey = new PosOrderStruct();
 				PosOrderStruct PosOrderDefault = new PosOrderStruct();
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<DimDateStruct> tHash_Lookup_DimDate = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<DimDateStruct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<DimDateStruct>) globalMap
+						.get("tHash_Lookup_DimDate"));
+
+				DimDateStruct DimDateHashKey = new DimDateStruct();
+				DimDateStruct DimDateDefault = new DimDateStruct();
 // ###############################        
 
 // ###############################
@@ -2880,6 +3195,57 @@ public class SalesFact implements TalendJob {
 												PosOrder = fromLookup_PosOrder;
 											}
 
+											///////////////////////////////////////////////
+											// Starting Lookup Table "DimDate"
+											///////////////////////////////////////////////
+
+											boolean forceLoopDimDate = false;
+
+											DimDateStruct DimDateObjectFromLookup = null;
+
+											if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+
+												hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+												DimDateHashKey.Date = PosOrderLine.create_date == null ? null
+														: new java.util.Date(PosOrderLine.create_date.getTime());
+
+												DimDateHashKey.hashCodeDirty = true;
+
+												tHash_Lookup_DimDate.lookup(DimDateHashKey);
+
+												if (!tHash_Lookup_DimDate.hasNext()) { // G_TM_M_090
+
+													rejectedInnerJoin_tMap_1 = true;
+
+												} // G_TM_M_090
+
+											} // G_TM_M_020
+
+											if (tHash_Lookup_DimDate != null
+													&& tHash_Lookup_DimDate.getCount(DimDateHashKey) > 1) { // G 071
+
+												// System.out.println("WARNING: UNIQUE MATCH is configured for the
+												// lookup 'DimDate' and it contains more one result from keys :
+												// DimDate.Date = '" + DimDateHashKey.Date + "'");
+											} // G 071
+
+											DimDateStruct DimDate = null;
+
+											DimDateStruct fromLookup_DimDate = null;
+											DimDate = DimDateDefault;
+
+											if (tHash_Lookup_DimDate != null && tHash_Lookup_DimDate.hasNext()) { // G
+																													// 099
+
+												fromLookup_DimDate = tHash_Lookup_DimDate.next();
+
+											} // G 099
+
+											if (fromLookup_DimDate != null) {
+												DimDate = fromLookup_DimDate;
+											}
+
 											// ###############################
 											{ // start of Var scope
 
@@ -2895,6 +3261,7 @@ public class SalesFact implements TalendJob {
 												if (!rejectedInnerJoin_tMap_1) {
 
 // # Output table : 'SalesFact'
+													SalesFact_tmp.date_key = DimDate.DateNum;
 													SalesFact_tmp.product_key = DimProduct.product_key;
 													SalesFact_tmp.customer_key = DimCustomer.customer_key;
 													SalesFact_tmp.store_key = DimStore.store_key;
@@ -2962,68 +3329,76 @@ public class SalesFact implements TalendJob {
 
 ///////////////////////		
 
-												String[] row_tLogRow_1 = new String[12];
+												String[] row_tLogRow_1 = new String[13];
+
+												if (SalesFact.date_key != null) { //
+													row_tLogRow_1[0] = String.valueOf(SalesFact.date_key);
+
+												} //
 
 												if (SalesFact.product_key != null) { //
-													row_tLogRow_1[0] = String.valueOf(SalesFact.product_key);
+													row_tLogRow_1[1] = String.valueOf(SalesFact.product_key);
 
 												} //
 
 												if (SalesFact.customer_key != null) { //
-													row_tLogRow_1[1] = String.valueOf(SalesFact.customer_key);
+													row_tLogRow_1[2] = String.valueOf(SalesFact.customer_key);
 
 												} //
 
 												if (SalesFact.store_key != null) { //
-													row_tLogRow_1[2] = String.valueOf(SalesFact.store_key);
+													row_tLogRow_1[3] = String.valueOf(SalesFact.store_key);
 
 												} //
 
 												if (SalesFact.payment_method_key != null) { //
-													row_tLogRow_1[3] = String.valueOf(SalesFact.payment_method_key);
+													row_tLogRow_1[4] = String.valueOf(SalesFact.payment_method_key);
 
 												} //
 
 												if (SalesFact.pos_transaction != null) { //
-													row_tLogRow_1[4] = String.valueOf(SalesFact.pos_transaction);
+													row_tLogRow_1[5] = String.valueOf(SalesFact.pos_transaction);
 
 												} //
 
 												if (SalesFact.sales_quantity != null) { //
-													row_tLogRow_1[5] = String.valueOf(SalesFact.sales_quantity);
+													row_tLogRow_1[6] = String.valueOf(SalesFact.sales_quantity);
 
 												} //
 
 												if (SalesFact.regular_unit_price != null) { //
-													row_tLogRow_1[6] = String.valueOf(SalesFact.regular_unit_price);
+													row_tLogRow_1[7] = FormatterUtils
+															.formatUnwithE(SalesFact.regular_unit_price);
 
 												} //
 
 												if (SalesFact.discount_unit_price != null) { //
-													row_tLogRow_1[7] = String.valueOf(SalesFact.discount_unit_price);
+													row_tLogRow_1[8] = FormatterUtils
+															.formatUnwithE(SalesFact.discount_unit_price);
 
 												} //
 
 												if (SalesFact.net_unit_price != null) { //
-													row_tLogRow_1[8] = String.valueOf(SalesFact.net_unit_price);
+													row_tLogRow_1[9] = FormatterUtils
+															.formatUnwithE(SalesFact.net_unit_price);
 
 												} //
 
 												if (SalesFact.extended_discount_dollar_amount != null) { //
-													row_tLogRow_1[9] = String
-															.valueOf(SalesFact.extended_discount_dollar_amount);
+													row_tLogRow_1[10] = FormatterUtils
+															.formatUnwithE(SalesFact.extended_discount_dollar_amount);
 
 												} //
 
 												if (SalesFact.extended_sales_dollar_amount != null) { //
-													row_tLogRow_1[10] = String
-															.valueOf(SalesFact.extended_sales_dollar_amount);
+													row_tLogRow_1[11] = FormatterUtils
+															.formatUnwithE(SalesFact.extended_sales_dollar_amount);
 
 												} //
 
 												if (SalesFact.extended_gross_profit_dollar_amount != null) { //
-													row_tLogRow_1[11] = String
-															.valueOf(SalesFact.extended_gross_profit_dollar_amount);
+													row_tLogRow_1[12] = FormatterUtils.formatUnwithE(
+															SalesFact.extended_gross_profit_dollar_amount);
 
 												} //
 
@@ -3068,6 +3443,10 @@ public class SalesFact implements TalendJob {
 												}
 
 												StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+												if (row1.date_key != null) {
+													sb_tFileOutputDelimited_1.append(row1.date_key);
+												}
+												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 												if (row1.product_key != null) {
 													sb_tFileOutputDelimited_1.append(row1.product_key);
 												}
@@ -3253,6 +3632,11 @@ public class SalesFact implements TalendJob {
 				}
 				globalMap.remove("tHash_Lookup_PosOrder");
 
+				if (tHash_Lookup_DimDate != null) {
+					tHash_Lookup_DimDate.endGet();
+				}
+				globalMap.remove("tHash_Lookup_DimDate");
+
 // ###############################      
 
 				if (execStat) {
@@ -3361,6 +3745,9 @@ public class SalesFact implements TalendJob {
 			// free memory for "tMap_1"
 			globalMap.remove("tHash_Lookup_PosOrder");
 
+			// free memory for "tMap_1"
+			globalMap.remove("tHash_Lookup_DimDate");
+
 			try {
 
 				/**
@@ -3457,7 +3844,7 @@ public class SalesFact implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:WxgrQ/YoFohdN4jcfqtB2xg7tqcm2cAuWJFht1kiByUvqiqhNeGgeoYKNw1YICpvnBVRfro0R3VSKUMuXvDazfh9fUw=");
+						"enc:routine.encryption.key.v1:RIgbGAQrzSKL2e3UwJy9+IbP9Ae0jgw3REBgAZDh8bAZ8SUIj3Z/XTDb1GBKvoMJkwVEEVdeIul1WV2V7Rws24hwX+w=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -4270,7 +4657,7 @@ public class SalesFact implements TalendJob {
 				// outputs:(DimCustomer,DimCustomer) | target node:tAdvancedHash_DimCustomer -
 				// inputs:(DimCustomer) outputs:()
 				// linked node: tMap_1 -
-				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder)
+				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder,DimDate)
 				// outputs:(SalesFact)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_DimCustomer = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_ROWS;
@@ -4877,7 +5264,7 @@ public class SalesFact implements TalendJob {
 				// outputs:(DimStore,DimStore) | target node:tAdvancedHash_DimStore -
 				// inputs:(DimStore) outputs:()
 				// linked node: tMap_1 -
-				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder)
+				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder,DimDate)
 				// outputs:(SalesFact)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_DimStore = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_ROWS;
@@ -5486,7 +5873,7 @@ public class SalesFact implements TalendJob {
 				// outputs:(DimPayment,DimPayment) | target node:tAdvancedHash_DimPayment -
 				// inputs:(DimPayment) outputs:()
 				// linked node: tMap_1 -
-				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder)
+				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder,DimDate)
 				// outputs:(SalesFact)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_DimPayment = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_ROWS;
@@ -5835,9 +6222,9 @@ public class SalesFact implements TalendJob {
 			return this.product_id;
 		}
 
-		public Integer price_unit;
+		public Float price_unit;
 
-		public Integer getPrice_unit() {
+		public Float getPrice_unit() {
 			return this.price_unit;
 		}
 
@@ -5871,9 +6258,9 @@ public class SalesFact implements TalendJob {
 			return this.is_total_cost_computed;
 		}
 
-		public Integer discount;
+		public Float discount;
 
-		public Integer getDiscount() {
+		public Float getDiscount() {
 			return this.discount;
 		}
 
@@ -6105,7 +6492,12 @@ public class SalesFact implements TalendJob {
 
 					this.product_id = readInteger(dis);
 
-					this.price_unit = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.price_unit = null;
+					} else {
+						this.price_unit = dis.readFloat();
+					}
 
 					this.qty = readInteger(dis);
 
@@ -6122,7 +6514,12 @@ public class SalesFact implements TalendJob {
 						this.is_total_cost_computed = dis.readBoolean();
 					}
 
-					this.discount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount = null;
+					} else {
+						this.discount = dis.readFloat();
+					}
 
 					this.order_id = readInteger(dis);
 
@@ -6173,7 +6570,12 @@ public class SalesFact implements TalendJob {
 
 					this.product_id = readInteger(dis);
 
-					this.price_unit = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.price_unit = null;
+					} else {
+						this.price_unit = dis.readFloat();
+					}
 
 					this.qty = readInteger(dis);
 
@@ -6190,7 +6592,12 @@ public class SalesFact implements TalendJob {
 						this.is_total_cost_computed = dis.readBoolean();
 					}
 
-					this.discount = readInteger(dis);
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount = null;
+					} else {
+						this.discount = dis.readFloat();
+					}
 
 					this.order_id = readInteger(dis);
 
@@ -6246,9 +6653,14 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.product_id, dos);
 
-				// Integer
+				// Float
 
-				writeInteger(this.price_unit, dos);
+				if (this.price_unit == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.price_unit);
+				}
 
 				// Integer
 
@@ -6275,9 +6687,14 @@ public class SalesFact implements TalendJob {
 					dos.writeBoolean(this.is_total_cost_computed);
 				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.discount, dos);
+				if (this.discount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount);
+				}
 
 				// Integer
 
@@ -6352,9 +6769,14 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.product_id, dos);
 
-				// Integer
+				// Float
 
-				writeInteger(this.price_unit, dos);
+				if (this.price_unit == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.price_unit);
+				}
 
 				// Integer
 
@@ -6381,9 +6803,14 @@ public class SalesFact implements TalendJob {
 					dos.writeBoolean(this.is_total_cost_computed);
 				}
 
-				// Integer
+				// Float
 
-				writeInteger(this.discount, dos);
+				if (this.discount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount);
+				}
 
 				// Integer
 
@@ -6543,7 +6970,7 @@ public class SalesFact implements TalendJob {
 				// outputs:(PosOrderLine,PosOrderLine) | target node:tAdvancedHash_PosOrderLine
 				// - inputs:(PosOrderLine) outputs:()
 				// linked node: tMap_1 -
-				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder)
+				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder,DimDate)
 				// outputs:(SalesFact)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_PosOrderLine = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_ROWS;
@@ -6698,7 +7125,7 @@ public class SalesFact implements TalendJob {
 
 								try {
 
-									PosOrderLine.price_unit = ParserUtils.parseTo_Integer(temp);
+									PosOrderLine.price_unit = ParserUtils.parseTo_Float(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
 									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
@@ -6823,7 +7250,7 @@ public class SalesFact implements TalendJob {
 
 								try {
 
-									PosOrderLine.discount = ParserUtils.parseTo_Integer(temp);
+									PosOrderLine.discount = ParserUtils.parseTo_Float(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
 									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
@@ -7259,9 +7686,9 @@ public class SalesFact implements TalendJob {
 			return this.user_id;
 		}
 
-		public Integer amount_tax;
+		public Float amount_tax;
 
-		public Integer getAmount_tax() {
+		public Float getAmount_tax() {
 			return this.amount_tax;
 		}
 
@@ -7756,7 +8183,12 @@ public class SalesFact implements TalendJob {
 
 				this.user_id = readInteger(dis, ois);
 
-				this.amount_tax = readInteger(dis, ois);
+				length = dis.readByte();
+				if (length == -1) {
+					this.amount_tax = null;
+				} else {
+					this.amount_tax = dis.readFloat();
+				}
 
 				this.amount_total = readInteger(dis, ois);
 
@@ -7842,7 +8274,12 @@ public class SalesFact implements TalendJob {
 
 				this.user_id = readInteger(dis, objectIn);
 
-				this.amount_tax = readInteger(dis, objectIn);
+				length = objectIn.readByte();
+				if (length == -1) {
+					this.amount_tax = null;
+				} else {
+					this.amount_tax = objectIn.readFloat();
+				}
 
 				this.amount_total = readInteger(dis, objectIn);
 
@@ -7930,7 +8367,12 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.user_id, dos, oos);
 
-				writeInteger(this.amount_tax, dos, oos);
+				if (this.amount_tax == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.amount_tax);
+				}
 
 				writeInteger(this.amount_total, dos, oos);
 
@@ -8014,7 +8456,12 @@ public class SalesFact implements TalendJob {
 
 				writeInteger(this.user_id, dos, objectOut);
 
-				writeInteger(this.amount_tax, dos, objectOut);
+				if (this.amount_tax == null) {
+					objectOut.writeByte(-1);
+				} else {
+					objectOut.writeByte(0);
+					objectOut.writeFloat(this.amount_tax);
+				}
 
 				writeInteger(this.amount_total, dos, objectOut);
 
@@ -8213,7 +8660,7 @@ public class SalesFact implements TalendJob {
 				// outputs:(PosOrder,PosOrder) | target node:tAdvancedHash_PosOrder -
 				// inputs:(PosOrder) outputs:()
 				// linked node: tMap_1 -
-				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder)
+				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder,DimDate)
 				// outputs:(SalesFact)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_PosOrder = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
@@ -8364,7 +8811,7 @@ public class SalesFact implements TalendJob {
 
 								try {
 
-									PosOrder.amount_tax = ParserUtils.parseTo_Integer(temp);
+									PosOrder.amount_tax = ParserUtils.parseTo_Float(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_6) {
 									globalMap.put("tFileInputDelimited_6_ERROR_MESSAGE",
@@ -9101,6 +9548,1226 @@ public class SalesFact implements TalendJob {
 		globalMap.put("tFileInputDelimited_6_SUBPROCESS_STATE", 1);
 	}
 
+	public static class DimDateStruct implements routines.system.IPersistableComparableLookupRow<DimDateStruct> {
+		final static byte[] commonByteArrayLock_PACIFICO_SalesFact = new byte[0];
+		static byte[] commonByteArray_PACIFICO_SalesFact = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public Integer DateNum;
+
+		public Integer getDateNum() {
+			return this.DateNum;
+		}
+
+		public java.util.Date Date;
+
+		public java.util.Date getDate() {
+			return this.Date;
+		}
+
+		public Integer YearMonthNum;
+
+		public Integer getYearMonthNum() {
+			return this.YearMonthNum;
+		}
+
+		public String Calendar_Quarter;
+
+		public String getCalendar_Quarter() {
+			return this.Calendar_Quarter;
+		}
+
+		public Integer MonthNum;
+
+		public Integer getMonthNum() {
+			return this.MonthNum;
+		}
+
+		public String MonthName;
+
+		public String getMonthName() {
+			return this.MonthName;
+		}
+
+		public String MonthShortName;
+
+		public String getMonthShortName() {
+			return this.MonthShortName;
+		}
+
+		public Integer WeekNum;
+
+		public Integer getWeekNum() {
+			return this.WeekNum;
+		}
+
+		public Integer DayNumOfYear;
+
+		public Integer getDayNumOfYear() {
+			return this.DayNumOfYear;
+		}
+
+		public Integer DayNumOfMonth;
+
+		public Integer getDayNumOfMonth() {
+			return this.DayNumOfMonth;
+		}
+
+		public Integer DayNumOfWeek;
+
+		public Integer getDayNumOfWeek() {
+			return this.DayNumOfWeek;
+		}
+
+		public String DayName;
+
+		public String getDayName() {
+			return this.DayName;
+		}
+
+		public String DayShortName;
+
+		public String getDayShortName() {
+			return this.DayShortName;
+		}
+
+		public Integer Quarter;
+
+		public Integer getQuarter() {
+			return this.Quarter;
+		}
+
+		public Integer YearQuarterNum;
+
+		public Integer getYearQuarterNum() {
+			return this.YearQuarterNum;
+		}
+
+		public Integer DayNumOfQuarter;
+
+		public Integer getDayNumOfQuarter() {
+			return this.DayNumOfQuarter;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.Date == null) ? 0 : this.Date.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final DimDateStruct other = (DimDateStruct) obj;
+
+			if (this.Date == null) {
+				if (other.Date != null)
+					return false;
+
+			} else if (!this.Date.equals(other.Date))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(DimDateStruct other) {
+
+			other.DateNum = this.DateNum;
+			other.Date = this.Date;
+			other.YearMonthNum = this.YearMonthNum;
+			other.Calendar_Quarter = this.Calendar_Quarter;
+			other.MonthNum = this.MonthNum;
+			other.MonthName = this.MonthName;
+			other.MonthShortName = this.MonthShortName;
+			other.WeekNum = this.WeekNum;
+			other.DayNumOfYear = this.DayNumOfYear;
+			other.DayNumOfMonth = this.DayNumOfMonth;
+			other.DayNumOfWeek = this.DayNumOfWeek;
+			other.DayName = this.DayName;
+			other.DayShortName = this.DayShortName;
+			other.Quarter = this.Quarter;
+			other.YearQuarterNum = this.YearQuarterNum;
+			other.DayNumOfQuarter = this.DayNumOfQuarter;
+
+		}
+
+		public void copyKeysDataTo(DimDateStruct other) {
+
+			other.Date = this.Date;
+
+		}
+
+		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = unmarshaller.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				dis.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				unmarshaller.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readKeysData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_SalesFact) {
+
+				try {
+
+					int length = 0;
+
+					this.Date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_SalesFact) {
+
+				try {
+
+					int length = 0;
+
+					this.Date = readDate(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeKeysData(ObjectOutputStream dos) {
+			try {
+
+				// java.util.Date
+
+				writeDate(this.Date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// java.util.Date
+
+				writeDate(this.Date, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		/**
+		 * Fill Values data by reading ObjectInputStream.
+		 */
+		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
+			try {
+
+				int length = 0;
+
+				this.DateNum = readInteger(dis, ois);
+
+				this.YearMonthNum = readInteger(dis, ois);
+
+				this.Calendar_Quarter = readString(dis, ois);
+
+				this.MonthNum = readInteger(dis, ois);
+
+				this.MonthName = readString(dis, ois);
+
+				this.MonthShortName = readString(dis, ois);
+
+				this.WeekNum = readInteger(dis, ois);
+
+				this.DayNumOfYear = readInteger(dis, ois);
+
+				this.DayNumOfMonth = readInteger(dis, ois);
+
+				this.DayNumOfWeek = readInteger(dis, ois);
+
+				this.DayName = readString(dis, ois);
+
+				this.DayShortName = readString(dis, ois);
+
+				this.Quarter = readInteger(dis, ois);
+
+				this.YearQuarterNum = readInteger(dis, ois);
+
+				this.DayNumOfQuarter = readInteger(dis, ois);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
+			try {
+				int length = 0;
+
+				this.DateNum = readInteger(dis, objectIn);
+
+				this.YearMonthNum = readInteger(dis, objectIn);
+
+				this.Calendar_Quarter = readString(dis, objectIn);
+
+				this.MonthNum = readInteger(dis, objectIn);
+
+				this.MonthName = readString(dis, objectIn);
+
+				this.MonthShortName = readString(dis, objectIn);
+
+				this.WeekNum = readInteger(dis, objectIn);
+
+				this.DayNumOfYear = readInteger(dis, objectIn);
+
+				this.DayNumOfMonth = readInteger(dis, objectIn);
+
+				this.DayNumOfWeek = readInteger(dis, objectIn);
+
+				this.DayName = readString(dis, objectIn);
+
+				this.DayShortName = readString(dis, objectIn);
+
+				this.Quarter = readInteger(dis, objectIn);
+
+				this.YearQuarterNum = readInteger(dis, objectIn);
+
+				this.DayNumOfQuarter = readInteger(dis, objectIn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		/**
+		 * Return a byte array which represents Values data.
+		 */
+		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
+			try {
+
+				writeInteger(this.DateNum, dos, oos);
+
+				writeInteger(this.YearMonthNum, dos, oos);
+
+				writeString(this.Calendar_Quarter, dos, oos);
+
+				writeInteger(this.MonthNum, dos, oos);
+
+				writeString(this.MonthName, dos, oos);
+
+				writeString(this.MonthShortName, dos, oos);
+
+				writeInteger(this.WeekNum, dos, oos);
+
+				writeInteger(this.DayNumOfYear, dos, oos);
+
+				writeInteger(this.DayNumOfMonth, dos, oos);
+
+				writeInteger(this.DayNumOfWeek, dos, oos);
+
+				writeString(this.DayName, dos, oos);
+
+				writeString(this.DayShortName, dos, oos);
+
+				writeInteger(this.Quarter, dos, oos);
+
+				writeInteger(this.YearQuarterNum, dos, oos);
+
+				writeInteger(this.DayNumOfQuarter, dos, oos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
+			try {
+
+				writeInteger(this.DateNum, dos, objectOut);
+
+				writeInteger(this.YearMonthNum, dos, objectOut);
+
+				writeString(this.Calendar_Quarter, dos, objectOut);
+
+				writeInteger(this.MonthNum, dos, objectOut);
+
+				writeString(this.MonthName, dos, objectOut);
+
+				writeString(this.MonthShortName, dos, objectOut);
+
+				writeInteger(this.WeekNum, dos, objectOut);
+
+				writeInteger(this.DayNumOfYear, dos, objectOut);
+
+				writeInteger(this.DayNumOfMonth, dos, objectOut);
+
+				writeInteger(this.DayNumOfWeek, dos, objectOut);
+
+				writeString(this.DayName, dos, objectOut);
+
+				writeString(this.DayShortName, dos, objectOut);
+
+				writeInteger(this.Quarter, dos, objectOut);
+
+				writeInteger(this.YearQuarterNum, dos, objectOut);
+
+				writeInteger(this.DayNumOfQuarter, dos, objectOut);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		public boolean supportMarshaller() {
+			return true;
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("DateNum=" + String.valueOf(DateNum));
+			sb.append(",Date=" + String.valueOf(Date));
+			sb.append(",YearMonthNum=" + String.valueOf(YearMonthNum));
+			sb.append(",Calendar_Quarter=" + Calendar_Quarter);
+			sb.append(",MonthNum=" + String.valueOf(MonthNum));
+			sb.append(",MonthName=" + MonthName);
+			sb.append(",MonthShortName=" + MonthShortName);
+			sb.append(",WeekNum=" + String.valueOf(WeekNum));
+			sb.append(",DayNumOfYear=" + String.valueOf(DayNumOfYear));
+			sb.append(",DayNumOfMonth=" + String.valueOf(DayNumOfMonth));
+			sb.append(",DayNumOfWeek=" + String.valueOf(DayNumOfWeek));
+			sb.append(",DayName=" + DayName);
+			sb.append(",DayShortName=" + DayShortName);
+			sb.append(",Quarter=" + String.valueOf(Quarter));
+			sb.append(",YearQuarterNum=" + String.valueOf(YearQuarterNum));
+			sb.append(",DayNumOfQuarter=" + String.valueOf(DayNumOfQuarter));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(DimDateStruct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.Date, other.Date);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_7Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_7_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				DimDateStruct DimDate = new DimDateStruct();
+
+				/**
+				 * [tAdvancedHash_DimDate begin ] start
+				 */
+
+				ok_Hash.put("tAdvancedHash_DimDate", false);
+				start_Hash.put("tAdvancedHash_DimDate", System.currentTimeMillis());
+
+				currentComponent = "tAdvancedHash_DimDate";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "DimDate");
+				}
+
+				int tos_count_tAdvancedHash_DimDate = 0;
+
+				// connection name:DimDate
+				// source node:tFileInputDelimited_7 - inputs:(after_tFileInputDelimited_1)
+				// outputs:(DimDate,DimDate) | target node:tAdvancedHash_DimDate -
+				// inputs:(DimDate) outputs:()
+				// linked node: tMap_1 -
+				// inputs:(DimProduct,DimCustomer,DimStore,DimPayment,PosOrderLine,PosOrder,DimDate)
+				// outputs:(SalesFact)
+
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_DimDate = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<DimDateStruct> tHash_Lookup_DimDate = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
+						.<DimDateStruct>getLookup(matchingModeEnum_DimDate);
+
+				globalMap.put("tHash_Lookup_DimDate", tHash_Lookup_DimDate);
+
+				/**
+				 * [tAdvancedHash_DimDate begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_7 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_7", false);
+				start_Hash.put("tFileInputDelimited_7", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_7";
+
+				int tos_count_tFileInputDelimited_7 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_7 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_7 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_7 = null;
+				int limit_tFileInputDelimited_7 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_7 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DateDimTemp.csv";
+					if (filename_tFileInputDelimited_7 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_7 = 0, random_value_tFileInputDelimited_7 = -1;
+						if (footer_value_tFileInputDelimited_7 > 0 || random_value_tFileInputDelimited_7 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_7 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DateDimTemp.csv", "ISO-8859-15",
+								";", "\n", true, 1, 0, limit_tFileInputDelimited_7, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_7 != null && fid_tFileInputDelimited_7.nextRecord()) {
+						rowstate_tFileInputDelimited_7.reset();
+
+						DimDate = null;
+
+						DimDate = null;
+
+						boolean whetherReject_tFileInputDelimited_7 = false;
+						DimDate = new DimDateStruct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_7 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_7 = 0;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.DateNum = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"DateNum", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.DateNum = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 1;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.Date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Date", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.Date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 2;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.YearMonthNum = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"YearMonthNum", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.YearMonthNum = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 3;
+
+							DimDate.Calendar_Quarter = fid_tFileInputDelimited_7
+									.get(columnIndexWithD_tFileInputDelimited_7);
+
+							columnIndexWithD_tFileInputDelimited_7 = 4;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.MonthNum = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"MonthNum", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.MonthNum = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 5;
+
+							DimDate.MonthName = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+
+							columnIndexWithD_tFileInputDelimited_7 = 6;
+
+							DimDate.MonthShortName = fid_tFileInputDelimited_7
+									.get(columnIndexWithD_tFileInputDelimited_7);
+
+							columnIndexWithD_tFileInputDelimited_7 = 7;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.WeekNum = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"WeekNum", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.WeekNum = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 8;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.DayNumOfYear = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"DayNumOfYear", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.DayNumOfYear = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 9;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.DayNumOfMonth = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"DayNumOfMonth", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.DayNumOfMonth = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 10;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.DayNumOfWeek = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"DayNumOfWeek", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.DayNumOfWeek = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 11;
+
+							DimDate.DayName = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+
+							columnIndexWithD_tFileInputDelimited_7 = 12;
+
+							DimDate.DayShortName = fid_tFileInputDelimited_7
+									.get(columnIndexWithD_tFileInputDelimited_7);
+
+							columnIndexWithD_tFileInputDelimited_7 = 13;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.Quarter = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"Quarter", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.Quarter = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 14;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.YearQuarterNum = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"YearQuarterNum", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.YearQuarterNum = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_7 = 15;
+
+							temp = fid_tFileInputDelimited_7.get(columnIndexWithD_tFileInputDelimited_7);
+							if (temp.length() > 0) {
+
+								try {
+
+									DimDate.DayNumOfQuarter = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_7) {
+									globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE",
+											ex_tFileInputDelimited_7.getMessage());
+									rowstate_tFileInputDelimited_7.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"DayNumOfQuarter", "DimDate", temp, ex_tFileInputDelimited_7),
+											ex_tFileInputDelimited_7));
+								}
+
+							} else {
+
+								DimDate.DayNumOfQuarter = null;
+
+							}
+
+							if (rowstate_tFileInputDelimited_7.getException() != null) {
+								throw rowstate_tFileInputDelimited_7.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_7_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_7 = true;
+
+							System.err.println(e.getMessage());
+							DimDate = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_7 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_7 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_7";
+
+						tos_count_tFileInputDelimited_7++;
+
+						/**
+						 * [tFileInputDelimited_7 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_7 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_7";
+
+						/**
+						 * [tFileInputDelimited_7 process_data_begin ] stop
+						 */
+// Start of branch "DimDate"
+						if (DimDate != null) {
+
+							/**
+							 * [tAdvancedHash_DimDate main ] start
+							 */
+
+							currentComponent = "tAdvancedHash_DimDate";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "DimDate"
+
+								);
+							}
+
+							DimDateStruct DimDate_HashRow = new DimDateStruct();
+
+							DimDate_HashRow.DateNum = DimDate.DateNum;
+
+							DimDate_HashRow.Date = DimDate.Date;
+
+							DimDate_HashRow.YearMonthNum = DimDate.YearMonthNum;
+
+							DimDate_HashRow.Calendar_Quarter = DimDate.Calendar_Quarter;
+
+							DimDate_HashRow.MonthNum = DimDate.MonthNum;
+
+							DimDate_HashRow.MonthName = DimDate.MonthName;
+
+							DimDate_HashRow.MonthShortName = DimDate.MonthShortName;
+
+							DimDate_HashRow.WeekNum = DimDate.WeekNum;
+
+							DimDate_HashRow.DayNumOfYear = DimDate.DayNumOfYear;
+
+							DimDate_HashRow.DayNumOfMonth = DimDate.DayNumOfMonth;
+
+							DimDate_HashRow.DayNumOfWeek = DimDate.DayNumOfWeek;
+
+							DimDate_HashRow.DayName = DimDate.DayName;
+
+							DimDate_HashRow.DayShortName = DimDate.DayShortName;
+
+							DimDate_HashRow.Quarter = DimDate.Quarter;
+
+							DimDate_HashRow.YearQuarterNum = DimDate.YearQuarterNum;
+
+							DimDate_HashRow.DayNumOfQuarter = DimDate.DayNumOfQuarter;
+
+							tHash_Lookup_DimDate.put(DimDate_HashRow);
+
+							tos_count_tAdvancedHash_DimDate++;
+
+							/**
+							 * [tAdvancedHash_DimDate main ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_DimDate process_data_begin ] start
+							 */
+
+							currentComponent = "tAdvancedHash_DimDate";
+
+							/**
+							 * [tAdvancedHash_DimDate process_data_begin ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_DimDate process_data_end ] start
+							 */
+
+							currentComponent = "tAdvancedHash_DimDate";
+
+							/**
+							 * [tAdvancedHash_DimDate process_data_end ] stop
+							 */
+
+						} // End of branch "DimDate"
+
+						/**
+						 * [tFileInputDelimited_7 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_7";
+
+						/**
+						 * [tFileInputDelimited_7 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_7 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_7";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DateDimTemp.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_7 != null) {
+							fid_tFileInputDelimited_7.close();
+						}
+					}
+					if (fid_tFileInputDelimited_7 != null) {
+						globalMap.put("tFileInputDelimited_7_NB_LINE", fid_tFileInputDelimited_7.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_7", true);
+				end_Hash.put("tFileInputDelimited_7", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_7 end ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_DimDate end ] start
+				 */
+
+				currentComponent = "tAdvancedHash_DimDate";
+
+				tHash_Lookup_DimDate.endPut();
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "DimDate");
+				}
+
+				ok_Hash.put("tAdvancedHash_DimDate", true);
+				end_Hash.put("tAdvancedHash_DimDate", System.currentTimeMillis());
+
+				/**
+				 * [tAdvancedHash_DimDate end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_7 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_7";
+
+				/**
+				 * [tFileInputDelimited_7 finally ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_DimDate finally ] start
+				 */
+
+				currentComponent = "tAdvancedHash_DimDate";
+
+				/**
+				 * [tAdvancedHash_DimDate finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_7_SUBPROCESS_STATE", 1);
+	}
+
 	public String resuming_logs_dir_path = null;
 	public String resuming_checkpoint_path = null;
 	public String parent_part_launcher = null;
@@ -9482,6 +11149,6 @@ public class SalesFact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 294385 characters generated by Talend Open Studio for Data Integration on the
- * December 4, 2022 at 11:46:15 PM CST
+ * 346819 characters generated by Talend Open Studio for Data Integration on the
+ * December 5, 2022 at 11:23:30 PM CST
  ************************************************************************************************/

@@ -314,6 +314,46 @@ public class getStage_posOrderLine implements TalendJob {
 		tS3Get_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -331,6 +371,22 @@ public class getStage_posOrderLine implements TalendJob {
 	}
 
 	public void tS3Get_2_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -370,7 +426,7 @@ public class getStage_posOrderLine implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:aEQk91GAQYtSUPiPfLA3jCZt/FyDEXawPbx87i7lviYLNHHHttFAxdP6NpWvojGi9PvkzYOSKICSukH7CbF+XnDa2D8=");
+						"enc:routine.encryption.key.v1:2RwRhBFcTjy/dpryt+ATGvsl8Y0pLA46yybYwxk9RKne4s5t8R2H1fPG0Z/rPvq1FyLLwQ1rOrte5qmZtOZpsXVDo/0=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -624,7 +680,7 @@ public class getStage_posOrderLine implements TalendJob {
 			} // end the resume
 
 			if (resumeEntryMethodName == null || globalResumeTicket) {
-				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_1:OnSubjobOk", "",
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_1:OnSubjobOk1", "",
 						Thread.currentThread().getId() + "", "", "", "", "", "");
 			}
 
@@ -633,6 +689,17 @@ public class getStage_posOrderLine implements TalendJob {
 			}
 
 			tS3Get_2Process(globalMap);
+
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_1:OnSubjobOk2", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk2", 0, "ok");
+			}
+
+			tFileInputDelimited_1Process(globalMap);
 
 		} catch (java.lang.Exception e) {
 
@@ -781,6 +848,17 @@ public class getStage_posOrderLine implements TalendJob {
 				 */
 			} // end the resume
 
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_2:OnSubjobOk", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk3", 0, "ok");
+			}
+
+			tFileInputDelimited_2Process(globalMap);
+
 		} catch (java.lang.Exception e) {
 
 			TalendException te = new TalendException(e, currentComponent, globalMap);
@@ -813,6 +891,3654 @@ public class getStage_posOrderLine implements TalendJob {
 		}
 
 		globalMap.put("tS3Get_2_SUBPROCESS_STATE", 1);
+	}
+
+	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_getStage_posOrderLine = new byte[0];
+		static byte[] commonByteArray_PACIFICO_getStage_posOrderLine = new byte[0];
+
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
+		}
+
+		public Integer company_id;
+
+		public Integer getCompany_id() {
+			return this.company_id;
+		}
+
+		public String name;
+
+		public String getName() {
+			return this.name;
+		}
+
+		public String notice;
+
+		public String getNotice() {
+			return this.notice;
+		}
+
+		public Integer product_id;
+
+		public Integer getProduct_id() {
+			return this.product_id;
+		}
+
+		public Float price_unit;
+
+		public Float getPrice_unit() {
+			return this.price_unit;
+		}
+
+		public Integer qty;
+
+		public Integer getQty() {
+			return this.qty;
+		}
+
+		public Integer price_subtotal;
+
+		public Integer getPrice_subtotal() {
+			return this.price_subtotal;
+		}
+
+		public Integer price_subtotal_incl;
+
+		public Integer getPrice_subtotal_incl() {
+			return this.price_subtotal_incl;
+		}
+
+		public String total_cost;
+
+		public String getTotal_cost() {
+			return this.total_cost;
+		}
+
+		public Boolean is_total_cost_computed;
+
+		public Boolean getIs_total_cost_computed() {
+			return this.is_total_cost_computed;
+		}
+
+		public Float discount;
+
+		public Float getDiscount() {
+			return this.discount;
+		}
+
+		public Integer order_id;
+
+		public Integer getOrder_id() {
+			return this.order_id;
+		}
+
+		public String full_product_name;
+
+		public String getFull_product_name() {
+			return this.full_product_name;
+		}
+
+		public String customer_note;
+
+		public String getCustomer_note() {
+			return this.customer_note;
+		}
+
+		public String refunded_orderline_id;
+
+		public String getRefunded_orderline_id() {
+			return this.refunded_orderline_id;
+		}
+
+		public Integer create_uid;
+
+		public Integer getCreate_uid() {
+			return this.create_uid;
+		}
+
+		public java.util.Date create_date;
+
+		public java.util.Date getCreate_date() {
+			return this.create_date;
+		}
+
+		public Integer write_uid;
+
+		public Integer getWrite_uid() {
+			return this.write_uid;
+		}
+
+		public java.util.Date write_date;
+
+		public java.util.Date getWrite_date() {
+			return this.write_date;
+		}
+
+		public String sale_order_origin_id;
+
+		public String getSale_order_origin_id() {
+			return this.sale_order_origin_id;
+		}
+
+		public String sale_order_line_id;
+
+		public String getSale_order_line_id() {
+			return this.sale_order_line_id;
+		}
+
+		public String down_payment_details;
+
+		public String getDown_payment_details() {
+			return this.down_payment_details;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_getStage_posOrderLine.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_getStage_posOrderLine.length == 0) {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_getStage_posOrderLine.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_getStage_posOrderLine.length == 0) {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_getStage_posOrderLine) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.company_id = readInteger(dis);
+
+					this.name = readString(dis);
+
+					this.notice = readString(dis);
+
+					this.product_id = readInteger(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.price_unit = null;
+					} else {
+						this.price_unit = dis.readFloat();
+					}
+
+					this.qty = readInteger(dis);
+
+					this.price_subtotal = readInteger(dis);
+
+					this.price_subtotal_incl = readInteger(dis);
+
+					this.total_cost = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.is_total_cost_computed = null;
+					} else {
+						this.is_total_cost_computed = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount = null;
+					} else {
+						this.discount = dis.readFloat();
+					}
+
+					this.order_id = readInteger(dis);
+
+					this.full_product_name = readString(dis);
+
+					this.customer_note = readString(dis);
+
+					this.refunded_orderline_id = readString(dis);
+
+					this.create_uid = readInteger(dis);
+
+					this.create_date = readDate(dis);
+
+					this.write_uid = readInteger(dis);
+
+					this.write_date = readDate(dis);
+
+					this.sale_order_origin_id = readString(dis);
+
+					this.sale_order_line_id = readString(dis);
+
+					this.down_payment_details = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_getStage_posOrderLine) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.company_id = readInteger(dis);
+
+					this.name = readString(dis);
+
+					this.notice = readString(dis);
+
+					this.product_id = readInteger(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.price_unit = null;
+					} else {
+						this.price_unit = dis.readFloat();
+					}
+
+					this.qty = readInteger(dis);
+
+					this.price_subtotal = readInteger(dis);
+
+					this.price_subtotal_incl = readInteger(dis);
+
+					this.total_cost = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.is_total_cost_computed = null;
+					} else {
+						this.is_total_cost_computed = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount = null;
+					} else {
+						this.discount = dis.readFloat();
+					}
+
+					this.order_id = readInteger(dis);
+
+					this.full_product_name = readString(dis);
+
+					this.customer_note = readString(dis);
+
+					this.refunded_orderline_id = readString(dis);
+
+					this.create_uid = readInteger(dis);
+
+					this.create_date = readDate(dis);
+
+					this.write_uid = readInteger(dis);
+
+					this.write_date = readDate(dis);
+
+					this.sale_order_origin_id = readString(dis);
+
+					this.sale_order_line_id = readString(dis);
+
+					this.down_payment_details = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// Integer
+
+				writeInteger(this.company_id, dos);
+
+				// String
+
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.notice, dos);
+
+				// Integer
+
+				writeInteger(this.product_id, dos);
+
+				// Float
+
+				if (this.price_unit == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.price_unit);
+				}
+
+				// Integer
+
+				writeInteger(this.qty, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal_incl, dos);
+
+				// String
+
+				writeString(this.total_cost, dos);
+
+				// Boolean
+
+				if (this.is_total_cost_computed == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.is_total_cost_computed);
+				}
+
+				// Float
+
+				if (this.discount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount);
+				}
+
+				// Integer
+
+				writeInteger(this.order_id, dos);
+
+				// String
+
+				writeString(this.full_product_name, dos);
+
+				// String
+
+				writeString(this.customer_note, dos);
+
+				// String
+
+				writeString(this.refunded_orderline_id, dos);
+
+				// Integer
+
+				writeInteger(this.create_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.create_date, dos);
+
+				// Integer
+
+				writeInteger(this.write_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.write_date, dos);
+
+				// String
+
+				writeString(this.sale_order_origin_id, dos);
+
+				// String
+
+				writeString(this.sale_order_line_id, dos);
+
+				// String
+
+				writeString(this.down_payment_details, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// Integer
+
+				writeInteger(this.company_id, dos);
+
+				// String
+
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.notice, dos);
+
+				// Integer
+
+				writeInteger(this.product_id, dos);
+
+				// Float
+
+				if (this.price_unit == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.price_unit);
+				}
+
+				// Integer
+
+				writeInteger(this.qty, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal_incl, dos);
+
+				// String
+
+				writeString(this.total_cost, dos);
+
+				// Boolean
+
+				if (this.is_total_cost_computed == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.is_total_cost_computed);
+				}
+
+				// Float
+
+				if (this.discount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount);
+				}
+
+				// Integer
+
+				writeInteger(this.order_id, dos);
+
+				// String
+
+				writeString(this.full_product_name, dos);
+
+				// String
+
+				writeString(this.customer_note, dos);
+
+				// String
+
+				writeString(this.refunded_orderline_id, dos);
+
+				// Integer
+
+				writeInteger(this.create_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.create_date, dos);
+
+				// Integer
+
+				writeInteger(this.write_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.write_date, dos);
+
+				// String
+
+				writeString(this.sale_order_origin_id, dos);
+
+				// String
+
+				writeString(this.sale_order_line_id, dos);
+
+				// String
+
+				writeString(this.down_payment_details, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",company_id=" + String.valueOf(company_id));
+			sb.append(",name=" + name);
+			sb.append(",notice=" + notice);
+			sb.append(",product_id=" + String.valueOf(product_id));
+			sb.append(",price_unit=" + String.valueOf(price_unit));
+			sb.append(",qty=" + String.valueOf(qty));
+			sb.append(",price_subtotal=" + String.valueOf(price_subtotal));
+			sb.append(",price_subtotal_incl=" + String.valueOf(price_subtotal_incl));
+			sb.append(",total_cost=" + total_cost);
+			sb.append(",is_total_cost_computed=" + String.valueOf(is_total_cost_computed));
+			sb.append(",discount=" + String.valueOf(discount));
+			sb.append(",order_id=" + String.valueOf(order_id));
+			sb.append(",full_product_name=" + full_product_name);
+			sb.append(",customer_note=" + customer_note);
+			sb.append(",refunded_orderline_id=" + refunded_orderline_id);
+			sb.append(",create_uid=" + String.valueOf(create_uid));
+			sb.append(",create_date=" + String.valueOf(create_date));
+			sb.append(",write_uid=" + String.valueOf(write_uid));
+			sb.append(",write_date=" + String.valueOf(write_date));
+			sb.append(",sale_order_origin_id=" + sale_order_origin_id);
+			sb.append(",sale_order_line_id=" + sale_order_line_id);
+			sb.append(",down_payment_details=" + down_payment_details);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				row2Struct row2 = new row2Struct();
+
+				/**
+				 * [tLogRow_2 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_2", false);
+				start_Hash.put("tLogRow_2", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
+				}
+
+				int tos_count_tLogRow_2 = 0;
+
+				///////////////////////
+
+				class Util_tLogRow_2 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[23];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 23; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i], row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 22 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 22 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
+							sbformat.append("s");
+
+							sbformat.append("|%4$-");
+							sbformat.append(colLengths[3]);
+							sbformat.append("s");
+
+							sbformat.append("|%5$-");
+							sbformat.append(colLengths[4]);
+							sbformat.append("s");
+
+							sbformat.append("|%6$-");
+							sbformat.append(colLengths[5]);
+							sbformat.append("s");
+
+							sbformat.append("|%7$-");
+							sbformat.append(colLengths[6]);
+							sbformat.append("s");
+
+							sbformat.append("|%8$-");
+							sbformat.append(colLengths[7]);
+							sbformat.append("s");
+
+							sbformat.append("|%9$-");
+							sbformat.append(colLengths[8]);
+							sbformat.append("s");
+
+							sbformat.append("|%10$-");
+							sbformat.append(colLengths[9]);
+							sbformat.append("s");
+
+							sbformat.append("|%11$-");
+							sbformat.append(colLengths[10]);
+							sbformat.append("s");
+
+							sbformat.append("|%12$-");
+							sbformat.append(colLengths[11]);
+							sbformat.append("s");
+
+							sbformat.append("|%13$-");
+							sbformat.append(colLengths[12]);
+							sbformat.append("s");
+
+							sbformat.append("|%14$-");
+							sbformat.append(colLengths[13]);
+							sbformat.append("s");
+
+							sbformat.append("|%15$-");
+							sbformat.append(colLengths[14]);
+							sbformat.append("s");
+
+							sbformat.append("|%16$-");
+							sbformat.append(colLengths[15]);
+							sbformat.append("s");
+
+							sbformat.append("|%17$-");
+							sbformat.append(colLengths[16]);
+							sbformat.append("s");
+
+							sbformat.append("|%18$-");
+							sbformat.append(colLengths[17]);
+							sbformat.append("s");
+
+							sbformat.append("|%19$-");
+							sbformat.append(colLengths[18]);
+							sbformat.append("s");
+
+							sbformat.append("|%20$-");
+							sbformat.append(colLengths[19]);
+							sbformat.append("s");
+
+							sbformat.append("|%21$-");
+							sbformat.append(colLengths[20]);
+							sbformat.append("s");
+
+							sbformat.append("|%22$-");
+							sbformat.append(colLengths[21]);
+							sbformat.append("s");
+
+							sbformat.append("|%23$-");
+							sbformat.append(colLengths[22]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(), (Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						// last column
+						for (int i = 0; i < colLengths[22] - fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
+				util_tLogRow_2.setTableName("tLogRow_2");
+				util_tLogRow_2.addRow(new String[] { "id", "company_id", "name", "notice", "product_id", "price_unit",
+						"qty", "price_subtotal", "price_subtotal_incl", "total_cost", "is_total_cost_computed",
+						"discount", "order_id", "full_product_name", "customer_note", "refunded_orderline_id",
+						"create_uid", "create_date", "write_uid", "write_date", "sale_order_origin_id",
+						"sale_order_line_id", "down_payment_details", });
+				StringBuilder strBuffer_tLogRow_2 = null;
+				int nb_line_tLogRow_2 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_2 begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_2 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_2", false);
+				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_2";
+
+				int tos_count_tFileInputDelimited_2 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_2 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
+				int limit_tFileInputDelimited_2 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
+						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15", ";",
+								"\n", true, 1, 0, limit_tFileInputDelimited_2, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
+						rowstate_tFileInputDelimited_2.reset();
+
+						row2 = null;
+
+						boolean whetherReject_tFileInputDelimited_2 = false;
+						row2 = new row2Struct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_2 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_2 = 0;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 1;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.company_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"company_id", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.company_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 2;
+
+							row2.name = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 3;
+
+							row2.notice = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 4;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.product_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"product_id", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.product_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 5;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.price_unit = ParserUtils.parseTo_Float(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"price_unit", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.price_unit = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 6;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.qty = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"qty", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.qty = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 7;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.price_subtotal = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"price_subtotal", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.price_subtotal = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 8;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.price_subtotal_incl = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"price_subtotal_incl", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.price_subtotal_incl = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 9;
+
+							row2.total_cost = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 10;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.is_total_cost_computed = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"is_total_cost_computed", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.is_total_cost_computed = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 11;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.discount = ParserUtils.parseTo_Float(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"discount", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.discount = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 12;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.order_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"order_id", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.order_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 13;
+
+							row2.full_product_name = fid_tFileInputDelimited_2
+									.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 14;
+
+							row2.customer_note = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 15;
+
+							row2.refunded_orderline_id = fid_tFileInputDelimited_2
+									.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 16;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.create_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_uid", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.create_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 17;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_date", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.create_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 18;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.write_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_uid", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.write_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 19;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_date", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.write_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 20;
+
+							row2.sale_order_origin_id = fid_tFileInputDelimited_2
+									.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 21;
+
+							row2.sale_order_line_id = fid_tFileInputDelimited_2
+									.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 22;
+
+							row2.down_payment_details = fid_tFileInputDelimited_2
+									.get(columnIndexWithD_tFileInputDelimited_2);
+
+							if (rowstate_tFileInputDelimited_2.getException() != null) {
+								throw rowstate_tFileInputDelimited_2.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_2 = true;
+
+							System.err.println(e.getMessage());
+							row2 = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_2 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						tos_count_tFileInputDelimited_2++;
+
+						/**
+						 * [tFileInputDelimited_2 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						/**
+						 * [tFileInputDelimited_2 process_data_begin ] stop
+						 */
+// Start of branch "row2"
+						if (row2 != null) {
+
+							/**
+							 * [tLogRow_2 main ] start
+							 */
+
+							currentComponent = "tLogRow_2";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row2"
+
+								);
+							}
+
+///////////////////////		
+
+							String[] row_tLogRow_2 = new String[23];
+
+							if (row2.id != null) { //
+								row_tLogRow_2[0] = String.valueOf(row2.id);
+
+							} //
+
+							if (row2.company_id != null) { //
+								row_tLogRow_2[1] = String.valueOf(row2.company_id);
+
+							} //
+
+							if (row2.name != null) { //
+								row_tLogRow_2[2] = String.valueOf(row2.name);
+
+							} //
+
+							if (row2.notice != null) { //
+								row_tLogRow_2[3] = String.valueOf(row2.notice);
+
+							} //
+
+							if (row2.product_id != null) { //
+								row_tLogRow_2[4] = String.valueOf(row2.product_id);
+
+							} //
+
+							if (row2.price_unit != null) { //
+								row_tLogRow_2[5] = FormatterUtils.formatUnwithE(row2.price_unit);
+
+							} //
+
+							if (row2.qty != null) { //
+								row_tLogRow_2[6] = String.valueOf(row2.qty);
+
+							} //
+
+							if (row2.price_subtotal != null) { //
+								row_tLogRow_2[7] = String.valueOf(row2.price_subtotal);
+
+							} //
+
+							if (row2.price_subtotal_incl != null) { //
+								row_tLogRow_2[8] = String.valueOf(row2.price_subtotal_incl);
+
+							} //
+
+							if (row2.total_cost != null) { //
+								row_tLogRow_2[9] = String.valueOf(row2.total_cost);
+
+							} //
+
+							if (row2.is_total_cost_computed != null) { //
+								row_tLogRow_2[10] = String.valueOf(row2.is_total_cost_computed);
+
+							} //
+
+							if (row2.discount != null) { //
+								row_tLogRow_2[11] = FormatterUtils.formatUnwithE(row2.discount);
+
+							} //
+
+							if (row2.order_id != null) { //
+								row_tLogRow_2[12] = String.valueOf(row2.order_id);
+
+							} //
+
+							if (row2.full_product_name != null) { //
+								row_tLogRow_2[13] = String.valueOf(row2.full_product_name);
+
+							} //
+
+							if (row2.customer_note != null) { //
+								row_tLogRow_2[14] = String.valueOf(row2.customer_note);
+
+							} //
+
+							if (row2.refunded_orderline_id != null) { //
+								row_tLogRow_2[15] = String.valueOf(row2.refunded_orderline_id);
+
+							} //
+
+							if (row2.create_uid != null) { //
+								row_tLogRow_2[16] = String.valueOf(row2.create_uid);
+
+							} //
+
+							if (row2.create_date != null) { //
+								row_tLogRow_2[17] = FormatterUtils.format_Date(row2.create_date, "dd-MM-yyyy");
+
+							} //
+
+							if (row2.write_uid != null) { //
+								row_tLogRow_2[18] = String.valueOf(row2.write_uid);
+
+							} //
+
+							if (row2.write_date != null) { //
+								row_tLogRow_2[19] = FormatterUtils.format_Date(row2.write_date, "dd-MM-yyyy");
+
+							} //
+
+							if (row2.sale_order_origin_id != null) { //
+								row_tLogRow_2[20] = String.valueOf(row2.sale_order_origin_id);
+
+							} //
+
+							if (row2.sale_order_line_id != null) { //
+								row_tLogRow_2[21] = String.valueOf(row2.sale_order_line_id);
+
+							} //
+
+							if (row2.down_payment_details != null) { //
+								row_tLogRow_2[22] = String.valueOf(row2.down_payment_details);
+
+							} //
+
+							util_tLogRow_2.addRow(row_tLogRow_2);
+							nb_line_tLogRow_2++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+							tos_count_tLogRow_2++;
+
+							/**
+							 * [tLogRow_2 main ] stop
+							 */
+
+							/**
+							 * [tLogRow_2 process_data_begin ] start
+							 */
+
+							currentComponent = "tLogRow_2";
+
+							/**
+							 * [tLogRow_2 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tLogRow_2 process_data_end ] start
+							 */
+
+							currentComponent = "tLogRow_2";
+
+							/**
+							 * [tLogRow_2 process_data_end ] stop
+							 */
+
+						} // End of branch "row2"
+
+						/**
+						 * [tFileInputDelimited_2 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						/**
+						 * [tFileInputDelimited_2 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_2 != null) {
+							fid_tFileInputDelimited_2.close();
+						}
+					}
+					if (fid_tFileInputDelimited_2 != null) {
+						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_2", true);
+				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_2 end ] stop
+				 */
+
+				/**
+				 * [tLogRow_2 end ] start
+				 */
+
+				currentComponent = "tLogRow_2";
+
+//////
+
+				java.io.PrintStream consoleOut_tLogRow_2 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_2 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_2);
+				}
+
+				consoleOut_tLogRow_2.println(util_tLogRow_2.format().toString());
+				consoleOut_tLogRow_2.flush();
+//////
+				globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
+				}
+
+				ok_Hash.put("tLogRow_2", true);
+				end_Hash.put("tLogRow_2", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_2 end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_2 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_2";
+
+				/**
+				 * [tFileInputDelimited_2 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_2 finally ] start
+				 */
+
+				currentComponent = "tLogRow_2";
+
+				/**
+				 * [tLogRow_2 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
+	}
+
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_getStage_posOrderLine = new byte[0];
+		static byte[] commonByteArray_PACIFICO_getStage_posOrderLine = new byte[0];
+
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
+		}
+
+		public Integer company_id;
+
+		public Integer getCompany_id() {
+			return this.company_id;
+		}
+
+		public String name;
+
+		public String getName() {
+			return this.name;
+		}
+
+		public String notice;
+
+		public String getNotice() {
+			return this.notice;
+		}
+
+		public Integer product_id;
+
+		public Integer getProduct_id() {
+			return this.product_id;
+		}
+
+		public Float price_unit;
+
+		public Float getPrice_unit() {
+			return this.price_unit;
+		}
+
+		public Integer qty;
+
+		public Integer getQty() {
+			return this.qty;
+		}
+
+		public Integer price_subtotal;
+
+		public Integer getPrice_subtotal() {
+			return this.price_subtotal;
+		}
+
+		public Integer price_subtotal_incl;
+
+		public Integer getPrice_subtotal_incl() {
+			return this.price_subtotal_incl;
+		}
+
+		public String total_cost;
+
+		public String getTotal_cost() {
+			return this.total_cost;
+		}
+
+		public Boolean is_total_cost_computed;
+
+		public Boolean getIs_total_cost_computed() {
+			return this.is_total_cost_computed;
+		}
+
+		public Float discount;
+
+		public Float getDiscount() {
+			return this.discount;
+		}
+
+		public Integer order_id;
+
+		public Integer getOrder_id() {
+			return this.order_id;
+		}
+
+		public String full_product_name;
+
+		public String getFull_product_name() {
+			return this.full_product_name;
+		}
+
+		public String customer_note;
+
+		public String getCustomer_note() {
+			return this.customer_note;
+		}
+
+		public String refunded_orderline_id;
+
+		public String getRefunded_orderline_id() {
+			return this.refunded_orderline_id;
+		}
+
+		public Integer create_uid;
+
+		public Integer getCreate_uid() {
+			return this.create_uid;
+		}
+
+		public java.util.Date create_date;
+
+		public java.util.Date getCreate_date() {
+			return this.create_date;
+		}
+
+		public Integer write_uid;
+
+		public Integer getWrite_uid() {
+			return this.write_uid;
+		}
+
+		public java.util.Date write_date;
+
+		public java.util.Date getWrite_date() {
+			return this.write_date;
+		}
+
+		public String sale_order_origin_id;
+
+		public String getSale_order_origin_id() {
+			return this.sale_order_origin_id;
+		}
+
+		public String sale_order_line_id;
+
+		public String getSale_order_line_id() {
+			return this.sale_order_line_id;
+		}
+
+		public String down_payment_details;
+
+		public String getDown_payment_details() {
+			return this.down_payment_details;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_getStage_posOrderLine.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_getStage_posOrderLine.length == 0) {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_PACIFICO_getStage_posOrderLine.length) {
+					if (length < 1024 && commonByteArray_PACIFICO_getStage_posOrderLine.length == 0) {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[1024];
+					} else {
+						commonByteArray_PACIFICO_getStage_posOrderLine = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length);
+				strReturn = new String(commonByteArray_PACIFICO_getStage_posOrderLine, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_getStage_posOrderLine) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.company_id = readInteger(dis);
+
+					this.name = readString(dis);
+
+					this.notice = readString(dis);
+
+					this.product_id = readInteger(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.price_unit = null;
+					} else {
+						this.price_unit = dis.readFloat();
+					}
+
+					this.qty = readInteger(dis);
+
+					this.price_subtotal = readInteger(dis);
+
+					this.price_subtotal_incl = readInteger(dis);
+
+					this.total_cost = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.is_total_cost_computed = null;
+					} else {
+						this.is_total_cost_computed = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount = null;
+					} else {
+						this.discount = dis.readFloat();
+					}
+
+					this.order_id = readInteger(dis);
+
+					this.full_product_name = readString(dis);
+
+					this.customer_note = readString(dis);
+
+					this.refunded_orderline_id = readString(dis);
+
+					this.create_uid = readInteger(dis);
+
+					this.create_date = readDate(dis);
+
+					this.write_uid = readInteger(dis);
+
+					this.write_date = readDate(dis);
+
+					this.sale_order_origin_id = readString(dis);
+
+					this.sale_order_line_id = readString(dis);
+
+					this.down_payment_details = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_getStage_posOrderLine) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.company_id = readInteger(dis);
+
+					this.name = readString(dis);
+
+					this.notice = readString(dis);
+
+					this.product_id = readInteger(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.price_unit = null;
+					} else {
+						this.price_unit = dis.readFloat();
+					}
+
+					this.qty = readInteger(dis);
+
+					this.price_subtotal = readInteger(dis);
+
+					this.price_subtotal_incl = readInteger(dis);
+
+					this.total_cost = readString(dis);
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.is_total_cost_computed = null;
+					} else {
+						this.is_total_cost_computed = dis.readBoolean();
+					}
+
+					length = dis.readByte();
+					if (length == -1) {
+						this.discount = null;
+					} else {
+						this.discount = dis.readFloat();
+					}
+
+					this.order_id = readInteger(dis);
+
+					this.full_product_name = readString(dis);
+
+					this.customer_note = readString(dis);
+
+					this.refunded_orderline_id = readString(dis);
+
+					this.create_uid = readInteger(dis);
+
+					this.create_date = readDate(dis);
+
+					this.write_uid = readInteger(dis);
+
+					this.write_date = readDate(dis);
+
+					this.sale_order_origin_id = readString(dis);
+
+					this.sale_order_line_id = readString(dis);
+
+					this.down_payment_details = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// Integer
+
+				writeInteger(this.company_id, dos);
+
+				// String
+
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.notice, dos);
+
+				// Integer
+
+				writeInteger(this.product_id, dos);
+
+				// Float
+
+				if (this.price_unit == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.price_unit);
+				}
+
+				// Integer
+
+				writeInteger(this.qty, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal_incl, dos);
+
+				// String
+
+				writeString(this.total_cost, dos);
+
+				// Boolean
+
+				if (this.is_total_cost_computed == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.is_total_cost_computed);
+				}
+
+				// Float
+
+				if (this.discount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount);
+				}
+
+				// Integer
+
+				writeInteger(this.order_id, dos);
+
+				// String
+
+				writeString(this.full_product_name, dos);
+
+				// String
+
+				writeString(this.customer_note, dos);
+
+				// String
+
+				writeString(this.refunded_orderline_id, dos);
+
+				// Integer
+
+				writeInteger(this.create_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.create_date, dos);
+
+				// Integer
+
+				writeInteger(this.write_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.write_date, dos);
+
+				// String
+
+				writeString(this.sale_order_origin_id, dos);
+
+				// String
+
+				writeString(this.sale_order_line_id, dos);
+
+				// String
+
+				writeString(this.down_payment_details, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// Integer
+
+				writeInteger(this.company_id, dos);
+
+				// String
+
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.notice, dos);
+
+				// Integer
+
+				writeInteger(this.product_id, dos);
+
+				// Float
+
+				if (this.price_unit == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.price_unit);
+				}
+
+				// Integer
+
+				writeInteger(this.qty, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal, dos);
+
+				// Integer
+
+				writeInteger(this.price_subtotal_incl, dos);
+
+				// String
+
+				writeString(this.total_cost, dos);
+
+				// Boolean
+
+				if (this.is_total_cost_computed == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.is_total_cost_computed);
+				}
+
+				// Float
+
+				if (this.discount == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeFloat(this.discount);
+				}
+
+				// Integer
+
+				writeInteger(this.order_id, dos);
+
+				// String
+
+				writeString(this.full_product_name, dos);
+
+				// String
+
+				writeString(this.customer_note, dos);
+
+				// String
+
+				writeString(this.refunded_orderline_id, dos);
+
+				// Integer
+
+				writeInteger(this.create_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.create_date, dos);
+
+				// Integer
+
+				writeInteger(this.write_uid, dos);
+
+				// java.util.Date
+
+				writeDate(this.write_date, dos);
+
+				// String
+
+				writeString(this.sale_order_origin_id, dos);
+
+				// String
+
+				writeString(this.sale_order_line_id, dos);
+
+				// String
+
+				writeString(this.down_payment_details, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",company_id=" + String.valueOf(company_id));
+			sb.append(",name=" + name);
+			sb.append(",notice=" + notice);
+			sb.append(",product_id=" + String.valueOf(product_id));
+			sb.append(",price_unit=" + String.valueOf(price_unit));
+			sb.append(",qty=" + String.valueOf(qty));
+			sb.append(",price_subtotal=" + String.valueOf(price_subtotal));
+			sb.append(",price_subtotal_incl=" + String.valueOf(price_subtotal_incl));
+			sb.append(",total_cost=" + total_cost);
+			sb.append(",is_total_cost_computed=" + String.valueOf(is_total_cost_computed));
+			sb.append(",discount=" + String.valueOf(discount));
+			sb.append(",order_id=" + String.valueOf(order_id));
+			sb.append(",full_product_name=" + full_product_name);
+			sb.append(",customer_note=" + customer_note);
+			sb.append(",refunded_orderline_id=" + refunded_orderline_id);
+			sb.append(",create_uid=" + String.valueOf(create_uid));
+			sb.append(",create_date=" + String.valueOf(create_date));
+			sb.append(",write_uid=" + String.valueOf(write_uid));
+			sb.append(",write_date=" + String.valueOf(write_date));
+			sb.append(",sale_order_origin_id=" + sale_order_origin_id);
+			sb.append(",sale_order_line_id=" + sale_order_line_id);
+			sb.append(",down_payment_details=" + down_payment_details);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row1Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				row1Struct row1 = new row1Struct();
+
+				/**
+				 * [tLogRow_1 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_1", false);
+				start_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_1";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
+				}
+
+				int tos_count_tLogRow_1 = 0;
+
+				///////////////////////
+
+				class Util_tLogRow_1 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[23];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 23; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i], row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 22 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 22 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
+							sbformat.append("s");
+
+							sbformat.append("|%4$-");
+							sbformat.append(colLengths[3]);
+							sbformat.append("s");
+
+							sbformat.append("|%5$-");
+							sbformat.append(colLengths[4]);
+							sbformat.append("s");
+
+							sbformat.append("|%6$-");
+							sbformat.append(colLengths[5]);
+							sbformat.append("s");
+
+							sbformat.append("|%7$-");
+							sbformat.append(colLengths[6]);
+							sbformat.append("s");
+
+							sbformat.append("|%8$-");
+							sbformat.append(colLengths[7]);
+							sbformat.append("s");
+
+							sbformat.append("|%9$-");
+							sbformat.append(colLengths[8]);
+							sbformat.append("s");
+
+							sbformat.append("|%10$-");
+							sbformat.append(colLengths[9]);
+							sbformat.append("s");
+
+							sbformat.append("|%11$-");
+							sbformat.append(colLengths[10]);
+							sbformat.append("s");
+
+							sbformat.append("|%12$-");
+							sbformat.append(colLengths[11]);
+							sbformat.append("s");
+
+							sbformat.append("|%13$-");
+							sbformat.append(colLengths[12]);
+							sbformat.append("s");
+
+							sbformat.append("|%14$-");
+							sbformat.append(colLengths[13]);
+							sbformat.append("s");
+
+							sbformat.append("|%15$-");
+							sbformat.append(colLengths[14]);
+							sbformat.append("s");
+
+							sbformat.append("|%16$-");
+							sbformat.append(colLengths[15]);
+							sbformat.append("s");
+
+							sbformat.append("|%17$-");
+							sbformat.append(colLengths[16]);
+							sbformat.append("s");
+
+							sbformat.append("|%18$-");
+							sbformat.append(colLengths[17]);
+							sbformat.append("s");
+
+							sbformat.append("|%19$-");
+							sbformat.append(colLengths[18]);
+							sbformat.append("s");
+
+							sbformat.append("|%20$-");
+							sbformat.append(colLengths[19]);
+							sbformat.append("s");
+
+							sbformat.append("|%21$-");
+							sbformat.append(colLengths[20]);
+							sbformat.append("s");
+
+							sbformat.append("|%22$-");
+							sbformat.append(colLengths[21]);
+							sbformat.append("s");
+
+							sbformat.append("|%23$-");
+							sbformat.append(colLengths[22]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(), (Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						// last column
+						for (int i = 0; i < colLengths[22] - fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
+				util_tLogRow_1.setTableName("tLogRow_1");
+				util_tLogRow_1.addRow(new String[] { "id", "company_id", "name", "notice", "product_id", "price_unit",
+						"qty", "price_subtotal", "price_subtotal_incl", "total_cost", "is_total_cost_computed",
+						"discount", "order_id", "full_product_name", "customer_note", "refunded_orderline_id",
+						"create_uid", "create_date", "write_uid", "write_date", "sale_order_origin_id",
+						"sale_order_line_id", "down_payment_details", });
+				StringBuilder strBuffer_tLogRow_1 = null;
+				int nb_line_tLogRow_1 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_1 begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_1 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_1", false);
+				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_1";
+
+				int tos_count_tFileInputDelimited_1 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_1 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv";
+					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv", "ISO-8859-15", ";",
+								"\n", true, 1, 0, limit_tFileInputDelimited_1, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
+						rowstate_tFileInputDelimited_1.reset();
+
+						row1 = null;
+
+						boolean whetherReject_tFileInputDelimited_1 = false;
+						row1 = new row1Struct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_1 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_1 = 0;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 1;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.company_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"company_id", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.company_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 2;
+
+							row1.name = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 3;
+
+							row1.notice = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 4;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.product_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"product_id", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.product_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 5;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.price_unit = ParserUtils.parseTo_Float(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"price_unit", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.price_unit = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 6;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.qty = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"qty", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.qty = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 7;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.price_subtotal = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"price_subtotal", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.price_subtotal = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 8;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.price_subtotal_incl = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"price_subtotal_incl", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.price_subtotal_incl = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 9;
+
+							row1.total_cost = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 10;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.is_total_cost_computed = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"is_total_cost_computed", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.is_total_cost_computed = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 11;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.discount = ParserUtils.parseTo_Float(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"discount", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.discount = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 12;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.order_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"order_id", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.order_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 13;
+
+							row1.full_product_name = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 14;
+
+							row1.customer_note = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 15;
+
+							row1.refunded_orderline_id = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 16;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.create_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_uid", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.create_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 17;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_date", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.create_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 18;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.write_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_uid", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.write_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 19;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_date", "row1", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.write_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 20;
+
+							row1.sale_order_origin_id = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 21;
+
+							row1.sale_order_line_id = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 22;
+
+							row1.down_payment_details = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							if (rowstate_tFileInputDelimited_1.getException() != null) {
+								throw rowstate_tFileInputDelimited_1.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_1 = true;
+
+							System.err.println(e.getMessage());
+							row1 = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_1 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_1 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+						tos_count_tFileInputDelimited_1++;
+
+						/**
+						 * [tFileInputDelimited_1 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+						/**
+						 * [tFileInputDelimited_1 process_data_begin ] stop
+						 */
+// Start of branch "row1"
+						if (row1 != null) {
+
+							/**
+							 * [tLogRow_1 main ] start
+							 */
+
+							currentComponent = "tLogRow_1";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row1"
+
+								);
+							}
+
+///////////////////////		
+
+							String[] row_tLogRow_1 = new String[23];
+
+							if (row1.id != null) { //
+								row_tLogRow_1[0] = String.valueOf(row1.id);
+
+							} //
+
+							if (row1.company_id != null) { //
+								row_tLogRow_1[1] = String.valueOf(row1.company_id);
+
+							} //
+
+							if (row1.name != null) { //
+								row_tLogRow_1[2] = String.valueOf(row1.name);
+
+							} //
+
+							if (row1.notice != null) { //
+								row_tLogRow_1[3] = String.valueOf(row1.notice);
+
+							} //
+
+							if (row1.product_id != null) { //
+								row_tLogRow_1[4] = String.valueOf(row1.product_id);
+
+							} //
+
+							if (row1.price_unit != null) { //
+								row_tLogRow_1[5] = FormatterUtils.formatUnwithE(row1.price_unit);
+
+							} //
+
+							if (row1.qty != null) { //
+								row_tLogRow_1[6] = String.valueOf(row1.qty);
+
+							} //
+
+							if (row1.price_subtotal != null) { //
+								row_tLogRow_1[7] = String.valueOf(row1.price_subtotal);
+
+							} //
+
+							if (row1.price_subtotal_incl != null) { //
+								row_tLogRow_1[8] = String.valueOf(row1.price_subtotal_incl);
+
+							} //
+
+							if (row1.total_cost != null) { //
+								row_tLogRow_1[9] = String.valueOf(row1.total_cost);
+
+							} //
+
+							if (row1.is_total_cost_computed != null) { //
+								row_tLogRow_1[10] = String.valueOf(row1.is_total_cost_computed);
+
+							} //
+
+							if (row1.discount != null) { //
+								row_tLogRow_1[11] = FormatterUtils.formatUnwithE(row1.discount);
+
+							} //
+
+							if (row1.order_id != null) { //
+								row_tLogRow_1[12] = String.valueOf(row1.order_id);
+
+							} //
+
+							if (row1.full_product_name != null) { //
+								row_tLogRow_1[13] = String.valueOf(row1.full_product_name);
+
+							} //
+
+							if (row1.customer_note != null) { //
+								row_tLogRow_1[14] = String.valueOf(row1.customer_note);
+
+							} //
+
+							if (row1.refunded_orderline_id != null) { //
+								row_tLogRow_1[15] = String.valueOf(row1.refunded_orderline_id);
+
+							} //
+
+							if (row1.create_uid != null) { //
+								row_tLogRow_1[16] = String.valueOf(row1.create_uid);
+
+							} //
+
+							if (row1.create_date != null) { //
+								row_tLogRow_1[17] = FormatterUtils.format_Date(row1.create_date, "dd-MM-yyyy");
+
+							} //
+
+							if (row1.write_uid != null) { //
+								row_tLogRow_1[18] = String.valueOf(row1.write_uid);
+
+							} //
+
+							if (row1.write_date != null) { //
+								row_tLogRow_1[19] = FormatterUtils.format_Date(row1.write_date, "dd-MM-yyyy");
+
+							} //
+
+							if (row1.sale_order_origin_id != null) { //
+								row_tLogRow_1[20] = String.valueOf(row1.sale_order_origin_id);
+
+							} //
+
+							if (row1.sale_order_line_id != null) { //
+								row_tLogRow_1[21] = String.valueOf(row1.sale_order_line_id);
+
+							} //
+
+							if (row1.down_payment_details != null) { //
+								row_tLogRow_1[22] = String.valueOf(row1.down_payment_details);
+
+							} //
+
+							util_tLogRow_1.addRow(row_tLogRow_1);
+							nb_line_tLogRow_1++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+							tos_count_tLogRow_1++;
+
+							/**
+							 * [tLogRow_1 main ] stop
+							 */
+
+							/**
+							 * [tLogRow_1 process_data_begin ] start
+							 */
+
+							currentComponent = "tLogRow_1";
+
+							/**
+							 * [tLogRow_1 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tLogRow_1 process_data_end ] start
+							 */
+
+							currentComponent = "tLogRow_1";
+
+							/**
+							 * [tLogRow_1 process_data_end ] stop
+							 */
+
+						} // End of branch "row1"
+
+						/**
+						 * [tFileInputDelimited_1 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+						/**
+						 * [tFileInputDelimited_1 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_1 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_1 != null) {
+							fid_tFileInputDelimited_1.close();
+						}
+					}
+					if (fid_tFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_1", true);
+				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_1 end ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 end ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+//////
+
+				java.io.PrintStream consoleOut_tLogRow_1 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+				}
+
+				consoleOut_tLogRow_1.println(util_tLogRow_1.format().toString());
+				consoleOut_tLogRow_1.flush();
+//////
+				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
+				}
+
+				ok_Hash.put("tLogRow_1", true);
+				end_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_1 end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_1 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_1";
+
+				/**
+				 * [tFileInputDelimited_1 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 finally ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+				/**
+				 * [tLogRow_1 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -1197,6 +4923,6 @@ public class getStage_posOrderLine implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 38807 characters generated by Talend Open Studio for Data Integration on the
- * November 2, 2022 at 11:28:54 PM CST
+ * 158181 characters generated by Talend Open Studio for Data Integration on the
+ * December 5, 2022 at 11:19:56 PM CST
  ************************************************************************************************/

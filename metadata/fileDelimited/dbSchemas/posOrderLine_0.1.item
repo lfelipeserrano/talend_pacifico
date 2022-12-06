@@ -8,13 +8,13 @@
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2ZVs1Ee2GC6KrxrpFfQ" label="name" length="9" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2Zls1Ee2GC6KrxrpFfQ" label="notice" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2Z1s1Ee2GC6KrxrpFfQ" label="product_id" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2aFs1Ee2GC6KrxrpFfQ" label="price_unit" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2aFs1Ee2GC6KrxrpFfQ" label="price_unit" length="-1" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2aVs1Ee2GC6KrxrpFfQ" label="qty" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2als1Ee2GC6KrxrpFfQ" label="price_subtotal" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2a1s1Ee2GC6KrxrpFfQ" label="price_subtotal_incl" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2bFs1Ee2GC6KrxrpFfQ" label="total_cost" length="4" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2bVs1Ee2GC6KrxrpFfQ" label="is_total_cost_computed" length="4" talendType="id_Boolean" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2bls1Ee2GC6KrxrpFfQ" label="discount" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2bls1Ee2GC6KrxrpFfQ" label="discount" length="-1" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2b1s1Ee2GC6KrxrpFfQ" label="order_id" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2cFs1Ee2GC6KrxrpFfQ" label="full_product_name" length="36" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_qLp2cVs1Ee2GC6KrxrpFfQ" label="customer_note" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>

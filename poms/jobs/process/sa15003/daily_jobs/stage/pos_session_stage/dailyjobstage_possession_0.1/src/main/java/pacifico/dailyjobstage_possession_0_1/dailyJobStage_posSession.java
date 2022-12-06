@@ -14,6 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 package pacifico.dailyjobstage_possession_0_1;
 
 import routines.Numeric;
@@ -40,26 +41,31 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.Comparator;
+ 
+
+
+
+
 
 @SuppressWarnings("unused")
 
 /**
  * Job: dailyJobStage_posSession Purpose: <br>
- * Description: <br>
- * 
- * @author
+ * Description:  <br>
+ * @author 
  * @version 8.0.1.20211109_1610
- * @status
+ * @status 
  */
 public class dailyJobStage_posSession implements TalendJob {
 
-	protected static void logIgnoredError(String message, Throwable cause) {
-		System.err.println(message);
-		if (cause != null) {
-			cause.printStackTrace();
-		}
+protected static void logIgnoredError(String message, Throwable cause) {
+       System.err.println(message);
+       if (cause != null) {
+               cause.printStackTrace();
+       }
 
-	}
+}
+
 
 	public final Object obj = new Object();
 
@@ -73,11673 +79,13336 @@ public class dailyJobStage_posSession implements TalendJob {
 	public void setValueObject(Object valueObject) {
 		this.valueObject = valueObject;
 	}
-
+	
 	private final static String defaultCharset = java.nio.charset.Charset.defaultCharset().name();
 
+	
 	private final static String utf8Charset = "UTF-8";
-
-	// contains type for every context property
+	//contains type for every context property
 	public class PropertiesWithType extends java.util.Properties {
 		private static final long serialVersionUID = 1L;
-		private java.util.Map<String, String> propertyTypes = new java.util.HashMap<>();
-
-		public PropertiesWithType(java.util.Properties properties) {
+		private java.util.Map<String,String> propertyTypes = new java.util.HashMap<>();
+		
+		public PropertiesWithType(java.util.Properties properties){
 			super(properties);
 		}
-
-		public PropertiesWithType() {
+		public PropertiesWithType(){
 			super();
 		}
-
+		
 		public void setContextType(String key, String type) {
-			propertyTypes.put(key, type);
+			propertyTypes.put(key,type);
 		}
-
+	
 		public String getContextType(String key) {
 			return propertyTypes.get(key);
 		}
 	}
-
+	
 	// create and load default properties
 	private java.util.Properties defaultProps = new java.util.Properties();
-
 	// create application properties with default
 	public class ContextProperties extends PropertiesWithType {
 
 		private static final long serialVersionUID = 1L;
 
-		public ContextProperties(java.util.Properties properties) {
+		public ContextProperties(java.util.Properties properties){
 			super(properties);
 		}
-
-		public ContextProperties() {
+		public ContextProperties(){
 			super();
 		}
 
-		public void synchronizeContext() {
-
+		public void synchronizeContext(){
+			
 		}
-
-		// if the stored or passed value is "<TALEND_NULL>" string, it mean null
+		
+		//if the stored or passed value is "<TALEND_NULL>" string, it mean null
 		public String getStringValue(String key) {
 			String origin_value = this.getProperty(key);
-			if (NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY.equals(origin_value)) {
+			if(NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY.equals(origin_value)) {
 				return null;
 			}
 			return origin_value;
 		}
 
 	}
-
 	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
-
 	public ContextProperties getContext() {
 		return this.context;
 	}
-
 	private final String jobVersion = "0.1";
 	private final String jobName = "dailyJobStage_posSession";
 	private final String projectName = "PACIFICO";
 	public Integer errorCode = null;
 	private String currentComponent = "";
+	
+		private final java.util.Map<String, Object> globalMap = new java.util.HashMap<String, Object>();
+        private final static java.util.Map<String, Object> junitGlobalMap = new java.util.HashMap<String, Object>();
+	
+		private final java.util.Map<String, Long> start_Hash = new java.util.HashMap<String, Long>();
+		private final java.util.Map<String, Long> end_Hash = new java.util.HashMap<String, Long>();
+		private final java.util.Map<String, Boolean> ok_Hash = new java.util.HashMap<String, Boolean>();
+		public  final java.util.List<String[]> globalBuffer = new java.util.ArrayList<String[]>();
+	
 
-	private final java.util.Map<String, Object> globalMap = new java.util.HashMap<String, Object>();
-	private final static java.util.Map<String, Object> junitGlobalMap = new java.util.HashMap<String, Object>();
-
-	private final java.util.Map<String, Long> start_Hash = new java.util.HashMap<String, Long>();
-	private final java.util.Map<String, Long> end_Hash = new java.util.HashMap<String, Long>();
-	private final java.util.Map<String, Boolean> ok_Hash = new java.util.HashMap<String, Boolean>();
-	public final java.util.List<String[]> globalBuffer = new java.util.ArrayList<String[]>();
-
-	private RunStat runStat = new RunStat();
+private RunStat runStat = new RunStat();
 
 	// OSGi DataSource
 	private final static String KEY_DB_DATASOURCES = "KEY_DB_DATASOURCES";
-
+	
 	private final static String KEY_DB_DATASOURCES_RAW = "KEY_DB_DATASOURCES_RAW";
 
 	public void setDataSources(java.util.Map<String, javax.sql.DataSource> dataSources) {
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
 		for (java.util.Map.Entry<String, javax.sql.DataSource> dataSourceEntry : dataSources.entrySet()) {
-			talendDataSources.put(dataSourceEntry.getKey(),
-					new routines.system.TalendDataSource(dataSourceEntry.getValue()));
+			talendDataSources.put(dataSourceEntry.getKey(), new routines.system.TalendDataSource(dataSourceEntry.getValue()));
 		}
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
 		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
-
-	public void setDataSourceReferences(List serviceReferences) throws Exception {
-
+	
+	public void setDataSourceReferences(List serviceReferences) throws Exception{
+		
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
 		java.util.Map<String, javax.sql.DataSource> dataSources = new java.util.HashMap<String, javax.sql.DataSource>();
-
-		for (java.util.Map.Entry<String, javax.sql.DataSource> entry : BundleUtils
-				.getServices(serviceReferences, javax.sql.DataSource.class).entrySet()) {
-			dataSources.put(entry.getKey(), entry.getValue());
-			talendDataSources.put(entry.getKey(), new routines.system.TalendDataSource(entry.getValue()));
+		
+		for (java.util.Map.Entry<String, javax.sql.DataSource> entry : BundleUtils.getServices(serviceReferences,  javax.sql.DataSource.class).entrySet()) {
+                    dataSources.put(entry.getKey(), entry.getValue());
+                    talendDataSources.put(entry.getKey(), new routines.system.TalendDataSource(entry.getValue()));
 		}
 
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
 		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
 
-	private final java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-	private final java.io.PrintStream errorMessagePS = new java.io.PrintStream(new java.io.BufferedOutputStream(baos));
 
-	public String getExceptionStackTrace() {
-		if ("failure".equals(this.getStatus())) {
-			errorMessagePS.flush();
-			return baos.toString();
-		}
-		return null;
+private final java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
+private final java.io.PrintStream errorMessagePS = new java.io.PrintStream(new java.io.BufferedOutputStream(baos));
+
+public String getExceptionStackTrace() {
+	if ("failure".equals(this.getStatus())) {
+		errorMessagePS.flush();
+		return baos.toString();
+	}
+	return null;
+}
+
+private Exception exception;
+
+public Exception getException() {
+	if ("failure".equals(this.getStatus())) {
+		return this.exception;
+	}
+	return null;
+}
+
+private class TalendException extends Exception {
+
+	private static final long serialVersionUID = 1L;
+
+	private java.util.Map<String, Object> globalMap = null;
+	private Exception e = null;
+	private String currentComponent = null;
+	private String virtualComponentName = null;
+	
+	public void setVirtualComponentName (String virtualComponentName){
+		this.virtualComponentName = virtualComponentName;
 	}
 
-	private Exception exception;
+	private TalendException(Exception e, String errorComponent, final java.util.Map<String, Object> globalMap) {
+		this.currentComponent= errorComponent;
+		this.globalMap = globalMap;
+		this.e = e;
+	}
 
 	public Exception getException() {
-		if ("failure".equals(this.getStatus())) {
-			return this.exception;
-		}
-		return null;
+		return this.e;
 	}
 
-	private class TalendException extends Exception {
+	public String getCurrentComponent() {
+		return this.currentComponent;
+	}
 
-		private static final long serialVersionUID = 1L;
+	
+    public String getExceptionCauseMessage(Exception e){
+        Throwable cause = e;
+        String message = null;
+        int i = 10;
+        while (null != cause && 0 < i--) {
+            message = cause.getMessage();
+            if (null == message) {
+                cause = cause.getCause();
+            } else {
+                break;          
+            }
+        }
+        if (null == message) {
+            message = e.getClass().getName();
+        }   
+        return message;
+    }
 
-		private java.util.Map<String, Object> globalMap = null;
-		private Exception e = null;
-		private String currentComponent = null;
-		private String virtualComponentName = null;
-
-		public void setVirtualComponentName(String virtualComponentName) {
-			this.virtualComponentName = virtualComponentName;
+	@Override
+	public void printStackTrace() {
+		if (!(e instanceof TalendException || e instanceof TDieException)) {
+			if(virtualComponentName!=null && currentComponent.indexOf(virtualComponentName+"_")==0){
+				globalMap.put(virtualComponentName+"_ERROR_MESSAGE",getExceptionCauseMessage(e));
+			}
+			globalMap.put(currentComponent+"_ERROR_MESSAGE",getExceptionCauseMessage(e));
+			System.err.println("Exception in component " + currentComponent + " (" + jobName + ")");
 		}
-
-		private TalendException(Exception e, String errorComponent, final java.util.Map<String, Object> globalMap) {
-			this.currentComponent = errorComponent;
-			this.globalMap = globalMap;
-			this.e = e;
+		if (!(e instanceof TDieException)) {
+			if(e instanceof TalendException){
+				e.printStackTrace();
+			} else {
+				e.printStackTrace();
+				e.printStackTrace(errorMessagePS);
+				dailyJobStage_posSession.this.exception = e;
+			}
 		}
-
-		public Exception getException() {
-			return this.e;
-		}
-
-		public String getCurrentComponent() {
-			return this.currentComponent;
-		}
-
-		public String getExceptionCauseMessage(Exception e) {
-			Throwable cause = e;
-			String message = null;
-			int i = 10;
-			while (null != cause && 0 < i--) {
-				message = cause.getMessage();
-				if (null == message) {
-					cause = cause.getCause();
-				} else {
+		if (!(e instanceof TalendException)) {
+		try {
+			for (java.lang.reflect.Method m : this.getClass().getEnclosingClass().getMethods()) {
+				if (m.getName().compareTo(currentComponent + "_error") == 0) {
+					m.invoke(dailyJobStage_posSession.this, new Object[] { e , currentComponent, globalMap});
 					break;
 				}
 			}
-			if (null == message) {
-				message = e.getClass().getName();
-			}
-			return message;
-		}
 
-		@Override
-		public void printStackTrace() {
-			if (!(e instanceof TalendException || e instanceof TDieException)) {
-				if (virtualComponentName != null && currentComponent.indexOf(virtualComponentName + "_") == 0) {
-					globalMap.put(virtualComponentName + "_ERROR_MESSAGE", getExceptionCauseMessage(e));
-				}
-				globalMap.put(currentComponent + "_ERROR_MESSAGE", getExceptionCauseMessage(e));
-				System.err.println("Exception in component " + currentComponent + " (" + jobName + ")");
+			if(!(e instanceof TDieException)){
 			}
-			if (!(e instanceof TDieException)) {
-				if (e instanceof TalendException) {
-					e.printStackTrace();
+		} catch (Exception e) {
+			this.e.printStackTrace();
+		}
+		}
+	}
+}
+
+			public void tFileInputDelimited_3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tUnite_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tLogRow_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tFileOutputDelimited_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tS3Connection_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tS3Connection_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tS3Put_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tS3Put_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tFileInputDelimited_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tLogRow_2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tFileOutputDelimited_2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tFileInputDelimited_2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tAdvancedHash_row2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tFileInputDelimited_3_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
+			public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
+			public void tS3Put_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
+	
+
+
+
+
+
+
+public static class row7Struct implements routines.system.IPersistableRow<row7Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
 				} else {
-					e.printStackTrace();
-					e.printStackTrace(errorMessagePS);
-					dailyJobStage_posSession.this.exception = e;
-				}
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
 			}
-			if (!(e instanceof TalendException)) {
-				try {
-					for (java.lang.reflect.Method m : this.getClass().getEnclosingClass().getMethods()) {
-						if (m.getName().compareTo(currentComponent + "_error") == 0) {
-							m.invoke(dailyJobStage_posSession.this, new Object[] { e, currentComponent, globalMap });
-							break;
-						}
-					}
-
-					if (!(e instanceof TDieException)) {
-					}
-				} catch (Exception e) {
-					this.e.printStackTrace();
-				}
-			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
 		}
+		return strReturn;
 	}
-
-	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tLogRow_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileOutputDelimited_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tUnite_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tLogRow_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileOutputDelimited_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tS3Connection_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tS3Connection_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tS3Put_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tS3Put_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tAdvancedHash_row2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_3_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public void tS3Put_1_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public void tFileInputDelimited_3_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
-	public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tS3Connection_1 begin ] start
-				 */
-
-				ok_Hash.put("tS3Connection_1", false);
-				start_Hash.put("tS3Connection_1", System.currentTimeMillis());
-
-				currentComponent = "tS3Connection_1";
-
-				int tos_count_tS3Connection_1 = 0;
-
-				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:t89QlDw2QXDQbvq62s4+iUAsqINQ/ePt8yqV3GYVoS8DQOfjlhZg2SvHl8v/g9tPxInz3Pl/C8/Y7ANTsj4oKlk8Dkw=");
-
-				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
-						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
-				com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(
-						credentials_tS3Connection_1);
-
-				com.amazonaws.ClientConfiguration cc_tS3Connection_1 = new com.amazonaws.ClientConfiguration();
-				cc_tS3Connection_1.setUserAgent("APN/1.0 Talend/8.0 Studio/8.0 (Talend Open Studio)");
-
-				com.amazonaws.services.s3.AmazonS3ClientBuilder builder_tS3Connection_1 = com.amazonaws.services.s3.AmazonS3ClientBuilder
-						.standard();
-
-				final boolean useRegionEndpoint_tS3Connection_1 = false;
-				final String regionEndpoint_tS3Connection_1 = "s3.amazonaws.com";
-				final boolean enableAccelerateMode_tS3Connection_1 = false;
-				final boolean enablePathStyleAccess_tS3Connection_1 = false;
-
-				if (useRegionEndpoint_tS3Connection_1 && regionEndpoint_tS3Connection_1 != null
-						&& !regionEndpoint_tS3Connection_1.isEmpty()) {
-					builder_tS3Connection_1.withEndpointConfiguration(
-							new com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration(
-									regionEndpoint_tS3Connection_1, "us-east-2"));
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
 				} else {
-					builder_tS3Connection_1.withRegion("us-east-2");
-				}
-
-				if (enableAccelerateMode_tS3Connection_1) {
-					builder_tS3Connection_1.withAccelerateModeEnabled(true);
-				}
-
-				builder_tS3Connection_1.withCredentials(credentialsProvider_tS3Connection_1)
-						.withClientConfiguration(cc_tS3Connection_1);
-
-				if (useRegionEndpoint_tS3Connection_1 && enablePathStyleAccess_tS3Connection_1) {
-					builder_tS3Connection_1.enablePathStyleAccess();
-				}
-
-				com.amazonaws.services.s3.AmazonS3 conn_tS3Connection_1 = builder_tS3Connection_1.build();
-
-				// This method is just for test connection.
-				conn_tS3Connection_1.getS3AccountOwner();
-
-				globalMap.put("conn_" + "tS3Connection_1", conn_tS3Connection_1);
-
-				/**
-				 * [tS3Connection_1 begin ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 main ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				tos_count_tS3Connection_1++;
-
-				/**
-				 * [tS3Connection_1 main ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 process_data_begin ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 process_data_begin ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 process_data_end ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 process_data_end ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 end ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				ok_Hash.put("tS3Connection_1", true);
-				end_Hash.put("tS3Connection_1", System.currentTimeMillis());
-
-				/**
-				 * [tS3Connection_1 end ] stop
-				 */
-			} // end the resume
-
-			if (resumeEntryMethodName == null || globalResumeTicket) {
-				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Connection_1:OnSubjobOk", "",
-						Thread.currentThread().getId() + "", "", "", "", "", "");
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
 			}
-
-			if (execStat) {
-				runStat.updateStatOnConnection("OnSubjobOk1", 0, "ok");
-			}
-
-			tS3Put_1Process(globalMap);
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tS3Connection_1 finally ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 finally ] stop
-				 */
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
 		}
-
-		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 1);
+		return strReturn;
 	}
 
-	public void tS3Put_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 0);
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
 
-		final boolean execStat = this.execStat;
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
 
-		String iterateId = "";
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
 
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+    public void readData(ObjectInputStream dis) {
 
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
 
-				/**
-				 * [tS3Put_1 begin ] start
-				 */
+        	try {
 
-				ok_Hash.put("tS3Put_1", false);
-				start_Hash.put("tS3Put_1", System.currentTimeMillis());
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
 
-				currentComponent = "tS3Put_1";
+		
 
-				int tos_count_tS3Put_1 = 0;
+        }
 
-				String millisecTime_tS3Put_1 = null;
+		
 
-				com.amazonaws.services.s3.AmazonS3Client conn_tS3Put_1 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
-						.get("conn_tS3Connection_1");
+      }
 
-				String key_tS3Put_1 = "posOrder_test.csv";
 
-				int partSizeInBytes_tS3Put_1 = 5 * 1024 * 1024;
-				if (partSizeInBytes_tS3Put_1 < 5 << 20) {
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
 
-					partSizeInBytes_tS3Put_1 = 5 << 20;
-				}
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
 
-				Object fileOrStream_tS3Put_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageOut.csv";
+        	try {
 
-				boolean useStream_tS3Put_1 = false;
-				java.io.InputStream uploadStream_tS3Put_1 = null;
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
 
-				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Put_1 = null;
+		
 
-				try {
+        }
 
-					if (fileOrStream_tS3Put_1 instanceof String) {
-						useStream_tS3Put_1 = false;
-					} else if (fileOrStream_tS3Put_1 instanceof java.io.InputStream) {
-						useStream_tS3Put_1 = true;
-					}
+		
 
-					com.amazonaws.services.s3.model.ObjectMetadata objectMetadata_tS3Put_1 = new com.amazonaws.services.s3.model.ObjectMetadata();
+      }
 
-					if (!useStream_tS3Put_1) {
-						java.io.File inputFile_tS3Put_1 = new java.io.File((String) fileOrStream_tS3Put_1);
 
-						long multipart_upload_threshold_tS3Put_1 = 5 * 1024 * 1024;
+    }
 
-						tm_tS3Put_1 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
-								.withMinimumUploadPartSize((long) partSizeInBytes_tS3Put_1)
-								.withMultipartUploadThreshold(multipart_upload_threshold_tS3Put_1)
-								.withS3Client(conn_tS3Put_1).build();
+    public void writeData(ObjectOutputStream dos) {
+        try {
 
-						com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest(
-								"libreriapacifico/stage", key_tS3Put_1, inputFile_tS3Put_1)
-										.withMetadata(objectMetadata_tS3Put_1);
-
-						com.amazonaws.services.s3.transfer.Upload upload_tS3Put_1 = tm_tS3Put_1
-								.upload(putRequest_tS3Put_1);
-
-						upload_tS3Put_1.waitForCompletion();
-
-					} else {
-						java.io.InputStream sourceStream_tS3Put_1 = ((java.io.InputStream) fileOrStream_tS3Put_1);
-
-						class S3StreamUtil {
-							// read content to buffer as many as possible
-							public int readFully(final java.io.InputStream input, final byte[] buffer)
-									throws java.io.IOException {
-								return readFully(input, buffer, 0, buffer.length);
-							}
-
-							public int readFully(final java.io.InputStream input, final byte[] buffer, final int offset,
-									final int length) throws java.io.IOException {
-								if (length < 0) {
-									throw new java.lang.IllegalArgumentException(
-											"Length must not be negative: " + length);
-								}
-
-								int remaining = length;
-								while (remaining > 0) {
-									final int location = length - remaining;
-									final int count = input.read(buffer, offset + location, remaining);
-									if (count == -1) {
-										break;
-									}
-									remaining -= count;
-								}
-								return length - remaining;
-							}
-						}
-
-						S3StreamUtil streamUtil_tS3Put_1 = new S3StreamUtil();
-						byte[] buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
-						long curPartSize_tS3Put_1 = streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
-								buffer_tS3Put_1);
-
-						boolean multiUpload_tS3Put_1 = curPartSize_tS3Put_1 == partSizeInBytes_tS3Put_1;
-
-						if (!multiUpload_tS3Put_1) {
-							objectMetadata_tS3Put_1.setContentLength(curPartSize_tS3Put_1);
-							uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1, 0,
-									Long.valueOf(curPartSize_tS3Put_1).intValue());
-							com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest(
-									"libreriapacifico/stage", key_tS3Put_1, uploadStream_tS3Put_1,
-									objectMetadata_tS3Put_1);
-
-							conn_tS3Put_1.putObject(putRequest_tS3Put_1);
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
 						} else {
-							uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
-							java.util.List<com.amazonaws.services.s3.model.PartETag> partTags_tS3Put_1 = new java.util.ArrayList<com.amazonaws.services.s3.model.PartETag>();
-							com.amazonaws.services.s3.model.InitiateMultipartUploadRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.InitiateMultipartUploadRequest(
-									"libreriapacifico/stage", key_tS3Put_1, objectMetadata_tS3Put_1);
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
 
-							com.amazonaws.services.s3.model.InitiateMultipartUploadResult initResponse_tS3Put_1 = conn_tS3Put_1
-									.initiateMultipartUpload(putRequest_tS3Put_1);
-							String uploadId_tS3Put_1 = initResponse_tS3Put_1.getUploadId();
-							int partNumber_tS3Put_1 = 1;
-							boolean streamHasNext_tS3Put_1 = true;
-							byte[] probeAvailability_tS3Put_1 = new byte[1];
-							try {
-								while (streamHasNext_tS3Put_1) {
-									com.amazonaws.services.s3.model.UploadPartRequest uploadRequest_tS3Put_1 = new com.amazonaws.services.s3.model.UploadPartRequest()
-											.withBucketName("libreriapacifico/stage").withKey(key_tS3Put_1)
-											.withUploadId(uploadId_tS3Put_1).withPartNumber(partNumber_tS3Put_1)
-											.withPartSize(curPartSize_tS3Put_1);
-									uploadRequest_tS3Put_1.setInputStream(uploadStream_tS3Put_1);
-									streamHasNext_tS3Put_1 = (1 == streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
-											probeAvailability_tS3Put_1));
-									if (!streamHasNext_tS3Put_1) {
-										uploadRequest_tS3Put_1.setLastPart(true);
-									}
 
-									partTags_tS3Put_1
-											.add(conn_tS3Put_1.uploadPart(uploadRequest_tS3Put_1).getPartETag());
-									partNumber_tS3Put_1++;
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
 
-									if (uploadStream_tS3Put_1 != null) {
-										uploadStream_tS3Put_1.close();
-									}
-									buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
-									curPartSize_tS3Put_1 = 1 + streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
-											buffer_tS3Put_1, 1, partSizeInBytes_tS3Put_1 - 1);
-									buffer_tS3Put_1[0] = probeAvailability_tS3Put_1[0];
-									probeAvailability_tS3Put_1 = new byte[1];
-									uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
-								}
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
 
-								com.amazonaws.services.s3.model.CompleteMultipartUploadRequest compRequest_tS3Put_1 = new com.amazonaws.services.s3.model.CompleteMultipartUploadRequest(
-										"libreriapacifico/stage", key_tS3Put_1, uploadId_tS3Put_1, partTags_tS3Put_1);
-								conn_tS3Put_1.completeMultipartUpload(compRequest_tS3Put_1);
-							} catch (java.lang.Exception uploadException_tS3Put_1) {
-								globalMap.put("tS3Put_1_ERROR_MESSAGE", uploadException_tS3Put_1.getMessage());
-								conn_tS3Put_1.abortMultipartUpload(
-										new com.amazonaws.services.s3.model.AbortMultipartUploadRequest(
-												"libreriapacifico/stage", key_tS3Put_1, uploadId_tS3Put_1));
-								throw uploadException_tS3Put_1;
-							}
-						}
-					}
 
-				} catch (java.lang.Exception e_tS3Put_1) {
-					globalMap.put("tS3Put_1_ERROR_MESSAGE", e_tS3Put_1.getMessage());
+    }
 
-					System.err.println(e_tS3Put_1.getMessage());
 
-				} finally {
-					if (useStream_tS3Put_1 && uploadStream_tS3Put_1 != null) {
-						uploadStream_tS3Put_1.close();
-					}
+    public String toString() {
 
-					if (tm_tS3Put_1 != null) {
-						tm_tS3Put_1.shutdownNow(false);
-					}
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
 
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row7Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
 				}
+				
+			    public String message_main_attachment_id;
 
-				/**
-				 * [tS3Put_1 begin ] stop
-				 */
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
 
-				/**
-				 * [tS3Put_1 main ] start
-				 */
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
 
-				currentComponent = "tS3Put_1";
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
 
-				tos_count_tS3Put_1++;
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
 
-				/**
-				 * [tS3Put_1 main ] stop
-				 */
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
 
-				/**
-				 * [tS3Put_1 process_data_begin ] start
-				 */
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
 
-				currentComponent = "tS3Put_1";
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
 
-				/**
-				 * [tS3Put_1 process_data_begin ] stop
-				 */
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
 
-				/**
-				 * [tS3Put_1 process_data_end ] start
-				 */
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
 
-				currentComponent = "tS3Put_1";
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
 
-				/**
-				 * [tS3Put_1 process_data_end ] stop
-				 */
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
 
-				/**
-				 * [tS3Put_1 end ] start
-				 */
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
 
-				currentComponent = "tS3Put_1";
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
 
-				ok_Hash.put("tS3Put_1", true);
-				end_Hash.put("tS3Put_1", System.currentTimeMillis());
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
 
-				/**
-				 * [tS3Put_1 end ] stop
-				 */
-			} // end the resume
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
 
-		} catch (java.lang.Exception e) {
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
 
-			TalendException te = new TalendException(e, currentComponent, globalMap);
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
 
-			throw te;
-		} catch (java.lang.Error error) {
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
 
-			runStat.stopThreadStat();
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
 
-			throw error;
-		} finally {
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
 
-			try {
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
 
-				/**
-				 * [tS3Put_1 finally ] start
-				 */
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
 
-				currentComponent = "tS3Put_1";
 
-				/**
-				 * [tS3Put_1 finally ] stop
-				 */
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
 		}
-
-		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 1);
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
 	}
 
-	public static class row2Struct implements routines.system.IPersistableComparableLookupRow<row2Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row2Struct other = (row2Struct) obj;
-
-			if (this.id == null) {
-				if (other.id != null)
-					return false;
-
-			} else if (!this.id.equals(other.id))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row2Struct other) {
-
-			other.id = this.id;
-			other.message_main_attachment_id = this.message_main_attachment_id;
-			other.config_id = this.config_id;
-			other.name = this.name;
-			other.user_id = this.user_id;
-			other.start_at = this.start_at;
-			other.stop_at = this.stop_at;
-			other.state = this.state;
-			other.sequence_number = this.sequence_number;
-			other.login_number = this.login_number;
-			other.opening_notes = this.opening_notes;
-			other.cash_journal_id = this.cash_journal_id;
-			other.cash_register_id = this.cash_register_id;
-			other.cash_real_difference = this.cash_real_difference;
-			other.cash_real_transaction = this.cash_real_transaction;
-			other.cash_real_expected = this.cash_real_expected;
-			other.rescue = this.rescue;
-			other.move_id = this.move_id;
-			other.update_stock_at_closing = this.update_stock_at_closing;
-			other.create_uid = this.create_uid;
-			other.create_date = this.create_date;
-			other.write_uid = this.write_uid;
-			other.write_date = this.write_date;
-
-		}
-
-		public void copyKeysDataTo(row2Struct other) {
-
-			other.id = this.id;
-
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				unmarshaller.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = unmarshaller.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.message_main_attachment_id = readString(dis, ois);
-
-				this.config_id = readInteger(dis, ois);
-
-				this.name = readString(dis, ois);
-
-				this.user_id = readInteger(dis, ois);
-
-				this.start_at = readDate(dis, ois);
-
-				this.stop_at = readString(dis, ois);
-
-				this.state = readString(dis, ois);
-
-				this.sequence_number = readInteger(dis, ois);
-
-				this.login_number = readInteger(dis, ois);
-
-				this.opening_notes = readString(dis, ois);
-
-				this.cash_journal_id = readInteger(dis, ois);
-
-				this.cash_register_id = readInteger(dis, ois);
-
-				this.cash_real_difference = readString(dis, ois);
-
-				this.cash_real_transaction = readString(dis, ois);
-
-				this.cash_real_expected = readString(dis, ois);
-
-				this.rescue = readString(dis, ois);
-
-				this.move_id = readString(dis, ois);
-
-				length = dis.readByte();
-				if (length == -1) {
-					this.update_stock_at_closing = null;
-				} else {
-					this.update_stock_at_closing = dis.readBoolean();
-				}
-
-				this.create_uid = readInteger(dis, ois);
-
-				this.create_date = readDate(dis, ois);
-
-				this.write_uid = readInteger(dis, ois);
-
-				this.write_date = readDate(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
-			try {
-				int length = 0;
-
-				this.message_main_attachment_id = readString(dis, objectIn);
-
-				this.config_id = readInteger(dis, objectIn);
-
-				this.name = readString(dis, objectIn);
-
-				this.user_id = readInteger(dis, objectIn);
-
-				this.start_at = readDate(dis, objectIn);
-
-				this.stop_at = readString(dis, objectIn);
-
-				this.state = readString(dis, objectIn);
-
-				this.sequence_number = readInteger(dis, objectIn);
-
-				this.login_number = readInteger(dis, objectIn);
-
-				this.opening_notes = readString(dis, objectIn);
-
-				this.cash_journal_id = readInteger(dis, objectIn);
-
-				this.cash_register_id = readInteger(dis, objectIn);
-
-				this.cash_real_difference = readString(dis, objectIn);
-
-				this.cash_real_transaction = readString(dis, objectIn);
-
-				this.cash_real_expected = readString(dis, objectIn);
-
-				this.rescue = readString(dis, objectIn);
-
-				this.move_id = readString(dis, objectIn);
-
-				length = objectIn.readByte();
-				if (length == -1) {
-					this.update_stock_at_closing = null;
-				} else {
-					this.update_stock_at_closing = objectIn.readBoolean();
-				}
-
-				this.create_uid = readInteger(dis, objectIn);
-
-				this.create_date = readDate(dis, objectIn);
-
-				this.write_uid = readInteger(dis, objectIn);
-
-				this.write_date = readDate(dis, objectIn);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeString(this.message_main_attachment_id, dos, oos);
-
-				writeInteger(this.config_id, dos, oos);
-
-				writeString(this.name, dos, oos);
-
-				writeInteger(this.user_id, dos, oos);
-
-				writeDate(this.start_at, dos, oos);
-
-				writeString(this.stop_at, dos, oos);
-
-				writeString(this.state, dos, oos);
-
-				writeInteger(this.sequence_number, dos, oos);
-
-				writeInteger(this.login_number, dos, oos);
-
-				writeString(this.opening_notes, dos, oos);
-
-				writeInteger(this.cash_journal_id, dos, oos);
-
-				writeInteger(this.cash_register_id, dos, oos);
-
-				writeString(this.cash_real_difference, dos, oos);
-
-				writeString(this.cash_real_transaction, dos, oos);
-
-				writeString(this.cash_real_expected, dos, oos);
-
-				writeString(this.rescue, dos, oos);
-
-				writeString(this.move_id, dos, oos);
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				writeInteger(this.create_uid, dos, oos);
-
-				writeDate(this.create_date, dos, oos);
-
-				writeInteger(this.write_uid, dos, oos);
-
-				writeDate(this.write_date, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
-			try {
-
-				writeString(this.message_main_attachment_id, dos, objectOut);
-
-				writeInteger(this.config_id, dos, objectOut);
-
-				writeString(this.name, dos, objectOut);
-
-				writeInteger(this.user_id, dos, objectOut);
-
-				writeDate(this.start_at, dos, objectOut);
-
-				writeString(this.stop_at, dos, objectOut);
-
-				writeString(this.state, dos, objectOut);
-
-				writeInteger(this.sequence_number, dos, objectOut);
-
-				writeInteger(this.login_number, dos, objectOut);
-
-				writeString(this.opening_notes, dos, objectOut);
-
-				writeInteger(this.cash_journal_id, dos, objectOut);
-
-				writeInteger(this.cash_register_id, dos, objectOut);
-
-				writeString(this.cash_real_difference, dos, objectOut);
-
-				writeString(this.cash_real_transaction, dos, objectOut);
-
-				writeString(this.cash_real_expected, dos, objectOut);
-
-				writeString(this.rescue, dos, objectOut);
-
-				writeString(this.move_id, dos, objectOut);
-
-				if (this.update_stock_at_closing == null) {
-					objectOut.writeByte(-1);
-				} else {
-					objectOut.writeByte(0);
-					objectOut.writeBoolean(this.update_stock_at_closing);
-				}
-
-				writeInteger(this.create_uid, dos, objectOut);
-
-				writeDate(this.create_date, dos, objectOut);
-
-				writeInteger(this.write_uid, dos, objectOut);
-
-				writeDate(this.write_date, dos, objectOut);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
-		public boolean supportMarshaller() {
-			return true;
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row2Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.id, other.id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
 	}
 
-	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
 
-		final boolean execStat = this.execStat;
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
 
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row6Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row5Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row4Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row3Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class out1Struct implements routines.system.IPersistableRow<out1Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(out1Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row1Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+
+public static class after_tFileInputDelimited_1Struct implements routines.system.IPersistableRow<after_tFileInputDelimited_1Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
+				if(length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
+				} else {
+   					commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
+   				}
+			}
+			unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
+			strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
+		}
+		return strReturn;
+	}
+
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+    
+    private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+    }
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+    
+    private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+    }
+
+    public void readData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+					this.message_main_attachment_id = readString(dis);
+					
+						this.config_id = readInteger(dis);
+					
+					this.name = readString(dis);
+					
+						this.user_id = readInteger(dis);
+					
+					this.start_at = readDate(dis);
+					
+					this.stop_at = readString(dis);
+					
+					this.state = readString(dis);
+					
+						this.sequence_number = readInteger(dis);
+					
+						this.login_number = readInteger(dis);
+					
+					this.opening_notes = readString(dis);
+					
+						this.cash_journal_id = readInteger(dis);
+					
+						this.cash_register_id = readInteger(dis);
+					
+					this.cash_real_difference = readString(dis);
+					
+					this.cash_real_transaction = readString(dis);
+					
+					this.cash_real_expected = readString(dis);
+					
+					this.rescue = readString(dis);
+					
+					this.move_id = readString(dis);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis);
+					
+					this.create_date = readDate(dis);
+					
+						this.write_uid = readInteger(dis);
+					
+					this.write_date = readDate(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+					// String
+				
+						writeString(this.message_main_attachment_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.config_id,dos);
+					
+					// String
+				
+						writeString(this.name,dos);
+					
+					// Integer
+				
+						writeInteger(this.user_id,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.start_at,dos);
+					
+					// String
+				
+						writeString(this.stop_at,dos);
+					
+					// String
+				
+						writeString(this.state,dos);
+					
+					// Integer
+				
+						writeInteger(this.sequence_number,dos);
+					
+					// Integer
+				
+						writeInteger(this.login_number,dos);
+					
+					// String
+				
+						writeString(this.opening_notes,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_journal_id,dos);
+					
+					// Integer
+				
+						writeInteger(this.cash_register_id,dos);
+					
+					// String
+				
+						writeString(this.cash_real_difference,dos);
+					
+					// String
+				
+						writeString(this.cash_real_transaction,dos);
+					
+					// String
+				
+						writeString(this.cash_real_expected,dos);
+					
+					// String
+				
+						writeString(this.rescue,dos);
+					
+					// String
+				
+						writeString(this.move_id,dos);
+					
+					// Boolean
+				
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.create_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.create_date,dos);
+					
+					// Integer
+				
+						writeInteger(this.write_uid,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.write_date,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(after_tFileInputDelimited_1Struct other) {
+
+		int returnValue = -1;
+		
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
 		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
+	try {
 			// TDI-39566 avoid throwing an useless Exception
 			boolean resumeIt = true;
 			if (globalResumeTicket == false && resumeEntryMethodName != null) {
 				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
 				resumeIt = resumeEntryMethodName.equals(currentMethodName);
 			}
-			if (resumeIt || globalResumeTicket) { // start the resume
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
-				row2Struct row2 = new row2Struct();
 
-				/**
-				 * [tAdvancedHash_row2 begin ] start
-				 */
+		tFileInputDelimited_2Process(globalMap);
 
-				ok_Hash.put("tAdvancedHash_row2", false);
-				start_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
+		row5Struct row5 = new row5Struct();
 
-				currentComponent = "tAdvancedHash_row2";
+		row1Struct row1 = new row1Struct();
+out1Struct out1 = new out1Struct();
+out1Struct row3 = out1;
+out1Struct row4 = out1;
 
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
-				}
+			row6Struct row6 = new row6Struct();
+row6Struct row7 = row6;
 
-				int tos_count_tAdvancedHash_row2 = 0;
 
-				// connection name:row2
-				// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1)
-				// outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2)
-				// outputs:()
-				// linked node: tMap_1 - inputs:(row1,row2) outputs:(out1)
 
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<row2Struct>getLookup(matchingModeEnum_row2);
 
-				globalMap.put("tHash_Lookup_row2", tHash_Lookup_row2);
+	
+	/**
+	 * [tFileOutputDelimited_1 begin ] start
+	 */
 
-				/**
-				 * [tAdvancedHash_row2 begin ] stop
-				 */
+	
 
-				/**
-				 * [tFileInputDelimited_2 begin ] start
-				 */
+	
+		
+		ok_Hash.put("tFileOutputDelimited_1", false);
+		start_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tFileOutputDelimited_1";
 
-				ok_Hash.put("tFileInputDelimited_2", false);
-				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_2";
-
-				int tos_count_tFileInputDelimited_2 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_2 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
-				int limit_tFileInputDelimited_2 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
-					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
-						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row7");
 					}
-					try {
-						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15", ";",
-								"\n", true, 1, 0, limit_tFileInputDelimited_2, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+				
+		int tos_count_tFileOutputDelimited_1 = 0;
+		
 
-						System.err.println(e.getMessage());
+String fileName_tFileOutputDelimited_1 = "";
+    fileName_tFileOutputDelimited_1 = (new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageOut.csv")).getAbsolutePath().replace("\\","/");
+    String fullName_tFileOutputDelimited_1 = null;
+    String extension_tFileOutputDelimited_1 = null;
+    String directory_tFileOutputDelimited_1 = null;
+    if((fileName_tFileOutputDelimited_1.indexOf("/") != -1)) {
+        if(fileName_tFileOutputDelimited_1.lastIndexOf(".") < fileName_tFileOutputDelimited_1.lastIndexOf("/")) {
+            fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+            extension_tFileOutputDelimited_1 = "";
+        } else {
+            fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0, fileName_tFileOutputDelimited_1.lastIndexOf("."));
+            extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
+        }
+        directory_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0, fileName_tFileOutputDelimited_1.lastIndexOf("/"));
+    } else {
+        if(fileName_tFileOutputDelimited_1.lastIndexOf(".") != -1) {
+            fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0, fileName_tFileOutputDelimited_1.lastIndexOf("."));
+            extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
+        } else {
+            fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+            extension_tFileOutputDelimited_1 = "";
+        }
+        directory_tFileOutputDelimited_1 = "";
+    }
+    boolean isFileGenerated_tFileOutputDelimited_1 = true;
+    java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+    globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
+            int nb_line_tFileOutputDelimited_1 = 0;
+            int splitedFileNo_tFileOutputDelimited_1 = 0;
+            int currentRow_tFileOutputDelimited_1 = 0;
 
+            final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */";"/** End field tFileOutputDelimited_1:FIELDSEPARATOR */;
+
+            final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:ROWSEPARATOR */"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */;
+
+                    //create directory only if not exists
+                    if(directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
+                        java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
+                        if(!dir_tFileOutputDelimited_1.exists()) {
+                            dir_tFileOutputDelimited_1.mkdirs();
+                        }
+                    }
+
+                        //routines.system.Row
+                        java.io.Writer outtFileOutputDelimited_1 = null;
+
+                        java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+                        if(fileToDelete_tFileOutputDelimited_1.exists()) {
+                            fileToDelete_tFileOutputDelimited_1.delete();
+                        }
+                        outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+                        new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false),"US-ASCII"));
+                                    if(filetFileOutputDelimited_1.length()==0){
+                                        outtFileOutputDelimited_1.write("id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("message_main_attachment_id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("config_id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("name");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("user_id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("start_at");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("stop_at");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("state");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("sequence_number");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("login_number");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("opening_notes");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("cash_journal_id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("cash_register_id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("cash_real_difference");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("cash_real_transaction");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("cash_real_expected");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("rescue");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("move_id");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("update_stock_at_closing");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("create_uid");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("create_date");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("write_uid");
+                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.write("write_date");
+                                        outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+                                        outtFileOutputDelimited_1.flush();
+                                    }
+
+
+        resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
+resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 begin ] stop
+ */
+
+
+
+	
+	/**
+	 * [tLogRow_1 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tLogRow_1", false);
+		start_Hash.put("tLogRow_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tLogRow_1";
+
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row6");
 					}
-
-					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
-						rowstate_tFileInputDelimited_2.reset();
-
-						row2 = null;
-
-						row2 = null;
-
-						boolean whetherReject_tFileInputDelimited_2 = false;
-						row2 = new row2Struct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_2 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_2 = 0;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 1;
-
-							row2.message_main_attachment_id = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 2;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.config_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"config_id", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.config_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 3;
-
-							row2.name = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 4;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.user_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"user_id", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.user_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 5;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.start_at = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"start_at", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.start_at = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 6;
-
-							row2.stop_at = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 7;
-
-							row2.state = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 8;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.sequence_number = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"sequence_number", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.sequence_number = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 9;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.login_number = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"login_number", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.login_number = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 10;
-
-							row2.opening_notes = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 11;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.cash_journal_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"cash_journal_id", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.cash_journal_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 12;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.cash_register_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"cash_register_id", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.cash_register_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 13;
-
-							row2.cash_real_difference = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 14;
-
-							row2.cash_real_transaction = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 15;
-
-							row2.cash_real_expected = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 16;
-
-							row2.rescue = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 17;
-
-							row2.move_id = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-
-							columnIndexWithD_tFileInputDelimited_2 = 18;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.update_stock_at_closing = ParserUtils.parseTo_Boolean(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"update_stock_at_closing", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.update_stock_at_closing = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 19;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.create_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_uid", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.create_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 20;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_date", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.create_date = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 21;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.write_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_uid", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.write_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_2 = 22;
-
-							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
-									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
-											ex_tFileInputDelimited_2.getMessage());
-									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_date", "row2", temp, ex_tFileInputDelimited_2),
-											ex_tFileInputDelimited_2));
-								}
-
-							} else {
-
-								row2.write_date = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_2.getException() != null) {
-								throw rowstate_tFileInputDelimited_2.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_2 = true;
-
-							System.err.println(e.getMessage());
-							row2 = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_2 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_2 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-						tos_count_tFileInputDelimited_2++;
-
-						/**
-						 * [tFileInputDelimited_2 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_2 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-						/**
-						 * [tFileInputDelimited_2 process_data_begin ] stop
-						 */
-// Start of branch "row2"
-						if (row2 != null) {
-
-							/**
-							 * [tAdvancedHash_row2 main ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row2";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
-
-										, "row2"
-
-								);
-							}
-
-							row2Struct row2_HashRow = new row2Struct();
-
-							row2_HashRow.id = row2.id;
-
-							row2_HashRow.message_main_attachment_id = row2.message_main_attachment_id;
-
-							row2_HashRow.config_id = row2.config_id;
-
-							row2_HashRow.name = row2.name;
-
-							row2_HashRow.user_id = row2.user_id;
-
-							row2_HashRow.start_at = row2.start_at;
-
-							row2_HashRow.stop_at = row2.stop_at;
-
-							row2_HashRow.state = row2.state;
-
-							row2_HashRow.sequence_number = row2.sequence_number;
-
-							row2_HashRow.login_number = row2.login_number;
-
-							row2_HashRow.opening_notes = row2.opening_notes;
-
-							row2_HashRow.cash_journal_id = row2.cash_journal_id;
-
-							row2_HashRow.cash_register_id = row2.cash_register_id;
-
-							row2_HashRow.cash_real_difference = row2.cash_real_difference;
-
-							row2_HashRow.cash_real_transaction = row2.cash_real_transaction;
-
-							row2_HashRow.cash_real_expected = row2.cash_real_expected;
-
-							row2_HashRow.rescue = row2.rescue;
-
-							row2_HashRow.move_id = row2.move_id;
-
-							row2_HashRow.update_stock_at_closing = row2.update_stock_at_closing;
-
-							row2_HashRow.create_uid = row2.create_uid;
-
-							row2_HashRow.create_date = row2.create_date;
-
-							row2_HashRow.write_uid = row2.write_uid;
-
-							row2_HashRow.write_date = row2.write_date;
-
-							tHash_Lookup_row2.put(row2_HashRow);
-
-							tos_count_tAdvancedHash_row2++;
-
-							/**
-							 * [tAdvancedHash_row2 main ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row2 process_data_begin ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row2";
-
-							/**
-							 * [tAdvancedHash_row2 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row2 process_data_end ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row2";
-
-							/**
-							 * [tAdvancedHash_row2 process_data_end ] stop
-							 */
-
-						} // End of branch "row2"
-
-						/**
-						 * [tFileInputDelimited_2 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-						/**
-						 * [tFileInputDelimited_2 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_2 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_2";
-
-					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_2 != null) {
-							fid_tFileInputDelimited_2.close();
-						}
-					}
-					if (fid_tFileInputDelimited_2 != null) {
-						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_2", true);
-				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_2 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row2 end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row2";
-
-				tHash_Lookup_row2.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
-				}
-
-				ok_Hash.put("tAdvancedHash_row2", true);
-				end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_row2 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_2 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_2";
-
-				/**
-				 * [tFileInputDelimited_2 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row2 finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row2";
-
-				/**
-				 * [tAdvancedHash_row2 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
-	}
-
-	public static class row7Struct implements routines.system.IPersistableRow<row7Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row7Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row6Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row5Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row4Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row3Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class out1Struct implements routines.system.IPersistableRow<out1Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(out1Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row1Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class after_tFileInputDelimited_1Struct
-			implements routines.system.IPersistableRow<after_tFileInputDelimited_1Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
-		static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String message_main_attachment_id;
-
-		public String getMessage_main_attachment_id() {
-			return this.message_main_attachment_id;
-		}
-
-		public Integer config_id;
-
-		public Integer getConfig_id() {
-			return this.config_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public Integer user_id;
-
-		public Integer getUser_id() {
-			return this.user_id;
-		}
-
-		public java.util.Date start_at;
-
-		public java.util.Date getStart_at() {
-			return this.start_at;
-		}
-
-		public String stop_at;
-
-		public String getStop_at() {
-			return this.stop_at;
-		}
-
-		public String state;
-
-		public String getState() {
-			return this.state;
-		}
-
-		public Integer sequence_number;
-
-		public Integer getSequence_number() {
-			return this.sequence_number;
-		}
-
-		public Integer login_number;
-
-		public Integer getLogin_number() {
-			return this.login_number;
-		}
-
-		public String opening_notes;
-
-		public String getOpening_notes() {
-			return this.opening_notes;
-		}
-
-		public Integer cash_journal_id;
-
-		public Integer getCash_journal_id() {
-			return this.cash_journal_id;
-		}
-
-		public Integer cash_register_id;
-
-		public Integer getCash_register_id() {
-			return this.cash_register_id;
-		}
-
-		public String cash_real_difference;
-
-		public String getCash_real_difference() {
-			return this.cash_real_difference;
-		}
-
-		public String cash_real_transaction;
-
-		public String getCash_real_transaction() {
-			return this.cash_real_transaction;
-		}
-
-		public String cash_real_expected;
-
-		public String getCash_real_expected() {
-			return this.cash_real_expected;
-		}
-
-		public String rescue;
-
-		public String getRescue() {
-			return this.rescue;
-		}
-
-		public String move_id;
-
-		public String getMove_id() {
-			return this.move_id;
-		}
-
-		public Boolean update_stock_at_closing;
-
-		public Boolean getUpdate_stock_at_closing() {
-			return this.update_stock_at_closing;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_dailyJobStage_posSession.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_dailyJobStage_posSession.length == 0) {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_dailyJobStage_posSession, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-					this.message_main_attachment_id = readString(dis);
-
-					this.config_id = readInteger(dis);
-
-					this.name = readString(dis);
-
-					this.user_id = readInteger(dis);
-
-					this.start_at = readDate(dis);
-
-					this.stop_at = readString(dis);
-
-					this.state = readString(dis);
-
-					this.sequence_number = readInteger(dis);
-
-					this.login_number = readInteger(dis);
-
-					this.opening_notes = readString(dis);
-
-					this.cash_journal_id = readInteger(dis);
-
-					this.cash_register_id = readInteger(dis);
-
-					this.cash_real_difference = readString(dis);
-
-					this.cash_real_transaction = readString(dis);
-
-					this.cash_real_expected = readString(dis);
-
-					this.rescue = readString(dis);
-
-					this.move_id = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.update_stock_at_closing = null;
-					} else {
-						this.update_stock_at_closing = dis.readBoolean();
-					}
-
-					this.create_uid = readInteger(dis);
-
-					this.create_date = readDate(dis);
-
-					this.write_uid = readInteger(dis);
-
-					this.write_date = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-				// String
-
-				writeString(this.message_main_attachment_id, dos);
-
-				// Integer
-
-				writeInteger(this.config_id, dos);
-
-				// String
-
-				writeString(this.name, dos);
-
-				// Integer
-
-				writeInteger(this.user_id, dos);
-
-				// java.util.Date
-
-				writeDate(this.start_at, dos);
-
-				// String
-
-				writeString(this.stop_at, dos);
-
-				// String
-
-				writeString(this.state, dos);
-
-				// Integer
-
-				writeInteger(this.sequence_number, dos);
-
-				// Integer
-
-				writeInteger(this.login_number, dos);
-
-				// String
-
-				writeString(this.opening_notes, dos);
-
-				// Integer
-
-				writeInteger(this.cash_journal_id, dos);
-
-				// Integer
-
-				writeInteger(this.cash_register_id, dos);
-
-				// String
-
-				writeString(this.cash_real_difference, dos);
-
-				// String
-
-				writeString(this.cash_real_transaction, dos);
-
-				// String
-
-				writeString(this.cash_real_expected, dos);
-
-				// String
-
-				writeString(this.rescue, dos);
-
-				// String
-
-				writeString(this.move_id, dos);
-
-				// Boolean
-
-				if (this.update_stock_at_closing == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeBoolean(this.update_stock_at_closing);
-				}
-
-				// Integer
-
-				writeInteger(this.create_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.create_date, dos);
-
-				// Integer
-
-				writeInteger(this.write_uid, dos);
-
-				// java.util.Date
-
-				writeDate(this.write_date, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
-			sb.append(",config_id=" + String.valueOf(config_id));
-			sb.append(",name=" + name);
-			sb.append(",user_id=" + String.valueOf(user_id));
-			sb.append(",start_at=" + String.valueOf(start_at));
-			sb.append(",stop_at=" + stop_at);
-			sb.append(",state=" + state);
-			sb.append(",sequence_number=" + String.valueOf(sequence_number));
-			sb.append(",login_number=" + String.valueOf(login_number));
-			sb.append(",opening_notes=" + opening_notes);
-			sb.append(",cash_journal_id=" + String.valueOf(cash_journal_id));
-			sb.append(",cash_register_id=" + String.valueOf(cash_register_id));
-			sb.append(",cash_real_difference=" + cash_real_difference);
-			sb.append(",cash_real_transaction=" + cash_real_transaction);
-			sb.append(",cash_real_expected=" + cash_real_expected);
-			sb.append(",rescue=" + rescue);
-			sb.append(",move_id=" + move_id);
-			sb.append(",update_stock_at_closing=" + String.valueOf(update_stock_at_closing));
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(after_tFileInputDelimited_1Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				tFileInputDelimited_2Process(globalMap);
-
-				row5Struct row5 = new row5Struct();
-
-				row1Struct row1 = new row1Struct();
-				out1Struct out1 = new out1Struct();
-				out1Struct row3 = out1;
-				out1Struct row4 = out1;
-
-				row6Struct row6 = new row6Struct();
-				row6Struct row7 = row6;
-
-				/**
-				 * [tFileOutputDelimited_1 begin ] start
-				 */
-
-				ok_Hash.put("tFileOutputDelimited_1", false);
-				start_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
-
-				currentComponent = "tFileOutputDelimited_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row7");
-				}
-
-				int tos_count_tFileOutputDelimited_1 = 0;
-
-				String fileName_tFileOutputDelimited_1 = "";
-				fileName_tFileOutputDelimited_1 = (new java.io.File(
-						"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageOut.csv")).getAbsolutePath()
-								.replace("\\", "/");
-				String fullName_tFileOutputDelimited_1 = null;
-				String extension_tFileOutputDelimited_1 = null;
-				String directory_tFileOutputDelimited_1 = null;
-				if ((fileName_tFileOutputDelimited_1.indexOf("/") != -1)) {
-					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") < fileName_tFileOutputDelimited_1
-							.lastIndexOf("/")) {
-						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
-						extension_tFileOutputDelimited_1 = "";
-					} else {
-						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
-								fileName_tFileOutputDelimited_1.lastIndexOf("."));
-						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
-								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
-					}
-					directory_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
-							fileName_tFileOutputDelimited_1.lastIndexOf("/"));
-				} else {
-					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") != -1) {
-						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
-								fileName_tFileOutputDelimited_1.lastIndexOf("."));
-						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
-								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
-					} else {
-						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
-						extension_tFileOutputDelimited_1 = "";
-					}
-					directory_tFileOutputDelimited_1 = "";
-				}
-				boolean isFileGenerated_tFileOutputDelimited_1 = true;
-				java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
-				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
-				int nb_line_tFileOutputDelimited_1 = 0;
-				int splitedFileNo_tFileOutputDelimited_1 = 0;
-				int currentRow_tFileOutputDelimited_1 = 0;
-
-				final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */
-						";"/** End field tFileOutputDelimited_1:FIELDSEPARATOR */
-				;
-
-				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /**
-																		 * Start field
-																		 * tFileOutputDelimited_1:ROWSEPARATOR
-																		 */
-						"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */
-				;
-
-				// create directory only if not exists
-				if (directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
-					java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
-					if (!dir_tFileOutputDelimited_1.exists()) {
-						dir_tFileOutputDelimited_1.mkdirs();
-					}
-				}
-
-				// routines.system.Row
-				java.io.Writer outtFileOutputDelimited_1 = null;
-
-				java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
-				if (fileToDelete_tFileOutputDelimited_1.exists()) {
-					fileToDelete_tFileOutputDelimited_1.delete();
-				}
-				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
-						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "US-ASCII"));
-				if (filetFileOutputDelimited_1.length() == 0) {
-					outtFileOutputDelimited_1.write("id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("message_main_attachment_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("config_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("name");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("user_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("start_at");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("stop_at");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("state");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("sequence_number");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("login_number");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("opening_notes");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("cash_journal_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("cash_register_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("cash_real_difference");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("cash_real_transaction");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("cash_real_expected");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("rescue");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("move_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("update_stock_at_closing");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("create_uid");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("create_date");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("write_uid");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("write_date");
-					outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.flush();
-				}
-
-				resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
-				resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
-
-				/**
-				 * [tFileOutputDelimited_1 begin ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
-				}
-
-				int tos_count_tLogRow_1 = 0;
-
-				///////////////////////
-
-				class Util_tLogRow_1 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[23];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 23; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
-					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
-					}
-
-					public StringBuilder format() {
-
-						StringBuilder sb = new StringBuilder();
-
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 22 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 22 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
-							sbformat.append("s");
-
-							sbformat.append("|%13$-");
-							sbformat.append(colLengths[12]);
-							sbformat.append("s");
-
-							sbformat.append("|%14$-");
-							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|%15$-");
-							sbformat.append(colLengths[14]);
-							sbformat.append("s");
-
-							sbformat.append("|%16$-");
-							sbformat.append(colLengths[15]);
-							sbformat.append("s");
-
-							sbformat.append("|%17$-");
-							sbformat.append(colLengths[16]);
-							sbformat.append("s");
-
-							sbformat.append("|%18$-");
-							sbformat.append(colLengths[17]);
-							sbformat.append("s");
-
-							sbformat.append("|%19$-");
-							sbformat.append(colLengths[18]);
-							sbformat.append("s");
-
-							sbformat.append("|%20$-");
-							sbformat.append(colLengths[19]);
-							sbformat.append("s");
-
-							sbformat.append("|%21$-");
-							sbformat.append(colLengths[20]);
-							sbformat.append("s");
-
-							sbformat.append("|%22$-");
-							sbformat.append(colLengths[21]);
-							sbformat.append("s");
-
-							sbformat.append("|%23$-");
-							sbformat.append(colLengths[22]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[22] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
-					}
-				}
-				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
-				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "id", "message_main_attachment_id", "config_id", "name", "user_id",
-						"start_at", "stop_at", "state", "sequence_number", "login_number", "opening_notes",
-						"cash_journal_id", "cash_register_id", "cash_real_difference", "cash_real_transaction",
-						"cash_real_expected", "rescue", "move_id", "update_stock_at_closing", "create_uid",
-						"create_date", "write_uid", "write_date", });
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
+				
+		int tos_count_tLogRow_1 = 0;
+		
+
+	///////////////////////
+	
+         class Util_tLogRow_1 {
+
+        String[] des_top = { ".", ".", "-", "+" };
+
+        String[] des_head = { "|=", "=|", "-", "+" };
+
+        String[] des_bottom = { "'", "'", "-", "+" };
+
+        String name="";
+
+        java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+        int[] colLengths = new int[23];
+
+        public void addRow(String[] row) {
+
+            for (int i = 0; i < 23; i++) {
+                if (row[i]!=null) {
+                  colLengths[i] = Math.max(colLengths[i], row[i].length());
+                }
+            }
+            list.add(row);
+        }
+
+        public void setTableName(String name) {
+
+            this.name = name;
+        }
+
+            public StringBuilder format() {
+            
+                StringBuilder sb = new StringBuilder();
+  
+            
+                    sb.append(print(des_top));
+    
+                    int totals = 0;
+                    for (int i = 0; i < colLengths.length; i++) {
+                        totals = totals + colLengths[i];
+                    }
+    
+                    // name
+                    sb.append("|");
+                    int k = 0;
+                    for (k = 0; k < (totals + 22 - name.length()) / 2; k++) {
+                        sb.append(' ');
+                    }
+                    sb.append(name);
+                    for (int i = 0; i < totals + 22 - name.length() - k; i++) {
+                        sb.append(' ');
+                    }
+                    sb.append("|\n");
+
+                    // head and rows
+                    sb.append(print(des_head));
+                    for (int i = 0; i < list.size(); i++) {
+    
+                        String[] row = list.get(i);
+    
+                        java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+                        
+                        StringBuilder sbformat = new StringBuilder();                                             
+        			        sbformat.append("|%1$-");
+        			        sbformat.append(colLengths[0]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%2$-");
+        			        sbformat.append(colLengths[1]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%3$-");
+        			        sbformat.append(colLengths[2]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%4$-");
+        			        sbformat.append(colLengths[3]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%5$-");
+        			        sbformat.append(colLengths[4]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%6$-");
+        			        sbformat.append(colLengths[5]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%7$-");
+        			        sbformat.append(colLengths[6]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%8$-");
+        			        sbformat.append(colLengths[7]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%9$-");
+        			        sbformat.append(colLengths[8]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%10$-");
+        			        sbformat.append(colLengths[9]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%11$-");
+        			        sbformat.append(colLengths[10]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%12$-");
+        			        sbformat.append(colLengths[11]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%13$-");
+        			        sbformat.append(colLengths[12]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%14$-");
+        			        sbformat.append(colLengths[13]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%15$-");
+        			        sbformat.append(colLengths[14]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%16$-");
+        			        sbformat.append(colLengths[15]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%17$-");
+        			        sbformat.append(colLengths[16]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%18$-");
+        			        sbformat.append(colLengths[17]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%19$-");
+        			        sbformat.append(colLengths[18]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%20$-");
+        			        sbformat.append(colLengths[19]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%21$-");
+        			        sbformat.append(colLengths[20]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%22$-");
+        			        sbformat.append(colLengths[21]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%23$-");
+        			        sbformat.append(colLengths[22]);
+        			        sbformat.append("s");
+        			                      
+                        sbformat.append("|\n");                    
+       
+                        formatter.format(sbformat.toString(), (Object[])row);	
+                                
+                        sb.append(formatter.toString());
+                        if (i == 0)
+                            sb.append(print(des_head)); // print the head
+                    }
+    
+                    // end
+                    sb.append(print(des_bottom));
+                    return sb;
+                }
+            
+
+            private StringBuilder print(String[] fillChars) {
+                StringBuilder sb = new StringBuilder();
+                //first column
+                sb.append(fillChars[0]);                
+                    for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);	                
+
+                    for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                
+                    //last column
+                    for (int i = 0; i < colLengths[22] - fillChars[1].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }         
+                sb.append(fillChars[1]);
+                sb.append("\n");               
+                return sb;
+            }
+            
+            public boolean isTableEmpty(){
+            	if (list.size() > 1)
+            		return false;
+            	return true;
+            }
+        }
+        Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
+        util_tLogRow_1.setTableName("tLogRow_1");
+        util_tLogRow_1.addRow(new String[]{"id","message_main_attachment_id","config_id","name","user_id","start_at","stop_at","state","sequence_number","login_number","opening_notes","cash_journal_id","cash_register_id","cash_real_difference","cash_real_transaction","cash_real_expected","rescue","move_id","update_stock_at_closing","create_uid","create_date","write_uid","write_date",});        
+ 		StringBuilder strBuffer_tLogRow_1 = null;
+		int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
 
-				/**
-				 * [tLogRow_1 begin ] stop
-				 */
 
-				/**
-				 * [tUnite_1 begin ] start
-				 */
 
-				ok_Hash.put("tUnite_1", false);
-				start_Hash.put("tUnite_1", System.currentTimeMillis());
+ 
 
-				currentComponent = "tUnite_1";
 
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5", "row4");
-				}
 
-				int tos_count_tUnite_1 = 0;
+/**
+ * [tLogRow_1 begin ] stop
+ */
 
-				int nb_line_tUnite_1 = 0;
 
-				/**
-				 * [tUnite_1 begin ] stop
-				 */
 
-				/**
-				 * [tFileInputDelimited_3 begin ] start
-				 */
+	
+	/**
+	 * [tUnite_1 begin ] start
+	 */
 
-				ok_Hash.put("tFileInputDelimited_3", false);
-				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+	
 
-				currentComponent = "tFileInputDelimited_3";
+	
+		
+		ok_Hash.put("tUnite_1", false);
+		start_Hash.put("tUnite_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tUnite_1";
 
-				int tos_count_tFileInputDelimited_3 = 0;
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row4","row5");
+					}
+				
+		int tos_count_tUnite_1 = 0;
+		
 
-				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
+int nb_line_tUnite_1 = 0;
 
+ 
+
+
+
+/**
+ * [tUnite_1 begin ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_3 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tFileInputDelimited_3", false);
+		start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+		
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+		int tos_count_tFileInputDelimited_3 = 0;
+		
+	
+	
+	
+ 
+	
+	
+	final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
+	
+	
 				int nb_line_tFileInputDelimited_3 = 0;
 				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
 				int limit_tFileInputDelimited_3 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_3 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
-					if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
-						if (footer_value_tFileInputDelimited_3 > 0 || random_value_tFileInputDelimited_3 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+				try{
+					
+						Object filename_tFileInputDelimited_3 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+						if(filename_tFileInputDelimited_3 instanceof java.io.InputStream){
+							
+			int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
+			if(footer_value_tFileInputDelimited_3 >0 || random_value_tFileInputDelimited_3 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			}
+		
 						}
-
-					}
-					try {
-						fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15", ";",
-								"\n", true, 1, 0, limit_tFileInputDelimited_3, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_3 != null && fid_tFileInputDelimited_3.nextRecord()) {
-						rowstate_tFileInputDelimited_3.reset();
-
-						row5 = null;
-
-						boolean whetherReject_tFileInputDelimited_3 = false;
-						row5 = new row5Struct();
 						try {
-
-							int columnIndexWithD_tFileInputDelimited_3 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_3 = 0;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 1;
-
-							row5.message_main_attachment_id = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 2;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.config_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"config_id", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.config_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 3;
-
-							row5.name = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 4;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.user_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"user_id", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.user_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 5;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.start_at = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"start_at", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.start_at = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 6;
-
-							row5.stop_at = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 7;
-
-							row5.state = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 8;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.sequence_number = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"sequence_number", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.sequence_number = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 9;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.login_number = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"login_number", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.login_number = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 10;
-
-							row5.opening_notes = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 11;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.cash_journal_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"cash_journal_id", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.cash_journal_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 12;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.cash_register_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"cash_register_id", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.cash_register_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 13;
-
-							row5.cash_real_difference = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 14;
-
-							row5.cash_real_transaction = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 15;
-
-							row5.cash_real_expected = fid_tFileInputDelimited_3
-									.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 16;
-
-							row5.rescue = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 17;
-
-							row5.move_id = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-
-							columnIndexWithD_tFileInputDelimited_3 = 18;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.update_stock_at_closing = ParserUtils.parseTo_Boolean(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"update_stock_at_closing", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.update_stock_at_closing = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 19;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.create_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_uid", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.create_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 20;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_date", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.create_date = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 21;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.write_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_uid", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.write_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_3 = 22;
-
-							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
-							if (temp.length() > 0) {
-
-								try {
-
-									row5.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
-									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
-											ex_tFileInputDelimited_3.getMessage());
-									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_date", "row5", temp, ex_tFileInputDelimited_3),
-											ex_tFileInputDelimited_3));
-								}
-
-							} else {
-
-								row5.write_date = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_3.getException() != null) {
-								throw rowstate_tFileInputDelimited_3.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_3 = true;
-
-							System.err.println(e.getMessage());
-							row5 = null;
-
+							fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15",";","\n",true,1,0,
+									limit_tFileInputDelimited_3
+								,-1, false);
+						} catch(java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
+							
+								
+								System.err.println(e.getMessage());
+							
 						}
+					
+				    
+					while (fid_tFileInputDelimited_3!=null && fid_tFileInputDelimited_3.nextRecord()) {
+						rowstate_tFileInputDelimited_3.reset();
+						
+			    						row5 = null;			
+												
+									boolean whetherReject_tFileInputDelimited_3 = false;
+									row5 = new row5Struct();
+									try {
+										
+				int columnIndexWithD_tFileInputDelimited_3 = 0;
+				
+					String temp = ""; 
+				
+					columnIndexWithD_tFileInputDelimited_3 = 0;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 1;
+					
+							row5.message_main_attachment_id = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 2;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.config_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"config_id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.config_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 3;
+					
+							row5.name = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 4;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.user_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"user_id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.user_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 5;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row5.start_at = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"start_at", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.start_at = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 6;
+					
+							row5.stop_at = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 7;
+					
+							row5.state = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 8;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.sequence_number = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"sequence_number", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.sequence_number = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 9;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.login_number = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"login_number", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.login_number = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 10;
+					
+							row5.opening_notes = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 11;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.cash_journal_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"cash_journal_id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.cash_journal_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 12;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.cash_register_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"cash_register_id", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.cash_register_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 13;
+					
+							row5.cash_real_difference = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 14;
+					
+							row5.cash_real_transaction = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 15;
+					
+							row5.cash_real_expected = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 16;
+					
+							row5.rescue = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 17;
+					
+							row5.move_id = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						
+				
+					columnIndexWithD_tFileInputDelimited_3 = 18;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.update_stock_at_closing = ParserUtils.parseTo_Boolean(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"update_stock_at_closing", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.update_stock_at_closing = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 19;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.create_uid = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"create_uid", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.create_uid = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 20;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row5.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"create_date", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.create_date = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 21;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row5.write_uid = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"write_uid", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.write_uid = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_3 = 22;
+					
+						temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row5.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"write_date", "row5", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+    							
+						} else {						
+							
+								
+									row5.write_date = null;
+								
+							
+						}
+					
+				
+				
+										
+										if(rowstate_tFileInputDelimited_3.getException()!=null) {
+											throw rowstate_tFileInputDelimited_3.getException();
+										}
+										
+										
+							
+			    					} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",e.getMessage());
+			        					whetherReject_tFileInputDelimited_3 = true;
+			        					
+			                					System.err.println(e.getMessage());
+			                					row5 = null;
+			                				
+										
+			    					}
+								
 
-						/**
-						 * [tFileInputDelimited_3 begin ] stop
-						 */
+ 
 
-						/**
-						 * [tFileInputDelimited_3 main ] start
-						 */
 
-						currentComponent = "tFileInputDelimited_3";
 
-						tos_count_tFileInputDelimited_3++;
+/**
+ * [tFileInputDelimited_3 begin ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_3 main ] start
+	 */
 
-						/**
-						 * [tFileInputDelimited_3 main ] stop
-						 */
+	
 
-						/**
-						 * [tFileInputDelimited_3 process_data_begin ] start
-						 */
+	
+	
+	currentComponent="tFileInputDelimited_3";
 
-						currentComponent = "tFileInputDelimited_3";
+	
 
-						/**
-						 * [tFileInputDelimited_3 process_data_begin ] stop
-						 */
+ 
+
+
+	tos_count_tFileInputDelimited_3++;
+
+/**
+ * [tFileInputDelimited_3 main ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_3 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_3 process_data_begin ] stop
+ */
 // Start of branch "row5"
-						if (row5 != null) {
+if(row5 != null) { 
 
-							/**
-							 * [tUnite_1 main ] start
-							 */
 
-							currentComponent = "tUnite_1";
 
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
+	
+	/**
+	 * [tUnite_1 main ] start
+	 */
 
-										, "row5"
+	
 
-								);
-							}
+	
+	
+	currentComponent="tUnite_1";
 
+	
+						if(execStat){
+							runStat.updateStatOnConnection(iterateId,1,1
+								
+									,"row5"
+									
+							);
+						}
+						
 //////////
+ 
 
 // for output
-							row6 = new row6Struct();
+			row6 = new row6Struct();
+								
+			row6.id = row5.id;								
+			row6.message_main_attachment_id = row5.message_main_attachment_id;								
+			row6.config_id = row5.config_id;								
+			row6.name = row5.name;								
+			row6.user_id = row5.user_id;								
+			row6.start_at = row5.start_at;								
+			row6.stop_at = row5.stop_at;								
+			row6.state = row5.state;								
+			row6.sequence_number = row5.sequence_number;								
+			row6.login_number = row5.login_number;								
+			row6.opening_notes = row5.opening_notes;								
+			row6.cash_journal_id = row5.cash_journal_id;								
+			row6.cash_register_id = row5.cash_register_id;								
+			row6.cash_real_difference = row5.cash_real_difference;								
+			row6.cash_real_transaction = row5.cash_real_transaction;								
+			row6.cash_real_expected = row5.cash_real_expected;								
+			row6.rescue = row5.rescue;								
+			row6.move_id = row5.move_id;								
+			row6.update_stock_at_closing = row5.update_stock_at_closing;								
+			row6.create_uid = row5.create_uid;								
+			row6.create_date = row5.create_date;								
+			row6.write_uid = row5.write_uid;								
+			row6.write_date = row5.write_date;			
 
-							row6.id = row5.id;
-							row6.message_main_attachment_id = row5.message_main_attachment_id;
-							row6.config_id = row5.config_id;
-							row6.name = row5.name;
-							row6.user_id = row5.user_id;
-							row6.start_at = row5.start_at;
-							row6.stop_at = row5.stop_at;
-							row6.state = row5.state;
-							row6.sequence_number = row5.sequence_number;
-							row6.login_number = row5.login_number;
-							row6.opening_notes = row5.opening_notes;
-							row6.cash_journal_id = row5.cash_journal_id;
-							row6.cash_register_id = row5.cash_register_id;
-							row6.cash_real_difference = row5.cash_real_difference;
-							row6.cash_real_transaction = row5.cash_real_transaction;
-							row6.cash_real_expected = row5.cash_real_expected;
-							row6.rescue = row5.rescue;
-							row6.move_id = row5.move_id;
-							row6.update_stock_at_closing = row5.update_stock_at_closing;
-							row6.create_uid = row5.create_uid;
-							row6.create_date = row5.create_date;
-							row6.write_uid = row5.write_uid;
-							row6.write_date = row5.write_date;
-
-							nb_line_tUnite_1++;
+			nb_line_tUnite_1++;
 
 //////////
+ 
 
-							tos_count_tUnite_1++;
 
-							/**
-							 * [tUnite_1 main ] stop
-							 */
+	tos_count_tUnite_1++;
 
-							/**
-							 * [tUnite_1 process_data_begin ] start
-							 */
+/**
+ * [tUnite_1 main ] stop
+ */
+	
+	/**
+	 * [tUnite_1 process_data_begin ] start
+	 */
 
-							currentComponent = "tUnite_1";
+	
 
-							/**
-							 * [tUnite_1 process_data_begin ] stop
-							 */
+	
+	
+	currentComponent="tUnite_1";
 
-							/**
-							 * [tLogRow_1 main ] start
-							 */
+	
 
-							currentComponent = "tLogRow_1";
+ 
 
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
 
-										, "row6"
 
-								);
-							}
+/**
+ * [tUnite_1 process_data_begin ] stop
+ */
 
+	
+	/**
+	 * [tLogRow_1 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_1";
+
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row6"
+						
+						);
+					}
+					
 ///////////////////////		
+						
 
-							String[] row_tLogRow_1 = new String[23];
+				
+				String[] row_tLogRow_1 = new String[23];
+   				
+	    		if(row6.id != null) { //              
+                 row_tLogRow_1[0]=    						    
+				                String.valueOf(row6.id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.message_main_attachment_id != null) { //              
+                 row_tLogRow_1[1]=    						    
+				                String.valueOf(row6.message_main_attachment_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.config_id != null) { //              
+                 row_tLogRow_1[2]=    						    
+				                String.valueOf(row6.config_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.name != null) { //              
+                 row_tLogRow_1[3]=    						    
+				                String.valueOf(row6.name)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.user_id != null) { //              
+                 row_tLogRow_1[4]=    						    
+				                String.valueOf(row6.user_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.start_at != null) { //              
+                 row_tLogRow_1[5]=    						
+								FormatterUtils.format_Date(row6.start_at, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.stop_at != null) { //              
+                 row_tLogRow_1[6]=    						    
+				                String.valueOf(row6.stop_at)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.state != null) { //              
+                 row_tLogRow_1[7]=    						    
+				                String.valueOf(row6.state)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.sequence_number != null) { //              
+                 row_tLogRow_1[8]=    						    
+				                String.valueOf(row6.sequence_number)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.login_number != null) { //              
+                 row_tLogRow_1[9]=    						    
+				                String.valueOf(row6.login_number)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.opening_notes != null) { //              
+                 row_tLogRow_1[10]=    						    
+				                String.valueOf(row6.opening_notes)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_journal_id != null) { //              
+                 row_tLogRow_1[11]=    						    
+				                String.valueOf(row6.cash_journal_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_register_id != null) { //              
+                 row_tLogRow_1[12]=    						    
+				                String.valueOf(row6.cash_register_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_real_difference != null) { //              
+                 row_tLogRow_1[13]=    						    
+				                String.valueOf(row6.cash_real_difference)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_real_transaction != null) { //              
+                 row_tLogRow_1[14]=    						    
+				                String.valueOf(row6.cash_real_transaction)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_real_expected != null) { //              
+                 row_tLogRow_1[15]=    						    
+				                String.valueOf(row6.cash_real_expected)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.rescue != null) { //              
+                 row_tLogRow_1[16]=    						    
+				                String.valueOf(row6.rescue)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.move_id != null) { //              
+                 row_tLogRow_1[17]=    						    
+				                String.valueOf(row6.move_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.update_stock_at_closing != null) { //              
+                 row_tLogRow_1[18]=    						    
+				                String.valueOf(row6.update_stock_at_closing)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.create_uid != null) { //              
+                 row_tLogRow_1[19]=    						    
+				                String.valueOf(row6.create_uid)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.create_date != null) { //              
+                 row_tLogRow_1[20]=    						
+								FormatterUtils.format_Date(row6.create_date, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.write_uid != null) { //              
+                 row_tLogRow_1[21]=    						    
+				                String.valueOf(row6.write_uid)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.write_date != null) { //              
+                 row_tLogRow_1[22]=    						
+								FormatterUtils.format_Date(row6.write_date, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			 
 
-							if (row6.id != null) { //
-								row_tLogRow_1[0] = String.valueOf(row6.id);
-
-							} //
-
-							if (row6.message_main_attachment_id != null) { //
-								row_tLogRow_1[1] = String.valueOf(row6.message_main_attachment_id);
-
-							} //
-
-							if (row6.config_id != null) { //
-								row_tLogRow_1[2] = String.valueOf(row6.config_id);
-
-							} //
-
-							if (row6.name != null) { //
-								row_tLogRow_1[3] = String.valueOf(row6.name);
-
-							} //
-
-							if (row6.user_id != null) { //
-								row_tLogRow_1[4] = String.valueOf(row6.user_id);
-
-							} //
-
-							if (row6.start_at != null) { //
-								row_tLogRow_1[5] = FormatterUtils.format_Date(row6.start_at, "dd-MM-yyyy");
-
-							} //
-
-							if (row6.stop_at != null) { //
-								row_tLogRow_1[6] = String.valueOf(row6.stop_at);
-
-							} //
-
-							if (row6.state != null) { //
-								row_tLogRow_1[7] = String.valueOf(row6.state);
-
-							} //
-
-							if (row6.sequence_number != null) { //
-								row_tLogRow_1[8] = String.valueOf(row6.sequence_number);
-
-							} //
-
-							if (row6.login_number != null) { //
-								row_tLogRow_1[9] = String.valueOf(row6.login_number);
-
-							} //
-
-							if (row6.opening_notes != null) { //
-								row_tLogRow_1[10] = String.valueOf(row6.opening_notes);
-
-							} //
-
-							if (row6.cash_journal_id != null) { //
-								row_tLogRow_1[11] = String.valueOf(row6.cash_journal_id);
-
-							} //
-
-							if (row6.cash_register_id != null) { //
-								row_tLogRow_1[12] = String.valueOf(row6.cash_register_id);
-
-							} //
-
-							if (row6.cash_real_difference != null) { //
-								row_tLogRow_1[13] = String.valueOf(row6.cash_real_difference);
-
-							} //
-
-							if (row6.cash_real_transaction != null) { //
-								row_tLogRow_1[14] = String.valueOf(row6.cash_real_transaction);
-
-							} //
-
-							if (row6.cash_real_expected != null) { //
-								row_tLogRow_1[15] = String.valueOf(row6.cash_real_expected);
-
-							} //
-
-							if (row6.rescue != null) { //
-								row_tLogRow_1[16] = String.valueOf(row6.rescue);
-
-							} //
-
-							if (row6.move_id != null) { //
-								row_tLogRow_1[17] = String.valueOf(row6.move_id);
-
-							} //
-
-							if (row6.update_stock_at_closing != null) { //
-								row_tLogRow_1[18] = String.valueOf(row6.update_stock_at_closing);
-
-							} //
-
-							if (row6.create_uid != null) { //
-								row_tLogRow_1[19] = String.valueOf(row6.create_uid);
-
-							} //
-
-							if (row6.create_date != null) { //
-								row_tLogRow_1[20] = FormatterUtils.format_Date(row6.create_date, "dd-MM-yyyy");
-
-							} //
-
-							if (row6.write_uid != null) { //
-								row_tLogRow_1[21] = String.valueOf(row6.write_uid);
-
-							} //
-
-							if (row6.write_date != null) { //
-								row_tLogRow_1[22] = FormatterUtils.format_Date(row6.write_date, "dd-MM-yyyy");
-
-							} //
-
-							util_tLogRow_1.addRow(row_tLogRow_1);
-							nb_line_tLogRow_1++;
+				util_tLogRow_1.addRow(row_tLogRow_1);	
+				nb_line_tLogRow_1++;
 //////
 
 //////                    
-
+                    
 ///////////////////////    			
 
-							row7 = row6;
+ 
+     row7 = row6;
 
-							tos_count_tLogRow_1++;
 
-							/**
-							 * [tLogRow_1 main ] stop
-							 */
+	tos_count_tLogRow_1++;
 
-							/**
-							 * [tLogRow_1 process_data_begin ] start
-							 */
+/**
+ * [tLogRow_1 main ] stop
+ */
+	
+	/**
+	 * [tLogRow_1 process_data_begin ] start
+	 */
 
-							currentComponent = "tLogRow_1";
+	
 
-							/**
-							 * [tLogRow_1 process_data_begin ] stop
-							 */
+	
+	
+	currentComponent="tLogRow_1";
 
-							/**
-							 * [tFileOutputDelimited_1 main ] start
-							 */
+	
 
-							currentComponent = "tFileOutputDelimited_1";
+ 
 
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
 
-										, "row7"
 
-								);
-							}
+/**
+ * [tLogRow_1 process_data_begin ] stop
+ */
 
-							StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-							if (row7.id != null) {
-								sb_tFileOutputDelimited_1.append(row7.id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.message_main_attachment_id != null) {
-								sb_tFileOutputDelimited_1.append(row7.message_main_attachment_id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.config_id != null) {
-								sb_tFileOutputDelimited_1.append(row7.config_id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.name != null) {
-								sb_tFileOutputDelimited_1.append(row7.name);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.user_id != null) {
-								sb_tFileOutputDelimited_1.append(row7.user_id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.start_at != null) {
-								sb_tFileOutputDelimited_1
-										.append(FormatterUtils.format_Date(row7.start_at, "dd-MM-yyyy"));
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.stop_at != null) {
-								sb_tFileOutputDelimited_1.append(row7.stop_at);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.state != null) {
-								sb_tFileOutputDelimited_1.append(row7.state);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.sequence_number != null) {
-								sb_tFileOutputDelimited_1.append(row7.sequence_number);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.login_number != null) {
-								sb_tFileOutputDelimited_1.append(row7.login_number);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.opening_notes != null) {
-								sb_tFileOutputDelimited_1.append(row7.opening_notes);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.cash_journal_id != null) {
-								sb_tFileOutputDelimited_1.append(row7.cash_journal_id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.cash_register_id != null) {
-								sb_tFileOutputDelimited_1.append(row7.cash_register_id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.cash_real_difference != null) {
-								sb_tFileOutputDelimited_1.append(row7.cash_real_difference);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.cash_real_transaction != null) {
-								sb_tFileOutputDelimited_1.append(row7.cash_real_transaction);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.cash_real_expected != null) {
-								sb_tFileOutputDelimited_1.append(row7.cash_real_expected);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.rescue != null) {
-								sb_tFileOutputDelimited_1.append(row7.rescue);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.move_id != null) {
-								sb_tFileOutputDelimited_1.append(row7.move_id);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.update_stock_at_closing != null) {
-								sb_tFileOutputDelimited_1.append(row7.update_stock_at_closing);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.create_uid != null) {
-								sb_tFileOutputDelimited_1.append(row7.create_uid);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.create_date != null) {
-								sb_tFileOutputDelimited_1
-										.append(FormatterUtils.format_Date(row7.create_date, "dd-MM-yyyy"));
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.write_uid != null) {
-								sb_tFileOutputDelimited_1.append(row7.write_uid);
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-							if (row7.write_date != null) {
-								sb_tFileOutputDelimited_1
-										.append(FormatterUtils.format_Date(row7.write_date, "dd-MM-yyyy"));
-							}
-							sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+	
+	/**
+	 * [tFileOutputDelimited_1 main ] start
+	 */
 
-							nb_line_tFileOutputDelimited_1++;
-							resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+	
 
-							outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+	
+	
+	currentComponent="tFileOutputDelimited_1";
 
-							tos_count_tFileOutputDelimited_1++;
-
-							/**
-							 * [tFileOutputDelimited_1 main ] stop
-							 */
-
-							/**
-							 * [tFileOutputDelimited_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tFileOutputDelimited_1";
-
-							/**
-							 * [tFileOutputDelimited_1 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tFileOutputDelimited_1 process_data_end ] start
-							 */
-
-							currentComponent = "tFileOutputDelimited_1";
-
-							/**
-							 * [tFileOutputDelimited_1 process_data_end ] stop
-							 */
-
-							/**
-							 * [tLogRow_1 process_data_end ] start
-							 */
-
-							currentComponent = "tLogRow_1";
-
-							/**
-							 * [tLogRow_1 process_data_end ] stop
-							 */
-
-							/**
-							 * [tUnite_1 process_data_end ] start
-							 */
-
-							currentComponent = "tUnite_1";
-
-							/**
-							 * [tUnite_1 process_data_end ] stop
-							 */
-
-						} // End of branch "row5"
-
-						/**
-						 * [tFileInputDelimited_3 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
-						/**
-						 * [tFileInputDelimited_3 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_3 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_3";
-
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row7"
+						
+						);
 					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_3 != null) {
-							fid_tFileInputDelimited_3.close();
-						}
+					
+
+
+                    StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+                            if(row7.id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.message_main_attachment_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.message_main_attachment_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.config_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.config_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.name != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.name
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.user_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.user_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.start_at != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            FormatterUtils.format_Date(row7.start_at, "dd-MM-yyyy")
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.stop_at != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.stop_at
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.state != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.state
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.sequence_number != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.sequence_number
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.login_number != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.login_number
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.opening_notes != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.opening_notes
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_journal_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_journal_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_register_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_register_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_real_difference != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_real_difference
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_real_transaction != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_real_transaction
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_real_expected != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_real_expected
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.rescue != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.rescue
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.move_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.move_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.update_stock_at_closing != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.update_stock_at_closing
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.create_uid != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.create_uid
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.create_date != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            FormatterUtils.format_Date(row7.create_date, "dd-MM-yyyy")
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.write_uid != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.write_uid
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.write_date != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            FormatterUtils.format_Date(row7.write_date, "dd-MM-yyyy")
+                        );
+                            }
+                    sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+
+
+                    nb_line_tFileOutputDelimited_1++;
+                    resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+
+                        outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+
+
+
+
+ 
+
+
+	tos_count_tFileOutputDelimited_1++;
+
+/**
+ * [tFileOutputDelimited_1 main ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tLogRow_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tLogRow_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tUnite_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUnite_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tUnite_1 process_data_end ] stop
+ */
+
+} // End of branch "row5"
+
+
+
+
+	
+	/**
+	 * [tFileInputDelimited_3 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_3 process_data_end ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_3 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+
+
+
+            }
+            }finally{
+                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)){
+                	if(fid_tFileInputDelimited_3!=null){
+                		fid_tFileInputDelimited_3.close();
+                	}
+                }
+                if(fid_tFileInputDelimited_3!=null){
+                	globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
+					
+                }
+			}
+			  
+
+ 
+
+ok_Hash.put("tFileInputDelimited_3", true);
+end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tFileInputDelimited_3 end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tFileOutputDelimited_2 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tFileOutputDelimited_2", false);
+		start_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
+		
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row3");
 					}
-					if (fid_tFileInputDelimited_3 != null) {
-						globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
+				
+		int tos_count_tFileOutputDelimited_2 = 0;
+		
 
+String fileName_tFileOutputDelimited_2 = "";
+    fileName_tFileOutputDelimited_2 = (new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/delta.csv")).getAbsolutePath().replace("\\","/");
+    String fullName_tFileOutputDelimited_2 = null;
+    String extension_tFileOutputDelimited_2 = null;
+    String directory_tFileOutputDelimited_2 = null;
+    if((fileName_tFileOutputDelimited_2.indexOf("/") != -1)) {
+        if(fileName_tFileOutputDelimited_2.lastIndexOf(".") < fileName_tFileOutputDelimited_2.lastIndexOf("/")) {
+            fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
+            extension_tFileOutputDelimited_2 = "";
+        } else {
+            fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0, fileName_tFileOutputDelimited_2.lastIndexOf("."));
+            extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
+        }
+        directory_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0, fileName_tFileOutputDelimited_2.lastIndexOf("/"));
+    } else {
+        if(fileName_tFileOutputDelimited_2.lastIndexOf(".") != -1) {
+            fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0, fileName_tFileOutputDelimited_2.lastIndexOf("."));
+            extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
+        } else {
+            fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
+            extension_tFileOutputDelimited_2 = "";
+        }
+        directory_tFileOutputDelimited_2 = "";
+    }
+    boolean isFileGenerated_tFileOutputDelimited_2 = true;
+    java.io.File filetFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+    globalMap.put("tFileOutputDelimited_2_FILE_NAME",fileName_tFileOutputDelimited_2);
+            int nb_line_tFileOutputDelimited_2 = 0;
+            int splitedFileNo_tFileOutputDelimited_2 = 0;
+            int currentRow_tFileOutputDelimited_2 = 0;
+
+            final String OUT_DELIM_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:FIELDSEPARATOR */";"/** End field tFileOutputDelimited_2:FIELDSEPARATOR */;
+
+            final String OUT_DELIM_ROWSEP_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:ROWSEPARATOR */"\n"/** End field tFileOutputDelimited_2:ROWSEPARATOR */;
+
+                    //create directory only if not exists
+                    if(directory_tFileOutputDelimited_2 != null && directory_tFileOutputDelimited_2.trim().length() != 0) {
+                        java.io.File dir_tFileOutputDelimited_2 = new java.io.File(directory_tFileOutputDelimited_2);
+                        if(!dir_tFileOutputDelimited_2.exists()) {
+                            dir_tFileOutputDelimited_2.mkdirs();
+                        }
+                    }
+
+                        //routines.system.Row
+                        java.io.Writer outtFileOutputDelimited_2 = null;
+
+                        java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+                        if(fileToDelete_tFileOutputDelimited_2.exists()) {
+                            fileToDelete_tFileOutputDelimited_2.delete();
+                        }
+                        outtFileOutputDelimited_2 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+                        new java.io.FileOutputStream(fileName_tFileOutputDelimited_2, false),"ISO-8859-15"));
+
+
+        resourceMap.put("out_tFileOutputDelimited_2", outtFileOutputDelimited_2);
+resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 begin ] stop
+ */
+
+
+
+	
+	/**
+	 * [tLogRow_2 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tLogRow_2", false);
+		start_Hash.put("tLogRow_2", System.currentTimeMillis());
+		
+	
+	currentComponent="tLogRow_2";
+
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"out1");
 					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_3", true);
-				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_3 end ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_2 begin ] start
-				 */
-
-				ok_Hash.put("tFileOutputDelimited_2", false);
-				start_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
-
-				currentComponent = "tFileOutputDelimited_2";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
-				}
-
-				int tos_count_tFileOutputDelimited_2 = 0;
-
-				String fileName_tFileOutputDelimited_2 = "";
-				fileName_tFileOutputDelimited_2 = (new java.io.File(
-						"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/delta.csv")).getAbsolutePath()
-								.replace("\\", "/");
-				String fullName_tFileOutputDelimited_2 = null;
-				String extension_tFileOutputDelimited_2 = null;
-				String directory_tFileOutputDelimited_2 = null;
-				if ((fileName_tFileOutputDelimited_2.indexOf("/") != -1)) {
-					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") < fileName_tFileOutputDelimited_2
-							.lastIndexOf("/")) {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
-						extension_tFileOutputDelimited_2 = "";
-					} else {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
-								fileName_tFileOutputDelimited_2.lastIndexOf("."));
-						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-								.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
-					}
-					directory_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
-							fileName_tFileOutputDelimited_2.lastIndexOf("/"));
-				} else {
-					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") != -1) {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
-								fileName_tFileOutputDelimited_2.lastIndexOf("."));
-						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
-								.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
-					} else {
-						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
-						extension_tFileOutputDelimited_2 = "";
-					}
-					directory_tFileOutputDelimited_2 = "";
-				}
-				boolean isFileGenerated_tFileOutputDelimited_2 = true;
-				java.io.File filetFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
-				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
-				int nb_line_tFileOutputDelimited_2 = 0;
-				int splitedFileNo_tFileOutputDelimited_2 = 0;
-				int currentRow_tFileOutputDelimited_2 = 0;
-
-				final String OUT_DELIM_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:FIELDSEPARATOR */
-						";"/** End field tFileOutputDelimited_2:FIELDSEPARATOR */
-				;
-
-				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_2 = /**
-																		 * Start field
-																		 * tFileOutputDelimited_2:ROWSEPARATOR
-																		 */
-						"\n"/** End field tFileOutputDelimited_2:ROWSEPARATOR */
-				;
-
-				// create directory only if not exists
-				if (directory_tFileOutputDelimited_2 != null && directory_tFileOutputDelimited_2.trim().length() != 0) {
-					java.io.File dir_tFileOutputDelimited_2 = new java.io.File(directory_tFileOutputDelimited_2);
-					if (!dir_tFileOutputDelimited_2.exists()) {
-						dir_tFileOutputDelimited_2.mkdirs();
-					}
-				}
-
-				// routines.system.Row
-				java.io.Writer outtFileOutputDelimited_2 = null;
-
-				java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
-				if (fileToDelete_tFileOutputDelimited_2.exists()) {
-					fileToDelete_tFileOutputDelimited_2.delete();
-				}
-				outtFileOutputDelimited_2 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
-						new java.io.FileOutputStream(fileName_tFileOutputDelimited_2, false), "ISO-8859-15"));
-
-				resourceMap.put("out_tFileOutputDelimited_2", outtFileOutputDelimited_2);
-				resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
-
-				/**
-				 * [tFileOutputDelimited_2 begin ] stop
-				 */
-
-				/**
-				 * [tLogRow_2 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_2", false);
-				start_Hash.put("tLogRow_2", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_2";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out1");
-				}
-
-				int tos_count_tLogRow_2 = 0;
-
-				///////////////////////
-
-				class Util_tLogRow_2 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[23];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 23; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
-					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
-					}
-
-					public StringBuilder format() {
-
-						StringBuilder sb = new StringBuilder();
-
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 22 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 22 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
-							sbformat.append("s");
-
-							sbformat.append("|%13$-");
-							sbformat.append(colLengths[12]);
-							sbformat.append("s");
-
-							sbformat.append("|%14$-");
-							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|%15$-");
-							sbformat.append(colLengths[14]);
-							sbformat.append("s");
-
-							sbformat.append("|%16$-");
-							sbformat.append(colLengths[15]);
-							sbformat.append("s");
-
-							sbformat.append("|%17$-");
-							sbformat.append(colLengths[16]);
-							sbformat.append("s");
-
-							sbformat.append("|%18$-");
-							sbformat.append(colLengths[17]);
-							sbformat.append("s");
-
-							sbformat.append("|%19$-");
-							sbformat.append(colLengths[18]);
-							sbformat.append("s");
-
-							sbformat.append("|%20$-");
-							sbformat.append(colLengths[19]);
-							sbformat.append("s");
-
-							sbformat.append("|%21$-");
-							sbformat.append(colLengths[20]);
-							sbformat.append("s");
-
-							sbformat.append("|%22$-");
-							sbformat.append(colLengths[21]);
-							sbformat.append("s");
-
-							sbformat.append("|%23$-");
-							sbformat.append(colLengths[22]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[22] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
-					}
-				}
-				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
-				util_tLogRow_2.setTableName("tLogRow_2");
-				util_tLogRow_2.addRow(new String[] { "id", "message_main_attachment_id", "config_id", "name", "user_id",
-						"start_at", "stop_at", "state", "sequence_number", "login_number", "opening_notes",
-						"cash_journal_id", "cash_register_id", "cash_real_difference", "cash_real_transaction",
-						"cash_real_expected", "rescue", "move_id", "update_stock_at_closing", "create_uid",
-						"create_date", "write_uid", "write_date", });
-				StringBuilder strBuffer_tLogRow_2 = null;
-				int nb_line_tLogRow_2 = 0;
+				
+		int tos_count_tLogRow_2 = 0;
+		
+
+	///////////////////////
+	
+         class Util_tLogRow_2 {
+
+        String[] des_top = { ".", ".", "-", "+" };
+
+        String[] des_head = { "|=", "=|", "-", "+" };
+
+        String[] des_bottom = { "'", "'", "-", "+" };
+
+        String name="";
+
+        java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+        int[] colLengths = new int[23];
+
+        public void addRow(String[] row) {
+
+            for (int i = 0; i < 23; i++) {
+                if (row[i]!=null) {
+                  colLengths[i] = Math.max(colLengths[i], row[i].length());
+                }
+            }
+            list.add(row);
+        }
+
+        public void setTableName(String name) {
+
+            this.name = name;
+        }
+
+            public StringBuilder format() {
+            
+                StringBuilder sb = new StringBuilder();
+  
+            
+                    sb.append(print(des_top));
+    
+                    int totals = 0;
+                    for (int i = 0; i < colLengths.length; i++) {
+                        totals = totals + colLengths[i];
+                    }
+    
+                    // name
+                    sb.append("|");
+                    int k = 0;
+                    for (k = 0; k < (totals + 22 - name.length()) / 2; k++) {
+                        sb.append(' ');
+                    }
+                    sb.append(name);
+                    for (int i = 0; i < totals + 22 - name.length() - k; i++) {
+                        sb.append(' ');
+                    }
+                    sb.append("|\n");
+
+                    // head and rows
+                    sb.append(print(des_head));
+                    for (int i = 0; i < list.size(); i++) {
+    
+                        String[] row = list.get(i);
+    
+                        java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+                        
+                        StringBuilder sbformat = new StringBuilder();                                             
+        			        sbformat.append("|%1$-");
+        			        sbformat.append(colLengths[0]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%2$-");
+        			        sbformat.append(colLengths[1]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%3$-");
+        			        sbformat.append(colLengths[2]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%4$-");
+        			        sbformat.append(colLengths[3]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%5$-");
+        			        sbformat.append(colLengths[4]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%6$-");
+        			        sbformat.append(colLengths[5]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%7$-");
+        			        sbformat.append(colLengths[6]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%8$-");
+        			        sbformat.append(colLengths[7]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%9$-");
+        			        sbformat.append(colLengths[8]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%10$-");
+        			        sbformat.append(colLengths[9]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%11$-");
+        			        sbformat.append(colLengths[10]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%12$-");
+        			        sbformat.append(colLengths[11]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%13$-");
+        			        sbformat.append(colLengths[12]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%14$-");
+        			        sbformat.append(colLengths[13]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%15$-");
+        			        sbformat.append(colLengths[14]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%16$-");
+        			        sbformat.append(colLengths[15]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%17$-");
+        			        sbformat.append(colLengths[16]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%18$-");
+        			        sbformat.append(colLengths[17]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%19$-");
+        			        sbformat.append(colLengths[18]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%20$-");
+        			        sbformat.append(colLengths[19]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%21$-");
+        			        sbformat.append(colLengths[20]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%22$-");
+        			        sbformat.append(colLengths[21]);
+        			        sbformat.append("s");
+        			              
+        			        sbformat.append("|%23$-");
+        			        sbformat.append(colLengths[22]);
+        			        sbformat.append("s");
+        			                      
+                        sbformat.append("|\n");                    
+       
+                        formatter.format(sbformat.toString(), (Object[])row);	
+                                
+                        sb.append(formatter.toString());
+                        if (i == 0)
+                            sb.append(print(des_head)); // print the head
+                    }
+    
+                    // end
+                    sb.append(print(des_bottom));
+                    return sb;
+                }
+            
+
+            private StringBuilder print(String[] fillChars) {
+                StringBuilder sb = new StringBuilder();
+                //first column
+                sb.append(fillChars[0]);                
+                    for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);	                
+
+                    for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[13] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[14] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[15] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[16] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[17] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[18] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[19] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[20] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                    for (int i = 0; i < colLengths[21] - fillChars[3].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }
+                    sb.append(fillChars[3]);
+                
+                    //last column
+                    for (int i = 0; i < colLengths[22] - fillChars[1].length() + 1; i++) {
+                        sb.append(fillChars[2]);
+                    }         
+                sb.append(fillChars[1]);
+                sb.append("\n");               
+                return sb;
+            }
+            
+            public boolean isTableEmpty(){
+            	if (list.size() > 1)
+            		return false;
+            	return true;
+            }
+        }
+        Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
+        util_tLogRow_2.setTableName("tLogRow_2");
+        util_tLogRow_2.addRow(new String[]{"id","message_main_attachment_id","config_id","name","user_id","start_at","stop_at","state","sequence_number","login_number","opening_notes","cash_journal_id","cash_register_id","cash_real_difference","cash_real_transaction","cash_real_expected","rescue","move_id","update_stock_at_closing","create_uid","create_date","write_uid","write_date",});        
+ 		StringBuilder strBuffer_tLogRow_2 = null;
+		int nb_line_tLogRow_2 = 0;
 ///////////////////////    			
 
-				/**
-				 * [tLogRow_2 begin ] stop
-				 */
 
-				/**
-				 * [tMap_1 begin ] start
-				 */
 
-				ok_Hash.put("tMap_1", false);
-				start_Hash.put("tMap_1", System.currentTimeMillis());
+ 
 
-				currentComponent = "tMap_1";
 
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
-				}
 
-				int tos_count_tMap_1 = 0;
+/**
+ * [tLogRow_2 begin ] stop
+ */
+
+
+
+	
+	/**
+	 * [tMap_1 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tMap_1", false);
+		start_Hash.put("tMap_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tMap_1";
+
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row1");
+					}
+				
+		int tos_count_tMap_1 = 0;
+		
+
+
+
 
 // ###############################
 // # Lookup's keys initialization
+	
+		org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) 
+				((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) 
+					globalMap.get( "tHash_Lookup_row2" ))
+					;					
+					
+	
 
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) globalMap
-						.get("tHash_Lookup_row2"));
-
-				row2Struct row2HashKey = new row2Struct();
-				row2Struct row2Default = new row2Struct();
+row2Struct row2HashKey = new row2Struct();
+row2Struct row2Default = new row2Struct();
 // ###############################        
 
 // ###############################
 // # Vars initialization
-				class Var__tMap_1__Struct {
-				}
-				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
+class  Var__tMap_1__Struct  {
+}
+Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
 // ###############################
 
 // ###############################
 // # Outputs initialization
-				out1Struct out1_tmp = new out1Struct();
+out1Struct out1_tmp = new out1Struct();
 // ###############################
 
-				/**
-				 * [tMap_1 begin ] stop
-				 */
+        
+        
 
-				/**
-				 * [tFileInputDelimited_1 begin ] start
-				 */
 
-				ok_Hash.put("tFileInputDelimited_1", false);
-				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
-				currentComponent = "tFileInputDelimited_1";
+        
 
-				int tos_count_tFileInputDelimited_1 = 0;
 
-				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
 
+
+
+
+
+
+
+ 
+
+
+
+/**
+ * [tMap_1 begin ] stop
+ */
+
+
+
+	
+	/**
+	 * [tFileInputDelimited_1 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tFileInputDelimited_1", false);
+		start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+		int tos_count_tFileInputDelimited_1 = 0;
+		
+	
+	
+	
+ 
+	
+	
+	final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
+	
+	
 				int nb_line_tFileInputDelimited_1 = 0;
 				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
 				int limit_tFileInputDelimited_1 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+				try{
+					
+						Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv";
+						if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
+							
+			int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+			if(footer_value_tFileInputDelimited_1 >0 || random_value_tFileInputDelimited_1 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			}
+		
 						}
-
-					}
-					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv", "ISO-8859-15", ";",
-								"\n", false, 1, 0, limit_tFileInputDelimited_1, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
-
-						row1 = null;
-
-						boolean whetherReject_tFileInputDelimited_1 = false;
-						row1 = new row1Struct();
 						try {
-
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 1;
-
-							row1.message_main_attachment_id = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 2;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.config_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"config_id", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.config_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 3;
-
-							row1.name = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 4;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.user_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"user_id", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.user_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 5;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.start_at = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"start_at", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.start_at = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 6;
-
-							row1.stop_at = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 7;
-
-							row1.state = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 8;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.sequence_number = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"sequence_number", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.sequence_number = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 9;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.login_number = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"login_number", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.login_number = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 10;
-
-							row1.opening_notes = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 11;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.cash_journal_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"cash_journal_id", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.cash_journal_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 12;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.cash_register_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"cash_register_id", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.cash_register_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 13;
-
-							row1.cash_real_difference = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 14;
-
-							row1.cash_real_transaction = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 15;
-
-							row1.cash_real_expected = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 16;
-
-							row1.rescue = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 17;
-
-							row1.move_id = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 18;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.update_stock_at_closing = ParserUtils.parseTo_Boolean(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"update_stock_at_closing", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.update_stock_at_closing = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 19;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.create_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_uid", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.create_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 20;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_date", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.create_date = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 21;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.write_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_uid", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.write_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 22;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									row1.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_date", "row1", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								row1.write_date = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_1.getException() != null) {
-								throw rowstate_tFileInputDelimited_1.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_1 = true;
-
-							System.err.println(e.getMessage());
-							row1 = null;
-
+							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv", "ISO-8859-15",";","\n",false,1,0,
+									limit_tFileInputDelimited_1
+								,-1, false);
+						} catch(java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
+							
+								
+								System.err.println(e.getMessage());
+							
 						}
+					
+				    
+					while (fid_tFileInputDelimited_1!=null && fid_tFileInputDelimited_1.nextRecord()) {
+						rowstate_tFileInputDelimited_1.reset();
+						
+			    						row1 = null;			
+												
+									boolean whetherReject_tFileInputDelimited_1 = false;
+									row1 = new row1Struct();
+									try {
+										
+				int columnIndexWithD_tFileInputDelimited_1 = 0;
+				
+					String temp = ""; 
+				
+					columnIndexWithD_tFileInputDelimited_1 = 0;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 1;
+					
+							row1.message_main_attachment_id = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 2;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.config_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"config_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.config_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 3;
+					
+							row1.name = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 4;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.user_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"user_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.user_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 5;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row1.start_at = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"start_at", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.start_at = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 6;
+					
+							row1.stop_at = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 7;
+					
+							row1.state = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 8;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.sequence_number = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"sequence_number", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.sequence_number = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 9;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.login_number = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"login_number", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.login_number = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 10;
+					
+							row1.opening_notes = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 11;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.cash_journal_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"cash_journal_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.cash_journal_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 12;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.cash_register_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"cash_register_id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.cash_register_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 13;
+					
+							row1.cash_real_difference = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 14;
+					
+							row1.cash_real_transaction = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 15;
+					
+							row1.cash_real_expected = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 16;
+					
+							row1.rescue = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 17;
+					
+							row1.move_id = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						
+				
+					columnIndexWithD_tFileInputDelimited_1 = 18;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.update_stock_at_closing = ParserUtils.parseTo_Boolean(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"update_stock_at_closing", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.update_stock_at_closing = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 19;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.create_uid = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"create_uid", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.create_uid = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 20;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row1.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"create_date", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.create_date = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 21;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row1.write_uid = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"write_uid", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.write_uid = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_1 = 22;
+					
+						temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row1.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_1) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"write_date", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+    							
+						} else {						
+							
+								
+									row1.write_date = null;
+								
+							
+						}
+					
+				
+				
+										
+										if(rowstate_tFileInputDelimited_1.getException()!=null) {
+											throw rowstate_tFileInputDelimited_1.getException();
+										}
+										
+										
+							
+			    					} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",e.getMessage());
+			        					whetherReject_tFileInputDelimited_1 = true;
+			        					
+			                					System.err.println(e.getMessage());
+			                					row1 = null;
+			                				
+										
+			    					}
+								
 
-						/**
-						 * [tFileInputDelimited_1 begin ] stop
-						 */
+ 
 
-						/**
-						 * [tFileInputDelimited_1 main ] start
-						 */
 
-						currentComponent = "tFileInputDelimited_1";
 
-						tos_count_tFileInputDelimited_1++;
+/**
+ * [tFileInputDelimited_1 begin ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_1 main ] start
+	 */
 
-						/**
-						 * [tFileInputDelimited_1 main ] stop
-						 */
+	
 
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] start
-						 */
+	
+	
+	currentComponent="tFileInputDelimited_1";
 
-						currentComponent = "tFileInputDelimited_1";
+	
 
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] stop
-						 */
+ 
+
+
+	tos_count_tFileInputDelimited_1++;
+
+/**
+ * [tFileInputDelimited_1 main ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_begin ] stop
+ */
 // Start of branch "row1"
-						if (row1 != null) {
+if(row1 != null) { 
 
-							/**
-							 * [tMap_1 main ] start
-							 */
 
-							currentComponent = "tMap_1";
 
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
+	
+	/**
+	 * [tMap_1 main ] start
+	 */
 
-										, "row1"
+	
 
-								);
-							}
+	
+	
+	currentComponent="tMap_1";
 
-							boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row1"
+						
+						);
+					}
+					
 
-							// ###############################
-							// # Input tables (lookups)
-							boolean rejectedInnerJoin_tMap_1 = false;
-							boolean mainRowRejected_tMap_1 = false;
+		
+		
+		boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+		
 
-							///////////////////////////////////////////////
-							// Starting Lookup Table "row2"
-							///////////////////////////////////////////////
+        // ###############################
+        // # Input tables (lookups)
+		  boolean rejectedInnerJoin_tMap_1 = false;
+		  boolean mainRowRejected_tMap_1 = false;
+            				    								  
+		
 
-							boolean forceLooprow2 = false;
+				///////////////////////////////////////////////
+				// Starting Lookup Table "row2" 
+				///////////////////////////////////////////////
 
-							row2Struct row2ObjectFromLookup = null;
 
-							if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+				
+				
+                            
+ 					    boolean forceLooprow2 = false;
+       		  	    	
+       		  	    	
+ 							row2Struct row2ObjectFromLookup = null;
+                          
+		           		  	if(!rejectedInnerJoin_tMap_1) { // G_TM_M_020
 
+								
 								hasCasePrimitiveKeyWithNull_tMap_1 = false;
+								
+                        		    		    row2HashKey.id =  row1.id ;
+                        		    		
 
-								row2HashKey.id = row1.id;
+								
+		                        	row2HashKey.hashCodeDirty = true;
+                        		
+	  					
+	  							
+			  					
+			  					
+	  					
+		  							tHash_Lookup_row2.lookup( row2HashKey );
 
-								row2HashKey.hashCodeDirty = true;
+	  							
 
-								tHash_Lookup_row2.lookup(row2HashKey);
+	  							
 
-								if (!tHash_Lookup_row2.hasNext()) { // G_TM_M_090
+ 								
+								  
+								  if(!tHash_Lookup_row2.hasNext()) { // G_TM_M_090
 
-									rejectedInnerJoin_tMap_1 = true;
+  								
+		  				
+	  								
+			  							rejectedInnerJoin_tMap_1 = true;
+	  								
+						
+									
+  									  		
+ 								
+								  
+								  } // G_TM_M_090
 
-								} // G_TM_M_090
+  								
+
+
 
 							} // G_TM_M_020
-
-							if (tHash_Lookup_row2 != null && tHash_Lookup_row2.getCount(row2HashKey) > 1) { // G 071
-
-								// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row2'
-								// and it contains more one result from keys : row2.id = '" + row2HashKey.id +
-								// "'");
-							} // G 071
+			           		  	  
+							
+				           		if(tHash_Lookup_row2 != null && tHash_Lookup_row2.getCount(row2HashKey) > 1) { // G 071
+			  							
+			  						
+									 		
+									//System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row2' and it contains more one result from keys :  row2.id = '" + row2HashKey.id + "'");
+								} // G 071
+							
 
 							row2Struct row2 = null;
-
-							row2Struct fromLookup_row2 = null;
+                    		  	 
+							   
+                    		  	 
+	       		  	    	row2Struct fromLookup_row2 = null;
 							row2 = row2Default;
-
-							if (tHash_Lookup_row2 != null && tHash_Lookup_row2.hasNext()) { // G 099
-
+										 
+							
+								 
+							
+							
+								if (tHash_Lookup_row2 !=null && tHash_Lookup_row2.hasNext()) { // G 099
+								
+							
+								
 								fromLookup_row2 = tHash_Lookup_row2.next();
 
-							} // G 099
+							
+							
+								} // G 099
+							
+							
 
-							if (fromLookup_row2 != null) {
+							if(fromLookup_row2 != null) {
 								row2 = fromLookup_row2;
 							}
+							
+							
+							
+			  							
+								
+	                    		  	
+		                    
+	            	
+	            	
+	            // ###############################
+        { // start of Var scope
+        
+	        // ###############################
+        	// # Vars tables
+        
+Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
+        // ###############################
+        // # Output tables
 
-							// ###############################
-							{ // start of Var scope
+out1 = null;
 
-								// ###############################
-								// # Vars tables
-
-								Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
-								// ###############################
-								// # Output tables
-
-								out1 = null;
-
-								if (!rejectedInnerJoin_tMap_1) {
-								} // closing inner join bracket (1)
+if(!rejectedInnerJoin_tMap_1 ) {
+} // closing inner join bracket (1)
 // ###### START REJECTS ##### 
 
 // # Output reject table : 'out1'
 // # Filter conditions 
-								if (rejectedInnerJoin_tMap_1) {
-									out1_tmp.id = row1.id;
-									out1_tmp.message_main_attachment_id = row1.message_main_attachment_id;
-									out1_tmp.config_id = row1.config_id;
-									out1_tmp.name = row1.name;
-									out1_tmp.user_id = row1.user_id;
-									out1_tmp.start_at = row1.start_at;
-									out1_tmp.stop_at = row1.stop_at;
-									out1_tmp.state = row1.state;
-									out1_tmp.sequence_number = row1.sequence_number;
-									out1_tmp.login_number = row1.login_number;
-									out1_tmp.opening_notes = row1.opening_notes;
-									out1_tmp.cash_journal_id = row1.cash_journal_id;
-									out1_tmp.cash_register_id = row1.cash_register_id;
-									out1_tmp.cash_real_difference = row1.cash_real_difference;
-									out1_tmp.cash_real_transaction = row1.cash_real_transaction;
-									out1_tmp.cash_real_expected = row1.cash_real_expected;
-									out1_tmp.rescue = row1.rescue;
-									out1_tmp.move_id = row1.move_id;
-									out1_tmp.update_stock_at_closing = row1.update_stock_at_closing;
-									out1_tmp.create_uid = row1.create_uid;
-									out1_tmp.create_date = row1.create_date;
-									out1_tmp.write_uid = row1.write_uid;
-									out1_tmp.write_date = row1.write_date;
-									out1 = out1_tmp;
-								} // closing filter/reject
+if( rejectedInnerJoin_tMap_1 ) {
+out1_tmp.id = row1.id ;
+out1_tmp.message_main_attachment_id = row1.message_main_attachment_id ;
+out1_tmp.config_id = row1.config_id ;
+out1_tmp.name = row1.name ;
+out1_tmp.user_id = row1.user_id ;
+out1_tmp.start_at = row1.start_at ;
+out1_tmp.stop_at = row1.stop_at ;
+out1_tmp.state = row1.state ;
+out1_tmp.sequence_number = row1.sequence_number ;
+out1_tmp.login_number = row1.login_number ;
+out1_tmp.opening_notes = row1.opening_notes ;
+out1_tmp.cash_journal_id = row1.cash_journal_id ;
+out1_tmp.cash_register_id = row1.cash_register_id ;
+out1_tmp.cash_real_difference = row1.cash_real_difference ;
+out1_tmp.cash_real_transaction = row1.cash_real_transaction ;
+out1_tmp.cash_real_expected = row1.cash_real_expected ;
+out1_tmp.rescue = row1.rescue ;
+out1_tmp.move_id = row1.move_id ;
+out1_tmp.update_stock_at_closing = row1.update_stock_at_closing ;
+out1_tmp.create_uid = row1.create_uid ;
+out1_tmp.create_date = row1.create_date ;
+out1_tmp.write_uid = row1.write_uid ;
+out1_tmp.write_date = row1.write_date ;
+out1 = out1_tmp;
+} // closing filter/reject
 // ###############################
 
-							} // end of Var scope
+} // end of Var scope
 
-							rejectedInnerJoin_tMap_1 = false;
+rejectedInnerJoin_tMap_1 = false;
 
-							tos_count_tMap_1++;
 
-							/**
-							 * [tMap_1 main ] stop
-							 */
 
-							/**
-							 * [tMap_1 process_data_begin ] start
-							 */
 
-							currentComponent = "tMap_1";
 
-							/**
-							 * [tMap_1 process_data_begin ] stop
-							 */
+
+
+
+
+
+ 
+
+
+	tos_count_tMap_1++;
+
+/**
+ * [tMap_1 main ] stop
+ */
+	
+	/**
+	 * [tMap_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_1 process_data_begin ] stop
+ */
 // Start of branch "out1"
-							if (out1 != null) {
+if(out1 != null) { 
 
-								/**
-								 * [tLogRow_2 main ] start
-								 */
 
-								currentComponent = "tLogRow_2";
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
+	
+	/**
+	 * [tLogRow_2 main ] start
+	 */
 
-											, "out1"
+	
 
-									);
-								}
+	
+	
+	currentComponent="tLogRow_2";
 
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"out1"
+						
+						);
+					}
+					
 ///////////////////////		
+						
 
-								String[] row_tLogRow_2 = new String[23];
+				
+				String[] row_tLogRow_2 = new String[23];
+   				
+	    		if(out1.id != null) { //              
+                 row_tLogRow_2[0]=    						    
+				                String.valueOf(out1.id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.message_main_attachment_id != null) { //              
+                 row_tLogRow_2[1]=    						    
+				                String.valueOf(out1.message_main_attachment_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.config_id != null) { //              
+                 row_tLogRow_2[2]=    						    
+				                String.valueOf(out1.config_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.name != null) { //              
+                 row_tLogRow_2[3]=    						    
+				                String.valueOf(out1.name)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.user_id != null) { //              
+                 row_tLogRow_2[4]=    						    
+				                String.valueOf(out1.user_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.start_at != null) { //              
+                 row_tLogRow_2[5]=    						
+								FormatterUtils.format_Date(out1.start_at, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.stop_at != null) { //              
+                 row_tLogRow_2[6]=    						    
+				                String.valueOf(out1.stop_at)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.state != null) { //              
+                 row_tLogRow_2[7]=    						    
+				                String.valueOf(out1.state)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.sequence_number != null) { //              
+                 row_tLogRow_2[8]=    						    
+				                String.valueOf(out1.sequence_number)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.login_number != null) { //              
+                 row_tLogRow_2[9]=    						    
+				                String.valueOf(out1.login_number)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.opening_notes != null) { //              
+                 row_tLogRow_2[10]=    						    
+				                String.valueOf(out1.opening_notes)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.cash_journal_id != null) { //              
+                 row_tLogRow_2[11]=    						    
+				                String.valueOf(out1.cash_journal_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.cash_register_id != null) { //              
+                 row_tLogRow_2[12]=    						    
+				                String.valueOf(out1.cash_register_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.cash_real_difference != null) { //              
+                 row_tLogRow_2[13]=    						    
+				                String.valueOf(out1.cash_real_difference)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.cash_real_transaction != null) { //              
+                 row_tLogRow_2[14]=    						    
+				                String.valueOf(out1.cash_real_transaction)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.cash_real_expected != null) { //              
+                 row_tLogRow_2[15]=    						    
+				                String.valueOf(out1.cash_real_expected)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.rescue != null) { //              
+                 row_tLogRow_2[16]=    						    
+				                String.valueOf(out1.rescue)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.move_id != null) { //              
+                 row_tLogRow_2[17]=    						    
+				                String.valueOf(out1.move_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.update_stock_at_closing != null) { //              
+                 row_tLogRow_2[18]=    						    
+				                String.valueOf(out1.update_stock_at_closing)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.create_uid != null) { //              
+                 row_tLogRow_2[19]=    						    
+				                String.valueOf(out1.create_uid)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.create_date != null) { //              
+                 row_tLogRow_2[20]=    						
+								FormatterUtils.format_Date(out1.create_date, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.write_uid != null) { //              
+                 row_tLogRow_2[21]=    						    
+				                String.valueOf(out1.write_uid)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(out1.write_date != null) { //              
+                 row_tLogRow_2[22]=    						
+								FormatterUtils.format_Date(out1.write_date, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			 
 
-								if (out1.id != null) { //
-									row_tLogRow_2[0] = String.valueOf(out1.id);
-
-								} //
-
-								if (out1.message_main_attachment_id != null) { //
-									row_tLogRow_2[1] = String.valueOf(out1.message_main_attachment_id);
-
-								} //
-
-								if (out1.config_id != null) { //
-									row_tLogRow_2[2] = String.valueOf(out1.config_id);
-
-								} //
-
-								if (out1.name != null) { //
-									row_tLogRow_2[3] = String.valueOf(out1.name);
-
-								} //
-
-								if (out1.user_id != null) { //
-									row_tLogRow_2[4] = String.valueOf(out1.user_id);
-
-								} //
-
-								if (out1.start_at != null) { //
-									row_tLogRow_2[5] = FormatterUtils.format_Date(out1.start_at, "dd-MM-yyyy");
-
-								} //
-
-								if (out1.stop_at != null) { //
-									row_tLogRow_2[6] = String.valueOf(out1.stop_at);
-
-								} //
-
-								if (out1.state != null) { //
-									row_tLogRow_2[7] = String.valueOf(out1.state);
-
-								} //
-
-								if (out1.sequence_number != null) { //
-									row_tLogRow_2[8] = String.valueOf(out1.sequence_number);
-
-								} //
-
-								if (out1.login_number != null) { //
-									row_tLogRow_2[9] = String.valueOf(out1.login_number);
-
-								} //
-
-								if (out1.opening_notes != null) { //
-									row_tLogRow_2[10] = String.valueOf(out1.opening_notes);
-
-								} //
-
-								if (out1.cash_journal_id != null) { //
-									row_tLogRow_2[11] = String.valueOf(out1.cash_journal_id);
-
-								} //
-
-								if (out1.cash_register_id != null) { //
-									row_tLogRow_2[12] = String.valueOf(out1.cash_register_id);
-
-								} //
-
-								if (out1.cash_real_difference != null) { //
-									row_tLogRow_2[13] = String.valueOf(out1.cash_real_difference);
-
-								} //
-
-								if (out1.cash_real_transaction != null) { //
-									row_tLogRow_2[14] = String.valueOf(out1.cash_real_transaction);
-
-								} //
-
-								if (out1.cash_real_expected != null) { //
-									row_tLogRow_2[15] = String.valueOf(out1.cash_real_expected);
-
-								} //
-
-								if (out1.rescue != null) { //
-									row_tLogRow_2[16] = String.valueOf(out1.rescue);
-
-								} //
-
-								if (out1.move_id != null) { //
-									row_tLogRow_2[17] = String.valueOf(out1.move_id);
-
-								} //
-
-								if (out1.update_stock_at_closing != null) { //
-									row_tLogRow_2[18] = String.valueOf(out1.update_stock_at_closing);
-
-								} //
-
-								if (out1.create_uid != null) { //
-									row_tLogRow_2[19] = String.valueOf(out1.create_uid);
-
-								} //
-
-								if (out1.create_date != null) { //
-									row_tLogRow_2[20] = FormatterUtils.format_Date(out1.create_date, "dd-MM-yyyy");
-
-								} //
-
-								if (out1.write_uid != null) { //
-									row_tLogRow_2[21] = String.valueOf(out1.write_uid);
-
-								} //
-
-								if (out1.write_date != null) { //
-									row_tLogRow_2[22] = FormatterUtils.format_Date(out1.write_date, "dd-MM-yyyy");
-
-								} //
-
-								util_tLogRow_2.addRow(row_tLogRow_2);
-								nb_line_tLogRow_2++;
+				util_tLogRow_2.addRow(row_tLogRow_2);	
+				nb_line_tLogRow_2++;
 //////
 
 //////                    
-
+                    
 ///////////////////////    			
 
-								row3 = out1;
+ 
+     row3 = out1;
 
-								tos_count_tLogRow_2++;
 
-								/**
-								 * [tLogRow_2 main ] stop
-								 */
+	tos_count_tLogRow_2++;
 
-								/**
-								 * [tLogRow_2 process_data_begin ] start
-								 */
+/**
+ * [tLogRow_2 main ] stop
+ */
+	
+	/**
+	 * [tLogRow_2 process_data_begin ] start
+	 */
 
-								currentComponent = "tLogRow_2";
+	
 
-								/**
-								 * [tLogRow_2 process_data_begin ] stop
-								 */
+	
+	
+	currentComponent="tLogRow_2";
 
-								/**
-								 * [tFileOutputDelimited_2 main ] start
-								 */
+	
 
-								currentComponent = "tFileOutputDelimited_2";
+ 
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "row3"
 
-									);
-								}
+/**
+ * [tLogRow_2 process_data_begin ] stop
+ */
 
-								StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
-								if (row3.id != null) {
-									sb_tFileOutputDelimited_2.append(row3.id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.message_main_attachment_id != null) {
-									sb_tFileOutputDelimited_2.append(row3.message_main_attachment_id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.config_id != null) {
-									sb_tFileOutputDelimited_2.append(row3.config_id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.name != null) {
-									sb_tFileOutputDelimited_2.append(row3.name);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.user_id != null) {
-									sb_tFileOutputDelimited_2.append(row3.user_id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.start_at != null) {
-									sb_tFileOutputDelimited_2
-											.append(FormatterUtils.format_Date(row3.start_at, "dd-MM-yyyy"));
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.stop_at != null) {
-									sb_tFileOutputDelimited_2.append(row3.stop_at);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.state != null) {
-									sb_tFileOutputDelimited_2.append(row3.state);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.sequence_number != null) {
-									sb_tFileOutputDelimited_2.append(row3.sequence_number);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.login_number != null) {
-									sb_tFileOutputDelimited_2.append(row3.login_number);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.opening_notes != null) {
-									sb_tFileOutputDelimited_2.append(row3.opening_notes);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.cash_journal_id != null) {
-									sb_tFileOutputDelimited_2.append(row3.cash_journal_id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.cash_register_id != null) {
-									sb_tFileOutputDelimited_2.append(row3.cash_register_id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.cash_real_difference != null) {
-									sb_tFileOutputDelimited_2.append(row3.cash_real_difference);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.cash_real_transaction != null) {
-									sb_tFileOutputDelimited_2.append(row3.cash_real_transaction);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.cash_real_expected != null) {
-									sb_tFileOutputDelimited_2.append(row3.cash_real_expected);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.rescue != null) {
-									sb_tFileOutputDelimited_2.append(row3.rescue);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.move_id != null) {
-									sb_tFileOutputDelimited_2.append(row3.move_id);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.update_stock_at_closing != null) {
-									sb_tFileOutputDelimited_2.append(row3.update_stock_at_closing);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.create_uid != null) {
-									sb_tFileOutputDelimited_2.append(row3.create_uid);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.create_date != null) {
-									sb_tFileOutputDelimited_2
-											.append(FormatterUtils.format_Date(row3.create_date, "dd-MM-yyyy"));
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.write_uid != null) {
-									sb_tFileOutputDelimited_2.append(row3.write_uid);
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
-								if (row3.write_date != null) {
-									sb_tFileOutputDelimited_2
-											.append(FormatterUtils.format_Date(row3.write_date, "dd-MM-yyyy"));
-								}
-								sb_tFileOutputDelimited_2.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
+	
+	/**
+	 * [tFileOutputDelimited_2 main ] start
+	 */
 
-								nb_line_tFileOutputDelimited_2++;
-								resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+	
 
-								outtFileOutputDelimited_2.write(sb_tFileOutputDelimited_2.toString());
+	
+	
+	currentComponent="tFileOutputDelimited_2";
 
-								row4 = row3;
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row3"
+						
+						);
+					}
+					
 
-								tos_count_tFileOutputDelimited_2++;
 
-								/**
-								 * [tFileOutputDelimited_2 main ] stop
-								 */
+                    StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
+                            if(row3.id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.message_main_attachment_id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.message_main_attachment_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.config_id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.config_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.name != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.name
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.user_id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.user_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.start_at != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            FormatterUtils.format_Date(row3.start_at, "dd-MM-yyyy")
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.stop_at != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.stop_at
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.state != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.state
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.sequence_number != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.sequence_number
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.login_number != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.login_number
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.opening_notes != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.opening_notes
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.cash_journal_id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.cash_journal_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.cash_register_id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.cash_register_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.cash_real_difference != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.cash_real_difference
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.cash_real_transaction != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.cash_real_transaction
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.cash_real_expected != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.cash_real_expected
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.rescue != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.rescue
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.move_id != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.move_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.update_stock_at_closing != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.update_stock_at_closing
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.create_uid != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.create_uid
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.create_date != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            FormatterUtils.format_Date(row3.create_date, "dd-MM-yyyy")
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.write_uid != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            row3.write_uid
+                        );
+                            }
+                            sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+                            if(row3.write_date != null) {
+                        sb_tFileOutputDelimited_2.append(
+                            FormatterUtils.format_Date(row3.write_date, "dd-MM-yyyy")
+                        );
+                            }
+                    sb_tFileOutputDelimited_2.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
 
-								/**
-								 * [tFileOutputDelimited_2 process_data_begin ] start
-								 */
 
-								currentComponent = "tFileOutputDelimited_2";
+                    nb_line_tFileOutputDelimited_2++;
+                    resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
 
-								/**
-								 * [tFileOutputDelimited_2 process_data_begin ] stop
-								 */
+                        outtFileOutputDelimited_2.write(sb_tFileOutputDelimited_2.toString());
 
-								/**
-								 * [tUnite_1 main ] start
-								 */
 
-								currentComponent = "tUnite_1";
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "row4"
+ 
+     row4 = row3;
 
-									);
-								}
 
+	tos_count_tFileOutputDelimited_2++;
+
+/**
+ * [tFileOutputDelimited_2 main ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 process_data_begin ] stop
+ */
+
+	
+	/**
+	 * [tUnite_1 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUnite_1";
+
+	
+						if(execStat){
+							runStat.updateStatOnConnection(iterateId,1,1
+								
+									,"row4"
+									
+							);
+						}
+						
 //////////
+ 
 
 // for output
-								row6 = new row6Struct();
+			row6 = new row6Struct();
+								
+			row6.id = row4.id;								
+			row6.message_main_attachment_id = row4.message_main_attachment_id;								
+			row6.config_id = row4.config_id;								
+			row6.name = row4.name;								
+			row6.user_id = row4.user_id;								
+			row6.start_at = row4.start_at;								
+			row6.stop_at = row4.stop_at;								
+			row6.state = row4.state;								
+			row6.sequence_number = row4.sequence_number;								
+			row6.login_number = row4.login_number;								
+			row6.opening_notes = row4.opening_notes;								
+			row6.cash_journal_id = row4.cash_journal_id;								
+			row6.cash_register_id = row4.cash_register_id;								
+			row6.cash_real_difference = row4.cash_real_difference;								
+			row6.cash_real_transaction = row4.cash_real_transaction;								
+			row6.cash_real_expected = row4.cash_real_expected;								
+			row6.rescue = row4.rescue;								
+			row6.move_id = row4.move_id;								
+			row6.update_stock_at_closing = row4.update_stock_at_closing;								
+			row6.create_uid = row4.create_uid;								
+			row6.create_date = row4.create_date;								
+			row6.write_uid = row4.write_uid;								
+			row6.write_date = row4.write_date;			
 
-								row6.id = row4.id;
-								row6.message_main_attachment_id = row4.message_main_attachment_id;
-								row6.config_id = row4.config_id;
-								row6.name = row4.name;
-								row6.user_id = row4.user_id;
-								row6.start_at = row4.start_at;
-								row6.stop_at = row4.stop_at;
-								row6.state = row4.state;
-								row6.sequence_number = row4.sequence_number;
-								row6.login_number = row4.login_number;
-								row6.opening_notes = row4.opening_notes;
-								row6.cash_journal_id = row4.cash_journal_id;
-								row6.cash_register_id = row4.cash_register_id;
-								row6.cash_real_difference = row4.cash_real_difference;
-								row6.cash_real_transaction = row4.cash_real_transaction;
-								row6.cash_real_expected = row4.cash_real_expected;
-								row6.rescue = row4.rescue;
-								row6.move_id = row4.move_id;
-								row6.update_stock_at_closing = row4.update_stock_at_closing;
-								row6.create_uid = row4.create_uid;
-								row6.create_date = row4.create_date;
-								row6.write_uid = row4.write_uid;
-								row6.write_date = row4.write_date;
-
-								nb_line_tUnite_1++;
+			nb_line_tUnite_1++;
 
 //////////
+ 
 
-								tos_count_tUnite_1++;
 
-								/**
-								 * [tUnite_1 main ] stop
-								 */
+	tos_count_tUnite_1++;
 
-								/**
-								 * [tUnite_1 process_data_begin ] start
-								 */
+/**
+ * [tUnite_1 main ] stop
+ */
+	
+	/**
+	 * [tUnite_1 process_data_begin ] start
+	 */
 
-								currentComponent = "tUnite_1";
+	
 
-								/**
-								 * [tUnite_1 process_data_begin ] stop
-								 */
+	
+	
+	currentComponent="tUnite_1";
 
-								/**
-								 * [tLogRow_1 main ] start
-								 */
+	
 
-								currentComponent = "tLogRow_1";
+ 
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "row6"
 
-									);
-								}
+/**
+ * [tUnite_1 process_data_begin ] stop
+ */
 
+	
+	/**
+	 * [tLogRow_1 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_1";
+
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row6"
+						
+						);
+					}
+					
 ///////////////////////		
+						
 
-								String[] row_tLogRow_1 = new String[23];
+				
+				String[] row_tLogRow_1 = new String[23];
+   				
+	    		if(row6.id != null) { //              
+                 row_tLogRow_1[0]=    						    
+				                String.valueOf(row6.id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.message_main_attachment_id != null) { //              
+                 row_tLogRow_1[1]=    						    
+				                String.valueOf(row6.message_main_attachment_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.config_id != null) { //              
+                 row_tLogRow_1[2]=    						    
+				                String.valueOf(row6.config_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.name != null) { //              
+                 row_tLogRow_1[3]=    						    
+				                String.valueOf(row6.name)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.user_id != null) { //              
+                 row_tLogRow_1[4]=    						    
+				                String.valueOf(row6.user_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.start_at != null) { //              
+                 row_tLogRow_1[5]=    						
+								FormatterUtils.format_Date(row6.start_at, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.stop_at != null) { //              
+                 row_tLogRow_1[6]=    						    
+				                String.valueOf(row6.stop_at)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.state != null) { //              
+                 row_tLogRow_1[7]=    						    
+				                String.valueOf(row6.state)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.sequence_number != null) { //              
+                 row_tLogRow_1[8]=    						    
+				                String.valueOf(row6.sequence_number)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.login_number != null) { //              
+                 row_tLogRow_1[9]=    						    
+				                String.valueOf(row6.login_number)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.opening_notes != null) { //              
+                 row_tLogRow_1[10]=    						    
+				                String.valueOf(row6.opening_notes)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_journal_id != null) { //              
+                 row_tLogRow_1[11]=    						    
+				                String.valueOf(row6.cash_journal_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_register_id != null) { //              
+                 row_tLogRow_1[12]=    						    
+				                String.valueOf(row6.cash_register_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_real_difference != null) { //              
+                 row_tLogRow_1[13]=    						    
+				                String.valueOf(row6.cash_real_difference)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_real_transaction != null) { //              
+                 row_tLogRow_1[14]=    						    
+				                String.valueOf(row6.cash_real_transaction)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.cash_real_expected != null) { //              
+                 row_tLogRow_1[15]=    						    
+				                String.valueOf(row6.cash_real_expected)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.rescue != null) { //              
+                 row_tLogRow_1[16]=    						    
+				                String.valueOf(row6.rescue)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.move_id != null) { //              
+                 row_tLogRow_1[17]=    						    
+				                String.valueOf(row6.move_id)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.update_stock_at_closing != null) { //              
+                 row_tLogRow_1[18]=    						    
+				                String.valueOf(row6.update_stock_at_closing)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.create_uid != null) { //              
+                 row_tLogRow_1[19]=    						    
+				                String.valueOf(row6.create_uid)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.create_date != null) { //              
+                 row_tLogRow_1[20]=    						
+								FormatterUtils.format_Date(row6.create_date, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.write_uid != null) { //              
+                 row_tLogRow_1[21]=    						    
+				                String.valueOf(row6.write_uid)			
+					          ;	
+							
+	    		} //			
+    			   				
+	    		if(row6.write_date != null) { //              
+                 row_tLogRow_1[22]=    						
+								FormatterUtils.format_Date(row6.write_date, "dd-MM-yyyy")
+					          ;	
+							
+	    		} //			
+    			 
 
-								if (row6.id != null) { //
-									row_tLogRow_1[0] = String.valueOf(row6.id);
-
-								} //
-
-								if (row6.message_main_attachment_id != null) { //
-									row_tLogRow_1[1] = String.valueOf(row6.message_main_attachment_id);
-
-								} //
-
-								if (row6.config_id != null) { //
-									row_tLogRow_1[2] = String.valueOf(row6.config_id);
-
-								} //
-
-								if (row6.name != null) { //
-									row_tLogRow_1[3] = String.valueOf(row6.name);
-
-								} //
-
-								if (row6.user_id != null) { //
-									row_tLogRow_1[4] = String.valueOf(row6.user_id);
-
-								} //
-
-								if (row6.start_at != null) { //
-									row_tLogRow_1[5] = FormatterUtils.format_Date(row6.start_at, "dd-MM-yyyy");
-
-								} //
-
-								if (row6.stop_at != null) { //
-									row_tLogRow_1[6] = String.valueOf(row6.stop_at);
-
-								} //
-
-								if (row6.state != null) { //
-									row_tLogRow_1[7] = String.valueOf(row6.state);
-
-								} //
-
-								if (row6.sequence_number != null) { //
-									row_tLogRow_1[8] = String.valueOf(row6.sequence_number);
-
-								} //
-
-								if (row6.login_number != null) { //
-									row_tLogRow_1[9] = String.valueOf(row6.login_number);
-
-								} //
-
-								if (row6.opening_notes != null) { //
-									row_tLogRow_1[10] = String.valueOf(row6.opening_notes);
-
-								} //
-
-								if (row6.cash_journal_id != null) { //
-									row_tLogRow_1[11] = String.valueOf(row6.cash_journal_id);
-
-								} //
-
-								if (row6.cash_register_id != null) { //
-									row_tLogRow_1[12] = String.valueOf(row6.cash_register_id);
-
-								} //
-
-								if (row6.cash_real_difference != null) { //
-									row_tLogRow_1[13] = String.valueOf(row6.cash_real_difference);
-
-								} //
-
-								if (row6.cash_real_transaction != null) { //
-									row_tLogRow_1[14] = String.valueOf(row6.cash_real_transaction);
-
-								} //
-
-								if (row6.cash_real_expected != null) { //
-									row_tLogRow_1[15] = String.valueOf(row6.cash_real_expected);
-
-								} //
-
-								if (row6.rescue != null) { //
-									row_tLogRow_1[16] = String.valueOf(row6.rescue);
-
-								} //
-
-								if (row6.move_id != null) { //
-									row_tLogRow_1[17] = String.valueOf(row6.move_id);
-
-								} //
-
-								if (row6.update_stock_at_closing != null) { //
-									row_tLogRow_1[18] = String.valueOf(row6.update_stock_at_closing);
-
-								} //
-
-								if (row6.create_uid != null) { //
-									row_tLogRow_1[19] = String.valueOf(row6.create_uid);
-
-								} //
-
-								if (row6.create_date != null) { //
-									row_tLogRow_1[20] = FormatterUtils.format_Date(row6.create_date, "dd-MM-yyyy");
-
-								} //
-
-								if (row6.write_uid != null) { //
-									row_tLogRow_1[21] = String.valueOf(row6.write_uid);
-
-								} //
-
-								if (row6.write_date != null) { //
-									row_tLogRow_1[22] = FormatterUtils.format_Date(row6.write_date, "dd-MM-yyyy");
-
-								} //
-
-								util_tLogRow_1.addRow(row_tLogRow_1);
-								nb_line_tLogRow_1++;
+				util_tLogRow_1.addRow(row_tLogRow_1);	
+				nb_line_tLogRow_1++;
 //////
 
 //////                    
-
+                    
 ///////////////////////    			
 
-								row7 = row6;
+ 
+     row7 = row6;
 
-								tos_count_tLogRow_1++;
 
-								/**
-								 * [tLogRow_1 main ] stop
-								 */
+	tos_count_tLogRow_1++;
 
-								/**
-								 * [tLogRow_1 process_data_begin ] start
-								 */
+/**
+ * [tLogRow_1 main ] stop
+ */
+	
+	/**
+	 * [tLogRow_1 process_data_begin ] start
+	 */
 
-								currentComponent = "tLogRow_1";
+	
 
-								/**
-								 * [tLogRow_1 process_data_begin ] stop
-								 */
+	
+	
+	currentComponent="tLogRow_1";
 
-								/**
-								 * [tFileOutputDelimited_1 main ] start
-								 */
+	
 
-								currentComponent = "tFileOutputDelimited_1";
+ 
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "row7"
 
-									);
-								}
+/**
+ * [tLogRow_1 process_data_begin ] stop
+ */
 
-								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-								if (row7.id != null) {
-									sb_tFileOutputDelimited_1.append(row7.id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.message_main_attachment_id != null) {
-									sb_tFileOutputDelimited_1.append(row7.message_main_attachment_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.config_id != null) {
-									sb_tFileOutputDelimited_1.append(row7.config_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.name != null) {
-									sb_tFileOutputDelimited_1.append(row7.name);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.user_id != null) {
-									sb_tFileOutputDelimited_1.append(row7.user_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.start_at != null) {
-									sb_tFileOutputDelimited_1
-											.append(FormatterUtils.format_Date(row7.start_at, "dd-MM-yyyy"));
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.stop_at != null) {
-									sb_tFileOutputDelimited_1.append(row7.stop_at);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.state != null) {
-									sb_tFileOutputDelimited_1.append(row7.state);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.sequence_number != null) {
-									sb_tFileOutputDelimited_1.append(row7.sequence_number);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.login_number != null) {
-									sb_tFileOutputDelimited_1.append(row7.login_number);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.opening_notes != null) {
-									sb_tFileOutputDelimited_1.append(row7.opening_notes);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.cash_journal_id != null) {
-									sb_tFileOutputDelimited_1.append(row7.cash_journal_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.cash_register_id != null) {
-									sb_tFileOutputDelimited_1.append(row7.cash_register_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.cash_real_difference != null) {
-									sb_tFileOutputDelimited_1.append(row7.cash_real_difference);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.cash_real_transaction != null) {
-									sb_tFileOutputDelimited_1.append(row7.cash_real_transaction);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.cash_real_expected != null) {
-									sb_tFileOutputDelimited_1.append(row7.cash_real_expected);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.rescue != null) {
-									sb_tFileOutputDelimited_1.append(row7.rescue);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.move_id != null) {
-									sb_tFileOutputDelimited_1.append(row7.move_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.update_stock_at_closing != null) {
-									sb_tFileOutputDelimited_1.append(row7.update_stock_at_closing);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.create_uid != null) {
-									sb_tFileOutputDelimited_1.append(row7.create_uid);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.create_date != null) {
-									sb_tFileOutputDelimited_1
-											.append(FormatterUtils.format_Date(row7.create_date, "dd-MM-yyyy"));
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.write_uid != null) {
-									sb_tFileOutputDelimited_1.append(row7.write_uid);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row7.write_date != null) {
-									sb_tFileOutputDelimited_1
-											.append(FormatterUtils.format_Date(row7.write_date, "dd-MM-yyyy"));
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+	
+	/**
+	 * [tFileOutputDelimited_1 main ] start
+	 */
 
-								nb_line_tFileOutputDelimited_1++;
-								resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+	
 
-								outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+	
+	
+	currentComponent="tFileOutputDelimited_1";
 
-								tos_count_tFileOutputDelimited_1++;
-
-								/**
-								 * [tFileOutputDelimited_1 main ] stop
-								 */
-
-								/**
-								 * [tFileOutputDelimited_1 process_data_begin ] start
-								 */
-
-								currentComponent = "tFileOutputDelimited_1";
-
-								/**
-								 * [tFileOutputDelimited_1 process_data_begin ] stop
-								 */
-
-								/**
-								 * [tFileOutputDelimited_1 process_data_end ] start
-								 */
-
-								currentComponent = "tFileOutputDelimited_1";
-
-								/**
-								 * [tFileOutputDelimited_1 process_data_end ] stop
-								 */
-
-								/**
-								 * [tLogRow_1 process_data_end ] start
-								 */
-
-								currentComponent = "tLogRow_1";
-
-								/**
-								 * [tLogRow_1 process_data_end ] stop
-								 */
-
-								/**
-								 * [tUnite_1 process_data_end ] start
-								 */
-
-								currentComponent = "tUnite_1";
-
-								/**
-								 * [tUnite_1 process_data_end ] stop
-								 */
-
-								/**
-								 * [tFileOutputDelimited_2 process_data_end ] start
-								 */
-
-								currentComponent = "tFileOutputDelimited_2";
-
-								/**
-								 * [tFileOutputDelimited_2 process_data_end ] stop
-								 */
-
-								/**
-								 * [tLogRow_2 process_data_end ] start
-								 */
-
-								currentComponent = "tLogRow_2";
-
-								/**
-								 * [tLogRow_2 process_data_end ] stop
-								 */
-
-							} // End of branch "out1"
-
-							/**
-							 * [tMap_1 process_data_end ] start
-							 */
-
-							currentComponent = "tMap_1";
-
-							/**
-							 * [tMap_1 process_data_end ] stop
-							 */
-
-						} // End of branch "row1"
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row7"
+						
+						);
 					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
-						}
-					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
+					
 
-					}
-				}
 
-				ok_Hash.put("tFileInputDelimited_1", true);
-				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+                    StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+                            if(row7.id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.message_main_attachment_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.message_main_attachment_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.config_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.config_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.name != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.name
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.user_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.user_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.start_at != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            FormatterUtils.format_Date(row7.start_at, "dd-MM-yyyy")
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.stop_at != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.stop_at
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.state != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.state
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.sequence_number != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.sequence_number
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.login_number != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.login_number
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.opening_notes != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.opening_notes
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_journal_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_journal_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_register_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_register_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_real_difference != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_real_difference
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_real_transaction != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_real_transaction
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.cash_real_expected != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.cash_real_expected
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.rescue != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.rescue
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.move_id != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.move_id
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.update_stock_at_closing != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.update_stock_at_closing
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.create_uid != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.create_uid
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.create_date != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            FormatterUtils.format_Date(row7.create_date, "dd-MM-yyyy")
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.write_uid != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            row7.write_uid
+                        );
+                            }
+                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+                            if(row7.write_date != null) {
+                        sb_tFileOutputDelimited_1.append(
+                            FormatterUtils.format_Date(row7.write_date, "dd-MM-yyyy")
+                        );
+                            }
+                    sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 
-				/**
-				 * [tFileInputDelimited_1 end ] stop
-				 */
 
-				/**
-				 * [tMap_1 end ] start
-				 */
+                    nb_line_tFileOutputDelimited_1++;
+                    resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
-				currentComponent = "tMap_1";
+                        outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+
+
+
+
+ 
+
+
+	tos_count_tFileOutputDelimited_1++;
+
+/**
+ * [tFileOutputDelimited_1 main ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tFileOutputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tLogRow_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tLogRow_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tUnite_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUnite_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tUnite_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tFileOutputDelimited_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tLogRow_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tLogRow_2 process_data_end ] stop
+ */
+
+} // End of branch "out1"
+
+
+
+
+	
+	/**
+	 * [tMap_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_1 process_data_end ] stop
+ */
+
+} // End of branch "row1"
+
+
+
+
+	
+	/**
+	 * [tFileInputDelimited_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 process_data_end ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+
+
+            }
+            }finally{
+                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv") instanceof java.io.InputStream)){
+                	if(fid_tFileInputDelimited_1!=null){
+                		fid_tFileInputDelimited_1.close();
+                	}
+                }
+                if(fid_tFileInputDelimited_1!=null){
+                	globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
+					
+                }
+			}
+			  
+
+ 
+
+ok_Hash.put("tFileInputDelimited_1", true);
+end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tFileInputDelimited_1 end ] stop
+ */
+
+	
+	/**
+	 * [tMap_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
 
 // ###############################
 // # Lookup hashes releasing
-				if (tHash_Lookup_row2 != null) {
-					tHash_Lookup_row2.endGet();
-				}
-				globalMap.remove("tHash_Lookup_row2");
+					if(tHash_Lookup_row2 != null) {
+						tHash_Lookup_row2.endGet();
+					}
+					globalMap.remove( "tHash_Lookup_row2" );
 
+					
+					
+				
 // ###############################      
 
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
-				}
 
-				ok_Hash.put("tMap_1", true);
-				end_Hash.put("tMap_1", System.currentTimeMillis());
 
-				/**
-				 * [tMap_1 end ] stop
-				 */
 
-				/**
-				 * [tLogRow_2 end ] start
-				 */
 
-				currentComponent = "tLogRow_2";
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row1");
+			  	}
+			  	
+ 
+
+ok_Hash.put("tMap_1", true);
+end_Hash.put("tMap_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tMap_1 end ] stop
+ */
+
+	
+	/**
+	 * [tLogRow_2 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_2";
+
+	
+
 
 //////
 
-				java.io.PrintStream consoleOut_tLogRow_2 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_2 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_2);
-				}
-
-				consoleOut_tLogRow_2.println(util_tLogRow_2.format().toString());
-				consoleOut_tLogRow_2.flush();
+                    
+                    java.io.PrintStream consoleOut_tLogRow_2 = null;
+                    if (globalMap.get("tLogRow_CONSOLE")!=null)
+                    {
+                    	consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+                    }
+                    else
+                    {
+                    	consoleOut_tLogRow_2 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+                    	globalMap.put("tLogRow_CONSOLE",consoleOut_tLogRow_2);
+                    }
+                    
+                    consoleOut_tLogRow_2.println(util_tLogRow_2.format().toString());
+                    consoleOut_tLogRow_2.flush();
 //////
-				globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
+globalMap.put("tLogRow_2_NB_LINE",nb_line_tLogRow_2);
 
 ///////////////////////    			
 
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "out1");
-				}
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"out1");
+			  	}
+			  	
+ 
 
-				ok_Hash.put("tLogRow_2", true);
-				end_Hash.put("tLogRow_2", System.currentTimeMillis());
+ok_Hash.put("tLogRow_2", true);
+end_Hash.put("tLogRow_2", System.currentTimeMillis());
 
-				/**
-				 * [tLogRow_2 end ] stop
-				 */
 
-				/**
-				 * [tFileOutputDelimited_2 end ] start
-				 */
 
-				currentComponent = "tFileOutputDelimited_2";
 
-				if (outtFileOutputDelimited_2 != null) {
-					outtFileOutputDelimited_2.flush();
-					outtFileOutputDelimited_2.close();
-				}
+/**
+ * [tLogRow_2 end ] stop
+ */
 
-				globalMap.put("tFileOutputDelimited_2_NB_LINE", nb_line_tFileOutputDelimited_2);
-				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
+	
+	/**
+	 * [tFileOutputDelimited_2 end ] start
+	 */
 
-				resourceMap.put("finish_tFileOutputDelimited_2", true);
+	
 
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
-				}
+	
+	
+	currentComponent="tFileOutputDelimited_2";
 
-				ok_Hash.put("tFileOutputDelimited_2", true);
-				end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
+	
 
-				/**
-				 * [tFileOutputDelimited_2 end ] stop
-				 */
 
-				/**
-				 * [tUnite_1 end ] start
-				 */
 
-				currentComponent = "tUnite_1";
-
-				globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5", "row4");
-				}
-
-				ok_Hash.put("tUnite_1", true);
-				end_Hash.put("tUnite_1", System.currentTimeMillis());
-
-				/**
-				 * [tUnite_1 end ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 end ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-//////
-
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
-				}
-
-				consoleOut_tLogRow_1.println(util_tLogRow_1.format().toString());
-				consoleOut_tLogRow_1.flush();
-//////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
-
-///////////////////////    			
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
-				}
-
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_1 end ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_1 end ] start
-				 */
-
-				currentComponent = "tFileOutputDelimited_1";
-
-				if (outtFileOutputDelimited_1 != null) {
-					outtFileOutputDelimited_1.flush();
-					outtFileOutputDelimited_1.close();
-				}
-
-				globalMap.put("tFileOutputDelimited_1_NB_LINE", nb_line_tFileOutputDelimited_1);
-				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
-
-				resourceMap.put("finish_tFileOutputDelimited_1", true);
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row7");
-				}
-
-				ok_Hash.put("tFileOutputDelimited_1", true);
-				end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
-
-				if (execStat) {
-					runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
-				}
-				tS3Connection_1Process(globalMap);
-
-				/**
-				 * [tFileOutputDelimited_1 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			// free memory for "tMap_1"
-			globalMap.remove("tHash_Lookup_row2");
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_3 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_3";
-
-				/**
-				 * [tFileInputDelimited_3 finally ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_1 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_1";
-
-				/**
-				 * [tFileInputDelimited_1 finally ] stop
-				 */
-
-				/**
-				 * [tMap_1 finally ] start
-				 */
-
-				currentComponent = "tMap_1";
-
-				/**
-				 * [tMap_1 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_2 finally ] start
-				 */
-
-				currentComponent = "tLogRow_2";
-
-				/**
-				 * [tLogRow_2 finally ] stop
-				 */
-
-				/**
-				 * [tFileOutputDelimited_2 finally ] start
-				 */
-
-				currentComponent = "tFileOutputDelimited_2";
-
-				if (resourceMap.get("finish_tFileOutputDelimited_2") == null) {
-
-					java.io.Writer outtFileOutputDelimited_2 = (java.io.Writer) resourceMap
-							.get("out_tFileOutputDelimited_2");
-					if (outtFileOutputDelimited_2 != null) {
+		
+			
+					if(outtFileOutputDelimited_2!=null) {
 						outtFileOutputDelimited_2.flush();
 						outtFileOutputDelimited_2.close();
 					}
+				
+				globalMap.put("tFileOutputDelimited_2_NB_LINE",nb_line_tFileOutputDelimited_2);
+				globalMap.put("tFileOutputDelimited_2_FILE_NAME",fileName_tFileOutputDelimited_2);
+			
+		
+		
+		resourceMap.put("finish_tFileOutputDelimited_2", true);
+	
 
-				}
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row3");
+			  	}
+			  	
+ 
 
-				/**
-				 * [tFileOutputDelimited_2 finally ] stop
-				 */
+ok_Hash.put("tFileOutputDelimited_2", true);
+end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
 
-				/**
-				 * [tUnite_1 finally ] start
-				 */
 
-				currentComponent = "tUnite_1";
 
-				/**
-				 * [tUnite_1 finally ] stop
-				 */
 
-				/**
-				 * [tLogRow_1 finally ] start
-				 */
+/**
+ * [tFileOutputDelimited_2 end ] stop
+ */
 
-				currentComponent = "tLogRow_1";
 
-				/**
-				 * [tLogRow_1 finally ] stop
-				 */
 
-				/**
-				 * [tFileOutputDelimited_1 finally ] start
-				 */
 
-				currentComponent = "tFileOutputDelimited_1";
 
-				if (resourceMap.get("finish_tFileOutputDelimited_1") == null) {
 
-					java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer) resourceMap
-							.get("out_tFileOutputDelimited_1");
-					if (outtFileOutputDelimited_1 != null) {
+
+
+
+	
+	/**
+	 * [tUnite_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUnite_1";
+
+	
+
+globalMap.put("tUnite_1_NB_LINE", nb_line_tUnite_1);
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row4","row5");
+			  	}
+			  	
+ 
+
+ok_Hash.put("tUnite_1", true);
+end_Hash.put("tUnite_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tUnite_1 end ] stop
+ */
+
+	
+	/**
+	 * [tLogRow_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_1";
+
+	
+
+
+//////
+
+                    
+                    java.io.PrintStream consoleOut_tLogRow_1 = null;
+                    if (globalMap.get("tLogRow_CONSOLE")!=null)
+                    {
+                    	consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+                    }
+                    else
+                    {
+                    	consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+                    	globalMap.put("tLogRow_CONSOLE",consoleOut_tLogRow_1);
+                    }
+                    
+                    consoleOut_tLogRow_1.println(util_tLogRow_1.format().toString());
+                    consoleOut_tLogRow_1.flush();
+//////
+globalMap.put("tLogRow_1_NB_LINE",nb_line_tLogRow_1);
+
+///////////////////////    			
+
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row6");
+			  	}
+			  	
+ 
+
+ok_Hash.put("tLogRow_1", true);
+end_Hash.put("tLogRow_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tLogRow_1 end ] stop
+ */
+
+	
+	/**
+	 * [tFileOutputDelimited_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+
+
+		
+			
+					if(outtFileOutputDelimited_1!=null) {
 						outtFileOutputDelimited_1.flush();
 						outtFileOutputDelimited_1.close();
 					}
+				
+				globalMap.put("tFileOutputDelimited_1_NB_LINE",nb_line_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
+			
+		
+		
+		resourceMap.put("finish_tFileOutputDelimited_1", true);
+	
 
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row7");
+			  	}
+			  	
+ 
+
+ok_Hash.put("tFileOutputDelimited_1", true);
+end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
+
+				if(execStat){   
+   	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
 				}
+				tS3Connection_1Process(globalMap);
 
-				/**
-				 * [tFileOutputDelimited_1 finally ] stop
-				 */
 
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
+
+/**
+ * [tFileOutputDelimited_1 end ] stop
+ */
+
+
+
+
+
+
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+					     			//free memory for "tMap_1"
+					     			globalMap.remove("tHash_Lookup_row2"); 
+				     			
+				try{
+					
+	
+	/**
+	 * [tFileInputDelimited_3 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_3";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_3 finally ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_1 finally ] stop
+ */
+
+	
+	/**
+	 * [tMap_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tMap_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tMap_1 finally ] stop
+ */
+
+	
+	/**
+	 * [tLogRow_2 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tLogRow_2 finally ] stop
+ */
+
+	
+	/**
+	 * [tFileOutputDelimited_2 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_2";
+
+	
+
+
+		if(resourceMap.get("finish_tFileOutputDelimited_2") == null){ 
+			
+				
+						java.io.Writer outtFileOutputDelimited_2 = (java.io.Writer)resourceMap.get("out_tFileOutputDelimited_2");
+						if(outtFileOutputDelimited_2!=null) {
+							outtFileOutputDelimited_2.flush();
+							outtFileOutputDelimited_2.close();
+						}
+					
+				
+			
 		}
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_2 finally ] stop
+ */
+
+
+
+
+
+
+
+
+
+	
+	/**
+	 * [tUnite_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tUnite_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tUnite_1 finally ] stop
+ */
+
+	
+	/**
+	 * [tLogRow_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tLogRow_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tLogRow_1 finally ] stop
+ */
+
+	
+	/**
+	 * [tFileOutputDelimited_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileOutputDelimited_1";
+
+	
+
+
+		if(resourceMap.get("finish_tFileOutputDelimited_1") == null){ 
+			
+				
+						java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer)resourceMap.get("out_tFileOutputDelimited_1");
+						if(outtFileOutputDelimited_1!=null) {
+							outtFileOutputDelimited_1.flush();
+							outtFileOutputDelimited_1.close();
+						}
+					
+				
+			
+		}
+	
+
+ 
+
+
+
+/**
+ * [tFileOutputDelimited_1 finally ] stop
+ */
+
+
+
+
+
+
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
 
 		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
 	}
+	
 
-	public String resuming_logs_dir_path = null;
-	public String resuming_checkpoint_path = null;
-	public String parent_part_launcher = null;
-	private String resumeEntryMethodName = null;
-	private boolean globalResumeTicket = false;
+public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
 
-	public boolean watch = false;
-	// portStats is null, it means don't execute the statistics
-	public Integer portStats = null;
-	public int portTraces = 4334;
-	public String clientHost;
-	public String defaultClientHost = "localhost";
-	public String contextStr = "Default";
-	public boolean isDefaultContext = true;
-	public String pid = "0";
-	public String rootPid = null;
-	public String fatherPid = null;
-	public String fatherNode = null;
-	public long startTime = 0;
-	public boolean isChildJob = false;
-	public String log4jLevel = "";
+ final boolean execStat = this.execStat;
+	
+		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
-	private boolean enableLogStash;
-
-	private boolean execStat = true;
-
-	private ThreadLocal<java.util.Map<String, String>> threadLocal = new ThreadLocal<java.util.Map<String, String>>() {
-		protected java.util.Map<String, String> initialValue() {
-			java.util.Map<String, String> threadRunResultMap = new java.util.HashMap<String, String>();
-			threadRunResultMap.put("errorCode", null);
-			threadRunResultMap.put("status", "");
-			return threadRunResultMap;
-		};
-	};
-
-	protected PropertiesWithType context_param = new PropertiesWithType();
-	public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
-
-	public String status = "";
-
-	public static void main(String[] args) {
-		final dailyJobStage_posSession dailyJobStage_posSessionClass = new dailyJobStage_posSession();
-
-		int exitCode = dailyJobStage_posSessionClass.runJobInTOS(args);
-
-		System.exit(exitCode);
-	}
-
-	public String[][] runJob(String[] args) {
-
-		int exitCode = runJobInTOS(args);
-		String[][] bufferValue = new String[][] { { Integer.toString(exitCode) } };
-
-		return bufferValue;
-	}
-
-	public boolean hastBufferOutputComponent() {
-		boolean hastBufferOutput = false;
-
-		return hastBufferOutput;
-	}
-
-	public int runJobInTOS(String[] args) {
-		// reset status
-		status = "";
-
-		String lastStr = "";
-		for (String arg : args) {
-			if (arg.equalsIgnoreCase("--context_param")) {
-				lastStr = arg;
-			} else if (lastStr.equals("")) {
-				evalParam(arg);
-			} else {
-				evalParam(lastStr + " " + arg);
-				lastStr = "";
+	try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
 			}
-		}
-		enableLogStash = "true".equalsIgnoreCase(System.getProperty("audit.enabled"));
+			if (resumeIt || globalResumeTicket) { //start the resume
+				globalResumeTicket = true;
 
-		if (clientHost == null) {
-			clientHost = defaultClientHost;
-		}
 
-		if (pid == null || "0".equals(pid)) {
-			pid = TalendString.getAsciiRandomString(6);
-		}
 
-		if (rootPid == null) {
-			rootPid = pid;
-		}
-		if (fatherPid == null) {
-			fatherPid = pid;
-		} else {
-			isChildJob = true;
-		}
+		
 
-		if (portStats != null) {
-			// portStats = -1; //for testing
-			if (portStats < 0 || portStats > 65535) {
-				// issue:10869, the portStats is invalid, so this client socket can't open
-				System.err.println("The statistics socket port " + portStats + " is invalid.");
-				execStat = false;
-			}
-		} else {
-			execStat = false;
-		}
-		boolean inOSGi = routines.system.BundleUtils.inOSGi();
 
-		if (inOSGi) {
-			java.util.Dictionary<String, Object> jobProperties = routines.system.BundleUtils.getJobProperties(jobName);
+	
+	/**
+	 * [tS3Connection_1 begin ] start
+	 */
 
-			if (jobProperties != null && jobProperties.get("context") != null) {
-				contextStr = (String) jobProperties.get("context");
-			}
-		}
+	
 
-		try {
-			// call job/subjob with an existing context, like: --context=production. if
-			// without this parameter, there will use the default context instead.
-			java.io.InputStream inContext = dailyJobStage_posSession.class.getClassLoader().getResourceAsStream(
-					"pacifico/dailyjobstage_possession_0_1/contexts/" + contextStr + ".properties");
-			if (inContext == null) {
-				inContext = dailyJobStage_posSession.class.getClassLoader()
-						.getResourceAsStream("config/contexts/" + contextStr + ".properties");
-			}
-			if (inContext != null) {
-				try {
-					// defaultProps is in order to keep the original context value
-					if (context != null && context.isEmpty()) {
-						defaultProps.load(inContext);
-						context = new ContextProperties(defaultProps);
-					}
-				} finally {
-					inContext.close();
+	
+		
+		ok_Hash.put("tS3Connection_1", false);
+		start_Hash.put("tS3Connection_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tS3Connection_1";
+
+	
+		int tos_count_tS3Connection_1 = 0;
+		
+	
+	
+	     
+	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:xCrYmlMDomvFBpuLMzXUhawsy8jLaB5ZE3qCGbm54YkiAhYsORzxoSZbp6fuhwNEOSrG4Okv/SaJBpf7J7dHZAXEL7w=");
+
+            com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials("AKIAVMNG53PS4OCUVYGK",decryptedPassword_tS3Connection_1);
+            com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(credentials_tS3Connection_1);
+		
+		com.amazonaws.ClientConfiguration cc_tS3Connection_1 = new com.amazonaws.ClientConfiguration();
+		cc_tS3Connection_1.setUserAgent("APN/1.0 Talend/8.0 Studio/8.0 (Talend Open Studio)");
+		
+		
+            com.amazonaws.services.s3.AmazonS3ClientBuilder builder_tS3Connection_1 = com.amazonaws.services.s3.AmazonS3ClientBuilder.standard();
+
+        final boolean useRegionEndpoint_tS3Connection_1 = false;
+        final String regionEndpoint_tS3Connection_1 = "s3.amazonaws.com";
+        final boolean enableAccelerateMode_tS3Connection_1 = false;
+        final boolean enablePathStyleAccess_tS3Connection_1 = false;
+        
+        if(useRegionEndpoint_tS3Connection_1 && regionEndpoint_tS3Connection_1 != null && !regionEndpoint_tS3Connection_1.isEmpty()) {
+                builder_tS3Connection_1.withEndpointConfiguration(new com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration(regionEndpoint_tS3Connection_1,"us-east-2"));
+        } else {
+                builder_tS3Connection_1.withRegion("us-east-2");
+        }
+                
+        if(enableAccelerateMode_tS3Connection_1) {
+            builder_tS3Connection_1.withAccelerateModeEnabled(true);
+        }
+        
+        builder_tS3Connection_1.withCredentials(credentialsProvider_tS3Connection_1).withClientConfiguration(cc_tS3Connection_1);
+            
+        if(useRegionEndpoint_tS3Connection_1 && enablePathStyleAccess_tS3Connection_1) {
+            builder_tS3Connection_1.enablePathStyleAccess();
+        }
+        
+        com.amazonaws.services.s3.AmazonS3 conn_tS3Connection_1 = builder_tS3Connection_1.build();
+		
+	
+	//This method is just for test connection.
+	conn_tS3Connection_1.getS3AccountOwner();
+	
+	
+	globalMap.put("conn_" + "tS3Connection_1",conn_tS3Connection_1);
+	
+
+ 
+
+
+
+/**
+ * [tS3Connection_1 begin ] stop
+ */
+	
+	/**
+	 * [tS3Connection_1 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Connection_1";
+
+	
+
+ 
+
+
+	tos_count_tS3Connection_1++;
+
+/**
+ * [tS3Connection_1 main ] stop
+ */
+	
+	/**
+	 * [tS3Connection_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Connection_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tS3Connection_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tS3Connection_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Connection_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tS3Connection_1 process_data_end ] stop
+ */
+	
+	/**
+	 * [tS3Connection_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Connection_1";
+
+	
+
+ 
+
+ok_Hash.put("tS3Connection_1", true);
+end_Hash.put("tS3Connection_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tS3Connection_1 end ] stop
+ */
+				}//end the resume
+
+				
+				    			if(resumeEntryMethodName == null || globalResumeTicket){
+				    				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Connection_1:OnSubjobOk", "", Thread.currentThread().getId() + "", "", "", "", "", "");
+								}	    				    			
+					    	
+								if(execStat){    	
+									runStat.updateStatOnConnection("OnSubjobOk1", 0, "ok");
+								} 
+							
+							tS3Put_1Process(globalMap); 
+						
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tS3Connection_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Connection_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tS3Connection_1 finally ] stop
+ */
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
 				}
-			} else if (!isDefaultContext) {
-				// print info and job continue to run, for case: context_param is not empty.
-				System.err.println("Could not find the context " + contextStr);
+				resourceMap = null;
 			}
+		
 
-			if (!context_param.isEmpty()) {
-				context.putAll(context_param);
-				// set types for params from parentJobs
-				for (Object key : context_param.keySet()) {
+		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 1);
+	}
+	
+
+public void tS3Put_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tS3Put_1_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
+		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+	try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
+				globalResumeTicket = true;
+
+
+
+
+
+	
+	/**
+	 * [tS3Put_1 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tS3Put_1", false);
+		start_Hash.put("tS3Put_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tS3Put_1";
+
+	
+		int tos_count_tS3Put_1 = 0;
+		
+	
+	String millisecTime_tS3Put_1 = null;
+	
+	
+		com.amazonaws.services.s3.AmazonS3Client conn_tS3Put_1 = (com.amazonaws.services.s3.AmazonS3Client)globalMap.get("conn_tS3Connection_1");
+		
+	String key_tS3Put_1 = "posOrder_test.csv";
+	
+	int partSizeInBytes_tS3Put_1 = 5 * 1024 * 1024;
+	if(partSizeInBytes_tS3Put_1 < 5 << 20 ) {
+		
+		partSizeInBytes_tS3Put_1 = 5 << 20;
+	}
+	
+	
+	Object fileOrStream_tS3Put_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageOut.csv";
+	
+	boolean useStream_tS3Put_1 = false;
+	java.io.InputStream uploadStream_tS3Put_1 = null;
+	
+	com.amazonaws.services.s3.transfer.TransferManager tm_tS3Put_1 = null;
+	
+	try{
+		
+		
+		if(fileOrStream_tS3Put_1 instanceof String){
+		    useStream_tS3Put_1 = false;
+		}else if(fileOrStream_tS3Put_1 instanceof java.io.InputStream){
+		    useStream_tS3Put_1 = true;
+		}
+		
+    com.amazonaws.services.s3.model.ObjectMetadata objectMetadata_tS3Put_1 = new com.amazonaws.services.s3.model.ObjectMetadata();
+		
+		
+  		
+		
+		if(!useStream_tS3Put_1) {
+				java.io.File inputFile_tS3Put_1 = new java.io.File((String)fileOrStream_tS3Put_1);
+				
+				long multipart_upload_threshold_tS3Put_1 = 5 * 1024 * 1024;
+				
+    		tm_tS3Put_1 = com.amazonaws.services.s3.transfer.TransferManagerBuilder
+    			.standard()
+    			.withMinimumUploadPartSize((long)partSizeInBytes_tS3Put_1)
+    			.withMultipartUploadThreshold(multipart_upload_threshold_tS3Put_1)
+    			.withS3Client(conn_tS3Put_1)
+    			.build();
+
+  			com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest("libreriapacifico/stage", key_tS3Put_1, inputFile_tS3Put_1).withMetadata(objectMetadata_tS3Put_1);
+			
+		    
+			
+  			
+
+
+
+  			
+  			com.amazonaws.services.s3.transfer.Upload upload_tS3Put_1 = tm_tS3Put_1.upload(putRequest_tS3Put_1);
+  		
+  			upload_tS3Put_1.waitForCompletion();
+  			
+		} else {
+				java.io.InputStream sourceStream_tS3Put_1 = ((java.io.InputStream)fileOrStream_tS3Put_1);
+				
+  			class S3StreamUtil {
+	    		//read content to buffer as many as possible
+	    		public int readFully(final java.io.InputStream input, final byte[] buffer) throws java.io.IOException {
+	    			return readFully(input, buffer, 0, buffer.length);
+	    		}
+	    		
+	    		public int readFully(final java.io.InputStream input, final byte[] buffer, final int offset, final int length) throws java.io.IOException {
+	    			if (length < 0) {
+	    				throw new java.lang.IllegalArgumentException("Length must not be negative: " + length);
+	    			}
+	    		
+	    			int remaining = length;
+	    			while (remaining > 0) {
+	    				final int location = length - remaining;
+	    				final int count = input.read(buffer, offset + location, remaining);
+	    				if (count == -1) {
+	    					break;
+	    				}
+	    				remaining -= count;
+	    			}
+	    			return length - remaining;
+	    		}
+	      	}
+      	
+      	S3StreamUtil streamUtil_tS3Put_1 = new S3StreamUtil();
+    		byte[] buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
+    		long curPartSize_tS3Put_1 = streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1, buffer_tS3Put_1);
+    		
+    		boolean multiUpload_tS3Put_1 = curPartSize_tS3Put_1 == partSizeInBytes_tS3Put_1;
+    		
+    		if(!multiUpload_tS3Put_1) {
+    				objectMetadata_tS3Put_1.setContentLength(curPartSize_tS3Put_1);
+    				uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1,0,Long.valueOf(curPartSize_tS3Put_1).intValue());
+    				com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest("libreriapacifico/stage", key_tS3Put_1, uploadStream_tS3Put_1, objectMetadata_tS3Put_1);
+			
+    				
+    				
+
+
+
+    				
+    				conn_tS3Put_1.putObject(putRequest_tS3Put_1);
+    		} else {
+    				uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
+      			java.util.List<com.amazonaws.services.s3.model.PartETag> partTags_tS3Put_1 = new java.util.ArrayList<com.amazonaws.services.s3.model.PartETag>();
+      			com.amazonaws.services.s3.model.InitiateMultipartUploadRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.InitiateMultipartUploadRequest("libreriapacifico/stage", key_tS3Put_1, objectMetadata_tS3Put_1);
+      			
+      			
+
+
+
+      			
+      			com.amazonaws.services.s3.model.InitiateMultipartUploadResult initResponse_tS3Put_1 = conn_tS3Put_1.initiateMultipartUpload(putRequest_tS3Put_1);
+      			String uploadId_tS3Put_1 = initResponse_tS3Put_1.getUploadId();
+      			int partNumber_tS3Put_1 = 1;
+      			boolean streamHasNext_tS3Put_1 = true;
+      			byte[] probeAvailability_tS3Put_1 = new byte[1];
+				try {
+					while (streamHasNext_tS3Put_1) {
+        						com.amazonaws.services.s3.model.UploadPartRequest uploadRequest_tS3Put_1 = new com.amazonaws.services.s3.model.UploadPartRequest()
+                    	.withBucketName("libreriapacifico/stage")
+                    	.withKey(key_tS3Put_1)
+						.withUploadId(uploadId_tS3Put_1)
+                    	.withPartNumber(partNumber_tS3Put_1)
+						.withPartSize(curPartSize_tS3Put_1);
+            		    uploadRequest_tS3Put_1.setInputStream(uploadStream_tS3Put_1);
+            		    streamHasNext_tS3Put_1 = (1 == streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1, probeAvailability_tS3Put_1));
+            		    if(!streamHasNext_tS3Put_1){
+                    	    uploadRequest_tS3Put_1.setLastPart(true);
+                    	}
+
+                		partTags_tS3Put_1.add(conn_tS3Put_1.uploadPart(uploadRequest_tS3Put_1).getPartETag());
+                  	    partNumber_tS3Put_1++;
+
+          		     	if(uploadStream_tS3Put_1!=null){
+      		         			uploadStream_tS3Put_1.close();
+          		     	}
+          		     	buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
+          		     	curPartSize_tS3Put_1 = 1 + streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1, buffer_tS3Put_1, 1, partSizeInBytes_tS3Put_1-1);
+          		     	buffer_tS3Put_1[0] = probeAvailability_tS3Put_1[0];
+          		     	probeAvailability_tS3Put_1 = new byte[1];
+          		     	uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
+        				}
+        				
+            		com.amazonaws.services.s3.model.CompleteMultipartUploadRequest compRequest_tS3Put_1 = new com.amazonaws.services.s3.model.CompleteMultipartUploadRequest("libreriapacifico/stage", key_tS3Put_1,
+                        uploadId_tS3Put_1, partTags_tS3Put_1);
+            		conn_tS3Put_1.completeMultipartUpload(compRequest_tS3Put_1);
+            } catch (java.lang.Exception uploadException_tS3Put_1) {
+globalMap.put("tS3Put_1_ERROR_MESSAGE",uploadException_tS3Put_1.getMessage());
+  							conn_tS3Put_1.abortMultipartUpload(new com.amazonaws.services.s3.model.AbortMultipartUploadRequest("libreriapacifico/stage", key_tS3Put_1, uploadId_tS3Put_1));
+    						throw uploadException_tS3Put_1;
+            }
+    		}
+		}
+		
+		
+	}catch(java.lang.Exception e_tS3Put_1){
+globalMap.put("tS3Put_1_ERROR_MESSAGE",e_tS3Put_1.getMessage());
+		
+			System.err.println(e_tS3Put_1.getMessage());
+		
+	}finally{
+		if(useStream_tS3Put_1 && uploadStream_tS3Put_1!=null){
+    	uploadStream_tS3Put_1.close();
+    }
+    
+    if(tm_tS3Put_1 != null){
+        tm_tS3Put_1.shutdownNow(false);
+    }
+	    
+		
+	}     
+
+ 
+
+
+
+/**
+ * [tS3Put_1 begin ] stop
+ */
+	
+	/**
+	 * [tS3Put_1 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Put_1";
+
+	
+
+ 
+
+
+	tos_count_tS3Put_1++;
+
+/**
+ * [tS3Put_1 main ] stop
+ */
+	
+	/**
+	 * [tS3Put_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Put_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tS3Put_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tS3Put_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Put_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tS3Put_1 process_data_end ] stop
+ */
+	
+	/**
+	 * [tS3Put_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Put_1";
+
+	
+
+ 
+
+ok_Hash.put("tS3Put_1", true);
+end_Hash.put("tS3Put_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tS3Put_1 end ] stop
+ */
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tS3Put_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tS3Put_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tS3Put_1 finally ] stop
+ */
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
+
+		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 1);
+	}
+	
+
+
+public static class row2Struct implements routines.system.IPersistableComparableLookupRow<row2Struct> {
+    final static byte[] commonByteArrayLock_PACIFICO_dailyJobStage_posSession = new byte[0];
+    static byte[] commonByteArray_PACIFICO_dailyJobStage_posSession = new byte[0];
+	protected static final int DEFAULT_HASHCODE = 1;
+    protected static final int PRIME = 31;
+    protected int hashCode = DEFAULT_HASHCODE;
+    public boolean hashCodeDirty = true;
+
+    public String loopKey;
+
+
+
+	
+			    public Integer id;
+
+				public Integer getId () {
+					return this.id;
+				}
+				
+			    public String message_main_attachment_id;
+
+				public String getMessage_main_attachment_id () {
+					return this.message_main_attachment_id;
+				}
+				
+			    public Integer config_id;
+
+				public Integer getConfig_id () {
+					return this.config_id;
+				}
+				
+			    public String name;
+
+				public String getName () {
+					return this.name;
+				}
+				
+			    public Integer user_id;
+
+				public Integer getUser_id () {
+					return this.user_id;
+				}
+				
+			    public java.util.Date start_at;
+
+				public java.util.Date getStart_at () {
+					return this.start_at;
+				}
+				
+			    public String stop_at;
+
+				public String getStop_at () {
+					return this.stop_at;
+				}
+				
+			    public String state;
+
+				public String getState () {
+					return this.state;
+				}
+				
+			    public Integer sequence_number;
+
+				public Integer getSequence_number () {
+					return this.sequence_number;
+				}
+				
+			    public Integer login_number;
+
+				public Integer getLogin_number () {
+					return this.login_number;
+				}
+				
+			    public String opening_notes;
+
+				public String getOpening_notes () {
+					return this.opening_notes;
+				}
+				
+			    public Integer cash_journal_id;
+
+				public Integer getCash_journal_id () {
+					return this.cash_journal_id;
+				}
+				
+			    public Integer cash_register_id;
+
+				public Integer getCash_register_id () {
+					return this.cash_register_id;
+				}
+				
+			    public String cash_real_difference;
+
+				public String getCash_real_difference () {
+					return this.cash_real_difference;
+				}
+				
+			    public String cash_real_transaction;
+
+				public String getCash_real_transaction () {
+					return this.cash_real_transaction;
+				}
+				
+			    public String cash_real_expected;
+
+				public String getCash_real_expected () {
+					return this.cash_real_expected;
+				}
+				
+			    public String rescue;
+
+				public String getRescue () {
+					return this.rescue;
+				}
+				
+			    public String move_id;
+
+				public String getMove_id () {
+					return this.move_id;
+				}
+				
+			    public Boolean update_stock_at_closing;
+
+				public Boolean getUpdate_stock_at_closing () {
+					return this.update_stock_at_closing;
+				}
+				
+			    public Integer create_uid;
+
+				public Integer getCreate_uid () {
+					return this.create_uid;
+				}
+				
+			    public java.util.Date create_date;
+
+				public java.util.Date getCreate_date () {
+					return this.create_date;
+				}
+				
+			    public Integer write_uid;
+
+				public Integer getWrite_uid () {
+					return this.write_uid;
+				}
+				
+			    public java.util.Date write_date;
+
+				public java.util.Date getWrite_date () {
+					return this.write_date;
+				}
+				
+
+
+	@Override
+	public int hashCode() {
+		if (this.hashCodeDirty) {
+			final int prime = PRIME;
+			int result = DEFAULT_HASHCODE;
+	
+						result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+					
+    		this.hashCode = result;
+    		this.hashCodeDirty = false;
+		}
+		return this.hashCode;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		final row2Struct other = (row2Struct) obj;
+		
+						if (this.id == null) {
+							if (other.id != null)
+								return false;
+						
+						} else if (!this.id.equals(other.id))
+						
+							return false;
+					
+
+		return true;
+    }
+
+	public void copyDataTo(row2Struct other) {
+
+		other.id = this.id;
+	            other.message_main_attachment_id = this.message_main_attachment_id;
+	            other.config_id = this.config_id;
+	            other.name = this.name;
+	            other.user_id = this.user_id;
+	            other.start_at = this.start_at;
+	            other.stop_at = this.stop_at;
+	            other.state = this.state;
+	            other.sequence_number = this.sequence_number;
+	            other.login_number = this.login_number;
+	            other.opening_notes = this.opening_notes;
+	            other.cash_journal_id = this.cash_journal_id;
+	            other.cash_register_id = this.cash_register_id;
+	            other.cash_real_difference = this.cash_real_difference;
+	            other.cash_real_transaction = this.cash_real_transaction;
+	            other.cash_real_expected = this.cash_real_expected;
+	            other.rescue = this.rescue;
+	            other.move_id = this.move_id;
+	            other.update_stock_at_closing = this.update_stock_at_closing;
+	            other.create_uid = this.create_uid;
+	            other.create_date = this.create_date;
+	            other.write_uid = this.write_uid;
+	            other.write_date = this.write_date;
+	            
+	}
+
+	public void copyKeysDataTo(row2Struct other) {
+
+		other.id = this.id;
+	            	
+	}
+
+
+
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+	
+	private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			byte[] byteArray = new byte[length];
+			dis.read(byteArray);
+			strReturn = new String(byteArray, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = unmarshaller.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			byte[] byteArray = new byte[length];
+			unmarshaller.read(byteArray);
+			strReturn = new String(byteArray, utf8Charset);
+		}
+		return strReturn;
+	}
+	
+	private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(str == null) {
+			marshaller.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+            marshaller.writeInt(byteArray.length);
+            marshaller.write(byteArray);
+    	}
+	}
+
+	private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+	}
+	private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+			intReturn = dis.readInt();
+		}
+		return intReturn;
+	}
+	
+	private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+			intReturn = unmarshaller.readInt();
+		}
+		return intReturn;
+	}
+
+	private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
+	}
+	
+	private void writeInteger(Integer intNum, DataOutputStream dos,org.jboss.marshalling.Marshaller marshaller ) throws IOException{
+		if(intNum == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeInt(intNum);
+    	}
+	}
+
+	private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException{
+		java.util.Date dateReturn = null;
+		int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+	
+	private java.util.Date readDate(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller ) throws IOException{
+		java.util.Date dateReturn = null;
+		int length = 0;
+        length = unmarshaller.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(unmarshaller.readLong());
+		}
+		return dateReturn;
+	}
+
+	private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+	}
+	
+	private void writeDate(java.util.Date date1, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller) throws IOException{
+		if(date1 == null) {
+			marshaller.writeByte(-1);
+		} else {
+			marshaller.writeByte(0);
+			marshaller.writeLong(date1.getTime());
+    	}
+	}
+
+    public void readKeysData(ObjectInputStream dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+    
+    public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
+
+		synchronized(commonByteArrayLock_PACIFICO_dailyJobStage_posSession) {
+
+        	try {
+
+        		int length = 0;
+		
+						this.id = readInteger(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeKeysData(ObjectOutputStream dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+    
+    public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
+        try {
+
+		
+					// Integer
+				
+						writeInteger(this.id,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+
+    /**
+     * Fill Values data by reading ObjectInputStream.
+     */
+    public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
+        try {
+
+			int length = 0;
+		
+						this.message_main_attachment_id = readString(dis,ois);
+					
+						this.config_id = readInteger(dis,ois);
+					
+						this.name = readString(dis,ois);
+					
+						this.user_id = readInteger(dis,ois);
+					
+						this.start_at = readDate(dis,ois);
+					
+						this.stop_at = readString(dis,ois);
+					
+						this.state = readString(dis,ois);
+					
+						this.sequence_number = readInteger(dis,ois);
+					
+						this.login_number = readInteger(dis,ois);
+					
+						this.opening_notes = readString(dis,ois);
+					
+						this.cash_journal_id = readInteger(dis,ois);
+					
+						this.cash_register_id = readInteger(dis,ois);
+					
+						this.cash_real_difference = readString(dis,ois);
+					
+						this.cash_real_transaction = readString(dis,ois);
+					
+						this.cash_real_expected = readString(dis,ois);
+					
+						this.rescue = readString(dis,ois);
+					
+						this.move_id = readString(dis,ois);
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = dis.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis,ois);
+					
+						this.create_date = readDate(dis,ois);
+					
+						this.write_uid = readInteger(dis,ois);
+					
+						this.write_date = readDate(dis,ois);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+    }
+    
+    public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
+        try {
+			int length = 0;
+		
+						this.message_main_attachment_id = readString(dis,objectIn);
+					
+						this.config_id = readInteger(dis,objectIn);
+					
+						this.name = readString(dis,objectIn);
+					
+						this.user_id = readInteger(dis,objectIn);
+					
+						this.start_at = readDate(dis,objectIn);
+					
+						this.stop_at = readString(dis,objectIn);
+					
+						this.state = readString(dis,objectIn);
+					
+						this.sequence_number = readInteger(dis,objectIn);
+					
+						this.login_number = readInteger(dis,objectIn);
+					
+						this.opening_notes = readString(dis,objectIn);
+					
+						this.cash_journal_id = readInteger(dis,objectIn);
+					
+						this.cash_register_id = readInteger(dis,objectIn);
+					
+						this.cash_real_difference = readString(dis,objectIn);
+					
+						this.cash_real_transaction = readString(dis,objectIn);
+					
+						this.cash_real_expected = readString(dis,objectIn);
+					
+						this.rescue = readString(dis,objectIn);
+					
+						this.move_id = readString(dis,objectIn);
+					
+			            length = objectIn.readByte();
+           				if (length == -1) {
+           	    			this.update_stock_at_closing = null;
+           				} else {
+           			    	this.update_stock_at_closing = objectIn.readBoolean();
+           				}
+					
+						this.create_uid = readInteger(dis,objectIn);
+					
+						this.create_date = readDate(dis,objectIn);
+					
+						this.write_uid = readInteger(dis,objectIn);
+					
+						this.write_date = readDate(dis,objectIn);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+
+        }
+
+		
+
+    }
+
+    /**
+     * Return a byte array which represents Values data.
+     */
+    public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
+        try {
+
+		
+						writeString(this.message_main_attachment_id, dos, oos);
+					
+					writeInteger(this.config_id, dos, oos);
+					
+						writeString(this.name, dos, oos);
+					
+					writeInteger(this.user_id, dos, oos);
+					
+						writeDate(this.start_at, dos, oos);
+					
+						writeString(this.stop_at, dos, oos);
+					
+						writeString(this.state, dos, oos);
+					
+					writeInteger(this.sequence_number, dos, oos);
+					
+					writeInteger(this.login_number, dos, oos);
+					
+						writeString(this.opening_notes, dos, oos);
+					
+					writeInteger(this.cash_journal_id, dos, oos);
+					
+					writeInteger(this.cash_register_id, dos, oos);
+					
+						writeString(this.cash_real_difference, dos, oos);
+					
+						writeString(this.cash_real_transaction, dos, oos);
+					
+						writeString(this.cash_real_expected, dos, oos);
+					
+						writeString(this.rescue, dos, oos);
+					
+						writeString(this.move_id, dos, oos);
+					
+						if(this.update_stock_at_closing == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					writeInteger(this.create_uid, dos, oos);
+					
+						writeDate(this.create_date, dos, oos);
+					
+					writeInteger(this.write_uid, dos, oos);
+					
+						writeDate(this.write_date, dos, oos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        	}
+
+    }
+    
+    public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut){
+                try {
+
+		
+						writeString(this.message_main_attachment_id, dos, objectOut);
+					
+					writeInteger(this.config_id, dos, objectOut);
+					
+						writeString(this.name, dos, objectOut);
+					
+					writeInteger(this.user_id, dos, objectOut);
+					
+						writeDate(this.start_at, dos, objectOut);
+					
+						writeString(this.stop_at, dos, objectOut);
+					
+						writeString(this.state, dos, objectOut);
+					
+					writeInteger(this.sequence_number, dos, objectOut);
+					
+					writeInteger(this.login_number, dos, objectOut);
+					
+						writeString(this.opening_notes, dos, objectOut);
+					
+					writeInteger(this.cash_journal_id, dos, objectOut);
+					
+					writeInteger(this.cash_register_id, dos, objectOut);
+					
+						writeString(this.cash_real_difference, dos, objectOut);
+					
+						writeString(this.cash_real_transaction, dos, objectOut);
+					
+						writeString(this.cash_real_expected, dos, objectOut);
+					
+						writeString(this.rescue, dos, objectOut);
+					
+						writeString(this.move_id, dos, objectOut);
+					
+						if(this.update_stock_at_closing == null) {
+							objectOut.writeByte(-1);
+						} else {
+							objectOut.writeByte(0);
+							objectOut.writeBoolean(this.update_stock_at_closing);
+		            	}
+					
+					writeInteger(this.create_uid, dos, objectOut);
+					
+						writeDate(this.create_date, dos, objectOut);
+					
+					writeInteger(this.write_uid, dos, objectOut);
+					
+						writeDate(this.write_date, dos, objectOut);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        	}
+    }
+
+
+    
+    public boolean supportMarshaller(){
+        return true;
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("id="+String.valueOf(id));
+		sb.append(",message_main_attachment_id="+message_main_attachment_id);
+		sb.append(",config_id="+String.valueOf(config_id));
+		sb.append(",name="+name);
+		sb.append(",user_id="+String.valueOf(user_id));
+		sb.append(",start_at="+String.valueOf(start_at));
+		sb.append(",stop_at="+stop_at);
+		sb.append(",state="+state);
+		sb.append(",sequence_number="+String.valueOf(sequence_number));
+		sb.append(",login_number="+String.valueOf(login_number));
+		sb.append(",opening_notes="+opening_notes);
+		sb.append(",cash_journal_id="+String.valueOf(cash_journal_id));
+		sb.append(",cash_register_id="+String.valueOf(cash_register_id));
+		sb.append(",cash_real_difference="+cash_real_difference);
+		sb.append(",cash_real_transaction="+cash_real_transaction);
+		sb.append(",cash_real_expected="+cash_real_expected);
+		sb.append(",rescue="+rescue);
+		sb.append(",move_id="+move_id);
+		sb.append(",update_stock_at_closing="+String.valueOf(update_stock_at_closing));
+		sb.append(",create_uid="+String.valueOf(create_uid));
+		sb.append(",create_date="+String.valueOf(create_date));
+		sb.append(",write_uid="+String.valueOf(write_uid));
+		sb.append(",write_date="+String.valueOf(write_date));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row2Struct other) {
+
+		int returnValue = -1;
+		
+						returnValue = checkNullsAndCompare(this.id, other.id);
+						if(returnValue != 0) {
+							return returnValue;
+						}
+
+					
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
+		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+	try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
+				globalResumeTicket = true;
+
+
+
+		row2Struct row2 = new row2Struct();
+
+
+
+
+	
+	/**
+	 * [tAdvancedHash_row2 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tAdvancedHash_row2", false);
+		start_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
+		
+	
+	currentComponent="tAdvancedHash_row2";
+
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row2");
+					}
+				
+		int tos_count_tAdvancedHash_row2 = 0;
+		
+
+			   		// connection name:row2
+			   		// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1) outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2) outputs:()
+			   		// linked node: tMap_1 - inputs:(row1,row2) outputs:(out1)
+			   
+			   		org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = 
+			   			org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+			   			
+			   
+	   			org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 =org.talend.designer.components.lookup.memory.AdvancedMemoryLookup.
+	   						<row2Struct>getLookup(matchingModeEnum_row2);
+	   						   
+		   	   	   globalMap.put("tHash_Lookup_row2", tHash_Lookup_row2);
+		   	   	   
+				
+           
+
+ 
+
+
+
+/**
+ * [tAdvancedHash_row2 begin ] stop
+ */
+
+
+
+	
+	/**
+	 * [tFileInputDelimited_2 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tFileInputDelimited_2", false);
+		start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+		
+	
+	currentComponent="tFileInputDelimited_2";
+
+	
+		int tos_count_tFileInputDelimited_2 = 0;
+		
+	
+	
+	
+ 
+	
+	
+	final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
+	
+	
+				int nb_line_tFileInputDelimited_2 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
+				int limit_tFileInputDelimited_2 = -1;
+				try{
+					
+						Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+						if(filename_tFileInputDelimited_2 instanceof java.io.InputStream){
+							
+			int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
+			if(footer_value_tFileInputDelimited_2 >0 || random_value_tFileInputDelimited_2 > 0){
+				throw new java.lang.Exception("When the input source is a stream,footer and random shouldn't be bigger than 0.");				
+			}
+		
+						}
+						try {
+							fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15",";","\n",true,1,0,
+									limit_tFileInputDelimited_2
+								,-1, false);
+						} catch(java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",e.getMessage());
+							
+								
+								System.err.println(e.getMessage());
+							
+						}
+					
+				    
+					while (fid_tFileInputDelimited_2!=null && fid_tFileInputDelimited_2.nextRecord()) {
+						rowstate_tFileInputDelimited_2.reset();
+						
+			    						row2 = null;			
+									
+			    						row2 = null;			
+												
+									boolean whetherReject_tFileInputDelimited_2 = false;
+									row2 = new row2Struct();
+									try {
+										
+				int columnIndexWithD_tFileInputDelimited_2 = 0;
+				
+					String temp = ""; 
+				
+					columnIndexWithD_tFileInputDelimited_2 = 0;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 1;
+					
+							row2.message_main_attachment_id = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 2;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.config_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"config_id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.config_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 3;
+					
+							row2.name = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 4;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.user_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"user_id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.user_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 5;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row2.start_at = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"start_at", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.start_at = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 6;
+					
+							row2.stop_at = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 7;
+					
+							row2.state = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 8;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.sequence_number = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"sequence_number", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.sequence_number = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 9;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.login_number = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"login_number", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.login_number = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 10;
+					
+							row2.opening_notes = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 11;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.cash_journal_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"cash_journal_id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.cash_journal_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 12;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.cash_register_id = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"cash_register_id", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.cash_register_id = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 13;
+					
+							row2.cash_real_difference = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 14;
+					
+							row2.cash_real_transaction = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 15;
+					
+							row2.cash_real_expected = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 16;
+					
+							row2.rescue = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 17;
+					
+							row2.move_id = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						
+				
+					columnIndexWithD_tFileInputDelimited_2 = 18;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.update_stock_at_closing = ParserUtils.parseTo_Boolean(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"update_stock_at_closing", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.update_stock_at_closing = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 19;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.create_uid = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"create_uid", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.create_uid = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 20;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row2.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"create_date", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.create_date = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 21;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    								row2.write_uid = ParserUtils.parseTo_Integer(temp);
+    							
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"write_uid", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.write_uid = null;
+								
+							
+						}
+					
+				
+					columnIndexWithD_tFileInputDelimited_2 = 22;
+					
+						temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+						if(temp.length() > 0) {
+							
+								try {
+								
+    									row2.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+    								
+    							} catch(java.lang.Exception ex_tFileInputDelimited_2) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format("Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+										"write_date", "row2", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+    							
+						} else {						
+							
+								
+									row2.write_date = null;
+								
+							
+						}
+					
+				
+				
+										
+										if(rowstate_tFileInputDelimited_2.getException()!=null) {
+											throw rowstate_tFileInputDelimited_2.getException();
+										}
+										
+										
+							
+			    					} catch (java.lang.Exception e) {
+globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",e.getMessage());
+			        					whetherReject_tFileInputDelimited_2 = true;
+			        					
+			                					System.err.println(e.getMessage());
+			                					row2 = null;
+			                				
+										
+			    					}
+								
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_2 begin ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_2 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_2";
+
+	
+
+ 
+
+
+	tos_count_tFileInputDelimited_2++;
+
+/**
+ * [tFileInputDelimited_2 main ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_2 process_data_begin ] stop
+ */
+// Start of branch "row2"
+if(row2 != null) { 
+
+
+
+	
+	/**
+	 * [tAdvancedHash_row2 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tAdvancedHash_row2";
+
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1
+						
+							,"row2"
+						
+						);
+					}
+					
+
+
+			   
+			   
+
+					row2Struct row2_HashRow = new row2Struct();
+		   	   	   
+				
+				row2_HashRow.id = row2.id;
+				
+				row2_HashRow.message_main_attachment_id = row2.message_main_attachment_id;
+				
+				row2_HashRow.config_id = row2.config_id;
+				
+				row2_HashRow.name = row2.name;
+				
+				row2_HashRow.user_id = row2.user_id;
+				
+				row2_HashRow.start_at = row2.start_at;
+				
+				row2_HashRow.stop_at = row2.stop_at;
+				
+				row2_HashRow.state = row2.state;
+				
+				row2_HashRow.sequence_number = row2.sequence_number;
+				
+				row2_HashRow.login_number = row2.login_number;
+				
+				row2_HashRow.opening_notes = row2.opening_notes;
+				
+				row2_HashRow.cash_journal_id = row2.cash_journal_id;
+				
+				row2_HashRow.cash_register_id = row2.cash_register_id;
+				
+				row2_HashRow.cash_real_difference = row2.cash_real_difference;
+				
+				row2_HashRow.cash_real_transaction = row2.cash_real_transaction;
+				
+				row2_HashRow.cash_real_expected = row2.cash_real_expected;
+				
+				row2_HashRow.rescue = row2.rescue;
+				
+				row2_HashRow.move_id = row2.move_id;
+				
+				row2_HashRow.update_stock_at_closing = row2.update_stock_at_closing;
+				
+				row2_HashRow.create_uid = row2.create_uid;
+				
+				row2_HashRow.create_date = row2.create_date;
+				
+				row2_HashRow.write_uid = row2.write_uid;
+				
+				row2_HashRow.write_date = row2.write_date;
+				
+			tHash_Lookup_row2.put(row2_HashRow);
+			
+            
+
+
+
+
+ 
+
+
+	tos_count_tAdvancedHash_row2++;
+
+/**
+ * [tAdvancedHash_row2 main ] stop
+ */
+	
+	/**
+	 * [tAdvancedHash_row2 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tAdvancedHash_row2";
+
+	
+
+ 
+
+
+
+/**
+ * [tAdvancedHash_row2 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tAdvancedHash_row2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tAdvancedHash_row2";
+
+	
+
+ 
+
+
+
+/**
+ * [tAdvancedHash_row2 process_data_end ] stop
+ */
+
+} // End of branch "row2"
+
+
+
+
+	
+	/**
+	 * [tFileInputDelimited_2 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_2 process_data_end ] stop
+ */
+	
+	/**
+	 * [tFileInputDelimited_2 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_2";
+
+	
+
+
+
+            }
+            }finally{
+                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)){
+                	if(fid_tFileInputDelimited_2!=null){
+                		fid_tFileInputDelimited_2.close();
+                	}
+                }
+                if(fid_tFileInputDelimited_2!=null){
+                	globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
+					
+                }
+			}
+			  
+
+ 
+
+ok_Hash.put("tFileInputDelimited_2", true);
+end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tFileInputDelimited_2 end ] stop
+ */
+
+	
+	/**
+	 * [tAdvancedHash_row2 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tAdvancedHash_row2";
+
+	
+
+tHash_Lookup_row2.endPut();
+
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row2");
+			  	}
+			  	
+ 
+
+ok_Hash.put("tAdvancedHash_row2", true);
+end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tAdvancedHash_row2 end ] stop
+ */
+
+
+
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tFileInputDelimited_2 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tFileInputDelimited_2";
+
+	
+
+ 
+
+
+
+/**
+ * [tFileInputDelimited_2 finally ] stop
+ */
+
+	
+	/**
+	 * [tAdvancedHash_row2 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tAdvancedHash_row2";
+
+	
+
+ 
+
+
+
+/**
+ * [tAdvancedHash_row2 finally ] stop
+ */
+
+
+
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
+
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
+	}
+	
+    public String resuming_logs_dir_path = null;
+    public String resuming_checkpoint_path = null;
+    public String parent_part_launcher = null;
+    private String resumeEntryMethodName = null;
+    private boolean globalResumeTicket = false;
+
+    public boolean watch = false;
+    // portStats is null, it means don't execute the statistics
+    public Integer portStats = null;
+    public int portTraces = 4334;
+    public String clientHost;
+    public String defaultClientHost = "localhost";
+    public String contextStr = "Default";
+    public boolean isDefaultContext = true;
+    public String pid = "0";
+    public String rootPid = null;
+    public String fatherPid = null;
+    public String fatherNode = null;
+    public long startTime = 0;
+    public boolean isChildJob = false;
+    public String log4jLevel = "";
+    
+    private boolean enableLogStash;
+
+    private boolean execStat = true;
+
+    private ThreadLocal<java.util.Map<String, String>> threadLocal = new ThreadLocal<java.util.Map<String, String>>() {
+        protected java.util.Map<String, String> initialValue() {
+            java.util.Map<String,String> threadRunResultMap = new java.util.HashMap<String, String>();
+            threadRunResultMap.put("errorCode", null);
+            threadRunResultMap.put("status", "");
+            return threadRunResultMap;
+        };
+    };
+
+
+    protected PropertiesWithType context_param = new PropertiesWithType();
+    public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
+
+    public String status= "";
+    
+
+    public static void main(String[] args){
+        final dailyJobStage_posSession dailyJobStage_posSessionClass = new dailyJobStage_posSession();
+
+        int exitCode = dailyJobStage_posSessionClass.runJobInTOS(args);
+
+        System.exit(exitCode);
+    }
+
+
+    public String[][] runJob(String[] args) {
+
+        int exitCode = runJobInTOS(args);
+        String[][] bufferValue = new String[][] { { Integer.toString(exitCode) } };
+
+        return bufferValue;
+    }
+
+    public boolean hastBufferOutputComponent() {
+		boolean hastBufferOutput = false;
+    	
+        return hastBufferOutput;
+    }
+
+    public int runJobInTOS(String[] args) {
+	   	// reset status
+	   	status = "";
+	   	
+        String lastStr = "";
+        for (String arg : args) {
+            if (arg.equalsIgnoreCase("--context_param")) {
+                lastStr = arg;
+            } else if (lastStr.equals("")) {
+                evalParam(arg);
+            } else {
+                evalParam(lastStr + " " + arg);
+                lastStr = "";
+            }
+        }
+        enableLogStash = "true".equalsIgnoreCase(System.getProperty("audit.enabled"));
+
+    	
+    	
+
+        if(clientHost == null) {
+            clientHost = defaultClientHost;
+        }
+
+        if(pid == null || "0".equals(pid)) {
+            pid = TalendString.getAsciiRandomString(6);
+        }
+
+        if (rootPid==null) {
+            rootPid = pid;
+        }
+        if (fatherPid==null) {
+            fatherPid = pid;
+        }else{
+            isChildJob = true;
+        }
+
+        if (portStats != null) {
+            // portStats = -1; //for testing
+            if (portStats < 0 || portStats > 65535) {
+                // issue:10869, the portStats is invalid, so this client socket can't open
+                System.err.println("The statistics socket port " + portStats + " is invalid.");
+                execStat = false;
+            }
+        } else {
+            execStat = false;
+        }
+        boolean inOSGi = routines.system.BundleUtils.inOSGi();
+
+        if (inOSGi) {
+            java.util.Dictionary<String, Object> jobProperties = routines.system.BundleUtils.getJobProperties(jobName);
+
+            if (jobProperties != null && jobProperties.get("context") != null) {
+                contextStr = (String)jobProperties.get("context");
+            }
+        }
+
+        try {
+            //call job/subjob with an existing context, like: --context=production. if without this parameter, there will use the default context instead.
+            java.io.InputStream inContext = dailyJobStage_posSession.class.getClassLoader().getResourceAsStream("pacifico/dailyjobstage_possession_0_1/contexts/" + contextStr + ".properties");
+            if (inContext == null) {
+                inContext = dailyJobStage_posSession.class.getClassLoader().getResourceAsStream("config/contexts/" + contextStr + ".properties");
+            }
+            if (inContext != null) {
+                try {
+                    //defaultProps is in order to keep the original context value
+                    if(context != null && context.isEmpty()) {
+	                defaultProps.load(inContext);
+	                context = new ContextProperties(defaultProps);
+                    }
+                } finally {
+                    inContext.close();
+                }
+            } else if (!isDefaultContext) {
+                //print info and job continue to run, for case: context_param is not empty.
+                System.err.println("Could not find the context " + contextStr);
+            }
+
+            if(!context_param.isEmpty()) {
+                context.putAll(context_param);
+				//set types for params from parentJobs
+				for (Object key: context_param.keySet()){
 					String context_key = key.toString();
 					String context_type = context_param.getContextType(context_key);
 					context.setContextType(context_key, context_type);
 
 				}
-			}
-			class ContextProcessing {
-				private void processContext_0() {
-				}
+            }
+            class ContextProcessing {
+                private void processContext_0() {
+                } 
+                public void processAllContext() {
+                        processContext_0();
+                }
+            }
 
-				public void processAllContext() {
-					processContext_0();
-				}
-			}
+            new ContextProcessing().processAllContext();
+        } catch (java.io.IOException ie) {
+            System.err.println("Could not load context "+contextStr);
+            ie.printStackTrace();
+        }
 
-			new ContextProcessing().processAllContext();
-		} catch (java.io.IOException ie) {
-			System.err.println("Could not load context " + contextStr);
-			ie.printStackTrace();
-		}
+        // get context value from parent directly
+        if (parentContextMap != null && !parentContextMap.isEmpty()) {
+        }
 
-		// get context value from parent directly
-		if (parentContextMap != null && !parentContextMap.isEmpty()) {
-		}
-
-		// Resume: init the resumeUtil
-		resumeEntryMethodName = ResumeUtil.getResumeEntryMethodName(resuming_checkpoint_path);
-		resumeUtil = new ResumeUtil(resuming_logs_dir_path, isChildJob, rootPid);
-		resumeUtil.initCommonInfo(pid, rootPid, fatherPid, projectName, jobName, contextStr, jobVersion);
+        //Resume: init the resumeUtil
+        resumeEntryMethodName = ResumeUtil.getResumeEntryMethodName(resuming_checkpoint_path);
+        resumeUtil = new ResumeUtil(resuming_logs_dir_path, isChildJob, rootPid);
+        resumeUtil.initCommonInfo(pid, rootPid, fatherPid, projectName, jobName, contextStr, jobVersion);
 
 		List<String> parametersToEncrypt = new java.util.ArrayList<String>();
-		// Resume: jobStart
-		resumeUtil.addLog("JOB_STARTED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "",
-				"", "", "", "", resumeUtil.convertToJsonText(context, parametersToEncrypt));
+        //Resume: jobStart
+        resumeUtil.addLog("JOB_STARTED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "", "","","","",resumeUtil.convertToJsonText(context,parametersToEncrypt));
 
-		if (execStat) {
-			try {
-				runStat.openSocket(!isChildJob);
-				runStat.setAllPID(rootPid, fatherPid, pid, jobName);
-				runStat.startThreadStat(clientHost, portStats);
-				runStat.updateStatOnJob(RunStat.JOBSTART, fatherNode);
-			} catch (java.io.IOException ioException) {
-				ioException.printStackTrace();
-			}
+if(execStat) {
+    try {
+        runStat.openSocket(!isChildJob);
+        runStat.setAllPID(rootPid, fatherPid, pid, jobName);
+        runStat.startThreadStat(clientHost, portStats);
+        runStat.updateStatOnJob(RunStat.JOBSTART, fatherNode);
+    } catch (java.io.IOException ioException) {
+        ioException.printStackTrace();
+    }
+}
+
+
+
+	
+	    java.util.concurrent.ConcurrentHashMap<Object, Object> concurrentHashMap = new java.util.concurrent.ConcurrentHashMap<Object, Object>();
+	    globalMap.put("concurrentHashMap", concurrentHashMap);
+	
+
+    long startUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+    long endUsedMemory = 0;
+    long end = 0;
+
+    startTime = System.currentTimeMillis();
+
+
+this.globalResumeTicket = true;//to run tPreJob
+
+
+
+
+
+this.globalResumeTicket = false;//to run others jobs
+
+try {
+errorCode = null;tFileInputDelimited_3Process(globalMap);
+if(!"failure".equals(status)) { status = "end"; }
+}catch (TalendException e_tFileInputDelimited_3) {
+globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", -1);
+
+e_tFileInputDelimited_3.printStackTrace();
+
+}
+
+this.globalResumeTicket = true;//to run tPostJob
+
+
+
+
+        end = System.currentTimeMillis();
+
+        if (watch) {
+            System.out.println((end-startTime)+" milliseconds");
+        }
+
+        endUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        if (false) {
+            System.out.println((endUsedMemory - startUsedMemory) + " bytes memory increase when running : dailyJobStage_posSession");
+        }
+
+
+
+if (execStat) {
+    runStat.updateStatOnJob(RunStat.JOBEND, fatherNode);
+    runStat.stopThreadStat();
+}
+    int returnCode = 0;
+
+
+    if(errorCode == null) {
+         returnCode = status != null && status.equals("failure") ? 1 : 0;
+    } else {
+         returnCode = errorCode.intValue();
+    }
+    resumeUtil.addLog("JOB_ENDED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "", "","" + returnCode,"","","");
+
+    return returnCode;
+
+  }
+
+    // only for OSGi env
+    public void destroy() {
+    closeS3Connections();
+
+
+    }
+
+
+
+
+
+
+
+    private void closeS3Connections() {
+        try {
+    	com.amazonaws.services.s3.AmazonS3Client conn_tS3Connection_1 = (com.amazonaws.services.s3.AmazonS3Client)globalMap.get("conn_tS3Connection_1");
+	    if(conn_tS3Connection_1 !=null){
+			conn_tS3Connection_1.shutdown();
 		}
+        } catch (java.lang.Exception e) {
+        }
+    }
 
-		java.util.concurrent.ConcurrentHashMap<Object, Object> concurrentHashMap = new java.util.concurrent.ConcurrentHashMap<Object, Object>();
-		globalMap.put("concurrentHashMap", concurrentHashMap);
 
-		long startUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		long endUsedMemory = 0;
-		long end = 0;
 
-		startTime = System.currentTimeMillis();
 
-		this.globalResumeTicket = true;// to run tPreJob
 
-		this.globalResumeTicket = false;// to run others jobs
 
-		try {
-			errorCode = null;
-			tFileInputDelimited_3Process(globalMap);
-			if (!"failure".equals(status)) {
-				status = "end";
-			}
-		} catch (TalendException e_tFileInputDelimited_3) {
-			globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", -1);
 
-			e_tFileInputDelimited_3.printStackTrace();
+    private java.util.Map<String, Object> getSharedConnections4REST() {
+        java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
 
-		}
 
-		this.globalResumeTicket = true;// to run tPostJob
+            connections.put("conn_tS3Connection_1", globalMap.get("conn_tS3Connection_1"));
 
-		end = System.currentTimeMillis();
 
-		if (watch) {
-			System.out.println((end - startTime) + " milliseconds");
-		}
 
-		endUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		if (false) {
-			System.out.println((endUsedMemory - startUsedMemory)
-					+ " bytes memory increase when running : dailyJobStage_posSession");
-		}
 
-		if (execStat) {
-			runStat.updateStatOnJob(RunStat.JOBEND, fatherNode);
-			runStat.stopThreadStat();
-		}
-		int returnCode = 0;
+        return connections;
+    }
 
-		if (errorCode == null) {
-			returnCode = status != null && status.equals("failure") ? 1 : 0;
-		} else {
-			returnCode = errorCode.intValue();
-		}
-		resumeUtil.addLog("JOB_ENDED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "", "",
-				"" + returnCode, "", "", "");
-
-		return returnCode;
-
-	}
-
-	// only for OSGi env
-	public void destroy() {
-		closeS3Connections();
-
-	}
-
-	private void closeS3Connections() {
-		try {
-			com.amazonaws.services.s3.AmazonS3Client conn_tS3Connection_1 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
-					.get("conn_tS3Connection_1");
-			if (conn_tS3Connection_1 != null) {
-				conn_tS3Connection_1.shutdown();
-			}
-		} catch (java.lang.Exception e) {
-		}
-	}
-
-	private java.util.Map<String, Object> getSharedConnections4REST() {
-		java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
-
-		connections.put("conn_tS3Connection_1", globalMap.get("conn_tS3Connection_1"));
-
-		return connections;
-	}
-
-	private void evalParam(String arg) {
-		if (arg.startsWith("--resuming_logs_dir_path")) {
-			resuming_logs_dir_path = arg.substring(25);
-		} else if (arg.startsWith("--resuming_checkpoint_path")) {
-			resuming_checkpoint_path = arg.substring(27);
-		} else if (arg.startsWith("--parent_part_launcher")) {
-			parent_part_launcher = arg.substring(23);
-		} else if (arg.startsWith("--watch")) {
-			watch = true;
-		} else if (arg.startsWith("--stat_port=")) {
-			String portStatsStr = arg.substring(12);
-			if (portStatsStr != null && !portStatsStr.equals("null")) {
-				portStats = Integer.parseInt(portStatsStr);
-			}
-		} else if (arg.startsWith("--trace_port=")) {
-			portTraces = Integer.parseInt(arg.substring(13));
-		} else if (arg.startsWith("--client_host=")) {
-			clientHost = arg.substring(14);
-		} else if (arg.startsWith("--context=")) {
-			contextStr = arg.substring(10);
-			isDefaultContext = false;
-		} else if (arg.startsWith("--father_pid=")) {
-			fatherPid = arg.substring(13);
-		} else if (arg.startsWith("--root_pid=")) {
-			rootPid = arg.substring(11);
-		} else if (arg.startsWith("--father_node=")) {
-			fatherNode = arg.substring(14);
-		} else if (arg.startsWith("--pid=")) {
-			pid = arg.substring(6);
-		} else if (arg.startsWith("--context_type")) {
-			String keyValue = arg.substring(15);
+    private void evalParam(String arg) {
+        if (arg.startsWith("--resuming_logs_dir_path")) {
+            resuming_logs_dir_path = arg.substring(25);
+        } else if (arg.startsWith("--resuming_checkpoint_path")) {
+            resuming_checkpoint_path = arg.substring(27);
+        } else if (arg.startsWith("--parent_part_launcher")) {
+            parent_part_launcher = arg.substring(23);
+        } else if (arg.startsWith("--watch")) {
+            watch = true;
+        } else if (arg.startsWith("--stat_port=")) {
+            String portStatsStr = arg.substring(12);
+            if (portStatsStr != null && !portStatsStr.equals("null")) {
+                portStats = Integer.parseInt(portStatsStr);
+            }
+        } else if (arg.startsWith("--trace_port=")) {
+            portTraces = Integer.parseInt(arg.substring(13));
+        } else if (arg.startsWith("--client_host=")) {
+            clientHost = arg.substring(14);
+        } else if (arg.startsWith("--context=")) {
+            contextStr = arg.substring(10);
+            isDefaultContext = false;
+        } else if (arg.startsWith("--father_pid=")) {
+            fatherPid = arg.substring(13);
+        } else if (arg.startsWith("--root_pid=")) {
+            rootPid = arg.substring(11);
+        } else if (arg.startsWith("--father_node=")) {
+            fatherNode = arg.substring(14);
+        } else if (arg.startsWith("--pid=")) {
+            pid = arg.substring(6);
+        } else if (arg.startsWith("--context_type")) {
+            String keyValue = arg.substring(15);
 			int index = -1;
-			if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
-				if (fatherPid == null) {
-					context_param.setContextType(keyValue.substring(0, index),
-							replaceEscapeChars(keyValue.substring(index + 1)));
-				} else { // the subjob won't escape the especial chars
-					context_param.setContextType(keyValue.substring(0, index), keyValue.substring(index + 1));
-				}
+            if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
+                if (fatherPid==null) {
+                    context_param.setContextType(keyValue.substring(0, index), replaceEscapeChars(keyValue.substring(index + 1)));
+                } else { // the subjob won't escape the especial chars
+                    context_param.setContextType(keyValue.substring(0, index), keyValue.substring(index + 1) );
+                }
 
-			}
+            }
 
 		} else if (arg.startsWith("--context_param")) {
-			String keyValue = arg.substring(16);
-			int index = -1;
-			if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
-				if (fatherPid == null) {
-					context_param.put(keyValue.substring(0, index), replaceEscapeChars(keyValue.substring(index + 1)));
-				} else { // the subjob won't escape the especial chars
-					context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1));
-				}
-			}
-		} else if (arg.startsWith("--log4jLevel=")) {
-			log4jLevel = arg.substring(13);
-		} else if (arg.startsWith("--audit.enabled") && arg.contains("=")) {// for trunjob call
-			final int equal = arg.indexOf('=');
+            String keyValue = arg.substring(16);
+            int index = -1;
+            if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
+                if (fatherPid==null) {
+                    context_param.put(keyValue.substring(0, index), replaceEscapeChars(keyValue.substring(index + 1)));
+                } else { // the subjob won't escape the especial chars
+                    context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1) );
+                }
+            }
+        } else if (arg.startsWith("--log4jLevel=")) {
+            log4jLevel = arg.substring(13);
+		} else if (arg.startsWith("--audit.enabled") && arg.contains("=")) {//for trunjob call
+		    final int equal = arg.indexOf('=');
 			final String key = arg.substring("--".length(), equal);
 			System.setProperty(key, arg.substring(equal + 1));
 		}
-	}
+    }
+    
+    private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
 
-	private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
-
-	private final String[][] escapeChars = { { "\\\\", "\\" }, { "\\n", "\n" }, { "\\'", "\'" }, { "\\r", "\r" },
-			{ "\\f", "\f" }, { "\\b", "\b" }, { "\\t", "\t" } };
-
-	private String replaceEscapeChars(String keyValue) {
+    private final String[][] escapeChars = {
+        {"\\\\","\\"},{"\\n","\n"},{"\\'","\'"},{"\\r","\r"},
+        {"\\f","\f"},{"\\b","\b"},{"\\t","\t"}
+        };
+    private String replaceEscapeChars (String keyValue) {
 
 		if (keyValue == null || ("").equals(keyValue.trim())) {
 			return keyValue;
@@ -11751,17 +13420,15 @@ public class dailyJobStage_posSession implements TalendJob {
 			int index = -1;
 			// judege if the left string includes escape chars
 			for (String[] strArray : escapeChars) {
-				index = keyValue.indexOf(strArray[0], currIndex);
-				if (index >= 0) {
+				index = keyValue.indexOf(strArray[0],currIndex);
+				if (index>=0) {
 
-					result.append(keyValue.substring(currIndex, index + strArray[0].length()).replace(strArray[0],
-							strArray[1]));
+					result.append(keyValue.substring(currIndex, index + strArray[0].length()).replace(strArray[0], strArray[1]));
 					currIndex = index + strArray[0].length();
 					break;
 				}
 			}
-			// if the left string doesn't include escape chars, append the left into the
-			// result
+			// if the left string doesn't include escape chars, append the left into the result
 			if (index < 0) {
 				result.append(keyValue.substring(currIndex));
 				currIndex = currIndex + keyValue.length();
@@ -11769,19 +13436,20 @@ public class dailyJobStage_posSession implements TalendJob {
 		}
 
 		return result.toString();
-	}
+    }
 
-	public Integer getErrorCode() {
-		return errorCode;
-	}
+    public Integer getErrorCode() {
+        return errorCode;
+    }
 
-	public String getStatus() {
-		return status;
-	}
 
-	ResumeUtil resumeUtil = null;
+    public String getStatus() {
+        return status;
+    }
+
+    ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 364679 characters generated by Talend Open Studio for Data Integration on the
- * November 2, 2022 at 11:41:28 PM CST
+ *     364679 characters generated by Talend Open Studio for Data Integration 
+ *     on the December 5, 2022 at 10:42:09 PM CST
  ************************************************************************************************/
