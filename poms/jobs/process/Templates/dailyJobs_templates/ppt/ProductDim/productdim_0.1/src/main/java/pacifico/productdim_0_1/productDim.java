@@ -364,7 +364,7 @@ public class productDim implements TalendJob {
 		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_5_error(Exception exception, String errorComponent,
+	public void tFileInputDelimited_4_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -2331,7 +2331,7 @@ public class productDim implements TalendJob {
 
 				tFileInputDelimited_1Process(globalMap);
 				tFileInputDelimited_3Process(globalMap);
-				tFileInputDelimited_5Process(globalMap);
+				tFileInputDelimited_4Process(globalMap);
 
 				productProductStruct productProduct = new productProductStruct();
 				DimProductStruct DimProduct = new DimProductStruct();
@@ -2684,6 +2684,8 @@ public class productDim implements TalendJob {
 
 				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<AttributeGroupBridgeStruct> tHash_Lookup_AttributeGroupBridge = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<AttributeGroupBridgeStruct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<AttributeGroupBridgeStruct>) globalMap
 						.get("tHash_Lookup_AttributeGroupBridge"));
+
+				tHash_Lookup_AttributeGroupBridge.initGet();
 
 				AttributeGroupBridgeStruct AttributeGroupBridgeHashKey = new AttributeGroupBridgeStruct();
 				AttributeGroupBridgeStruct AttributeGroupBridgeDefault = new AttributeGroupBridgeStruct();
@@ -3151,291 +3153,287 @@ public class productDim implements TalendJob {
 
 							if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
 
-								hasCasePrimitiveKeyWithNull_tMap_1 = false;
-
-								AttributeGroupBridgeHashKey.product_template_id = productProduct.product_tmpl_id;
-
-								AttributeGroupBridgeHashKey.hashCodeDirty = true;
-
 								tHash_Lookup_AttributeGroupBridge.lookup(AttributeGroupBridgeHashKey);
 
 								if (!tHash_Lookup_AttributeGroupBridge.hasNext()) { // G_TM_M_090
 
-									rejectedInnerJoin_tMap_1 = true;
+									forceLoopAttributeGroupBridge = true;
 
 								} // G_TM_M_090
 
 							} // G_TM_M_020
 
-							if (tHash_Lookup_AttributeGroupBridge != null
-									&& tHash_Lookup_AttributeGroupBridge.getCount(AttributeGroupBridgeHashKey) > 1) { // G
-																														// 071
-
-								// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
-								// 'AttributeGroupBridge' and it contains more one result from keys :
-								// AttributeGroupBridge.product_template_id = '" +
-								// AttributeGroupBridgeHashKey.product_template_id + "'");
-							} // G 071
+							else { // G 20 - G 21
+								forceLoopAttributeGroupBridge = true;
+							} // G 21
 
 							AttributeGroupBridgeStruct AttributeGroupBridge = null;
 
-							AttributeGroupBridgeStruct fromLookup_AttributeGroupBridge = null;
-							AttributeGroupBridge = AttributeGroupBridgeDefault;
+							while ((tHash_Lookup_AttributeGroupBridge != null
+									&& tHash_Lookup_AttributeGroupBridge.hasNext()) || forceLoopAttributeGroupBridge) { // G_TM_M_043
 
-							if (tHash_Lookup_AttributeGroupBridge != null
-									&& tHash_Lookup_AttributeGroupBridge.hasNext()) { // G 099
+								// CALL close loop of lookup 'AttributeGroupBridge'
 
-								fromLookup_AttributeGroupBridge = tHash_Lookup_AttributeGroupBridge.next();
+								AttributeGroupBridgeStruct fromLookup_AttributeGroupBridge = null;
+								AttributeGroupBridge = AttributeGroupBridgeDefault;
 
-							} // G 099
+								if (!forceLoopAttributeGroupBridge) { // G 46
 
-							if (fromLookup_AttributeGroupBridge != null) {
-								AttributeGroupBridge = fromLookup_AttributeGroupBridge;
-							}
+									fromLookup_AttributeGroupBridge = tHash_Lookup_AttributeGroupBridge.next();
 
-							// ###############################
-							{ // start of Var scope
+									if (fromLookup_AttributeGroupBridge != null) {
+										AttributeGroupBridge = fromLookup_AttributeGroupBridge;
+									}
+
+								} // G 46
+
+								forceLoopAttributeGroupBridge = false;
 
 								// ###############################
-								// # Vars tables
+								{ // start of Var scope
 
-								Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
-								// ###############################
-								// # Output tables
+									// ###############################
+									// # Vars tables
 
-								DimProduct = null;
+									Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
+									// ###############################
+									// # Output tables
 
-								if (!rejectedInnerJoin_tMap_1) {
+									DimProduct = null;
+
+									if (!rejectedInnerJoin_tMap_1) {
 
 // # Output table : 'DimProduct'
-									DimProduct_tmp.product_key = Numeric.sequence("DimProductSeq", 1, 1);
-									DimProduct_tmp.attribute_group_key = AttributeGroupBridge.attribute_key;
-									DimProduct_tmp.product_name = productTemplate.name;
-									DimProduct_tmp.product_description = productTemplate.description_sale;
-									DimProduct_tmp.category = productCategory.name;
-									DimProduct_tmp.category_description = productCategory.complete_name;
-									DimProduct_tmp.weight = productProduct.weight;
-									DimProduct_tmp.volume = productProduct.volume;
-									DimProduct_tmp.barcode = productProduct.barcode;
-									DimProduct_tmp.product_code = productProduct.default_code;
-									DimProduct = DimProduct_tmp;
-								} // closing inner join bracket (2)
+										DimProduct_tmp.product_key = Numeric.sequence("DimProductSeq", 1, 1);
+										DimProduct_tmp.attribute_group_key = AttributeGroupBridge.attribute_group_key;
+										DimProduct_tmp.product_name = productTemplate.name;
+										DimProduct_tmp.product_description = productTemplate.description_sale;
+										DimProduct_tmp.category = productCategory.name;
+										DimProduct_tmp.category_description = productCategory.complete_name;
+										DimProduct_tmp.weight = productProduct.weight;
+										DimProduct_tmp.volume = productProduct.volume;
+										DimProduct_tmp.barcode = productProduct.barcode;
+										DimProduct_tmp.product_code = productProduct.default_code;
+										DimProduct = DimProduct_tmp;
+									} // closing inner join bracket (2)
 // ###############################
 
-							} // end of Var scope
+								} // end of Var scope
 
-							rejectedInnerJoin_tMap_1 = false;
+								rejectedInnerJoin_tMap_1 = false;
 
-							tos_count_tMap_1++;
-
-							/**
-							 * [tMap_1 main ] stop
-							 */
-
-							/**
-							 * [tMap_1 process_data_begin ] start
-							 */
-
-							currentComponent = "tMap_1";
-
-							/**
-							 * [tMap_1 process_data_begin ] stop
-							 */
-// Start of branch "DimProduct"
-							if (DimProduct != null) {
+								tos_count_tMap_1++;
 
 								/**
-								 * [tLogRow_1 main ] start
+								 * [tMap_1 main ] stop
 								 */
 
-								currentComponent = "tLogRow_1";
+								/**
+								 * [tMap_1 process_data_begin ] start
+								 */
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
+								currentComponent = "tMap_1";
 
-											, "DimProduct"
+								/**
+								 * [tMap_1 process_data_begin ] stop
+								 */
+// Start of branch "DimProduct"
+								if (DimProduct != null) {
 
-									);
-								}
+									/**
+									 * [tLogRow_1 main ] start
+									 */
+
+									currentComponent = "tLogRow_1";
+
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1
+
+												, "DimProduct"
+
+										);
+									}
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[10];
+									String[] row_tLogRow_1 = new String[10];
 
-								if (DimProduct.product_key != null) { //
-									row_tLogRow_1[0] = String.valueOf(DimProduct.product_key);
+									if (DimProduct.product_key != null) { //
+										row_tLogRow_1[0] = String.valueOf(DimProduct.product_key);
 
-								} //
+									} //
 
-								if (DimProduct.attribute_group_key != null) { //
-									row_tLogRow_1[1] = String.valueOf(DimProduct.attribute_group_key);
+									if (DimProduct.attribute_group_key != null) { //
+										row_tLogRow_1[1] = String.valueOf(DimProduct.attribute_group_key);
 
-								} //
+									} //
 
-								if (DimProduct.product_name != null) { //
-									row_tLogRow_1[2] = String.valueOf(DimProduct.product_name);
+									if (DimProduct.product_name != null) { //
+										row_tLogRow_1[2] = String.valueOf(DimProduct.product_name);
 
-								} //
+									} //
 
-								if (DimProduct.product_description != null) { //
-									row_tLogRow_1[3] = String.valueOf(DimProduct.product_description);
+									if (DimProduct.product_description != null) { //
+										row_tLogRow_1[3] = String.valueOf(DimProduct.product_description);
 
-								} //
+									} //
 
-								if (DimProduct.category != null) { //
-									row_tLogRow_1[4] = String.valueOf(DimProduct.category);
+									if (DimProduct.category != null) { //
+										row_tLogRow_1[4] = String.valueOf(DimProduct.category);
 
-								} //
+									} //
 
-								if (DimProduct.category_description != null) { //
-									row_tLogRow_1[5] = String.valueOf(DimProduct.category_description);
+									if (DimProduct.category_description != null) { //
+										row_tLogRow_1[5] = String.valueOf(DimProduct.category_description);
 
-								} //
+									} //
 
-								if (DimProduct.weight != null) { //
-									row_tLogRow_1[6] = String.valueOf(DimProduct.weight);
+									if (DimProduct.weight != null) { //
+										row_tLogRow_1[6] = String.valueOf(DimProduct.weight);
 
-								} //
+									} //
 
-								if (DimProduct.volume != null) { //
-									row_tLogRow_1[7] = String.valueOf(DimProduct.volume);
+									if (DimProduct.volume != null) { //
+										row_tLogRow_1[7] = String.valueOf(DimProduct.volume);
 
-								} //
+									} //
 
-								if (DimProduct.barcode != null) { //
-									row_tLogRow_1[8] = String.valueOf(DimProduct.barcode);
+									if (DimProduct.barcode != null) { //
+										row_tLogRow_1[8] = String.valueOf(DimProduct.barcode);
 
-								} //
+									} //
 
-								if (DimProduct.product_code != null) { //
-									row_tLogRow_1[9] = String.valueOf(DimProduct.product_code);
+									if (DimProduct.product_code != null) { //
+										row_tLogRow_1[9] = String.valueOf(DimProduct.product_code);
 
-								} //
+									} //
 
-								util_tLogRow_1.addRow(row_tLogRow_1);
-								nb_line_tLogRow_1++;
+									util_tLogRow_1.addRow(row_tLogRow_1);
+									nb_line_tLogRow_1++;
 //////
 
 //////                    
 
 ///////////////////////    			
 
-								row1 = DimProduct;
+									row1 = DimProduct;
 
-								tos_count_tLogRow_1++;
+									tos_count_tLogRow_1++;
 
-								/**
-								 * [tLogRow_1 main ] stop
-								 */
+									/**
+									 * [tLogRow_1 main ] stop
+									 */
 
-								/**
-								 * [tLogRow_1 process_data_begin ] start
-								 */
+									/**
+									 * [tLogRow_1 process_data_begin ] start
+									 */
 
-								currentComponent = "tLogRow_1";
+									currentComponent = "tLogRow_1";
 
-								/**
-								 * [tLogRow_1 process_data_begin ] stop
-								 */
+									/**
+									 * [tLogRow_1 process_data_begin ] stop
+									 */
 
-								/**
-								 * [tFileOutputDelimited_1 main ] start
-								 */
+									/**
+									 * [tFileOutputDelimited_1 main ] start
+									 */
 
-								currentComponent = "tFileOutputDelimited_1";
+									currentComponent = "tFileOutputDelimited_1";
 
-								if (execStat) {
-									runStat.updateStatOnConnection(iterateId, 1, 1
+									if (execStat) {
+										runStat.updateStatOnConnection(iterateId, 1, 1
 
-											, "row1"
+												, "row1"
 
-									);
-								}
+										);
+									}
 
-								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-								if (row1.product_key != null) {
-									sb_tFileOutputDelimited_1.append(row1.product_key);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.attribute_group_key != null) {
-									sb_tFileOutputDelimited_1.append(row1.attribute_group_key);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.product_name != null) {
-									sb_tFileOutputDelimited_1.append(row1.product_name);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.product_description != null) {
-									sb_tFileOutputDelimited_1.append(row1.product_description);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.category != null) {
-									sb_tFileOutputDelimited_1.append(row1.category);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.category_description != null) {
-									sb_tFileOutputDelimited_1.append(row1.category_description);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.weight != null) {
-									sb_tFileOutputDelimited_1.append(row1.weight);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.volume != null) {
-									sb_tFileOutputDelimited_1.append(row1.volume);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.barcode != null) {
-									sb_tFileOutputDelimited_1.append(row1.barcode);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.product_code != null) {
-									sb_tFileOutputDelimited_1.append(row1.product_code);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+									StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+									if (row1.product_key != null) {
+										sb_tFileOutputDelimited_1.append(row1.product_key);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.attribute_group_key != null) {
+										sb_tFileOutputDelimited_1.append(row1.attribute_group_key);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.product_name != null) {
+										sb_tFileOutputDelimited_1.append(row1.product_name);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.product_description != null) {
+										sb_tFileOutputDelimited_1.append(row1.product_description);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.category != null) {
+										sb_tFileOutputDelimited_1.append(row1.category);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.category_description != null) {
+										sb_tFileOutputDelimited_1.append(row1.category_description);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.weight != null) {
+										sb_tFileOutputDelimited_1.append(row1.weight);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.volume != null) {
+										sb_tFileOutputDelimited_1.append(row1.volume);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.barcode != null) {
+										sb_tFileOutputDelimited_1.append(row1.barcode);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.product_code != null) {
+										sb_tFileOutputDelimited_1.append(row1.product_code);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 
-								nb_line_tFileOutputDelimited_1++;
-								resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+									nb_line_tFileOutputDelimited_1++;
+									resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
-								outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+									outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
 
-								tos_count_tFileOutputDelimited_1++;
+									tos_count_tFileOutputDelimited_1++;
 
-								/**
-								 * [tFileOutputDelimited_1 main ] stop
-								 */
+									/**
+									 * [tFileOutputDelimited_1 main ] stop
+									 */
 
-								/**
-								 * [tFileOutputDelimited_1 process_data_begin ] start
-								 */
+									/**
+									 * [tFileOutputDelimited_1 process_data_begin ] start
+									 */
 
-								currentComponent = "tFileOutputDelimited_1";
+									currentComponent = "tFileOutputDelimited_1";
 
-								/**
-								 * [tFileOutputDelimited_1 process_data_begin ] stop
-								 */
+									/**
+									 * [tFileOutputDelimited_1 process_data_begin ] stop
+									 */
 
-								/**
-								 * [tFileOutputDelimited_1 process_data_end ] start
-								 */
+									/**
+									 * [tFileOutputDelimited_1 process_data_end ] start
+									 */
 
-								currentComponent = "tFileOutputDelimited_1";
+									currentComponent = "tFileOutputDelimited_1";
 
-								/**
-								 * [tFileOutputDelimited_1 process_data_end ] stop
-								 */
+									/**
+									 * [tFileOutputDelimited_1 process_data_end ] stop
+									 */
 
-								/**
-								 * [tLogRow_1 process_data_end ] start
-								 */
+									/**
+									 * [tLogRow_1 process_data_end ] start
+									 */
 
-								currentComponent = "tLogRow_1";
+									currentComponent = "tLogRow_1";
 
-								/**
-								 * [tLogRow_1 process_data_end ] stop
-								 */
+									/**
+									 * [tLogRow_1 process_data_end ] stop
+									 */
 
-							} // End of branch "DimProduct"
+								} // End of branch "DimProduct"
+
+							} // close loop of lookup 'AttributeGroupBridge' // G_TM_M_043
 
 							/**
 							 * [tMap_1 process_data_end ] start
@@ -3706,7 +3704,7 @@ public class productDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:b+KoSQYr8E9coiQm0LayJJICLusRZPvQCy53tv5ICcpP3qfk40d8SIXhqtBFw3oG758rVuokHNrclF3gyNXh+y960M0=");
+						"enc:routine.encryption.key.v1:3nqmcTAO/mQKZcUrFK0ggPZw2yZACadlCmcX5e0fgmR+Xvkd/JiFtVPDIt2pnSKqPoNpjrDrvex2ACrx8Blp4jffzlk=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -7277,126 +7275,20 @@ public class productDim implements TalendJob {
 	}
 
 	public static class AttributeGroupBridgeStruct
-			implements routines.system.IPersistableComparableLookupRow<AttributeGroupBridgeStruct> {
+			implements routines.system.IPersistableRow<AttributeGroupBridgeStruct> {
 		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
 		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
 
-		public String loopKey;
+		public Integer attribute_group_key;
+
+		public Integer getAttribute_group_key() {
+			return this.attribute_group_key;
+		}
 
 		public Integer attribute_key;
 
 		public Integer getAttribute_key() {
 			return this.attribute_key;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result
-						+ ((this.product_template_id == null) ? 0 : this.product_template_id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final AttributeGroupBridgeStruct other = (AttributeGroupBridgeStruct) obj;
-
-			if (this.product_template_id == null) {
-				if (other.product_template_id != null)
-					return false;
-
-			} else if (!this.product_template_id.equals(other.product_template_id))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(AttributeGroupBridgeStruct other) {
-
-			other.attribute_key = this.attribute_key;
-			other.product_attribute_id = this.product_attribute_id;
-			other.product_template_id = this.product_template_id;
-
-		}
-
-		public void copyKeysDataTo(AttributeGroupBridgeStruct other) {
-
-			other.product_template_id = this.product_template_id;
-
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = unmarshaller.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -7441,7 +7333,7 @@ public class productDim implements TalendJob {
 			}
 		}
 
-		public void readKeysData(ObjectInputStream dis) {
+		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_PACIFICO_productDim) {
 
@@ -7449,7 +7341,9 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
-					this.product_template_id = readInteger(dis);
+					this.attribute_group_key = readInteger(dis);
+
+					this.attribute_key = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -7460,7 +7354,7 @@ public class productDim implements TalendJob {
 
 		}
 
-		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
 
 			synchronized (commonByteArrayLock_PACIFICO_productDim) {
 
@@ -7468,7 +7362,9 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
-					this.product_template_id = readInteger(dis);
+					this.attribute_group_key = readInteger(dis);
+
+					this.attribute_key = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -7479,12 +7375,16 @@ public class productDim implements TalendJob {
 
 		}
 
-		public void writeKeysData(ObjectOutputStream dos) {
+		public void writeData(ObjectOutputStream dos) {
 			try {
 
 				// Integer
 
-				writeInteger(this.product_template_id, dos);
+				writeInteger(this.attribute_group_key, dos);
+
+				// Integer
+
+				writeInteger(this.attribute_key, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -7492,83 +7392,21 @@ public class productDim implements TalendJob {
 
 		}
 
-		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
 				// Integer
 
-				writeInteger(this.product_template_id, dos);
+				writeInteger(this.attribute_group_key, dos);
+
+				// Integer
+
+				writeInteger(this.attribute_key, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
 
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.attribute_key = readInteger(dis, ois);
-
-				this.product_attribute_id = readInteger(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
-			try {
-				int length = 0;
-
-				this.attribute_key = readInteger(dis, objectIn);
-
-				this.product_attribute_id = readInteger(dis, objectIn);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeInteger(this.attribute_key, dos, oos);
-
-				writeInteger(this.product_attribute_id, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
-			try {
-
-				writeInteger(this.attribute_key, dos, objectOut);
-
-				writeInteger(this.product_attribute_id, dos, objectOut);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
-		public boolean supportMarshaller() {
-			return true;
 		}
 
 		public String toString() {
@@ -7576,9 +7414,8 @@ public class productDim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("attribute_key=" + String.valueOf(attribute_key));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
+			sb.append("attribute_group_key=" + String.valueOf(attribute_group_key));
+			sb.append(",attribute_key=" + String.valueOf(attribute_key));
 			sb.append("]");
 
 			return sb.toString();
@@ -7590,11 +7427,6 @@ public class productDim implements TalendJob {
 		public int compareTo(AttributeGroupBridgeStruct other) {
 
 			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.product_template_id, other.product_template_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
 
 			return returnValue;
 		}
@@ -7622,8 +7454,8 @@ public class productDim implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_5Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_5_SUBPROCESS_STATE", 0);
+	public void tFileInputDelimited_4Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_4_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
@@ -7660,7 +7492,7 @@ public class productDim implements TalendJob {
 				int tos_count_tAdvancedHash_AttributeGroupBridge = 0;
 
 				// connection name:AttributeGroupBridge
-				// source node:tFileInputDelimited_5 - inputs:(after_tFileInputDelimited_2)
+				// source node:tFileInputDelimited_4 - inputs:(after_tFileInputDelimited_2)
 				// outputs:(AttributeGroupBridge,AttributeGroupBridge) | target
 				// node:tAdvancedHash_AttributeGroupBridge - inputs:(AttributeGroupBridge)
 				// outputs:()
@@ -7668,7 +7500,7 @@ public class productDim implements TalendJob {
 				// inputs:(productProduct,productCategory,productTemplate,AttributeGroupBridge)
 				// outputs:(DimProduct)
 
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_AttributeGroupBridge = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_AttributeGroupBridge = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_ROWS;
 
 				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<AttributeGroupBridgeStruct> tHash_Lookup_AttributeGroupBridge = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
 						.<AttributeGroupBridgeStruct>getLookup(matchingModeEnum_AttributeGroupBridge);
@@ -7680,75 +7512,99 @@ public class productDim implements TalendJob {
 				 */
 
 				/**
-				 * [tFileInputDelimited_5 begin ] start
+				 * [tFileInputDelimited_4 begin ] start
 				 */
 
-				ok_Hash.put("tFileInputDelimited_5", false);
-				start_Hash.put("tFileInputDelimited_5", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_4", false);
+				start_Hash.put("tFileInputDelimited_4", System.currentTimeMillis());
 
-				currentComponent = "tFileInputDelimited_5";
+				currentComponent = "tFileInputDelimited_4";
 
-				int tos_count_tFileInputDelimited_5 = 0;
+				int tos_count_tFileInputDelimited_4 = 0;
 
-				final routines.system.RowState rowstate_tFileInputDelimited_5 = new routines.system.RowState();
+				final routines.system.RowState rowstate_tFileInputDelimited_4 = new routines.system.RowState();
 
-				int nb_line_tFileInputDelimited_5 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_5 = null;
-				int limit_tFileInputDelimited_5 = -1;
+				int nb_line_tFileInputDelimited_4 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_4 = null;
+				int limit_tFileInputDelimited_4 = -1;
 				try {
 
-					Object filename_tFileInputDelimited_5 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv";
-					if (filename_tFileInputDelimited_5 instanceof java.io.InputStream) {
+					Object filename_tFileInputDelimited_4 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv";
+					if (filename_tFileInputDelimited_4 instanceof java.io.InputStream) {
 
-						int footer_value_tFileInputDelimited_5 = 0, random_value_tFileInputDelimited_5 = -1;
-						if (footer_value_tFileInputDelimited_5 > 0 || random_value_tFileInputDelimited_5 > 0) {
+						int footer_value_tFileInputDelimited_4 = 0, random_value_tFileInputDelimited_4 = -1;
+						if (footer_value_tFileInputDelimited_4 > 0 || random_value_tFileInputDelimited_4 > 0) {
 							throw new java.lang.Exception(
 									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
 						}
 
 					}
 					try {
-						fid_tFileInputDelimited_5 = new org.talend.fileprocess.FileInputDelimited(
+						fid_tFileInputDelimited_4 = new org.talend.fileprocess.FileInputDelimited(
 								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv",
-								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_5, -1, false);
+								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_4, -1, false);
 					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE", e.getMessage());
+						globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE", e.getMessage());
 
 						System.err.println(e.getMessage());
 
 					}
 
-					while (fid_tFileInputDelimited_5 != null && fid_tFileInputDelimited_5.nextRecord()) {
-						rowstate_tFileInputDelimited_5.reset();
+					while (fid_tFileInputDelimited_4 != null && fid_tFileInputDelimited_4.nextRecord()) {
+						rowstate_tFileInputDelimited_4.reset();
 
 						AttributeGroupBridge = null;
 
 						AttributeGroupBridge = null;
 
-						boolean whetherReject_tFileInputDelimited_5 = false;
+						boolean whetherReject_tFileInputDelimited_4 = false;
 						AttributeGroupBridge = new AttributeGroupBridgeStruct();
 						try {
 
-							int columnIndexWithD_tFileInputDelimited_5 = 0;
+							int columnIndexWithD_tFileInputDelimited_4 = 0;
 
 							String temp = "";
 
-							columnIndexWithD_tFileInputDelimited_5 = 0;
+							columnIndexWithD_tFileInputDelimited_4 = 0;
 
-							temp = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
+							temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
+							if (temp.length() > 0) {
+
+								try {
+
+									AttributeGroupBridge.attribute_group_key = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_4) {
+									globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",
+											ex_tFileInputDelimited_4.getMessage());
+									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"attribute_group_key", "AttributeGroupBridge", temp,
+											ex_tFileInputDelimited_4), ex_tFileInputDelimited_4));
+								}
+
+							} else {
+
+								AttributeGroupBridge.attribute_group_key = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_4 = 1;
+
+							temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
 							if (temp.length() > 0) {
 
 								try {
 
 									AttributeGroupBridge.attribute_key = ParserUtils.parseTo_Integer(temp);
 
-								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
-									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
-											ex_tFileInputDelimited_5.getMessage());
-									rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format(
+								} catch (java.lang.Exception ex_tFileInputDelimited_4) {
+									globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",
+											ex_tFileInputDelimited_4.getMessage());
+									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"attribute_key", "AttributeGroupBridge", temp, ex_tFileInputDelimited_5),
-											ex_tFileInputDelimited_5));
+											"attribute_key", "AttributeGroupBridge", temp, ex_tFileInputDelimited_4),
+											ex_tFileInputDelimited_4));
 								}
 
 							} else {
@@ -7757,61 +7613,13 @@ public class productDim implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_5 = 1;
-
-							temp = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
-							if (temp.length() > 0) {
-
-								try {
-
-									AttributeGroupBridge.product_attribute_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
-									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
-											ex_tFileInputDelimited_5.getMessage());
-									rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"product_attribute_id", "AttributeGroupBridge", temp,
-											ex_tFileInputDelimited_5), ex_tFileInputDelimited_5));
-								}
-
-							} else {
-
-								AttributeGroupBridge.product_attribute_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_5 = 2;
-
-							temp = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
-							if (temp.length() > 0) {
-
-								try {
-
-									AttributeGroupBridge.product_template_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
-									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
-											ex_tFileInputDelimited_5.getMessage());
-									rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"product_template_id", "AttributeGroupBridge", temp,
-											ex_tFileInputDelimited_5), ex_tFileInputDelimited_5));
-								}
-
-							} else {
-
-								AttributeGroupBridge.product_template_id = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_5.getException() != null) {
-								throw rowstate_tFileInputDelimited_5.getException();
+							if (rowstate_tFileInputDelimited_4.getException() != null) {
+								throw rowstate_tFileInputDelimited_4.getException();
 							}
 
 						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_5 = true;
+							globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_4 = true;
 
 							System.err.println(e.getMessage());
 							AttributeGroupBridge = null;
@@ -7819,29 +7627,29 @@ public class productDim implements TalendJob {
 						}
 
 						/**
-						 * [tFileInputDelimited_5 begin ] stop
+						 * [tFileInputDelimited_4 begin ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_5 main ] start
+						 * [tFileInputDelimited_4 main ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_5";
+						currentComponent = "tFileInputDelimited_4";
 
-						tos_count_tFileInputDelimited_5++;
+						tos_count_tFileInputDelimited_4++;
 
 						/**
-						 * [tFileInputDelimited_5 main ] stop
+						 * [tFileInputDelimited_4 main ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_5 process_data_begin ] start
+						 * [tFileInputDelimited_4 process_data_begin ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_5";
+						currentComponent = "tFileInputDelimited_4";
 
 						/**
-						 * [tFileInputDelimited_5 process_data_begin ] stop
+						 * [tFileInputDelimited_4 process_data_begin ] stop
 						 */
 // Start of branch "AttributeGroupBridge"
 						if (AttributeGroupBridge != null) {
@@ -7862,11 +7670,9 @@ public class productDim implements TalendJob {
 
 							AttributeGroupBridgeStruct AttributeGroupBridge_HashRow = new AttributeGroupBridgeStruct();
 
+							AttributeGroupBridge_HashRow.attribute_group_key = AttributeGroupBridge.attribute_group_key;
+
 							AttributeGroupBridge_HashRow.attribute_key = AttributeGroupBridge.attribute_key;
-
-							AttributeGroupBridge_HashRow.product_attribute_id = AttributeGroupBridge.product_attribute_id;
-
-							AttributeGroupBridge_HashRow.product_template_id = AttributeGroupBridge.product_template_id;
 
 							tHash_Lookup_AttributeGroupBridge.put(AttributeGroupBridge_HashRow);
 
@@ -7899,39 +7705,39 @@ public class productDim implements TalendJob {
 						} // End of branch "AttributeGroupBridge"
 
 						/**
-						 * [tFileInputDelimited_5 process_data_end ] start
+						 * [tFileInputDelimited_4 process_data_end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_5";
+						currentComponent = "tFileInputDelimited_4";
 
 						/**
-						 * [tFileInputDelimited_5 process_data_end ] stop
+						 * [tFileInputDelimited_4 process_data_end ] stop
 						 */
 
 						/**
-						 * [tFileInputDelimited_5 end ] start
+						 * [tFileInputDelimited_4 end ] start
 						 */
 
-						currentComponent = "tFileInputDelimited_5";
+						currentComponent = "tFileInputDelimited_4";
 
 					}
 				} finally {
 					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_5 != null) {
-							fid_tFileInputDelimited_5.close();
+						if (fid_tFileInputDelimited_4 != null) {
+							fid_tFileInputDelimited_4.close();
 						}
 					}
-					if (fid_tFileInputDelimited_5 != null) {
-						globalMap.put("tFileInputDelimited_5_NB_LINE", fid_tFileInputDelimited_5.getRowNumber());
+					if (fid_tFileInputDelimited_4 != null) {
+						globalMap.put("tFileInputDelimited_4_NB_LINE", fid_tFileInputDelimited_4.getRowNumber());
 
 					}
 				}
 
-				ok_Hash.put("tFileInputDelimited_5", true);
-				end_Hash.put("tFileInputDelimited_5", System.currentTimeMillis());
+				ok_Hash.put("tFileInputDelimited_4", true);
+				end_Hash.put("tFileInputDelimited_4", System.currentTimeMillis());
 
 				/**
-				 * [tFileInputDelimited_5 end ] stop
+				 * [tFileInputDelimited_4 end ] stop
 				 */
 
 				/**
@@ -7970,13 +7776,13 @@ public class productDim implements TalendJob {
 			try {
 
 				/**
-				 * [tFileInputDelimited_5 finally ] start
+				 * [tFileInputDelimited_4 finally ] start
 				 */
 
-				currentComponent = "tFileInputDelimited_5";
+				currentComponent = "tFileInputDelimited_4";
 
 				/**
-				 * [tFileInputDelimited_5 finally ] stop
+				 * [tFileInputDelimited_4 finally ] stop
 				 */
 
 				/**
@@ -7997,7 +7803,7 @@ public class productDim implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tFileInputDelimited_5_SUBPROCESS_STATE", 1);
+		globalMap.put("tFileInputDelimited_4_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -8381,6 +8187,6 @@ public class productDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 262937 characters generated by Talend Open Studio for Data Integration on the
- * December 5, 2022 at 10:50:53 PM CST
+ * 257242 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 10:05:51 PM CST
  ************************************************************************************************/

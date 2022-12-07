@@ -344,6 +344,26 @@ public class AttributeGroupBridge implements TalendJob {
 		tS3Put_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tAdvancedHash_row2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -372,22 +392,16 @@ public class AttributeGroupBridge implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_AttributeGroupBridge = new byte[0];
 		static byte[] commonByteArray_PACIFICO_AttributeGroupBridge = new byte[0];
 
+		public Integer attribute_group_key;
+
+		public Integer getAttribute_group_key() {
+			return this.attribute_group_key;
+		}
+
 		public Integer attribute_key;
 
 		public Integer getAttribute_key() {
 			return this.attribute_key;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -440,11 +454,9 @@ public class AttributeGroupBridge implements TalendJob {
 
 					int length = 0;
 
+					this.attribute_group_key = readInteger(dis);
+
 					this.attribute_key = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -463,11 +475,9 @@ public class AttributeGroupBridge implements TalendJob {
 
 					int length = 0;
 
+					this.attribute_group_key = readInteger(dis);
+
 					this.attribute_key = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -483,15 +493,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.attribute_group_key, dos);
+
+				// Integer
+
 				writeInteger(this.attribute_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -504,15 +510,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.attribute_group_key, dos);
+
+				// Integer
+
 				writeInteger(this.attribute_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -525,9 +527,8 @@ public class AttributeGroupBridge implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("attribute_key=" + String.valueOf(attribute_key));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
+			sb.append("attribute_group_key=" + String.valueOf(attribute_group_key));
+			sb.append(",attribute_key=" + String.valueOf(attribute_key));
 			sb.append("]");
 
 			return sb.toString();
@@ -571,22 +572,16 @@ public class AttributeGroupBridge implements TalendJob {
 		final static byte[] commonByteArrayLock_PACIFICO_AttributeGroupBridge = new byte[0];
 		static byte[] commonByteArray_PACIFICO_AttributeGroupBridge = new byte[0];
 
+		public Integer attribute_group_key;
+
+		public Integer getAttribute_group_key() {
+			return this.attribute_group_key;
+		}
+
 		public Integer attribute_key;
 
 		public Integer getAttribute_key() {
 			return this.attribute_key;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -639,11 +634,9 @@ public class AttributeGroupBridge implements TalendJob {
 
 					int length = 0;
 
+					this.attribute_group_key = readInteger(dis);
+
 					this.attribute_key = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -662,11 +655,9 @@ public class AttributeGroupBridge implements TalendJob {
 
 					int length = 0;
 
+					this.attribute_group_key = readInteger(dis);
+
 					this.attribute_key = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -682,15 +673,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.attribute_group_key, dos);
+
+				// Integer
+
 				writeInteger(this.attribute_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -703,15 +690,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.attribute_group_key, dos);
+
+				// Integer
+
 				writeInteger(this.attribute_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -724,9 +707,8 @@ public class AttributeGroupBridge implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("attribute_key=" + String.valueOf(attribute_key));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
+			sb.append("attribute_group_key=" + String.valueOf(attribute_group_key));
+			sb.append(",attribute_key=" + String.valueOf(attribute_key));
 			sb.append("]");
 
 			return sb.toString();
@@ -945,6 +927,186 @@ public class AttributeGroupBridge implements TalendJob {
 
 	}
 
+	public static class after_tFileInputDelimited_1Struct
+			implements routines.system.IPersistableRow<after_tFileInputDelimited_1Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_AttributeGroupBridge = new byte[0];
+		static byte[] commonByteArray_PACIFICO_AttributeGroupBridge = new byte[0];
+
+		public Integer product_attribute_id;
+
+		public Integer getProduct_attribute_id() {
+			return this.product_attribute_id;
+		}
+
+		public Integer product_template_id;
+
+		public Integer getProduct_template_id() {
+			return this.product_template_id;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_AttributeGroupBridge) {
+
+				try {
+
+					int length = 0;
+
+					this.product_attribute_id = readInteger(dis);
+
+					this.product_template_id = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_AttributeGroupBridge) {
+
+				try {
+
+					int length = 0;
+
+					this.product_attribute_id = readInteger(dis);
+
+					this.product_template_id = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.product_attribute_id, dos);
+
+				// Integer
+
+				writeInteger(this.product_template_id, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.product_attribute_id, dos);
+
+				// Integer
+
+				writeInteger(this.product_template_id, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("product_attribute_id=" + String.valueOf(product_attribute_id));
+			sb.append(",product_template_id=" + String.valueOf(product_template_id));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(after_tFileInputDelimited_1Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
 	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
@@ -964,6 +1126,8 @@ public class AttributeGroupBridge implements TalendJob {
 			}
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
+
+				tFileInputDelimited_2Process(globalMap);
 
 				productAttributeProductTemplateRelStruct productAttributeProductTemplateRel = new productAttributeProductTemplateRelStruct();
 				AttributeGroupBridgeStruct AttributeGroupBridge = new AttributeGroupBridgeStruct();
@@ -1052,11 +1216,9 @@ public class AttributeGroupBridge implements TalendJob {
 				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
 						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
 				if (filetFileOutputDelimited_1.length() == 0) {
+					outtFileOutputDelimited_1.write("attribute_group_key");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("attribute_key");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("product_attribute_id");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("product_template_id");
 					outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.flush();
 				}
@@ -1097,11 +1259,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[3];
+					int[] colLengths = new int[2];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 3; i++) {
+						for (int i = 0; i < 2; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -1128,11 +1290,11 @@ public class AttributeGroupBridge implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 2 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 1 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 2 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 1 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -1152,10 +1314,6 @@ public class AttributeGroupBridge implements TalendJob {
 
 							sbformat.append("|%2$-");
 							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -1181,13 +1339,8 @@ public class AttributeGroupBridge implements TalendJob {
 						}
 						sb.append(fillChars[3]);
 
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
 						// last column
-						for (int i = 0; i < colLengths[2] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[1] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -1203,7 +1356,7 @@ public class AttributeGroupBridge implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "attribute_key", "product_attribute_id", "product_template_id", });
+				util_tLogRow_1.addRow(new String[] { "attribute_group_key", "attribute_key", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -1229,6 +1382,12 @@ public class AttributeGroupBridge implements TalendJob {
 
 // ###############################
 // # Lookup's keys initialization
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) globalMap
+						.get("tHash_Lookup_row2"));
+
+				row2Struct row2HashKey = new row2Struct();
+				row2Struct row2Default = new row2Struct();
 // ###############################        
 
 // ###############################
@@ -1411,6 +1570,54 @@ public class AttributeGroupBridge implements TalendJob {
 							boolean rejectedInnerJoin_tMap_1 = false;
 							boolean mainRowRejected_tMap_1 = false;
 
+							///////////////////////////////////////////////
+							// Starting Lookup Table "row2"
+							///////////////////////////////////////////////
+
+							boolean forceLooprow2 = false;
+
+							row2Struct row2ObjectFromLookup = null;
+
+							if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+
+								hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+								row2HashKey.attribute_id = productAttributeProductTemplateRel.product_attribute_id;
+
+								row2HashKey.hashCodeDirty = true;
+
+								tHash_Lookup_row2.lookup(row2HashKey);
+
+								if (!tHash_Lookup_row2.hasNext()) { // G_TM_M_090
+
+									rejectedInnerJoin_tMap_1 = true;
+
+								} // G_TM_M_090
+
+							} // G_TM_M_020
+
+							if (tHash_Lookup_row2 != null && tHash_Lookup_row2.getCount(row2HashKey) > 1) { // G 071
+
+								// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row2'
+								// and it contains more one result from keys : row2.attribute_id = '" +
+								// row2HashKey.attribute_id + "'");
+							} // G 071
+
+							row2Struct row2 = null;
+
+							row2Struct fromLookup_row2 = null;
+							row2 = row2Default;
+
+							if (tHash_Lookup_row2 != null && tHash_Lookup_row2.hasNext()) { // G 099
+
+								fromLookup_row2 = tHash_Lookup_row2.next();
+
+							} // G 099
+
+							if (fromLookup_row2 != null) {
+								row2 = fromLookup_row2;
+							}
+
 							// ###############################
 							{ // start of Var scope
 
@@ -1423,11 +1630,14 @@ public class AttributeGroupBridge implements TalendJob {
 
 								AttributeGroupBridge = null;
 
+								if (!rejectedInnerJoin_tMap_1) {
+
 // # Output table : 'AttributeGroupBridge'
-								AttributeGroupBridge_tmp.attribute_key = Numeric.sequence("paymentMethodSeq", 1, 1);
-								AttributeGroupBridge_tmp.product_attribute_id = productAttributeProductTemplateRel.product_attribute_id;
-								AttributeGroupBridge_tmp.product_template_id = productAttributeProductTemplateRel.product_template_id;
-								AttributeGroupBridge = AttributeGroupBridge_tmp;
+									AttributeGroupBridge_tmp.attribute_group_key = Numeric.sequence("paymentMethodSeq",
+											1, 1);
+									AttributeGroupBridge_tmp.attribute_key = row2.attribute_key;
+									AttributeGroupBridge = AttributeGroupBridge_tmp;
+								} // closing inner join bracket (2)
 // ###############################
 
 							} // end of Var scope
@@ -1468,20 +1678,15 @@ public class AttributeGroupBridge implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[3];
+								String[] row_tLogRow_1 = new String[2];
+
+								if (AttributeGroupBridge.attribute_group_key != null) { //
+									row_tLogRow_1[0] = String.valueOf(AttributeGroupBridge.attribute_group_key);
+
+								} //
 
 								if (AttributeGroupBridge.attribute_key != null) { //
-									row_tLogRow_1[0] = String.valueOf(AttributeGroupBridge.attribute_key);
-
-								} //
-
-								if (AttributeGroupBridge.product_attribute_id != null) { //
-									row_tLogRow_1[1] = String.valueOf(AttributeGroupBridge.product_attribute_id);
-
-								} //
-
-								if (AttributeGroupBridge.product_template_id != null) { //
-									row_tLogRow_1[2] = String.valueOf(AttributeGroupBridge.product_template_id);
+									row_tLogRow_1[1] = String.valueOf(AttributeGroupBridge.attribute_key);
 
 								} //
 
@@ -1526,16 +1731,12 @@ public class AttributeGroupBridge implements TalendJob {
 								}
 
 								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+								if (row1.attribute_group_key != null) {
+									sb_tFileOutputDelimited_1.append(row1.attribute_group_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row1.attribute_key != null) {
 									sb_tFileOutputDelimited_1.append(row1.attribute_key);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.product_attribute_id != null) {
-									sb_tFileOutputDelimited_1.append(row1.product_attribute_id);
-								}
-								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-								if (row1.product_template_id != null) {
-									sb_tFileOutputDelimited_1.append(row1.product_template_id);
 								}
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 
@@ -1638,6 +1839,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 // ###############################
 // # Lookup hashes releasing
+				if (tHash_Lookup_row2 != null) {
+					tHash_Lookup_row2.endGet();
+				}
+				globalMap.remove("tHash_Lookup_row2");
+
 // ###############################      
 
 				if (execStat) {
@@ -1730,6 +1936,9 @@ public class AttributeGroupBridge implements TalendJob {
 
 			throw error;
 		} finally {
+
+			// free memory for "tMap_1"
+			globalMap.remove("tHash_Lookup_row2");
 
 			try {
 
@@ -1827,7 +2036,7 @@ public class AttributeGroupBridge implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:DI/GDYYwYqLt59kv0w+y/to731t8+ZO2Q/ZEYFToLd6oHwtRguUO0g6VhT9pyT/lfgfuzYhksf4JzCLCHKUWrfkOkz8=");
+						"enc:routine.encryption.key.v1:KEp8lA3me1o6j5xxg0S95jzew7PjNbIcvJClA2IddYA8PVPWRRwtuEjiCYtT9sA6a7xpJPlrOfkB/UNIlP39gEez8c0=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -2245,6 +2454,778 @@ public class AttributeGroupBridge implements TalendJob {
 		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 1);
 	}
 
+	public static class row2Struct implements routines.system.IPersistableComparableLookupRow<row2Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_AttributeGroupBridge = new byte[0];
+		static byte[] commonByteArray_PACIFICO_AttributeGroupBridge = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public Integer attribute_key;
+
+		public Integer getAttribute_key() {
+			return this.attribute_key;
+		}
+
+		public Integer attribute_id;
+
+		public Integer getAttribute_id() {
+			return this.attribute_id;
+		}
+
+		public String name;
+
+		public String getName() {
+			return this.name;
+		}
+
+		public String value;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.attribute_id == null) ? 0 : this.attribute_id.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row2Struct other = (row2Struct) obj;
+
+			if (this.attribute_id == null) {
+				if (other.attribute_id != null)
+					return false;
+
+			} else if (!this.attribute_id.equals(other.attribute_id))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row2Struct other) {
+
+			other.attribute_key = this.attribute_key;
+			other.attribute_id = this.attribute_id;
+			other.name = this.name;
+			other.value = this.value;
+
+		}
+
+		public void copyKeysDataTo(row2Struct other) {
+
+			other.attribute_id = this.attribute_id;
+
+		}
+
+		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = unmarshaller.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				dis.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				unmarshaller.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readKeysData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_AttributeGroupBridge) {
+
+				try {
+
+					int length = 0;
+
+					this.attribute_id = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_AttributeGroupBridge) {
+
+				try {
+
+					int length = 0;
+
+					this.attribute_id = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeKeysData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.attribute_id, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.attribute_id, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		/**
+		 * Fill Values data by reading ObjectInputStream.
+		 */
+		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
+			try {
+
+				int length = 0;
+
+				this.attribute_key = readInteger(dis, ois);
+
+				this.name = readString(dis, ois);
+
+				this.value = readString(dis, ois);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
+			try {
+				int length = 0;
+
+				this.attribute_key = readInteger(dis, objectIn);
+
+				this.name = readString(dis, objectIn);
+
+				this.value = readString(dis, objectIn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		/**
+		 * Return a byte array which represents Values data.
+		 */
+		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
+			try {
+
+				writeInteger(this.attribute_key, dos, oos);
+
+				writeString(this.name, dos, oos);
+
+				writeString(this.value, dos, oos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
+			try {
+
+				writeInteger(this.attribute_key, dos, objectOut);
+
+				writeString(this.name, dos, objectOut);
+
+				writeString(this.value, dos, objectOut);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		public boolean supportMarshaller() {
+			return true;
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("attribute_key=" + String.valueOf(attribute_key));
+			sb.append(",attribute_id=" + String.valueOf(attribute_id));
+			sb.append(",name=" + name);
+			sb.append(",value=" + value);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.attribute_id, other.attribute_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				row2Struct row2 = new row2Struct();
+
+				/**
+				 * [tAdvancedHash_row2 begin ] start
+				 */
+
+				ok_Hash.put("tAdvancedHash_row2", false);
+				start_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
+
+				currentComponent = "tAdvancedHash_row2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
+				}
+
+				int tos_count_tAdvancedHash_row2 = 0;
+
+				// connection name:row2
+				// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1)
+				// outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2)
+				// outputs:()
+				// linked node: tMap_1 - inputs:(productAttributeProductTemplateRel,row2)
+				// outputs:(AttributeGroupBridge)
+
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
+						.<row2Struct>getLookup(matchingModeEnum_row2);
+
+				globalMap.put("tHash_Lookup_row2", tHash_Lookup_row2);
+
+				/**
+				 * [tAdvancedHash_row2 begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_2 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_2", false);
+				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_2";
+
+				int tos_count_tFileInputDelimited_2 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_2 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
+				int limit_tFileInputDelimited_2 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv";
+					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
+						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv", "ISO-8859-15",
+								";", "\n", true, 1, 0, limit_tFileInputDelimited_2, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
+						rowstate_tFileInputDelimited_2.reset();
+
+						row2 = null;
+
+						row2 = null;
+
+						boolean whetherReject_tFileInputDelimited_2 = false;
+						row2 = new row2Struct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_2 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_2 = 0;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.attribute_key = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"attribute_key", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.attribute_key = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 1;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row2.attribute_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"attribute_id", "row2", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row2.attribute_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 2;
+
+							row2.name = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+
+							columnIndexWithD_tFileInputDelimited_2 = 3;
+
+							row2.value = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+
+							if (rowstate_tFileInputDelimited_2.getException() != null) {
+								throw rowstate_tFileInputDelimited_2.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_2 = true;
+
+							System.err.println(e.getMessage());
+							row2 = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_2 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						tos_count_tFileInputDelimited_2++;
+
+						/**
+						 * [tFileInputDelimited_2 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						/**
+						 * [tFileInputDelimited_2 process_data_begin ] stop
+						 */
+// Start of branch "row2"
+						if (row2 != null) {
+
+							/**
+							 * [tAdvancedHash_row2 main ] start
+							 */
+
+							currentComponent = "tAdvancedHash_row2";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row2"
+
+								);
+							}
+
+							row2Struct row2_HashRow = new row2Struct();
+
+							row2_HashRow.attribute_key = row2.attribute_key;
+
+							row2_HashRow.attribute_id = row2.attribute_id;
+
+							row2_HashRow.name = row2.name;
+
+							row2_HashRow.value = row2.value;
+
+							tHash_Lookup_row2.put(row2_HashRow);
+
+							tos_count_tAdvancedHash_row2++;
+
+							/**
+							 * [tAdvancedHash_row2 main ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_row2 process_data_begin ] start
+							 */
+
+							currentComponent = "tAdvancedHash_row2";
+
+							/**
+							 * [tAdvancedHash_row2 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_row2 process_data_end ] start
+							 */
+
+							currentComponent = "tAdvancedHash_row2";
+
+							/**
+							 * [tAdvancedHash_row2 process_data_end ] stop
+							 */
+
+						} // End of branch "row2"
+
+						/**
+						 * [tFileInputDelimited_2 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						/**
+						 * [tFileInputDelimited_2 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_2 != null) {
+							fid_tFileInputDelimited_2.close();
+						}
+					}
+					if (fid_tFileInputDelimited_2 != null) {
+						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_2", true);
+				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_2 end ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_row2 end ] start
+				 */
+
+				currentComponent = "tAdvancedHash_row2";
+
+				tHash_Lookup_row2.endPut();
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
+				}
+
+				ok_Hash.put("tAdvancedHash_row2", true);
+				end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
+
+				/**
+				 * [tAdvancedHash_row2 end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_2 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_2";
+
+				/**
+				 * [tFileInputDelimited_2 finally ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_row2 finally ] start
+				 */
+
+				currentComponent = "tAdvancedHash_row2";
+
+				/**
+				 * [tAdvancedHash_row2 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
+	}
+
 	public String resuming_logs_dir_path = null;
 	public String resuming_checkpoint_path = null;
 	public String parent_part_launcher = null;
@@ -2627,6 +3608,6 @@ public class AttributeGroupBridge implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 85146 characters generated by Talend Open Studio for Data Integration on the
- * December 5, 2022 at 10:50:25 PM CST
+ * 112255 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 9:58:34 PM CST
  ************************************************************************************************/

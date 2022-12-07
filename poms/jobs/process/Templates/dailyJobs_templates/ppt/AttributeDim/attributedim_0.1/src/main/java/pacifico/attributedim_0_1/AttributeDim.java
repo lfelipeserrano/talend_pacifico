@@ -398,6 +398,12 @@ public class AttributeDim implements TalendJob {
 			return this.attribute_key;
 		}
 
+		public Integer attribute_id;
+
+		public Integer getAttribute_id() {
+			return this.attribute_id;
+		}
+
 		public String name;
 
 		public String getName() {
@@ -522,6 +528,8 @@ public class AttributeDim implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.attribute_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.value = readString(dis);
@@ -545,6 +553,8 @@ public class AttributeDim implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.attribute_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.value = readString(dis);
@@ -564,6 +574,10 @@ public class AttributeDim implements TalendJob {
 				// Integer
 
 				writeInteger(this.attribute_key, dos);
+
+				// Integer
+
+				writeInteger(this.attribute_id, dos);
 
 				// String
 
@@ -586,6 +600,10 @@ public class AttributeDim implements TalendJob {
 
 				writeInteger(this.attribute_key, dos);
 
+				// Integer
+
+				writeInteger(this.attribute_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -606,6 +624,7 @@ public class AttributeDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("attribute_key=" + String.valueOf(attribute_key));
+			sb.append(",attribute_id=" + String.valueOf(attribute_id));
 			sb.append(",name=" + name);
 			sb.append(",value=" + value);
 			sb.append("]");
@@ -656,6 +675,12 @@ public class AttributeDim implements TalendJob {
 			return this.attribute_key;
 		}
 
+		public Integer attribute_id;
+
+		public Integer getAttribute_id() {
+			return this.attribute_id;
+		}
+
 		public String name;
 
 		public String getName() {
@@ -780,6 +805,8 @@ public class AttributeDim implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.attribute_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.value = readString(dis);
@@ -803,6 +830,8 @@ public class AttributeDim implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.attribute_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.value = readString(dis);
@@ -822,6 +851,10 @@ public class AttributeDim implements TalendJob {
 				// Integer
 
 				writeInteger(this.attribute_key, dos);
+
+				// Integer
+
+				writeInteger(this.attribute_id, dos);
 
 				// String
 
@@ -844,6 +877,10 @@ public class AttributeDim implements TalendJob {
 
 				writeInteger(this.attribute_key, dos);
 
+				// Integer
+
+				writeInteger(this.attribute_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -864,6 +901,7 @@ public class AttributeDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("attribute_key=" + String.valueOf(attribute_key));
+			sb.append(",attribute_id=" + String.valueOf(attribute_id));
 			sb.append(",name=" + name);
 			sb.append(",value=" + value);
 			sb.append("]");
@@ -1844,6 +1882,8 @@ public class AttributeDim implements TalendJob {
 				if (filetFileOutputDelimited_1.length() == 0) {
 					outtFileOutputDelimited_1.write("attribute_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+					outtFileOutputDelimited_1.write("attribute_id");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("name");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("value");
@@ -1887,11 +1927,11 @@ public class AttributeDim implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[3];
+					int[] colLengths = new int[4];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 3; i++) {
+						for (int i = 0; i < 4; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -1918,11 +1958,11 @@ public class AttributeDim implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 2 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 3 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 2 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 3 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -1946,6 +1986,10 @@ public class AttributeDim implements TalendJob {
 
 							sbformat.append("|%3$-");
 							sbformat.append(colLengths[2]);
+							sbformat.append("s");
+
+							sbformat.append("|%4$-");
+							sbformat.append(colLengths[3]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -1975,9 +2019,13 @@ public class AttributeDim implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[2] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[3] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -1993,7 +2041,7 @@ public class AttributeDim implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "attribute_key", "name", "value", });
+				util_tLogRow_1.addRow(new String[] { "attribute_key", "attribute_id", "name", "value", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -2384,6 +2432,7 @@ public class AttributeDim implements TalendJob {
 
 // # Output table : 'AttributeDim'
 									AttributeDim_tmp.attribute_key = Numeric.sequence("productAttributeSeq", 1, 1);
+									AttributeDim_tmp.attribute_id = productAttribute.id;
 									AttributeDim_tmp.name = productAttribute.name;
 									AttributeDim_tmp.value = productAttributeValue.name;
 									AttributeDim = AttributeDim_tmp;
@@ -2428,20 +2477,25 @@ public class AttributeDim implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[3];
+								String[] row_tLogRow_1 = new String[4];
 
 								if (AttributeDim.attribute_key != null) { //
 									row_tLogRow_1[0] = String.valueOf(AttributeDim.attribute_key);
 
 								} //
 
+								if (AttributeDim.attribute_id != null) { //
+									row_tLogRow_1[1] = String.valueOf(AttributeDim.attribute_id);
+
+								} //
+
 								if (AttributeDim.name != null) { //
-									row_tLogRow_1[1] = String.valueOf(AttributeDim.name);
+									row_tLogRow_1[2] = String.valueOf(AttributeDim.name);
 
 								} //
 
 								if (AttributeDim.value != null) { //
-									row_tLogRow_1[2] = String.valueOf(AttributeDim.value);
+									row_tLogRow_1[3] = String.valueOf(AttributeDim.value);
 
 								} //
 
@@ -2488,6 +2542,10 @@ public class AttributeDim implements TalendJob {
 								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
 								if (row1.attribute_key != null) {
 									sb_tFileOutputDelimited_1.append(row1.attribute_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.attribute_id != null) {
+									sb_tFileOutputDelimited_1.append(row1.attribute_id);
 								}
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row1.name != null) {
@@ -2795,7 +2853,7 @@ public class AttributeDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:07hMYIPNimIFcqvh1ATemHTEKnIHiTF1SmY62yb6ftfrbRm34ewiiDbtaLQcu9Ypl1j2qfxZXVKCCsbjKY89ELo+Sjo=");
+						"enc:routine.encryption.key.v1:MC9p23lqFCet7NT1vweURccigjJSOMaNgUOJcdrcT5/Oqz0HRwYEzd+qji7U2bbDbpqJtz+XmYZ4tEmed06p6Te6VtE=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -4671,6 +4729,6 @@ public class AttributeDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 144449 characters generated by Talend Open Studio for Data Integration on the
- * December 5, 2022 at 10:47:28 PM CST
+ * 146537 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 9:53:01 PM CST
  ************************************************************************************************/
