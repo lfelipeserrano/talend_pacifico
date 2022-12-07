@@ -514,7 +514,7 @@ public class redshift_load_job implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:grGAuurYIWB8n1iZhijeHhWxoh3azsx4ConqBSRsyitsFAh+e9BnYIg9PJOXU5r6hyWNd16V9DWW0705tDFFzinhw/Y=");
+						"enc:routine.encryption.key.v1:GXiBzednuzo31n9BX9L/vQyul5WABvTx+3lmq43D0CJGffdsTZo2v8yN/2qCX2k6+s0c8yH0DFhlXJoLlvrM8rj7mPQ=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -688,7 +688,7 @@ public class redshift_load_job implements TalendJob {
 				String dbUser_tDBConnection_1 = "awsuser";
 
 				final String decryptedPassword_tDBConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:67rTOvok76woDIDvEuG3XMsh2lu3V1EiTJIbJ3pOkxF+Mq0IFQ==");
+						"enc:routine.encryption.key.v1:5s0kcRtTUqOKRCjnR1uqCRB9rEBcLvNEeQnaAjnttG2d9jt02A==");
 				String dbPwd_tDBConnection_1 = decryptedPassword_tDBConnection_1;
 
 				java.sql.Connection conn_tDBConnection_1 = null;
@@ -855,7 +855,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:dM4QZGoijNnWwOZSwGUMHfmF3a7PqHJBIudOQlLq+uvjzM+PaQhjG+ptRm0P+mhR03r25AXCUqGGbkK/qD57UJmr8xg=");
+						"enc:routine.encryption.key.v1:b1AN5aEsap4tfWmLMbxXoyvNMRd/or2UsvFzb4XFJarj2vAHSphX/1ZSI1nAMrjV8GUytL3Rvkx4BS3tCSpA6umjrfY=");
 				command_tDBBulkExec_1.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimCustomer.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -996,7 +996,7 @@ public class redshift_load_job implements TalendJob {
 
 				dbschema_tDBBulkExec_2 = (String) globalMap.get("schema_" + "tDBConnection_1");
 
-				String tableName_tDBBulkExec_2 = "attribtuegroupbridge";
+				String tableName_tDBBulkExec_2 = "attributegroupbridge";
 				String tableName2_tDBBulkExec_2 = tableName_tDBBulkExec_2;
 				boolean isTempTable_tDBBulkExec_2 = tableName_tDBBulkExec_2 != null
 						&& tableName_tDBBulkExec_2.trim().startsWith("#");
@@ -1020,7 +1020,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_2 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:NiHoWqieGxAkpLbnj4YahXEG4z8pJJdDn78AiZoYseQmOwNHJVsUAzRuAW8c05PDhLD+pnbLEEaTVr40PTUXkgOOAOE=");
+						"enc:routine.encryption.key.v1:fypjnY+CJVrDgtMeXLFR/J1x0sY90OSlVRb/oLq8EsW51wnOB07j920eR2K0B7ilf1eCWbiGo+liJwGdPq60XnLtH/g=");
 				command_tDBBulkExec_2.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("AttributeGroupBridge.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1185,7 +1185,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_3 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1://BV29XHs0bqJDA+Ut96lIPwHc79U78FUKlx6iFIAHBDucP63pUMfLMlo3Snsq5d1uY94xSZkP5jnpk6kmFbOXx2f8o=");
+						"enc:routine.encryption.key.v1:erFWpbc6tnE5kqnSM+Z3JLbOHPgCqAr+1gkVHV1HkeKdb5JwcyLgEiJgJ6tOqLV3SmP2XXHe0O3/+NwF0uDAuaz206Y=");
 				command_tDBBulkExec_3.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimAttribute.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1350,7 +1350,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_4 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:eHBVQGApGi3me4iBPNmvuPl+XVuPRR6wINXfekVNptb4J4VqzMDojVVz2VbYfofcBnv1k9oSDyr9G25/fgHdyfu7MzY=");
+						"enc:routine.encryption.key.v1:5WSsFRe/LI7zSfoCz2jSq5AyXOdURLm5tIy0wazZ/7DMyZv1a66I3NmMsVw4BzACBAsw6JfokokRybRQ55B9h522zew=");
 				command_tDBBulkExec_4.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimDate.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1515,7 +1515,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_5 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:zsWgVTHClybtTiaFRhbP352mW5qfDvbNlsfryzUyEwiUA95iwUWjt8frEedJLhWSuNYtGl5K4wz6maZSj6d+B9e2ubw=");
+						"enc:routine.encryption.key.v1:Y/d8pxn4KxooZ+LgrlaU/d9qJ52YIVE2H9ND4boGfl2B5dBwGDsNhurUeuiV5MYl8wFNQkOZ7OCoy9SAU5CtWbi4Q6A=");
 				command_tDBBulkExec_5.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimPaymentMethod.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1680,7 +1680,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_6 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:fP53rITnfc62wCKhwyNNIbnvFblq/wNYH0C321PfchVbAjasKhBn7Bt5L1nhIlxl23oOdCil9ncxCwpHO7LUldVvw3M=");
+						"enc:routine.encryption.key.v1:DqXhtuuVTpANohBFmhXBbQpkEjsDUEgdpELDYCdVPQi5JWezHO/GitYczOj3mKHsC22RFiLr6zTE8CR3UJCi9PDMRAA=");
 				command_tDBBulkExec_6.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimProduct.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1845,7 +1845,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_7 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:ViHoFwUkZ6zyApynA3cA3e0/HU8VKADMDsPSSCNHgG4wTvQc3IXBLpEK960lSkla7mOFz5mri4a6fSjZaVBDY9NgmJ4=");
+						"enc:routine.encryption.key.v1:R2gjSxjcsPAO5CrtWAYwfhTq+Yu+ldU604Dx85wZ7mLUsvEg20uA186Oz8OHi/hoes0P0CDGRw1ISbUWaPYpJneEv8Y=");
 				command_tDBBulkExec_7.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimStore.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -2010,7 +2010,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_8 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:DixhoqHwXymw30Ffb4OCtcZjLdQwx3tLfrQEptTCvDn35yEWkcKH0+mrsiwa8V13NpRnz0LEAbxXQ/IKRuKeQYvmhDc=");
+						"enc:routine.encryption.key.v1:8n/PM3QQq3wXQTDGp5oVMbZMpOnHWkNZh+L+NIg2wEwGyTSm7cyR1BFoh6SWwf2KurmI1+qHvEyBoHZtMvelSWwc7LU=");
 				command_tDBBulkExec_8.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("SalesFact.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -2648,5 +2648,5 @@ public class redshift_load_job implements TalendJob {
 }
 /************************************************************************************************
  * 85986 characters generated by Talend Open Studio for Data Integration on the
- * December 6, 2022 at 10:31:21 PM CST
+ * December 7, 2022 at 1:21:56 AM CST
  ************************************************************************************************/
