@@ -3,9 +3,10 @@
   <TalendMetadata:DelimitedFileConnection xmi:id="_rY0tsXRbEe2iCY_i5o0tjA" name="DimPayment" dataPackage="_rY0tsnRbEe2iCY_i5o0tjA" Server="Localhost 127.0.0.1" FilePath="C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimPaymentMethod.csv" Encoding="US-ASCII" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
   <orgomg.cwm.resource.record:RecordFile xmi:id="_rY0tsnRbEe2iCY_i5o0tjA" name="default" dataManager="_rY0tsXRbEe2iCY_i5o0tjA">
     <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_rY0ts3RbEe2iCY_i5o0tjA" id="_n_k58HRbEe2iCY_i5o0tjA" label="metadata">
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rY0ttHRbEe2iCY_i5o0tjA" label="payment_method_key" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rY0ttXRbEe2iCY_i5o0tjA" label="name" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rY0ttnRbEe2iCY_i5o0tjA" label="isCash" length="5" talendType="id_Boolean" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xidhIHXqEe2fdsHrMNdyKg" label="payment_method_key" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xidhIXXqEe2fdsHrMNdyKg" label="payment_method_id" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xidhInXqEe2fdsHrMNdyKg" label="name" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_xidhI3XqEe2fdsHrMNdyKg" label="isCash" length="5" talendType="id_Boolean" pattern="&quot;dd-MM-yyyy&quot;"/>
     </ownedElement>
   </orgomg.cwm.resource.record:RecordFile>
 </xmi:XMI>

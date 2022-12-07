@@ -438,6 +438,12 @@ public class customerDim implements TalendJob {
 			return this.customer_key;
 		}
 
+		public Integer customer_id;
+
+		public Integer getCustomer_id() {
+			return this.customer_id;
+		}
+
 		public String name;
 
 		public String getName() {
@@ -592,6 +598,8 @@ public class customerDim implements TalendJob {
 
 					this.customer_key = readInteger(dis);
 
+					this.customer_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.country = readString(dis);
@@ -625,6 +633,8 @@ public class customerDim implements TalendJob {
 
 					this.customer_key = readInteger(dis);
 
+					this.customer_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.country = readString(dis);
@@ -654,6 +664,10 @@ public class customerDim implements TalendJob {
 				// Integer
 
 				writeInteger(this.customer_key, dos);
+
+				// Integer
+
+				writeInteger(this.customer_id, dos);
 
 				// String
 
@@ -696,6 +710,10 @@ public class customerDim implements TalendJob {
 
 				writeInteger(this.customer_key, dos);
 
+				// Integer
+
+				writeInteger(this.customer_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -736,6 +754,7 @@ public class customerDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("customer_key=" + String.valueOf(customer_key));
+			sb.append(",customer_id=" + String.valueOf(customer_id));
 			sb.append(",name=" + name);
 			sb.append(",country=" + country);
 			sb.append(",company=" + company);
@@ -791,6 +810,12 @@ public class customerDim implements TalendJob {
 			return this.customer_key;
 		}
 
+		public Integer customer_id;
+
+		public Integer getCustomer_id() {
+			return this.customer_id;
+		}
+
 		public String name;
 
 		public String getName() {
@@ -945,6 +970,8 @@ public class customerDim implements TalendJob {
 
 					this.customer_key = readInteger(dis);
 
+					this.customer_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.country = readString(dis);
@@ -978,6 +1005,8 @@ public class customerDim implements TalendJob {
 
 					this.customer_key = readInteger(dis);
 
+					this.customer_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 					this.country = readString(dis);
@@ -1007,6 +1036,10 @@ public class customerDim implements TalendJob {
 				// Integer
 
 				writeInteger(this.customer_key, dos);
+
+				// Integer
+
+				writeInteger(this.customer_id, dos);
 
 				// String
 
@@ -1049,6 +1082,10 @@ public class customerDim implements TalendJob {
 
 				writeInteger(this.customer_key, dos);
 
+				// Integer
+
+				writeInteger(this.customer_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -1089,6 +1126,7 @@ public class customerDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("customer_key=" + String.valueOf(customer_key));
+			sb.append(",customer_id=" + String.valueOf(customer_id));
 			sb.append(",name=" + name);
 			sb.append(",country=" + country);
 			sb.append(",company=" + company);
@@ -4172,6 +4210,8 @@ public class customerDim implements TalendJob {
 				if (filetFileOutputDelimited_1.length() == 0) {
 					outtFileOutputDelimited_1.write("customer_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+					outtFileOutputDelimited_1.write("customer_id");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("name");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("country");
@@ -4225,11 +4265,11 @@ public class customerDim implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[8];
+					int[] colLengths = new int[9];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 8; i++) {
+						for (int i = 0; i < 9; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -4256,11 +4296,11 @@ public class customerDim implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 7 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 8 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 7 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 8 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -4304,6 +4344,10 @@ public class customerDim implements TalendJob {
 
 							sbformat.append("|%8$-");
 							sbformat.append(colLengths[7]);
+							sbformat.append("s");
+
+							sbformat.append("|%9$-");
+							sbformat.append(colLengths[8]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -4353,9 +4397,13 @@ public class customerDim implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[7] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[8] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -4371,8 +4419,8 @@ public class customerDim implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "customer_key", "name", "country", "company", "street", "street_2",
-						"city", "state", });
+				util_tLogRow_1.addRow(new String[] { "customer_key", "customer_id", "name", "country", "company",
+						"street", "street_2", "city", "state", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -5261,6 +5309,7 @@ public class customerDim implements TalendJob {
 
 // # Output table : 'CustomerDim'
 									CustomerDim_tmp.customer_key = Numeric.sequence("CustomerDimSeq", 1, 1);
+									CustomerDim_tmp.customer_id = resPartner.id;
 									CustomerDim_tmp.name = resPartner.name;
 									CustomerDim_tmp.country = resCountry.name;
 									CustomerDim_tmp.company = resCompany.name;
@@ -5310,45 +5359,50 @@ public class customerDim implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[8];
+								String[] row_tLogRow_1 = new String[9];
 
 								if (CustomerDim.customer_key != null) { //
 									row_tLogRow_1[0] = String.valueOf(CustomerDim.customer_key);
 
 								} //
 
+								if (CustomerDim.customer_id != null) { //
+									row_tLogRow_1[1] = String.valueOf(CustomerDim.customer_id);
+
+								} //
+
 								if (CustomerDim.name != null) { //
-									row_tLogRow_1[1] = String.valueOf(CustomerDim.name);
+									row_tLogRow_1[2] = String.valueOf(CustomerDim.name);
 
 								} //
 
 								if (CustomerDim.country != null) { //
-									row_tLogRow_1[2] = String.valueOf(CustomerDim.country);
+									row_tLogRow_1[3] = String.valueOf(CustomerDim.country);
 
 								} //
 
 								if (CustomerDim.company != null) { //
-									row_tLogRow_1[3] = String.valueOf(CustomerDim.company);
+									row_tLogRow_1[4] = String.valueOf(CustomerDim.company);
 
 								} //
 
 								if (CustomerDim.street != null) { //
-									row_tLogRow_1[4] = String.valueOf(CustomerDim.street);
+									row_tLogRow_1[5] = String.valueOf(CustomerDim.street);
 
 								} //
 
 								if (CustomerDim.street_2 != null) { //
-									row_tLogRow_1[5] = String.valueOf(CustomerDim.street_2);
+									row_tLogRow_1[6] = String.valueOf(CustomerDim.street_2);
 
 								} //
 
 								if (CustomerDim.city != null) { //
-									row_tLogRow_1[6] = String.valueOf(CustomerDim.city);
+									row_tLogRow_1[7] = String.valueOf(CustomerDim.city);
 
 								} //
 
 								if (CustomerDim.state != null) { //
-									row_tLogRow_1[7] = String.valueOf(CustomerDim.state);
+									row_tLogRow_1[8] = String.valueOf(CustomerDim.state);
 
 								} //
 
@@ -5395,6 +5449,10 @@ public class customerDim implements TalendJob {
 								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
 								if (row1.customer_key != null) {
 									sb_tFileOutputDelimited_1.append(row1.customer_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.customer_id != null) {
+									sb_tFileOutputDelimited_1.append(row1.customer_id);
 								}
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row1.name != null) {
@@ -5738,7 +5796,7 @@ public class customerDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:v/qIKF3SemlgfDtJepUb/BNUf1JYlHAY4PfSXaVR28+cpHpTFRwc0o55vqNih6YR16UzoLw5SmNNHPsn8+QwHQ1a1lw=");
+						"enc:routine.encryption.key.v1:7D/3NY6Q2wUkP0Njt9Rbp/C+0SqpJq7kuIsomc93EuL2rLJpKz+EXrfbleZjtDmOI1Yyj1QylaGmjTL/1uuAfl1uE4Q=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -12770,6 +12828,6 @@ public class customerDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 397764 characters generated by Talend Open Studio for Data Integration on the
- * December 6, 2022 at 1:01:50 AM CST
+ * 399818 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 10:42:48 PM CST
  ************************************************************************************************/

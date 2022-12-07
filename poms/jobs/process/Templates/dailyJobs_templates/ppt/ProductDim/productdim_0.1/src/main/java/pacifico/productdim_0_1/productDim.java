@@ -438,6 +438,12 @@ public class productDim implements TalendJob {
 			return this.product_key;
 		}
 
+		public Integer product_id;
+
+		public Integer getProduct_id() {
+			return this.product_id;
+		}
+
 		public Integer attribute_group_key;
 
 		public Integer getAttribute_group_key() {
@@ -604,6 +610,8 @@ public class productDim implements TalendJob {
 
 					this.product_key = readInteger(dis);
 
+					this.product_id = readInteger(dis);
+
 					this.attribute_group_key = readInteger(dis);
 
 					this.product_name = readString(dis);
@@ -641,6 +649,8 @@ public class productDim implements TalendJob {
 
 					this.product_key = readInteger(dis);
 
+					this.product_id = readInteger(dis);
+
 					this.attribute_group_key = readInteger(dis);
 
 					this.product_name = readString(dis);
@@ -674,6 +684,10 @@ public class productDim implements TalendJob {
 				// Integer
 
 				writeInteger(this.product_key, dos);
+
+				// Integer
+
+				writeInteger(this.product_id, dos);
 
 				// Integer
 
@@ -726,6 +740,10 @@ public class productDim implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.product_id, dos);
+
+				// Integer
+
 				writeInteger(this.attribute_group_key, dos);
 
 				// String
@@ -772,6 +790,7 @@ public class productDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("product_key=" + String.valueOf(product_key));
+			sb.append(",product_id=" + String.valueOf(product_id));
 			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
 			sb.append(",product_name=" + product_name);
 			sb.append(",product_description=" + product_description);
@@ -829,6 +848,12 @@ public class productDim implements TalendJob {
 			return this.product_key;
 		}
 
+		public Integer product_id;
+
+		public Integer getProduct_id() {
+			return this.product_id;
+		}
+
 		public Integer attribute_group_key;
 
 		public Integer getAttribute_group_key() {
@@ -995,6 +1020,8 @@ public class productDim implements TalendJob {
 
 					this.product_key = readInteger(dis);
 
+					this.product_id = readInteger(dis);
+
 					this.attribute_group_key = readInteger(dis);
 
 					this.product_name = readString(dis);
@@ -1032,6 +1059,8 @@ public class productDim implements TalendJob {
 
 					this.product_key = readInteger(dis);
 
+					this.product_id = readInteger(dis);
+
 					this.attribute_group_key = readInteger(dis);
 
 					this.product_name = readString(dis);
@@ -1065,6 +1094,10 @@ public class productDim implements TalendJob {
 				// Integer
 
 				writeInteger(this.product_key, dos);
+
+				// Integer
+
+				writeInteger(this.product_id, dos);
 
 				// Integer
 
@@ -1117,6 +1150,10 @@ public class productDim implements TalendJob {
 
 				// Integer
 
+				writeInteger(this.product_id, dos);
+
+				// Integer
+
 				writeInteger(this.attribute_group_key, dos);
 
 				// String
@@ -1163,6 +1200,7 @@ public class productDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("product_key=" + String.valueOf(product_key));
+			sb.append(",product_id=" + String.valueOf(product_id));
 			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
 			sb.append(",product_name=" + product_name);
 			sb.append(",product_description=" + product_description);
@@ -2422,6 +2460,8 @@ public class productDim implements TalendJob {
 				if (filetFileOutputDelimited_1.length() == 0) {
 					outtFileOutputDelimited_1.write("product_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+					outtFileOutputDelimited_1.write("product_id");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("attribute_group_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_name");
@@ -2479,11 +2519,11 @@ public class productDim implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[10];
+					int[] colLengths = new int[11];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 10; i++) {
+						for (int i = 0; i < 11; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -2510,11 +2550,11 @@ public class productDim implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 9 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 10 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 9 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 10 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -2566,6 +2606,10 @@ public class productDim implements TalendJob {
 
 							sbformat.append("|%10$-");
 							sbformat.append(colLengths[9]);
+							sbformat.append("s");
+
+							sbformat.append("|%11$-");
+							sbformat.append(colLengths[10]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -2623,9 +2667,13 @@ public class productDim implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[9] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[10] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -2641,9 +2689,9 @@ public class productDim implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(
-						new String[] { "product_key", "attribute_group_key", "product_name", "product_description",
-								"category", "category_description", "weight", "volume", "barcode", "product_code", });
+				util_tLogRow_1.addRow(new String[] { "product_key", "product_id", "attribute_group_key", "product_name",
+						"product_description", "category", "category_description", "weight", "volume", "barcode",
+						"product_code", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -3205,6 +3253,7 @@ public class productDim implements TalendJob {
 
 // # Output table : 'DimProduct'
 										DimProduct_tmp.product_key = Numeric.sequence("DimProductSeq", 1, 1);
+										DimProduct_tmp.product_id = productProduct.id;
 										DimProduct_tmp.attribute_group_key = AttributeGroupBridge.attribute_group_key;
 										DimProduct_tmp.product_name = productTemplate.name;
 										DimProduct_tmp.product_description = productTemplate.description_sale;
@@ -3256,55 +3305,60 @@ public class productDim implements TalendJob {
 
 ///////////////////////		
 
-									String[] row_tLogRow_1 = new String[10];
+									String[] row_tLogRow_1 = new String[11];
 
 									if (DimProduct.product_key != null) { //
 										row_tLogRow_1[0] = String.valueOf(DimProduct.product_key);
 
 									} //
 
+									if (DimProduct.product_id != null) { //
+										row_tLogRow_1[1] = String.valueOf(DimProduct.product_id);
+
+									} //
+
 									if (DimProduct.attribute_group_key != null) { //
-										row_tLogRow_1[1] = String.valueOf(DimProduct.attribute_group_key);
+										row_tLogRow_1[2] = String.valueOf(DimProduct.attribute_group_key);
 
 									} //
 
 									if (DimProduct.product_name != null) { //
-										row_tLogRow_1[2] = String.valueOf(DimProduct.product_name);
+										row_tLogRow_1[3] = String.valueOf(DimProduct.product_name);
 
 									} //
 
 									if (DimProduct.product_description != null) { //
-										row_tLogRow_1[3] = String.valueOf(DimProduct.product_description);
+										row_tLogRow_1[4] = String.valueOf(DimProduct.product_description);
 
 									} //
 
 									if (DimProduct.category != null) { //
-										row_tLogRow_1[4] = String.valueOf(DimProduct.category);
+										row_tLogRow_1[5] = String.valueOf(DimProduct.category);
 
 									} //
 
 									if (DimProduct.category_description != null) { //
-										row_tLogRow_1[5] = String.valueOf(DimProduct.category_description);
+										row_tLogRow_1[6] = String.valueOf(DimProduct.category_description);
 
 									} //
 
 									if (DimProduct.weight != null) { //
-										row_tLogRow_1[6] = String.valueOf(DimProduct.weight);
+										row_tLogRow_1[7] = String.valueOf(DimProduct.weight);
 
 									} //
 
 									if (DimProduct.volume != null) { //
-										row_tLogRow_1[7] = String.valueOf(DimProduct.volume);
+										row_tLogRow_1[8] = String.valueOf(DimProduct.volume);
 
 									} //
 
 									if (DimProduct.barcode != null) { //
-										row_tLogRow_1[8] = String.valueOf(DimProduct.barcode);
+										row_tLogRow_1[9] = String.valueOf(DimProduct.barcode);
 
 									} //
 
 									if (DimProduct.product_code != null) { //
-										row_tLogRow_1[9] = String.valueOf(DimProduct.product_code);
+										row_tLogRow_1[10] = String.valueOf(DimProduct.product_code);
 
 									} //
 
@@ -3351,6 +3405,10 @@ public class productDim implements TalendJob {
 									StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
 									if (row1.product_key != null) {
 										sb_tFileOutputDelimited_1.append(row1.product_key);
+									}
+									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+									if (row1.product_id != null) {
+										sb_tFileOutputDelimited_1.append(row1.product_id);
 									}
 									sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 									if (row1.attribute_group_key != null) {
@@ -3704,7 +3762,7 @@ public class productDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:3nqmcTAO/mQKZcUrFK0ggPZw2yZACadlCmcX5e0fgmR+Xvkd/JiFtVPDIt2pnSKqPoNpjrDrvex2ACrx8Blp4jffzlk=");
+						"enc:routine.encryption.key.v1:AUPccv9arv8vG41rKXy4BTS9fGOSHpDyfDqm0mUhnbOkVWGYJRdX5QeG1vyTanvp7RnaTafCsgKcb3c+BSlTzhd/Pn0=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -8187,6 +8245,6 @@ public class productDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 257242 characters generated by Talend Open Studio for Data Integration on the
- * December 6, 2022 at 10:05:51 PM CST
+ * 259278 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 10:44:41 PM CST
  ************************************************************************************************/

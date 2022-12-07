@@ -314,6 +314,76 @@ public class redshift_load_job implements TalendJob {
 		tDBBulkExec_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tDBBulkExec_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBBulkExec_3_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_3_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBBulkExec_4_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_4_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBBulkExec_5_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_5_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBBulkExec_6_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_6_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBBulkExec_7_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_7_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBBulkExec_8_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBBulkExec_8_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tDBCommit_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -341,6 +411,62 @@ public class redshift_load_job implements TalendJob {
 	}
 
 	public void tDBBulkExec_1_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_2_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_3_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_4_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_5_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_6_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_7_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBBulkExec_8_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -388,7 +514,7 @@ public class redshift_load_job implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:t95WEvHRwnQ+0TVQIbnyUWGXJRdyYRZX2GvY53yNaqbXukajsVGPbjuc7OYo9QHV1yEac+Z2co3tZsXVFvVP1XDa+v0=");
+						"enc:routine.encryption.key.v1:grGAuurYIWB8n1iZhijeHhWxoh3azsx4ConqBSRsyitsFAh+e9BnYIg9PJOXU5r6hyWNd16V9DWW0705tDFFzinhw/Y=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -562,7 +688,7 @@ public class redshift_load_job implements TalendJob {
 				String dbUser_tDBConnection_1 = "awsuser";
 
 				final String decryptedPassword_tDBConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:ixm21a60+YHxOGeHG/G1mvW/ghZCAOPf3SDyASgNaGamxD5PYg==");
+						"enc:routine.encryption.key.v1:67rTOvok76woDIDvEuG3XMsh2lu3V1EiTJIbJ3pOkxF+Mq0IFQ==");
 				String dbPwd_tDBConnection_1 = decryptedPassword_tDBConnection_1;
 
 				java.sql.Connection conn_tDBConnection_1 = null;
@@ -729,7 +855,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:HmhvqBrd82hUMhOA6ipUxK/RPHwVoKW4F/TzNi1DdMG0wB03BYePmBqDFqElJH4FmrV0VjDuaD8DHbqRgK8PN6x/XcY=");
+						"enc:routine.encryption.key.v1:dM4QZGoijNnWwOZSwGUMHfmF3a7PqHJBIudOQlLq+uvjzM+PaQhjG+ptRm0P+mhR03r25AXCUqGGbkK/qD57UJmr8xg=");
 				command_tDBBulkExec_1.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimCustomer.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -791,21 +917,15 @@ public class redshift_load_job implements TalendJob {
 				ok_Hash.put("tDBBulkExec_1", true);
 				end_Hash.put("tDBBulkExec_1", System.currentTimeMillis());
 
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk4", 0, "ok");
+				}
+				tDBBulkExec_2Process(globalMap);
+
 				/**
 				 * [tDBBulkExec_1 end ] stop
 				 */
 			} // end the resume
-
-			if (resumeEntryMethodName == null || globalResumeTicket) {
-				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tDBBulkExec_1:OnSubjobOk", "",
-						Thread.currentThread().getId() + "", "", "", "", "", "");
-			}
-
-			if (execStat) {
-				runStat.updateStatOnConnection("OnSubjobOk1", 0, "ok");
-			}
-
-			tDBCommit_1Process(globalMap);
 
 		} catch (java.lang.Exception e) {
 
@@ -839,6 +959,1161 @@ public class redshift_load_job implements TalendJob {
 		}
 
 		globalMap.put("tDBBulkExec_1_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_2_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_2 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_2", false);
+				start_Hash.put("tDBBulkExec_2", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_2";
+
+				int tos_count_tDBBulkExec_2 = 0;
+
+				String dbschema_tDBBulkExec_2 = null;
+
+				dbschema_tDBBulkExec_2 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_2 = "attribtuegroupbridge";
+				String tableName2_tDBBulkExec_2 = tableName_tDBBulkExec_2;
+				boolean isTempTable_tDBBulkExec_2 = tableName_tDBBulkExec_2 != null
+						&& tableName_tDBBulkExec_2.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_2) {
+					tableName2_tDBBulkExec_2 = "\"" + tableName2_tDBBulkExec_2 + "\"";
+				} else if (dbschema_tDBBulkExec_2 == null || dbschema_tDBBulkExec_2.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_2 = dbschema_tDBBulkExec_2 + "\".\"" + tableName_tDBBulkExec_2;
+					tableName2_tDBBulkExec_2 = dbschema_tDBBulkExec_2 + "." + tableName2_tDBBulkExec_2;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_2 = null;
+				conn_tDBBulkExec_2 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_2 = new StringBuilder();
+				command_tDBBulkExec_2.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_2 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_2 = '\0';
+
+				command_tDBBulkExec_2.append("COPY ").append("\"").append(tableName_tDBBulkExec_2).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_2 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:NiHoWqieGxAkpLbnj4YahXEG4z8pJJdDn78AiZoYseQmOwNHJVsUAzRuAW8c05PDhLD+pnbLEEaTVr40PTUXkgOOAOE=");
+				command_tDBBulkExec_2.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("AttributeGroupBridge.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_2).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_2).append("' ");
+
+				if (textEnclosure_tDBBulkExec_2 != '\0') {
+					command_tDBBulkExec_2.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_2).append("' ");
+				}
+				command_tDBBulkExec_2.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_2.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_2.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_2.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_2 = conn_tDBBulkExec_2.createStatement();
+				stmt_tDBBulkExec_2.execute(command_tDBBulkExec_2.toString());
+
+				/**
+				 * [tDBBulkExec_2 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_2 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_2";
+
+				tos_count_tDBBulkExec_2++;
+
+				/**
+				 * [tDBBulkExec_2 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_2 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_2";
+
+				/**
+				 * [tDBBulkExec_2 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_2 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_2";
+
+				/**
+				 * [tDBBulkExec_2 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_2 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_2";
+
+				ok_Hash.put("tDBBulkExec_2", true);
+				end_Hash.put("tDBBulkExec_2", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk5", 0, "ok");
+				}
+				tDBBulkExec_3Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_2 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_2 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_2";
+
+				/**
+				 * [tDBBulkExec_2 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_2_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_3_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_3 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_3", false);
+				start_Hash.put("tDBBulkExec_3", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_3";
+
+				int tos_count_tDBBulkExec_3 = 0;
+
+				String dbschema_tDBBulkExec_3 = null;
+
+				dbschema_tDBBulkExec_3 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_3 = "dimattribute";
+				String tableName2_tDBBulkExec_3 = tableName_tDBBulkExec_3;
+				boolean isTempTable_tDBBulkExec_3 = tableName_tDBBulkExec_3 != null
+						&& tableName_tDBBulkExec_3.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_3) {
+					tableName2_tDBBulkExec_3 = "\"" + tableName2_tDBBulkExec_3 + "\"";
+				} else if (dbschema_tDBBulkExec_3 == null || dbschema_tDBBulkExec_3.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_3 = dbschema_tDBBulkExec_3 + "\".\"" + tableName_tDBBulkExec_3;
+					tableName2_tDBBulkExec_3 = dbschema_tDBBulkExec_3 + "." + tableName2_tDBBulkExec_3;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_3 = null;
+				conn_tDBBulkExec_3 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_3 = new StringBuilder();
+				command_tDBBulkExec_3.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_3 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_3 = '\0';
+
+				command_tDBBulkExec_3.append("COPY ").append("\"").append(tableName_tDBBulkExec_3).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_3 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1://BV29XHs0bqJDA+Ut96lIPwHc79U78FUKlx6iFIAHBDucP63pUMfLMlo3Snsq5d1uY94xSZkP5jnpk6kmFbOXx2f8o=");
+				command_tDBBulkExec_3.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("DimAttribute.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_3).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_3).append("' ");
+
+				if (textEnclosure_tDBBulkExec_3 != '\0') {
+					command_tDBBulkExec_3.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_3).append("' ");
+				}
+				command_tDBBulkExec_3.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_3.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_3.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_3.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_3 = conn_tDBBulkExec_3.createStatement();
+				stmt_tDBBulkExec_3.execute(command_tDBBulkExec_3.toString());
+
+				/**
+				 * [tDBBulkExec_3 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_3 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_3";
+
+				tos_count_tDBBulkExec_3++;
+
+				/**
+				 * [tDBBulkExec_3 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_3 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_3";
+
+				/**
+				 * [tDBBulkExec_3 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_3 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_3";
+
+				/**
+				 * [tDBBulkExec_3 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_3 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_3";
+
+				ok_Hash.put("tDBBulkExec_3", true);
+				end_Hash.put("tDBBulkExec_3", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk6", 0, "ok");
+				}
+				tDBBulkExec_4Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_3 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_3 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_3";
+
+				/**
+				 * [tDBBulkExec_3 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_3_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_4Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_4_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_4 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_4", false);
+				start_Hash.put("tDBBulkExec_4", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_4";
+
+				int tos_count_tDBBulkExec_4 = 0;
+
+				String dbschema_tDBBulkExec_4 = null;
+
+				dbschema_tDBBulkExec_4 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_4 = "dimdate";
+				String tableName2_tDBBulkExec_4 = tableName_tDBBulkExec_4;
+				boolean isTempTable_tDBBulkExec_4 = tableName_tDBBulkExec_4 != null
+						&& tableName_tDBBulkExec_4.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_4) {
+					tableName2_tDBBulkExec_4 = "\"" + tableName2_tDBBulkExec_4 + "\"";
+				} else if (dbschema_tDBBulkExec_4 == null || dbschema_tDBBulkExec_4.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_4 = dbschema_tDBBulkExec_4 + "\".\"" + tableName_tDBBulkExec_4;
+					tableName2_tDBBulkExec_4 = dbschema_tDBBulkExec_4 + "." + tableName2_tDBBulkExec_4;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_4 = null;
+				conn_tDBBulkExec_4 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_4 = new StringBuilder();
+				command_tDBBulkExec_4.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_4 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_4 = '\0';
+
+				command_tDBBulkExec_4.append("COPY ").append("\"").append(tableName_tDBBulkExec_4).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_4 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:eHBVQGApGi3me4iBPNmvuPl+XVuPRR6wINXfekVNptb4J4VqzMDojVVz2VbYfofcBnv1k9oSDyr9G25/fgHdyfu7MzY=");
+				command_tDBBulkExec_4.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("DimDate.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_4).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_4).append("' ");
+
+				if (textEnclosure_tDBBulkExec_4 != '\0') {
+					command_tDBBulkExec_4.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_4).append("' ");
+				}
+				command_tDBBulkExec_4.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_4.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_4.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_4.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_4 = conn_tDBBulkExec_4.createStatement();
+				stmt_tDBBulkExec_4.execute(command_tDBBulkExec_4.toString());
+
+				/**
+				 * [tDBBulkExec_4 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_4 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_4";
+
+				tos_count_tDBBulkExec_4++;
+
+				/**
+				 * [tDBBulkExec_4 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_4 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_4";
+
+				/**
+				 * [tDBBulkExec_4 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_4 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_4";
+
+				/**
+				 * [tDBBulkExec_4 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_4 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_4";
+
+				ok_Hash.put("tDBBulkExec_4", true);
+				end_Hash.put("tDBBulkExec_4", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk7", 0, "ok");
+				}
+				tDBBulkExec_5Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_4 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_4 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_4";
+
+				/**
+				 * [tDBBulkExec_4 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_4_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_5Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_5_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_5 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_5", false);
+				start_Hash.put("tDBBulkExec_5", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_5";
+
+				int tos_count_tDBBulkExec_5 = 0;
+
+				String dbschema_tDBBulkExec_5 = null;
+
+				dbschema_tDBBulkExec_5 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_5 = "dimpaymentmethod";
+				String tableName2_tDBBulkExec_5 = tableName_tDBBulkExec_5;
+				boolean isTempTable_tDBBulkExec_5 = tableName_tDBBulkExec_5 != null
+						&& tableName_tDBBulkExec_5.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_5) {
+					tableName2_tDBBulkExec_5 = "\"" + tableName2_tDBBulkExec_5 + "\"";
+				} else if (dbschema_tDBBulkExec_5 == null || dbschema_tDBBulkExec_5.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_5 = dbschema_tDBBulkExec_5 + "\".\"" + tableName_tDBBulkExec_5;
+					tableName2_tDBBulkExec_5 = dbschema_tDBBulkExec_5 + "." + tableName2_tDBBulkExec_5;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_5 = null;
+				conn_tDBBulkExec_5 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_5 = new StringBuilder();
+				command_tDBBulkExec_5.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_5 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_5 = '\0';
+
+				command_tDBBulkExec_5.append("COPY ").append("\"").append(tableName_tDBBulkExec_5).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_5 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:zsWgVTHClybtTiaFRhbP352mW5qfDvbNlsfryzUyEwiUA95iwUWjt8frEedJLhWSuNYtGl5K4wz6maZSj6d+B9e2ubw=");
+				command_tDBBulkExec_5.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("DimPaymentMethod.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_5).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_5).append("' ");
+
+				if (textEnclosure_tDBBulkExec_5 != '\0') {
+					command_tDBBulkExec_5.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_5).append("' ");
+				}
+				command_tDBBulkExec_5.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_5.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_5.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_5.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_5 = conn_tDBBulkExec_5.createStatement();
+				stmt_tDBBulkExec_5.execute(command_tDBBulkExec_5.toString());
+
+				/**
+				 * [tDBBulkExec_5 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_5 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_5";
+
+				tos_count_tDBBulkExec_5++;
+
+				/**
+				 * [tDBBulkExec_5 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_5 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_5";
+
+				/**
+				 * [tDBBulkExec_5 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_5 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_5";
+
+				/**
+				 * [tDBBulkExec_5 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_5 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_5";
+
+				ok_Hash.put("tDBBulkExec_5", true);
+				end_Hash.put("tDBBulkExec_5", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk8", 0, "ok");
+				}
+				tDBBulkExec_6Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_5 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_5 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_5";
+
+				/**
+				 * [tDBBulkExec_5 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_5_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_6Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_6_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_6 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_6", false);
+				start_Hash.put("tDBBulkExec_6", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_6";
+
+				int tos_count_tDBBulkExec_6 = 0;
+
+				String dbschema_tDBBulkExec_6 = null;
+
+				dbschema_tDBBulkExec_6 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_6 = "dimproduct";
+				String tableName2_tDBBulkExec_6 = tableName_tDBBulkExec_6;
+				boolean isTempTable_tDBBulkExec_6 = tableName_tDBBulkExec_6 != null
+						&& tableName_tDBBulkExec_6.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_6) {
+					tableName2_tDBBulkExec_6 = "\"" + tableName2_tDBBulkExec_6 + "\"";
+				} else if (dbschema_tDBBulkExec_6 == null || dbschema_tDBBulkExec_6.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_6 = dbschema_tDBBulkExec_6 + "\".\"" + tableName_tDBBulkExec_6;
+					tableName2_tDBBulkExec_6 = dbschema_tDBBulkExec_6 + "." + tableName2_tDBBulkExec_6;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_6 = null;
+				conn_tDBBulkExec_6 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_6 = new StringBuilder();
+				command_tDBBulkExec_6.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_6 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_6 = '\0';
+
+				command_tDBBulkExec_6.append("COPY ").append("\"").append(tableName_tDBBulkExec_6).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_6 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:fP53rITnfc62wCKhwyNNIbnvFblq/wNYH0C321PfchVbAjasKhBn7Bt5L1nhIlxl23oOdCil9ncxCwpHO7LUldVvw3M=");
+				command_tDBBulkExec_6.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("DimProduct.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_6).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_6).append("' ");
+
+				if (textEnclosure_tDBBulkExec_6 != '\0') {
+					command_tDBBulkExec_6.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_6).append("' ");
+				}
+				command_tDBBulkExec_6.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_6.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_6.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_6.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_6 = conn_tDBBulkExec_6.createStatement();
+				stmt_tDBBulkExec_6.execute(command_tDBBulkExec_6.toString());
+
+				/**
+				 * [tDBBulkExec_6 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_6 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_6";
+
+				tos_count_tDBBulkExec_6++;
+
+				/**
+				 * [tDBBulkExec_6 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_6 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_6";
+
+				/**
+				 * [tDBBulkExec_6 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_6 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_6";
+
+				/**
+				 * [tDBBulkExec_6 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_6 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_6";
+
+				ok_Hash.put("tDBBulkExec_6", true);
+				end_Hash.put("tDBBulkExec_6", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk9", 0, "ok");
+				}
+				tDBBulkExec_7Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_6 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_6 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_6";
+
+				/**
+				 * [tDBBulkExec_6 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_6_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_7Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_7_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_7 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_7", false);
+				start_Hash.put("tDBBulkExec_7", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_7";
+
+				int tos_count_tDBBulkExec_7 = 0;
+
+				String dbschema_tDBBulkExec_7 = null;
+
+				dbschema_tDBBulkExec_7 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_7 = "dimstore";
+				String tableName2_tDBBulkExec_7 = tableName_tDBBulkExec_7;
+				boolean isTempTable_tDBBulkExec_7 = tableName_tDBBulkExec_7 != null
+						&& tableName_tDBBulkExec_7.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_7) {
+					tableName2_tDBBulkExec_7 = "\"" + tableName2_tDBBulkExec_7 + "\"";
+				} else if (dbschema_tDBBulkExec_7 == null || dbschema_tDBBulkExec_7.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_7 = dbschema_tDBBulkExec_7 + "\".\"" + tableName_tDBBulkExec_7;
+					tableName2_tDBBulkExec_7 = dbschema_tDBBulkExec_7 + "." + tableName2_tDBBulkExec_7;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_7 = null;
+				conn_tDBBulkExec_7 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_7 = new StringBuilder();
+				command_tDBBulkExec_7.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_7 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_7 = '\0';
+
+				command_tDBBulkExec_7.append("COPY ").append("\"").append(tableName_tDBBulkExec_7).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_7 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:ViHoFwUkZ6zyApynA3cA3e0/HU8VKADMDsPSSCNHgG4wTvQc3IXBLpEK960lSkla7mOFz5mri4a6fSjZaVBDY9NgmJ4=");
+				command_tDBBulkExec_7.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("DimStore.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_7).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_7).append("' ");
+
+				if (textEnclosure_tDBBulkExec_7 != '\0') {
+					command_tDBBulkExec_7.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_7).append("' ");
+				}
+				command_tDBBulkExec_7.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_7.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_7.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_7.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_7 = conn_tDBBulkExec_7.createStatement();
+				stmt_tDBBulkExec_7.execute(command_tDBBulkExec_7.toString());
+
+				/**
+				 * [tDBBulkExec_7 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_7 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_7";
+
+				tos_count_tDBBulkExec_7++;
+
+				/**
+				 * [tDBBulkExec_7 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_7 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_7";
+
+				/**
+				 * [tDBBulkExec_7 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_7 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_7";
+
+				/**
+				 * [tDBBulkExec_7 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_7 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_7";
+
+				ok_Hash.put("tDBBulkExec_7", true);
+				end_Hash.put("tDBBulkExec_7", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk10", 0, "ok");
+				}
+				tDBBulkExec_8Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_7 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_7 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_7";
+
+				/**
+				 * [tDBBulkExec_7 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_7_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBBulkExec_8Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBBulkExec_8_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBBulkExec_8 begin ] start
+				 */
+
+				ok_Hash.put("tDBBulkExec_8", false);
+				start_Hash.put("tDBBulkExec_8", System.currentTimeMillis());
+
+				currentComponent = "tDBBulkExec_8";
+
+				int tos_count_tDBBulkExec_8 = 0;
+
+				String dbschema_tDBBulkExec_8 = null;
+
+				dbschema_tDBBulkExec_8 = (String) globalMap.get("schema_" + "tDBConnection_1");
+
+				String tableName_tDBBulkExec_8 = "factsales";
+				String tableName2_tDBBulkExec_8 = tableName_tDBBulkExec_8;
+				boolean isTempTable_tDBBulkExec_8 = tableName_tDBBulkExec_8 != null
+						&& tableName_tDBBulkExec_8.trim().startsWith("#");
+				if (isTempTable_tDBBulkExec_8) {
+					tableName2_tDBBulkExec_8 = "\"" + tableName2_tDBBulkExec_8 + "\"";
+				} else if (dbschema_tDBBulkExec_8 == null || dbschema_tDBBulkExec_8.trim().length() == 0) {
+					// do nothing
+				} else {
+					tableName_tDBBulkExec_8 = dbschema_tDBBulkExec_8 + "\".\"" + tableName_tDBBulkExec_8;
+					tableName2_tDBBulkExec_8 = dbschema_tDBBulkExec_8 + "." + tableName2_tDBBulkExec_8;
+				}
+
+				java.sql.Connection conn_tDBBulkExec_8 = null;
+				conn_tDBBulkExec_8 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+				StringBuilder command_tDBBulkExec_8 = new StringBuilder();
+				command_tDBBulkExec_8.append("--Talend -v 8.0 ").append('\n');
+				char fieldSeparator_tDBBulkExec_8 = String.valueOf(';').charAt(0);
+				char textEnclosure_tDBBulkExec_8 = '\0';
+
+				command_tDBBulkExec_8.append("COPY ").append("\"").append(tableName_tDBBulkExec_8).append("\"")
+
+						.append(" FROM '");
+				final String decryptedPwd_tDBBulkExec_8 = routines.system.PasswordEncryptUtil.decryptPassword(
+						"enc:routine.encryption.key.v1:DixhoqHwXymw30Ffb4OCtcZjLdQwx3tLfrQEptTCvDn35yEWkcKH0+mrsiwa8V13NpRnz0LEAbxXQ/IKRuKeQYvmhDc=");
+				command_tDBBulkExec_8.append("s3://").append("libreriapacifico/presentation").append("/")
+						.append("SalesFact.csv").append("' credentials '").append("aws_access_key_id=")
+						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
+						.append(decryptedPwd_tDBBulkExec_8).append("' ").append("DELIMITER '")
+						.append(fieldSeparator_tDBBulkExec_8).append("' ");
+
+				if (textEnclosure_tDBBulkExec_8 != '\0') {
+					command_tDBBulkExec_8.append("CSV QUOTE '").append(textEnclosure_tDBBulkExec_8).append("' ");
+				}
+				command_tDBBulkExec_8.append("ENCODING ").append("UTF8").append(" ");
+				command_tDBBulkExec_8.append("REGION '").append("us-east-2").append("' ");
+				command_tDBBulkExec_8.append("IGNOREHEADER ").append("1").append(" ");
+				command_tDBBulkExec_8.append("BLANKSASNULL ");
+				java.sql.Statement stmt_tDBBulkExec_8 = conn_tDBBulkExec_8.createStatement();
+				stmt_tDBBulkExec_8.execute(command_tDBBulkExec_8.toString());
+
+				/**
+				 * [tDBBulkExec_8 begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_8 main ] start
+				 */
+
+				currentComponent = "tDBBulkExec_8";
+
+				tos_count_tDBBulkExec_8++;
+
+				/**
+				 * [tDBBulkExec_8 main ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_8 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBBulkExec_8";
+
+				/**
+				 * [tDBBulkExec_8 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_8 process_data_end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_8";
+
+				/**
+				 * [tDBBulkExec_8 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBBulkExec_8 end ] start
+				 */
+
+				currentComponent = "tDBBulkExec_8";
+
+				ok_Hash.put("tDBBulkExec_8", true);
+				end_Hash.put("tDBBulkExec_8", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk11", 0, "ok");
+				}
+				tDBCommit_1Process(globalMap);
+
+				/**
+				 * [tDBBulkExec_8 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBBulkExec_8 finally ] start
+				 */
+
+				currentComponent = "tDBBulkExec_8";
+
+				/**
+				 * [tDBBulkExec_8 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBBulkExec_8_SUBPROCESS_STATE", 1);
 	}
 
 	public void tDBCommit_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
@@ -1372,6 +2647,6 @@ public class redshift_load_job implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 45086 characters generated by Talend Open Studio for Data Integration on the
- * December 6, 2022 at 1:12:42 AM CST
+ * 85986 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 10:31:21 PM CST
  ************************************************************************************************/

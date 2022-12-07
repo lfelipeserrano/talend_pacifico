@@ -3,14 +3,15 @@
   <TalendMetadata:DelimitedFileConnection xmi:id="_MYykIHRbEe2iCY_i5o0tjA" name="DimCustomer" dataPackage="_MYykIXRbEe2iCY_i5o0tjA" Server="Localhost 127.0.0.1" FilePath="C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimCustomer.csv" Encoding="US-ASCII" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
   <orgomg.cwm.resource.record:RecordFile xmi:id="_MYykIXRbEe2iCY_i5o0tjA" name="default" dataManager="_MYykIHRbEe2iCY_i5o0tjA">
     <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_MYykInRbEe2iCY_i5o0tjA" id="_JeGUoHRbEe2iCY_i5o0tjA" label="metadata">
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykI3RbEe2iCY_i5o0tjA" label="customer_key" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykJHRbEe2iCY_i5o0tjA" label="name" length="14" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykJXRbEe2iCY_i5o0tjA" label="country" length="13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykJnRbEe2iCY_i5o0tjA" label="company" length="11" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykJ3RbEe2iCY_i5o0tjA" label="street" length="24" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykKHRbEe2iCY_i5o0tjA" label="street_2" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykKXRbEe2iCY_i5o0tjA" label="city" length="9" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_MYykKnRbEe2iCY_i5o0tjA" label="state" length="5" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8UHXqEe2fdsHrMNdyKg" label="customer_key" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8UXXqEe2fdsHrMNdyKg" label="customer_id" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8UnXqEe2fdsHrMNdyKg" label="name" length="14" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8U3XqEe2fdsHrMNdyKg" label="country" length="13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8VHXqEe2fdsHrMNdyKg" label="company" length="11" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8VXXqEe2fdsHrMNdyKg" label="street" length="24" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8VnXqEe2fdsHrMNdyKg" label="street_2" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8V3XqEe2fdsHrMNdyKg" label="city" length="9" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_uzn8WHXqEe2fdsHrMNdyKg" label="state" length="5" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
     </ownedElement>
   </orgomg.cwm.resource.record:RecordFile>
 </xmi:XMI>

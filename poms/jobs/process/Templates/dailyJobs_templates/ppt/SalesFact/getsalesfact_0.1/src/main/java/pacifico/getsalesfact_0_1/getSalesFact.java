@@ -314,6 +314,16 @@ public class getSalesFact implements TalendJob {
 		tS3Get_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tS3Get_3_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tS3Get_3_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -331,6 +341,14 @@ public class getSalesFact implements TalendJob {
 	}
 
 	public void tS3Get_2_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tS3Get_3_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -370,7 +388,7 @@ public class getSalesFact implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:SHJ/qq98KtR1+deiLiZLZ7PSXK8OGqSZoabhdjN+7UvPxsww47CPRYCsFHSsdvtO8ZnNuix5AlUCyC9YhJc+gyPOIok=");
+						"enc:routine.encryption.key.v1:8xeVENrhjAVHGdEXC+2MiWjSi8LvQsnvcfpx9CFPjgimtzv1JOadX3ucdlZ71NAedwBf1SI2kM/vY7R6jAanDxm6uGM=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -776,6 +794,11 @@ public class getSalesFact implements TalendJob {
 				ok_Hash.put("tS3Get_2", true);
 				end_Hash.put("tS3Get_2", System.currentTimeMillis());
 
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
+				}
+				tS3Get_3Process(globalMap);
+
 				/**
 				 * [tS3Get_2 end ] stop
 				 */
@@ -813,6 +836,153 @@ public class getSalesFact implements TalendJob {
 		}
 
 		globalMap.put("tS3Get_2_SUBPROCESS_STATE", 1);
+	}
+
+	public void tS3Get_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tS3Get_3_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tS3Get_3 begin ] start
+				 */
+
+				ok_Hash.put("tS3Get_3", false);
+				start_Hash.put("tS3Get_3", System.currentTimeMillis());
+
+				currentComponent = "tS3Get_3";
+
+				int tos_count_tS3Get_3 = 0;
+
+				com.amazonaws.services.s3.AmazonS3Client conn_tS3Get_3 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
+						.get("conn_tS3Connection_1");
+
+				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Get_3 = null;
+
+				try {
+
+					tm_tS3Get_3 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
+							.withS3Client(conn_tS3Get_3).build();
+
+					com.amazonaws.services.s3.model.GetObjectRequest getObjectRequest_tS3Get_3 = new com.amazonaws.services.s3.model.GetObjectRequest(
+							"libreriapacifico/stage", "saleOrderLine.csv");
+
+					com.amazonaws.services.s3.transfer.Download download_tS3Get_3 = tm_tS3Get_3.download(
+							getObjectRequest_tS3Get_3,
+							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/saleOrderLine.csv"),
+							null, 0l, true);
+
+					download_tS3Get_3.waitForCompletion();
+
+				} catch (java.lang.Exception e_tS3Get_3) {
+					globalMap.put("tS3Get_3_ERROR_MESSAGE", e_tS3Get_3.getMessage());
+
+					System.err.println(e_tS3Get_3.getMessage());
+
+				} finally {
+
+					if (tm_tS3Get_3 != null) {
+						tm_tS3Get_3.shutdownNow(false);
+					}
+				}
+
+				/**
+				 * [tS3Get_3 begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_3 main ] start
+				 */
+
+				currentComponent = "tS3Get_3";
+
+				tos_count_tS3Get_3++;
+
+				/**
+				 * [tS3Get_3 main ] stop
+				 */
+
+				/**
+				 * [tS3Get_3 process_data_begin ] start
+				 */
+
+				currentComponent = "tS3Get_3";
+
+				/**
+				 * [tS3Get_3 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_3 process_data_end ] start
+				 */
+
+				currentComponent = "tS3Get_3";
+
+				/**
+				 * [tS3Get_3 process_data_end ] stop
+				 */
+
+				/**
+				 * [tS3Get_3 end ] start
+				 */
+
+				currentComponent = "tS3Get_3";
+
+				ok_Hash.put("tS3Get_3", true);
+				end_Hash.put("tS3Get_3", System.currentTimeMillis());
+
+				/**
+				 * [tS3Get_3 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tS3Get_3 finally ] start
+				 */
+
+				currentComponent = "tS3Get_3";
+
+				/**
+				 * [tS3Get_3 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tS3Get_3_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -1197,6 +1367,6 @@ public class getSalesFact implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 38682 characters generated by Talend Open Studio for Data Integration on the
- * December 5, 2022 at 11:22:08 PM CST
+ * 43093 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 11:17:55 PM CST
  ************************************************************************************************/

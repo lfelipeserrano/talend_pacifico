@@ -378,6 +378,12 @@ public class storeDim implements TalendJob {
 			return this.store_key;
 		}
 
+		public Integer store_id;
+
+		public Integer getStore_id() {
+			return this.store_id;
+		}
+
 		public String name;
 
 		public String getName() {
@@ -496,6 +502,8 @@ public class storeDim implements TalendJob {
 
 					this.store_key = readInteger(dis);
 
+					this.store_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 				} catch (IOException e) {
@@ -517,6 +525,8 @@ public class storeDim implements TalendJob {
 
 					this.store_key = readInteger(dis);
 
+					this.store_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 				} catch (IOException e) {
@@ -535,6 +545,10 @@ public class storeDim implements TalendJob {
 
 				writeInteger(this.store_key, dos);
 
+				// Integer
+
+				writeInteger(this.store_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -552,6 +566,10 @@ public class storeDim implements TalendJob {
 
 				writeInteger(this.store_key, dos);
 
+				// Integer
+
+				writeInteger(this.store_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -568,6 +586,7 @@ public class storeDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("store_key=" + String.valueOf(store_key));
+			sb.append(",store_id=" + String.valueOf(store_id));
 			sb.append(",name=" + name);
 			sb.append("]");
 
@@ -617,6 +636,12 @@ public class storeDim implements TalendJob {
 			return this.store_key;
 		}
 
+		public Integer store_id;
+
+		public Integer getStore_id() {
+			return this.store_id;
+		}
+
 		public String name;
 
 		public String getName() {
@@ -735,6 +760,8 @@ public class storeDim implements TalendJob {
 
 					this.store_key = readInteger(dis);
 
+					this.store_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 				} catch (IOException e) {
@@ -756,6 +783,8 @@ public class storeDim implements TalendJob {
 
 					this.store_key = readInteger(dis);
 
+					this.store_id = readInteger(dis);
+
 					this.name = readString(dis);
 
 				} catch (IOException e) {
@@ -774,6 +803,10 @@ public class storeDim implements TalendJob {
 
 				writeInteger(this.store_key, dos);
 
+				// Integer
+
+				writeInteger(this.store_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -791,6 +824,10 @@ public class storeDim implements TalendJob {
 
 				writeInteger(this.store_key, dos);
 
+				// Integer
+
+				writeInteger(this.store_id, dos);
+
 				// String
 
 				writeString(this.name, dos);
@@ -807,6 +844,7 @@ public class storeDim implements TalendJob {
 			sb.append(super.toString());
 			sb.append("[");
 			sb.append("store_key=" + String.valueOf(store_key));
+			sb.append(",store_id=" + String.valueOf(store_id));
 			sb.append(",name=" + name);
 			sb.append("]");
 
@@ -846,7 +884,7 @@ public class storeDim implements TalendJob {
 
 	}
 
-	public static class productProductStruct implements routines.system.IPersistableRow<productProductStruct> {
+	public static class posConfigStruct implements routines.system.IPersistableRow<posConfigStruct> {
 		final static byte[] commonByteArrayLock_PACIFICO_storeDim = new byte[0];
 		static byte[] commonByteArray_PACIFICO_storeDim = new byte[0];
 
@@ -2547,7 +2585,7 @@ public class storeDim implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(productProductStruct other) {
+		public int compareTo(posConfigStruct other) {
 
 			int returnValue = -1;
 
@@ -2597,7 +2635,7 @@ public class storeDim implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
-				productProductStruct productProduct = new productProductStruct();
+				posConfigStruct posConfig = new posConfigStruct();
 				StoreDimStruct StoreDim = new StoreDimStruct();
 				StoreDimStruct row1 = StoreDim;
 
@@ -2686,6 +2724,8 @@ public class storeDim implements TalendJob {
 				if (filetFileOutputDelimited_1.length() == 0) {
 					outtFileOutputDelimited_1.write("store_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+					outtFileOutputDelimited_1.write("store_id");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("name");
 					outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.flush();
@@ -2727,11 +2767,11 @@ public class storeDim implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[2];
+					int[] colLengths = new int[3];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 2; i++) {
+						for (int i = 0; i < 3; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -2758,11 +2798,11 @@ public class storeDim implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 1 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 2 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 1 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 2 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -2782,6 +2822,10 @@ public class storeDim implements TalendJob {
 
 							sbformat.append("|%2$-");
 							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -2807,8 +2851,13 @@ public class storeDim implements TalendJob {
 						}
 						sb.append(fillChars[3]);
 
+						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
 						// last column
-						for (int i = 0; i < colLengths[1] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[2] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -2824,7 +2873,7 @@ public class storeDim implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "store_key", "name", });
+				util_tLogRow_1.addRow(new String[] { "store_key", "store_id", "name", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -2843,7 +2892,7 @@ public class storeDim implements TalendJob {
 				currentComponent = "tMap_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "productProduct");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "posConfig");
 				}
 
 				int tos_count_tMap_1 = 0;
@@ -2910,10 +2959,10 @@ public class storeDim implements TalendJob {
 					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
 						rowstate_tFileInputDelimited_2.reset();
 
-						productProduct = null;
+						posConfig = null;
 
 						boolean whetherReject_tFileInputDelimited_2 = false;
-						productProduct = new productProductStruct();
+						posConfig = new posConfigStruct();
 						try {
 
 							int columnIndexWithD_tFileInputDelimited_2 = 0;
@@ -2927,26 +2976,26 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.id = ParserUtils.parseTo_Integer(temp);
+									posConfig.id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.id = null;
+								posConfig.id = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 1;
 
-							productProduct.name = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							posConfig.name = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 2;
 
@@ -2955,20 +3004,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.picking_type_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.picking_type_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"picking_type_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"picking_type_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.picking_type_id = null;
+								posConfig.picking_type_id = null;
 
 							}
 
@@ -2979,20 +3028,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.journal_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.journal_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"journal_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"journal_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.journal_id = null;
+								posConfig.journal_id = null;
 
 							}
 
@@ -3003,61 +3052,61 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.invoice_journal_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.invoice_journal_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"invoice_journal_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"invoice_journal_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.invoice_journal_id = null;
+								posConfig.invoice_journal_id = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 5;
 
-							productProduct.iface_cashdrawer = fid_tFileInputDelimited_2
+							posConfig.iface_cashdrawer = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 6;
 
-							productProduct.iface_electronic_scale = fid_tFileInputDelimited_2
+							posConfig.iface_electronic_scale = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 7;
 
-							productProduct.iface_customer_facing_display_via_proxy = fid_tFileInputDelimited_2
+							posConfig.iface_customer_facing_display_via_proxy = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 8;
 
-							productProduct.iface_customer_facing_display_local = fid_tFileInputDelimited_2
+							posConfig.iface_customer_facing_display_local = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 9;
 
-							productProduct.iface_print_via_proxy = fid_tFileInputDelimited_2
+							posConfig.iface_print_via_proxy = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 10;
 
-							productProduct.iface_scan_via_proxy = fid_tFileInputDelimited_2
+							posConfig.iface_scan_via_proxy = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 11;
 
-							productProduct.iface_big_scrollbars = fid_tFileInputDelimited_2
+							posConfig.iface_big_scrollbars = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 12;
 
-							productProduct.iface_orderline_customer_notes = fid_tFileInputDelimited_2
+							posConfig.iface_orderline_customer_notes = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 13;
@@ -3067,20 +3116,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.iface_print_auto = ParserUtils.parseTo_Boolean(temp);
+									posConfig.iface_print_auto = ParserUtils.parseTo_Boolean(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"iface_print_auto", "productProduct", temp, ex_tFileInputDelimited_2),
+											"iface_print_auto", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.iface_print_auto = null;
+								posConfig.iface_print_auto = null;
 
 							}
 
@@ -3091,62 +3140,61 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.iface_print_skip_screen = ParserUtils.parseTo_Boolean(temp);
+									posConfig.iface_print_skip_screen = ParserUtils.parseTo_Boolean(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"iface_print_skip_screen", "productProduct", temp,
-											ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+											"iface_print_skip_screen", "posConfig", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.iface_print_skip_screen = null;
+								posConfig.iface_print_skip_screen = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 15;
 
-							productProduct.iface_tax_included = fid_tFileInputDelimited_2
+							posConfig.iface_tax_included = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 16;
 
-							productProduct.iface_start_categ_id = fid_tFileInputDelimited_2
+							posConfig.iface_start_categ_id = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 17;
 
-							productProduct.iface_display_categ_images = fid_tFileInputDelimited_2
+							posConfig.iface_display_categ_images = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 18;
 
-							productProduct.restrict_price_control = fid_tFileInputDelimited_2
+							posConfig.restrict_price_control = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 19;
 
-							productProduct.set_maximum_difference = fid_tFileInputDelimited_2
+							posConfig.set_maximum_difference = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 20;
 
-							productProduct.receipt_header = fid_tFileInputDelimited_2
+							posConfig.receipt_header = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 21;
 
-							productProduct.receipt_footer = fid_tFileInputDelimited_2
+							posConfig.receipt_footer = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 22;
 
-							productProduct.proxy_ip = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
+							posConfig.proxy_ip = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 23;
 
@@ -3155,26 +3203,26 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.active = ParserUtils.parseTo_Boolean(temp);
+									posConfig.active = ParserUtils.parseTo_Boolean(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"active", "productProduct", temp, ex_tFileInputDelimited_2),
+											"active", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.active = null;
+								posConfig.active = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 24;
 
-							productProduct.uuid = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							posConfig.uuid = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 25;
 
@@ -3183,20 +3231,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.sequence_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.sequence_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"sequence_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"sequence_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.sequence_id = null;
+								posConfig.sequence_id = null;
 
 							}
 
@@ -3207,20 +3255,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.sequence_line_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.sequence_line_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"sequence_line_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"sequence_line_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.sequence_line_id = null;
+								posConfig.sequence_line_id = null;
 
 							}
 
@@ -3231,20 +3279,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.pricelist_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.pricelist_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"pricelist_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"pricelist_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.pricelist_id = null;
+								posConfig.pricelist_id = null;
 
 							}
 
@@ -3255,20 +3303,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.company_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.company_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"company_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"company_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.company_id = null;
+								posConfig.company_id = null;
 
 							}
 
@@ -3279,20 +3327,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.barcode_nomenclature_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.barcode_nomenclature_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"barcode_nomenclature_id", "productProduct", temp,
-											ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+											"barcode_nomenclature_id", "posConfig", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.barcode_nomenclature_id = null;
+								posConfig.barcode_nomenclature_id = null;
 
 							}
 
@@ -3303,20 +3351,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.group_pos_manager_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.group_pos_manager_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"group_pos_manager_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"group_pos_manager_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.group_pos_manager_id = null;
+								posConfig.group_pos_manager_id = null;
 
 							}
 
@@ -3327,51 +3375,51 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.group_pos_user_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.group_pos_user_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"group_pos_user_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"group_pos_user_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.group_pos_user_id = null;
+								posConfig.group_pos_user_id = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 32;
 
-							productProduct.iface_tipproduct = fid_tFileInputDelimited_2
+							posConfig.iface_tipproduct = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 33;
 
-							productProduct.tip_product_id = fid_tFileInputDelimited_2
+							posConfig.tip_product_id = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 34;
 
-							productProduct.default_fiscal_position_id = fid_tFileInputDelimited_2
+							posConfig.default_fiscal_position_id = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 35;
 
-							productProduct.use_pricelist = fid_tFileInputDelimited_2
+							posConfig.use_pricelist = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 36;
 
-							productProduct.tax_regime = fid_tFileInputDelimited_2
+							posConfig.tax_regime = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 37;
 
-							productProduct.tax_regime_selection = fid_tFileInputDelimited_2
+							posConfig.tax_regime_selection = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 38;
@@ -3381,26 +3429,26 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.start_category = ParserUtils.parseTo_Boolean(temp);
+									posConfig.start_category = ParserUtils.parseTo_Boolean(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"start_category", "productProduct", temp, ex_tFileInputDelimited_2),
+											"start_category", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.start_category = null;
+								posConfig.start_category = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 39;
 
-							productProduct.limit_categories = fid_tFileInputDelimited_2
+							posConfig.limit_categories = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 40;
@@ -3410,86 +3458,85 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.module_account = ParserUtils.parseTo_Boolean(temp);
+									posConfig.module_account = ParserUtils.parseTo_Boolean(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"module_account", "productProduct", temp, ex_tFileInputDelimited_2),
+											"module_account", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.module_account = null;
+								posConfig.module_account = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 41;
 
-							productProduct.module_pos_restaurant = fid_tFileInputDelimited_2
+							posConfig.module_pos_restaurant = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 42;
 
-							productProduct.module_pos_discount = fid_tFileInputDelimited_2
+							posConfig.module_pos_discount = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 43;
 
-							productProduct.module_pos_loyalty = fid_tFileInputDelimited_2
+							posConfig.module_pos_loyalty = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 44;
 
-							productProduct.module_pos_mercury = fid_tFileInputDelimited_2
+							posConfig.module_pos_mercury = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 45;
 
-							productProduct.product_configurator = fid_tFileInputDelimited_2
+							posConfig.product_configurator = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 46;
 
-							productProduct.is_posbox = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
+							posConfig.is_posbox = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 47;
 
-							productProduct.is_header_or_footer = fid_tFileInputDelimited_2
+							posConfig.is_header_or_footer = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 48;
 
-							productProduct.module_pos_hr = fid_tFileInputDelimited_2
+							posConfig.module_pos_hr = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 49;
 
-							productProduct.amount_authorized_diff = fid_tFileInputDelimited_2
+							posConfig.amount_authorized_diff = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 50;
 
-							productProduct.other_devices = fid_tFileInputDelimited_2
+							posConfig.other_devices = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 51;
 
-							productProduct.rounding_method = fid_tFileInputDelimited_2
+							posConfig.rounding_method = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 52;
 
-							productProduct.cash_rounding = fid_tFileInputDelimited_2
+							posConfig.cash_rounding = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 53;
 
-							productProduct.only_round_cash_method = fid_tFileInputDelimited_2
+							posConfig.only_round_cash_method = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 54;
@@ -3499,26 +3546,26 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.manual_discount = ParserUtils.parseTo_Boolean(temp);
+									posConfig.manual_discount = ParserUtils.parseTo_Boolean(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"manual_discount", "productProduct", temp, ex_tFileInputDelimited_2),
+											"manual_discount", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.manual_discount = null;
+								posConfig.manual_discount = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 55;
 
-							productProduct.ship_later = fid_tFileInputDelimited_2
+							posConfig.ship_later = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 56;
@@ -3528,36 +3575,35 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.warehouse_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.warehouse_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"warehouse_id", "productProduct", temp, ex_tFileInputDelimited_2),
+											"warehouse_id", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.warehouse_id = null;
+								posConfig.warehouse_id = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 57;
 
-							productProduct.route_id = fid_tFileInputDelimited_2
-									.get(columnIndexWithD_tFileInputDelimited_2);
+							posConfig.route_id = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 58;
 
-							productProduct.picking_policy = fid_tFileInputDelimited_2
+							posConfig.picking_policy = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 59;
 
-							productProduct.limited_products_loading = fid_tFileInputDelimited_2
+							posConfig.limited_products_loading = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 60;
@@ -3567,31 +3613,31 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.limited_products_amount = ParserUtils.parseTo_Integer(temp);
+									posConfig.limited_products_amount = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"limited_products_amount", "productProduct", temp,
-											ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+											"limited_products_amount", "posConfig", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.limited_products_amount = null;
+								posConfig.limited_products_amount = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 61;
 
-							productProduct.product_load_background = fid_tFileInputDelimited_2
+							posConfig.product_load_background = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 62;
 
-							productProduct.limited_partners_loading = fid_tFileInputDelimited_2
+							posConfig.limited_partners_loading = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 63;
@@ -3601,26 +3647,26 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.limited_partners_amount = ParserUtils.parseTo_Integer(temp);
+									posConfig.limited_partners_amount = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"limited_partners_amount", "productProduct", temp,
-											ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+											"limited_partners_amount", "posConfig", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.limited_partners_amount = null;
+								posConfig.limited_partners_amount = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 64;
 
-							productProduct.partner_load_background = fid_tFileInputDelimited_2
+							posConfig.partner_load_background = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 65;
@@ -3630,20 +3676,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.create_uid = ParserUtils.parseTo_Integer(temp);
+									posConfig.create_uid = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_uid", "productProduct", temp, ex_tFileInputDelimited_2),
+											"create_uid", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.create_uid = null;
+								posConfig.create_uid = null;
 
 							}
 
@@ -3654,20 +3700,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+									posConfig.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_date", "productProduct", temp, ex_tFileInputDelimited_2),
+											"create_date", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.create_date = null;
+								posConfig.create_date = null;
 
 							}
 
@@ -3678,20 +3724,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.write_uid = ParserUtils.parseTo_Integer(temp);
+									posConfig.write_uid = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_uid", "productProduct", temp, ex_tFileInputDelimited_2),
+											"write_uid", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.write_uid = null;
+								posConfig.write_uid = null;
 
 							}
 
@@ -3702,31 +3748,31 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+									posConfig.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_date", "productProduct", temp, ex_tFileInputDelimited_2),
+											"write_date", "posConfig", temp, ex_tFileInputDelimited_2),
 											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.write_date = null;
+								posConfig.write_date = null;
 
 							}
 
 							columnIndexWithD_tFileInputDelimited_2 = 69;
 
-							productProduct.epson_printer_ip = fid_tFileInputDelimited_2
+							posConfig.epson_printer_ip = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 70;
 
-							productProduct.crm_team_id = fid_tFileInputDelimited_2
+							posConfig.crm_team_id = fid_tFileInputDelimited_2
 									.get(columnIndexWithD_tFileInputDelimited_2);
 
 							columnIndexWithD_tFileInputDelimited_2 = 71;
@@ -3736,20 +3782,20 @@ public class storeDim implements TalendJob {
 
 								try {
 
-									productProduct.down_payment_product_id = ParserUtils.parseTo_Integer(temp);
+									posConfig.down_payment_product_id = ParserUtils.parseTo_Integer(temp);
 
 								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
 									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
 											ex_tFileInputDelimited_2.getMessage());
 									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
 											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"down_payment_product_id", "productProduct", temp,
-											ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+											"down_payment_product_id", "posConfig", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
 								}
 
 							} else {
 
-								productProduct.down_payment_product_id = null;
+								posConfig.down_payment_product_id = null;
 
 							}
 
@@ -3762,7 +3808,7 @@ public class storeDim implements TalendJob {
 							whetherReject_tFileInputDelimited_2 = true;
 
 							System.err.println(e.getMessage());
-							productProduct = null;
+							posConfig = null;
 
 						}
 
@@ -3791,8 +3837,8 @@ public class storeDim implements TalendJob {
 						/**
 						 * [tFileInputDelimited_2 process_data_begin ] stop
 						 */
-// Start of branch "productProduct"
-						if (productProduct != null) {
+// Start of branch "posConfig"
+						if (posConfig != null) {
 
 							/**
 							 * [tMap_1 main ] start
@@ -3803,7 +3849,7 @@ public class storeDim implements TalendJob {
 							if (execStat) {
 								runStat.updateStatOnConnection(iterateId, 1, 1
 
-										, "productProduct"
+										, "posConfig"
 
 								);
 							}
@@ -3829,7 +3875,8 @@ public class storeDim implements TalendJob {
 
 // # Output table : 'StoreDim'
 								StoreDim_tmp.store_key = Numeric.sequence("StoreDimSeq", 1, 1);
-								StoreDim_tmp.name = productProduct.name;
+								StoreDim_tmp.store_id = posConfig.id;
+								StoreDim_tmp.name = posConfig.name;
 								StoreDim = StoreDim_tmp;
 // ###############################
 
@@ -3871,15 +3918,20 @@ public class storeDim implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[2];
+								String[] row_tLogRow_1 = new String[3];
 
 								if (StoreDim.store_key != null) { //
 									row_tLogRow_1[0] = String.valueOf(StoreDim.store_key);
 
 								} //
 
+								if (StoreDim.store_id != null) { //
+									row_tLogRow_1[1] = String.valueOf(StoreDim.store_id);
+
+								} //
+
 								if (StoreDim.name != null) { //
-									row_tLogRow_1[1] = String.valueOf(StoreDim.name);
+									row_tLogRow_1[2] = String.valueOf(StoreDim.name);
 
 								} //
 
@@ -3926,6 +3978,10 @@ public class storeDim implements TalendJob {
 								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
 								if (row1.store_key != null) {
 									sb_tFileOutputDelimited_1.append(row1.store_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.store_id != null) {
+									sb_tFileOutputDelimited_1.append(row1.store_id);
 								}
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row1.name != null) {
@@ -3986,7 +4042,7 @@ public class storeDim implements TalendJob {
 							 * [tMap_1 process_data_end ] stop
 							 */
 
-						} // End of branch "productProduct"
+						} // End of branch "posConfig"
 
 						/**
 						 * [tFileInputDelimited_2 process_data_end ] start
@@ -4035,7 +4091,7 @@ public class storeDim implements TalendJob {
 // ###############################      
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "productProduct");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "posConfig");
 				}
 
 				ok_Hash.put("tMap_1", true);
@@ -4221,7 +4277,7 @@ public class storeDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:PQy5orhyGCFFxtDdsQ2ad82X9gV8eweD82LOYJYTHnp0cZwDPhcXq/23IDixKEtapXTgL7W1ajR/es0EOuwAgKA5vu8=");
+						"enc:routine.encryption.key.v1:HP6sBsTO10mOsA033ZFU7u37TG2GDF3945fCkV78Z/c0T/gDytaBNX1pTIC6vxOZ05OC+ztQBvbZWgpfGuJYemBp6UU=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -5020,6 +5076,6 @@ public class storeDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 154216 characters generated by Talend Open Studio for Data Integration on the
- * December 5, 2022 at 10:49:10 PM CST
+ * 155490 characters generated by Talend Open Studio for Data Integration on the
+ * December 6, 2022 at 10:45:37 PM CST
  ************************************************************************************************/
