@@ -1,0 +1,71 @@
+CREATE TABLE "public"."attributegroupbridge"(attribute_group_key integer NOT NULL encode az64,
+    attribute_key       integer encode az64,
+    CONSTRAINT attributegroupbridge_pkey PRIMARY KEY(attribute_group_key),
+    CONSTRAINT attributegroupbridge_attribute_key_fkey FOREIGN KEY (attribute_key) REFERENCES dimattribute(attribute_key));
+
+CREATE TABLE "public"."dimattribute"(attribute_key integer NOT NULL encode az64,
+    attribute_id  integer encode az64,
+    name          character varying(256) encode lzo,
+    value         character varying(256) encode lzo,
+    CONSTRAINT dimattribute_pkey PRIMARY KEY(attribute_key));
+
+CREATE TABLE "public"."dimproduct"(product_key integer NOT NULL encode az64,
+    product_id           integer encode az64,
+    attribute_group_key  integer encode az64,
+    product_name         character varying(256) encode lzo,
+    product_description  character varying(256) encode lzo,
+    category             character varying(256) encode lzo,
+    category_description character varying(256) encode lzo,
+    weight               integer encode az64,
+    volume               character varying(256) encode lzo,
+    barcode              character varying(256) encode lzo,
+    product_code         character varying(256) encode lzo,
+    CONSTRAINT dimproduct_pkey PRIMARY KEY(product_key));
+
+CREATE TABLE "public"."dimdate"(datenum integer NOT NULL encode az64,
+    date             character varying(256) encode lzo,
+    yearmonthnum     integer encode az64,
+    calendar_quarter character varying(256) encode lzo,
+    monthnum         integer encode az64,
+    monthname        character varying(256) encode lzo,
+    monthshortname   character varying(256) encode lzo,
+    weeknum          integer encode az64,
+    daynumofyear     integer encode az64,
+    daynumofmonth    integer encode az64,
+    daynumofweek     integer encode az64,
+    dayname          character varying(256) encode lzo,
+    dayshortname     character varying(256) encode lzo,
+    quarter          integer encode az64,
+    yearquarternum   integer encode az64,
+    daynumofquarter  integer encode az64,
+    CONSTRAINT dimdate_pkey PRIMARY KEY(datenum)) distkey(datenum) compound sortkey(datenum);
+
+CREATE TABLE "public"."dimpaymentmethod"(payment_method_key integer NOT NULL encode az64,
+    payment_method_id  integer encode az64,
+    name               character varying(256) encode lzo,
+    iscash             boolean,
+    CONSTRAINT dimpaymentmethod_pkey PRIMARY KEY(payment_method_key));
+
+CREATE TABLE "public"."dimstore"(store_key integer NOT NULL encode az64,
+    store_id  integer encode az64,
+    name      character varying(256) encode lzo,
+    CONSTRAINT dimstore_pkey PRIMARY KEY(store_key));
+
+CREATE TABLE "public"."factsales"(sale_id integer NOT NULL encode az64,
+    date_key                            integer encode az64,
+    product_key                         integer encode az64,
+    store_key                           integer encode az64,
+    payment_method_key                  integer encode az64,
+    pos_transaction                     integer encode az64,
+    sales_quantity                      integer encode az64,
+    regular_unit_price                  numeric(18,0) encode az64,
+    discount_unit_price                 numeric(18,0) encode az64,
+    net_unit_price                      numeric(18,0) encode az64,
+    extended_discount_dollar_amount     numeric(18,0) encode az64,
+    extended_sales_dollar_amount        numeric(18,0) encode az64,
+    extended_gross_profit_dollar_amount numeric(18,0) encode az64,
+    CONSTRAINT factsales_pkey PRIMARY KEY(sale_id),
+    CONSTRAINT factsales_payment_method_key_fkey FOREIGN KEY (payment_method_key) REFERENCES dimpaymentmethod(payment_method_key),
+    CONSTRAINT factsales_store_key_fkey FOREIGN KEY (store_key) REFERENCES dimstore(store_key),
+    CONSTRAINT factsales_product_key_fkey FOREIGN KEY (product_key) REFERENCES dimproduct(product_key),
+    CONSTRAINT factsales_date_key_fkey FOREIGN KEY (date_key) REFERENCES dimdate(datenum));
