@@ -7,7 +7,7 @@
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7ARFs1Ee2GC6KrxrpFfQ" label="name" length="9" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7ARVs1Ee2GC6KrxrpFfQ" label="date_order" length="10" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7ARls1Ee2GC6KrxrpFfQ" label="user_id" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
-      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7AR1s1Ee2GC6KrxrpFfQ" label="amount_tax" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7AR1s1Ee2GC6KrxrpFfQ" label="amount_tax" length="-1" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7ASFs1Ee2GC6KrxrpFfQ" label="amount_total" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7ASVs1Ee2GC6KrxrpFfQ" label="amount_paid" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_mk7ASls1Ee2GC6KrxrpFfQ" label="amount_return" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>

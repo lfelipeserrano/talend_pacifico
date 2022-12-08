@@ -378,9 +378,9 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					return this.product_id;
 				}
 				
-			    public BigDecimal price_unit;
+			    public Float price_unit;
 
-				public BigDecimal getPrice_unit () {
+				public Float getPrice_unit () {
 					return this.price_unit;
 				}
 				
@@ -414,9 +414,9 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					return this.is_total_cost_computed;
 				}
 				
-			    public BigDecimal discount;
+			    public Float discount;
 
-				public BigDecimal getDiscount () {
+				public Float getDiscount () {
 					return this.discount;
 				}
 				
@@ -650,7 +650,12 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					
 			        this.product_id = dis.readInt();
 					
-						this.price_unit = (BigDecimal) dis.readObject();
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.price_unit = null;
+           				} else {
+           			    	this.price_unit = dis.readFloat();
+           				}
 					
 						this.qty = (BigDecimal) dis.readObject();
 					
@@ -667,7 +672,12 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
            			    	this.is_total_cost_computed = dis.readBoolean();
            				}
 					
-						this.discount = (BigDecimal) dis.readObject();
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.discount = null;
+           				} else {
+           			    	this.discount = dis.readFloat();
+           				}
 					
 			        this.order_id = dis.readInt();
 					
@@ -726,7 +736,12 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					
 			        this.product_id = dis.readInt();
 					
-						this.price_unit = (BigDecimal) dis.readObject();
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.price_unit = null;
+           				} else {
+           			    	this.price_unit = dis.readFloat();
+           				}
 					
 						this.qty = (BigDecimal) dis.readObject();
 					
@@ -743,7 +758,12 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
            			    	this.is_total_cost_computed = dis.readBoolean();
            				}
 					
-						this.discount = (BigDecimal) dis.readObject();
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.discount = null;
+           				} else {
+           			    	this.discount = dis.readFloat();
+           				}
 					
 			        this.order_id = dis.readInt();
 					
@@ -808,9 +828,14 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 				
 		            	dos.writeInt(this.product_id);
 					
-					// BigDecimal
+					// Float
 				
-       			    	dos.writeObject(this.price_unit);
+						if(this.price_unit == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeFloat(this.price_unit);
+		            	}
 					
 					// BigDecimal
 				
@@ -837,9 +862,14 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
            			    	dos.writeBoolean(this.is_total_cost_computed);
 		            	}
 					
-					// BigDecimal
+					// Float
 				
-       			    	dos.writeObject(this.discount);
+						if(this.discount == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeFloat(this.discount);
+		            	}
 					
 					// int
 				
@@ -916,9 +946,14 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 				
 		            	dos.writeInt(this.product_id);
 					
-					// BigDecimal
+					// Float
 				
-       			    	dos.writeObject(this.price_unit);
+						if(this.price_unit == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeFloat(this.price_unit);
+		            	}
 					
 					// BigDecimal
 				
@@ -945,9 +980,14 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
            			    	dos.writeBoolean(this.is_total_cost_computed);
 		            	}
 					
-					// BigDecimal
+					// Float
 				
-       			    	dos.writeObject(this.discount);
+						if(this.discount == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeFloat(this.discount);
+		            	}
 					
 					// int
 				
@@ -1263,7 +1303,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 				String dbUser_tDBInput_1 = "openpg";
 				
 				 
-	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:Jszt5NSZ6MZ/HHhT7w4mNniXg8+7pNa8vWkd2QC/zQRUnkIhMg==");
+	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:VUPOqp0N1SRW3xPmM5ZNwLX81sTm17PbttkMCm/xGbXLzRv9Mg==");
 				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 				
@@ -1336,7 +1376,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 								row1.price_unit = null;
 							} else {
 		                          
-            row1.price_unit = rs_tDBInput_1.getBigDecimal(6);
+            row1.price_unit = rs_tDBInput_1.getFloat(6);
             if(rs_tDBInput_1.wasNull()){
                     row1.price_unit = null;
             }
@@ -1390,7 +1430,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 								row1.discount = null;
 							} else {
 		                          
-            row1.discount = rs_tDBInput_1.getBigDecimal(12);
+            row1.discount = rs_tDBInput_1.getFloat(12);
             if(rs_tDBInput_1.wasNull()){
                     row1.discount = null;
             }
@@ -1582,7 +1622,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
                             sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
                             if(row1.price_unit != null) {
                         sb_tFileOutputDelimited_1.append(
-                            row1.price_unit.setScale(0, java.math.RoundingMode.HALF_UP).toPlainString()
+                            row1.price_unit
                         );
                             }
                             sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
@@ -1618,7 +1658,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
                             sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
                             if(row1.discount != null) {
                         sb_tFileOutputDelimited_1.append(
-                            row1.discount.setScale(0, java.math.RoundingMode.HALF_UP).toPlainString()
+                            row1.discount
                         );
                             }
                             sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
@@ -2009,7 +2049,7 @@ public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap
 	
 	
 	     
-	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:sUqzYjH3Bd21+Mhg25tYxRSFBvMAZrfumNpoVgrmYmldQjkKjwWBZnmG0tvGl05SzIn1wmWaJFkcRl7EfSE5Eu3rLyc=");
+	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:P3Xz4zJ53bESQvZz2Q3AmoBXLcXavNFcEeA1ewPUcnM/4OQ4dM/2QWM4YCBtX7sp/a0+wev3VfL/XxnPQEQQ5gYSE8s=");
 
             com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials("AKIAVMNG53PS4OCUVYGK",decryptedPassword_tS3Connection_1);
             com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(credentials_tS3Connection_1);
@@ -2982,6 +3022,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     90554 characters generated by Talend Open Studio for Data Integration 
- *     on the October 31, 2022 at 10:59:15 PM CST
+ *     91632 characters generated by Talend Open Studio for Data Integration 
+ *     on the December 5, 2022 at 10:30:59 PM CST
  ************************************************************************************************/

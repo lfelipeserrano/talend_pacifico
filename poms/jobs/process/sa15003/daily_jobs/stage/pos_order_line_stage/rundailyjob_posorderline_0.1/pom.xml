@@ -131,7 +131,7 @@
     </dependency>
     <dependency>
       <groupId>org.example.pacifico.job</groupId>
-      <artifactId>dailyJobStage_posOrderLine</artifactId>
+      <artifactId>dailyJob_posOrderLine</artifactId>
       <version>0.1.0</version>
     </dependency>
   </dependencies>

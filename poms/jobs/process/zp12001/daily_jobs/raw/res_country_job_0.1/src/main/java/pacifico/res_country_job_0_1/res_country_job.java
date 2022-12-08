@@ -346,14 +346,6 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
     final static byte[] commonByteArrayLock_PACIFICO_res_country_job = new byte[0];
     static byte[] commonByteArray_PACIFICO_res_country_job = new byte[0];
-	protected static final int DEFAULT_HASHCODE = 1;
-    protected static final int PRIME = 31;
-    protected int hashCode = DEFAULT_HASHCODE;
-    public boolean hashCodeDirty = true;
-
-    public String loopKey;
-
-
 
 	
 			    public int id;
@@ -372,12 +364,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
 				public String getCode () {
 					return this.code;
-				}
-				
-			    public String address_format;
-
-				public String getAddress_format () {
-					return this.address_format;
 				}
 				
 			    public Integer address_view_id;
@@ -446,62 +432,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					return this.write_date;
 				}
 				
-
-
-	@Override
-	public int hashCode() {
-		if (this.hashCodeDirty) {
-			final int prime = PRIME;
-			int result = DEFAULT_HASHCODE;
-	
-							result = prime * result + (int) this.id;
-						
-    		this.hashCode = result;
-    		this.hashCodeDirty = false;
-		}
-		return this.hashCode;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
-		final row1Struct other = (row1Struct) obj;
-		
-						if (this.id != other.id)
-							return false;
-					
-
-		return true;
-    }
-
-	public void copyDataTo(row1Struct other) {
-
-		other.id = this.id;
-	            other.name = this.name;
-	            other.code = this.code;
-	            other.address_format = this.address_format;
-	            other.address_view_id = this.address_view_id;
-	            other.currency_id = this.currency_id;
-	            other.phone_code = this.phone_code;
-	            other.name_position = this.name_position;
-	            other.vat_label = this.vat_label;
-	            other.state_required = this.state_required;
-	            other.zip_required = this.zip_required;
-	            other.create_uid = this.create_uid;
-	            other.create_date = this.create_date;
-	            other.write_uid = this.write_uid;
-	            other.write_date = this.write_date;
-	            
-	}
-
-	public void copyKeysDataTo(row1Struct other) {
-
-		other.id = this.id;
-	            	
-	}
-
 
 
 
@@ -662,8 +592,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					
 					this.code = readString(dis);
 					
-					this.address_format = readString(dis);
-					
 						this.address_view_id = readInteger(dis);
 					
 						this.currency_id = readInteger(dis);
@@ -723,8 +651,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					this.name = readString(dis);
 					
 					this.code = readString(dis);
-					
-					this.address_format = readString(dis);
 					
 						this.address_view_id = readInteger(dis);
 					
@@ -787,10 +713,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 					// String
 				
 						writeString(this.code,dos);
-					
-					// String
-				
-						writeString(this.address_format,dos);
 					
 					// Integer
 				
@@ -869,10 +791,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 				
 						writeString(this.code,dos);
 					
-					// String
-				
-						writeString(this.address_format,dos);
-					
 					// Integer
 				
 						writeInteger(this.address_view_id,dos);
@@ -943,7 +861,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		sb.append("id="+String.valueOf(id));
 		sb.append(",name="+name);
 		sb.append(",code="+code);
-		sb.append(",address_format="+address_format);
 		sb.append(",address_view_id="+String.valueOf(address_view_id));
 		sb.append(",currency_id="+String.valueOf(currency_id));
 		sb.append(",phone_code="+String.valueOf(phone_code));
@@ -967,12 +884,6 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
 		int returnValue = -1;
 		
-						returnValue = checkNullsAndCompare(this.id, other.id);
-						if(returnValue != 0) {
-							return returnValue;
-						}
-
-					
 	    return returnValue;
     }
 
@@ -1110,8 +1021,6 @@ String fileName_tFileOutputDelimited_1 = "";
                                             outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
                                         outtFileOutputDelimited_1.write("code");
                                             outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-                                        outtFileOutputDelimited_1.write("address_format");
-                                            outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
                                         outtFileOutputDelimited_1.write("address_view_id");
                                             outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
                                         outtFileOutputDelimited_1.write("currency_id");
@@ -1179,7 +1088,7 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 				String dbUser_tDBInput_1 = "openpg";
 				
 				 
-	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:oZlvRDWe7P6mho4ZbrfoCzSNMcrJ9Zda/trQrAmDs8W8b5/EXg==");
+	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:wv9j8IkBYPqmTQAHFDao2/DEJp8+GD/bYiGYq0rexx/vcgVxFw==");
 				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 				
@@ -1231,97 +1140,91 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
         	row1.code = routines.system.JDBCUtil.getString(rs_tDBInput_1, 3, false);
 		                    }
 							if(colQtyInRs_tDBInput_1 < 4) {
-								row1.address_format = null;
-							} else {
-	                         		
-        	row1.address_format = routines.system.JDBCUtil.getString(rs_tDBInput_1, 4, false);
-		                    }
-							if(colQtyInRs_tDBInput_1 < 5) {
 								row1.address_view_id = null;
 							} else {
 		                          
-            row1.address_view_id = rs_tDBInput_1.getInt(5);
+            row1.address_view_id = rs_tDBInput_1.getInt(4);
             if(rs_tDBInput_1.wasNull()){
                     row1.address_view_id = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 6) {
+							if(colQtyInRs_tDBInput_1 < 5) {
 								row1.currency_id = null;
 							} else {
 		                          
-            row1.currency_id = rs_tDBInput_1.getInt(6);
+            row1.currency_id = rs_tDBInput_1.getInt(5);
             if(rs_tDBInput_1.wasNull()){
                     row1.currency_id = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 7) {
+							if(colQtyInRs_tDBInput_1 < 6) {
 								row1.phone_code = null;
 							} else {
 		                          
-            row1.phone_code = rs_tDBInput_1.getInt(7);
+            row1.phone_code = rs_tDBInput_1.getInt(6);
             if(rs_tDBInput_1.wasNull()){
                     row1.phone_code = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 8) {
+							if(colQtyInRs_tDBInput_1 < 7) {
 								row1.name_position = null;
 							} else {
 	                         		
-        	row1.name_position = routines.system.JDBCUtil.getString(rs_tDBInput_1, 8, false);
+        	row1.name_position = routines.system.JDBCUtil.getString(rs_tDBInput_1, 7, false);
 		                    }
-							if(colQtyInRs_tDBInput_1 < 9) {
+							if(colQtyInRs_tDBInput_1 < 8) {
 								row1.vat_label = null;
 							} else {
 	                         		
-        	row1.vat_label = routines.system.JDBCUtil.getString(rs_tDBInput_1, 9, false);
+        	row1.vat_label = routines.system.JDBCUtil.getString(rs_tDBInput_1, 8, false);
 		                    }
-							if(colQtyInRs_tDBInput_1 < 10) {
+							if(colQtyInRs_tDBInput_1 < 9) {
 								row1.state_required = null;
 							} else {
 	                         		
-            row1.state_required = rs_tDBInput_1.getBoolean(10);
+            row1.state_required = rs_tDBInput_1.getBoolean(9);
             if(rs_tDBInput_1.wasNull()){
                     row1.state_required = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 11) {
+							if(colQtyInRs_tDBInput_1 < 10) {
 								row1.zip_required = null;
 							} else {
 	                         		
-            row1.zip_required = rs_tDBInput_1.getBoolean(11);
+            row1.zip_required = rs_tDBInput_1.getBoolean(10);
             if(rs_tDBInput_1.wasNull()){
                     row1.zip_required = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 12) {
+							if(colQtyInRs_tDBInput_1 < 11) {
 								row1.create_uid = null;
 							} else {
 		                          
-            row1.create_uid = rs_tDBInput_1.getInt(12);
+            row1.create_uid = rs_tDBInput_1.getInt(11);
             if(rs_tDBInput_1.wasNull()){
                     row1.create_uid = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 13) {
+							if(colQtyInRs_tDBInput_1 < 12) {
 								row1.create_date = null;
 							} else {
 										
-			row1.create_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 13);
+			row1.create_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 12);
 		                    }
-							if(colQtyInRs_tDBInput_1 < 14) {
+							if(colQtyInRs_tDBInput_1 < 13) {
 								row1.write_uid = null;
 							} else {
 		                          
-            row1.write_uid = rs_tDBInput_1.getInt(14);
+            row1.write_uid = rs_tDBInput_1.getInt(13);
             if(rs_tDBInput_1.wasNull()){
                     row1.write_uid = null;
             }
 		                    }
-							if(colQtyInRs_tDBInput_1 < 15) {
+							if(colQtyInRs_tDBInput_1 < 14) {
 								row1.write_date = null;
 							} else {
 										
-			row1.write_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 15);
+			row1.write_date = routines.system.JDBCUtil.getDate(rs_tDBInput_1, 14);
 		                    }
 					
 
@@ -1411,12 +1314,6 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
                             if(row1.code != null) {
                         sb_tFileOutputDelimited_1.append(
                             row1.code
-                        );
-                            }
-                            sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-                            if(row1.address_format != null) {
-                        sb_tFileOutputDelimited_1.append(
-                            row1.address_format
                         );
                             }
                             sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
@@ -1809,7 +1706,7 @@ public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap
 	
 	
 	     
-	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:CExtksBLlq9XO9zPd0sLGD1yVo+viu3LpwM22laICtPBi5X3T0jNxXLK/eeeKAMEM5wH+xEjQMbR6G9A2gTFnfnh+zc=");
+	final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:E6kt5O76HCDpapp+F/RpExWR71gHXzwufcyBA/C0emVoOaamNc9LN9ifbRdquqJ4o3opyJmiDxwAZuN5Ucsd4ZQt93I=");
 
             com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials("AKIAVMNG53PS4OCUVYGK",decryptedPassword_tS3Connection_1);
             com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(credentials_tS3Connection_1);
@@ -2782,6 +2679,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     81466 characters generated by Talend Open Studio for Data Integration 
- *     on the October 31, 2022 at 11:00:50 PM CST
+ *     78402 characters generated by Talend Open Studio for Data Integration 
+ *     on the December 5, 2022 at 10:31:36 PM CST
  ************************************************************************************************/

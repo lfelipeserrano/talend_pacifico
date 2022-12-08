@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <recyclebin:RecycleBin xmlns:recyclebin="http://www.talend.org/recyclebin">
   <deletedFolders>process/pf15002/RawData</deletedFolders>
+  <deletedItems id="_zlIvMHRYEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_CdWEAFsHEe2svv36Y068bQ" path="" type="PROCESS"/>
   <deletedItems id="_He4x4FpwEe2ls9afLJpI4Q" path="Templates" type="PROCESS"/>
   <deletedItems id="_mLiRAFmiEe2EtZD-YglpCA" path="pf15002/dailyJobs/stage" type="PROCESS"/>
