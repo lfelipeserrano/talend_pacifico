@@ -16,7 +16,7 @@
 
 # Contenido
 1. Modelado dimensional
-![alt text](../main/ModeladoDimensional.png?raw=true)
+![alt text](../main/Modelado%20Dimensional.png?raw=true)
 2. Procesos ETL: *Proyecto de talend*.
 3. Script para creacion de base de datos en *Redshift* [SQL SCRIPT](../main/dw_sql.sql)
-4. Tablero de power bi (../main/Metricas.pbix)
+4. Tablero de power bi [Tablero](../main/Metricas.pbix)
