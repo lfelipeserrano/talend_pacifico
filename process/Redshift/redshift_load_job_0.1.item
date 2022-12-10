@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:6NUtvAHfow8T/fC/0SnthhzNR0/7C8lFD2OkpF0V" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:w+NPzGdvSvA2oA3lwIESWg3vT0Y2GE3wy1ss4dc/" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:GA1UOCjF43/z3rHPDo+uA13i3DsGAbpnIfZ0cgz+" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:GgUSEBxvLQb4JNv1b9Tr4NvbpsOl4f4AdevdslK0" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -117,7 +117,7 @@
     <elementParameter field="TEXT" name="DBNAME" value="&quot;pacifico&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:5vC02EySpiy7y+dvwDnzAaYsfGtFQ4Ik9Sb5ejF0tR9JKX4lTYCt"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:uYnpEME1+oTpJbpISGPgQI9d3REv54v4PVNdUZTFh58eZn0ac+j9"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
@@ -136,7 +136,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;AKIAVMNG53PS4LMU54AJ&quot;"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:h8UBCKV9r7bcLrfVp+v5whVCTTjTZ8ekFaoJk92Q73sHOo3rGQV+i1QiAw5Tq3MbQ6HMWTK6Thp164JfEBcxEonB9BYu2w=="/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:1gZzxSXF24Om46U2u66npHEjrsLaEdLWiIx3JtP0o5L7FRaGia/972AHl7xH133NoZRSfX+JOJPmDGdPJCmxr+G+CFpYdg=="/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -147,8 +147,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:FP88fTAA8M8fX1ifxWUdBcrrhS/axyqEEyi7RYx7" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:HZ70sNp7Ne1JySMRbI6HldUkOzzB3abB34bB+oPL" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:R/YQu+dbCmlLtVQcEtiO3M3Dk6vpdTqz1zOpB/Il" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:qd5f22sl9g54/Y7rMC2hXFSL3Gv+xffSwiX2Dh+j" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
@@ -186,29 +186,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:iCpHMdmnyJHVlk6vJyaTQwqRfz621Qh1yatdPFDEVAd/Rv8I804c" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:JabYVHVIbmEiEgDOq86QH9tTOwHYtL9Wricro4RzIHg1qAO8x6sZ" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dimcustomer&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:inc2J7SwpIiUtTKjH8Kz3XjqGajQ8TuJnTyWLXO8" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:vNken/bW9VNoswgNUmg0C394Qd8+shkwE7xLt+vD" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;DimCustomer.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:mpjc/II5j9RqJilK46FtwKC4gNkGeY/sclKylLKv" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:X6r/i7h/y2qn//aoKgvKAlx7ICkhSTJotSo/fhjn" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:fXxjtLaZtVpNfQSYUaNX9fd9T6UagFE3dT6i+9QV" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:zPUwrleP5AD7ajSqcOOIIlh0tl5k9qRFA+S5dyOC" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:NRp4cXwz/2MkiAFG9ox03RaQovGQ84fQZ4clVs9e" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:UIUX91yiDbMCt4FLU0giDfm19+dcSbueINsrTKYN" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -221,7 +221,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:rkre2FbFOcEyTFN2sGnnxNjRhcARxVVn9R9dJsaT" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:hBTW4kepG2ttjii1qfVrjnO0r4RadWUhHDBB+1RI" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -257,29 +257,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:PLQShFnKCpFVq0Z+ZioLO/gsSF1TWHcB5uWHKujNLQFfuXbcjS75" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:IOETG6xgr23YoIrtWAbsg6FdU/B/armjjFlLB1lJHDDfRtnsVPtx" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;attributegroupbridge&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:9DlYbyzxNpzPz8BCClHlvqcUK+55b034s9zDdA2P" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:SDJTEZXmQjTOIOSTgDhNoacDKkblZgO+o6xMUOab" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;AttributeGroupBridge.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:HhtN19lb6VcwGJEmuL4gpG/EjcrTSmh8/6eCk876" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:z5mu1ujiJ2ny1b6v3/p/3c75nIQOPfLz2+Gl4/EH" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:wOJVA/v22x8v+A/s0AC2qhkzcADHFYLZgA56SDKa" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:D50KZJn4rk2+wI3GRxnZVgWistBk9N+kVNltPdYU" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:QfLVUpibqGjwM5W+ikIqO8Ab1LdySMlhXXH5Rkg5" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:xjj1g5utZk5tlymFo1s/H6OTXGpDGVuLMaJJAoBq" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -292,7 +292,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:iBT1kBDiUN64+q8qRdHnaUrXEd+hw4Rk2WhHBOgr" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:q5gfu33rgbjHer5Y0c4hoNUyCzy1ZIfNr4bVWOau" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -321,29 +321,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:gQwZsI9KnAH5G8e85w7rQlA8nTuLJX+oQI+0vHPOVpE+7wLrj65k" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:jHNf8fldG4C8k5RcelbNKHLJkaHjUBDveDq+GW88tgeE+5yAO8Yl" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dimattribute&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:Sz25yMrTdl//8NKcrSnjcAq+8u+RLOp9Z10wkRxt" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:RxViXLZv4ss0HmB8HYGX171mjRGnA31c8eeJfEqv" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;DimAttribute.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:Ig5K6NwU7whRqxAQHzvoveIGD7CK9TcZW/3t/uhb" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:s/RqkuobSZMSmYcVQTQOv380R5TvIpS/Fvw5O90T" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:G9ZT66OFCnIsvFn2JFtjQHAraJiS5Bn9tT7615rX" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:VUVKel9fJeHS2wBMiiDAVrvRLruxhCJFAhjH5ZwK" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:9rMyhYPpPhjOOwhwtJj/79o8quSZhuzITb/OkWeL" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:CiLVsNvCQu9Nv1ihHDudkN12NU6RSBbVZoMhvxUx" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -356,7 +356,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:q2IhB0dH+uj7Oixdlkx5cCCEOj2/2WbhC+hJKw28" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:LMElQS72vD/b2+Y2Eajkkp5Oa0ep4rsuqopaPBY4" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -385,29 +385,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:fh9QniHfCCxTSE6vETjVO6eCOzQ5YcGtAI1vF0+M4yxLHHjvkFB/" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:ZoKNgkiajS6YeKj800irhHkW5ZUhHQ905QlCHC2GaBEnFmiBZaEo" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dimdate&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:5WBUEhOnYSxJQBgiKU5bA4gLBYGUxwly6YihKo52" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:jXlu/HtIncE8h++tyA5OQ/pJHDCbn8y53OcEFo7m" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;DimDate.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:HaxvQHLma1tuqpNsAlD88vmiwROI+9DUi1s+RrRs" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:dBOjIFjbBDyRixb+n3ngG8iolf28g9DZttplRMTy" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:YCw0C8aJ+d43ut2Djk8LO7N1H5ZZQ5mp8f6V7BKa" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:EuNkM3lat74dQImzbw4VMITPr7VYV3XNqrEanbQ1" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:TXQXzdsMg/VlZ5xRWROPjEkYkwC99bRy5rtLHRsk" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:Qw65oidOhfa0ybO8kcWeWo2Gnd8KMn1Uwh6DNnak" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -420,7 +420,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:yRTvbAYlfMRM2UkXxB9NUr+jGtzafIn3efxhwTS1" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:pzchM+K0dFbKxmzKigWwIRZBsUKiSSUsx1Ji19+g" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -449,29 +449,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:lMnCDXLcuS6tsPqGyksdvkJapaq3zmGt8FudJhYusPQgUO0Il7iL" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:1f1jDNIKMmVMO6d9AkobxO7DcrUTy33gzTaz0PdQ0w/VDljertFZ" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dimpaymentmethod&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:Qit7ilZc/jTeZMq70HulQa3TftfUKD5tngIsv19b" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:2t8jZygLf5NPgRYlQXsPcCSV1aij9dpuy6YuF5Uo" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;DimPaymentMethod.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:sZAsMXkUR0RoFdToyuiWlQFe2jLTrzf3dCa7yl4L" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:0pQH2BzKob3BU9BYmYrowlad23gSIIM4afg/G3eu" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:aJ9YOptnVr9V9zT7O8ea1QCT/QZD04NanyAg+j37" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:S2vYTENIJALBGijx1W8UUMViogJK5hGswTJh3Rnt" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:qaIfsXelL1Ju3YBk59ger/AyVLS0l9whD6RU7CYi" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:ly1CIWXzuTKfgek2cNYtQQR9MeJokbLcuxUcZrrE" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -484,7 +484,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:cV15Ks+/5CJMpB7VWEcl/ZljdMnoamMShIM1jaoM" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:7txMTKKK2+tHenpiBsuj6CyTHKQw8MOUClpkQBU6" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -513,29 +513,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:LcGRTdx14ma3xDBlzsa1oDf9OWLGUu8EN9yVfoulg6DkiMCKTPeJ" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:a4SH2RWcxGE2GYsrC3w3AcYHWlBXG373KgCzVkK1l8QGlkAHlT+x" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dimproduct&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:v9RaFRusErmesCZf2hpUkkvrxKP//Etm9k82RVin" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:FxnMFsYM8c+6cYLEvOcZczqcscKS3CyXZU3YkARe" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;DimProduct.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:7fNoHVNOSp4eGXFqFfG6azNsWT0dS1ebXP9YShyJ" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:V9tRLAIqvHEoezo+OQU9A/iQL+48694DDrGAij31" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:MmV1MC3Xf2laxXQwasC6DSn1AdopVojrxV5ui6tB" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:kkORD5SUhXgLR/FgvIR8hLHCQRUcuW2/fvd0hekL" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:9pzY0C+ESaE5VgSCckfpvRwR9s+ICA/CWP+4OoOp" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:J0OecF+BWc/7fm+ne/27/0RlJOt12KLl2JcgR3bE" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -548,7 +548,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:vh0v7+eKhHAP+wXqwxRR7nXag2L8I0xdvsSpCBK6" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:Dtgv93AOWei8Ssc0W3HEl0Zck+Dza/ffcm9fvvYv" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -577,29 +577,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:QEWULjVDIcXn/qsWvicR/70vfAQBMfxcf9ct8xMhnMNq609X/qV8" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:FSVwUZAU0FHFb03Yv8EOREnvYVebwDznI3h5joEZrOKLAeyKAjxG" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;dimstore&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:ZnPfDUVVdXEFUVSt90+vT82Q24vXzZpl1iZv2xMm" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:yUMzw/fikLB6wFL9fOkRKe8HkUacoNWSmA1Zkb0y" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;DimStore.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:Ts9YL90S+0lntvGsXGPKBq6YIanRZvB0JbWFCmPL" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:C75neJyyZxWufye8fKPH/vg6e9OgGotRPhjOlMZf" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:Np3WNAGQeU08W8jNj81Wv8bi/Jglv6G5KihfgTS3" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:jwRvRx9mxsTPc+8NIYCXChfEgN5Ia0lS+hGGkW7x" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:7oqY6G5M2b227DDM7KFZaRnM3QJVyxBzowdZIiux" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:akiDUD5D2TRd4m+Zn2s+vmyD5h764wTMcOMCA3IK" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -612,7 +612,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:yKhrmY+31DEc11ZwbpnnWMx9HtUA/LnAI6bPDJzf" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:GZ239TfEmUY2Po8CgF3K/a+pEnld9zGBNqyvre9F" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>
@@ -641,29 +641,29 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;" show="false"/>
     <elementParameter field="TEXT" name="TYPE" value="REDSHIFT" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;awsuser&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:25c32g/ys+bSOx3OmWvL1xraXa2bfLhWylum9Vaee3nNUK9qoVA3" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:xE7nnDbc+191RemuSSosiM220QUhX6sxsG+aX1WhMU/WxS7UdiX3" show="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;factsales&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CLEAR"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" value="redshift_id" show="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_SOURCE_TYPE" value="S3"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION_S3" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION_S3" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:T24OD2xifgTMxPh79/BXJMFMSqUg+Qr80ygGyAIk" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:nAZsrShDBAvuhbbD9tT3SOZ+gIwWE48XwRTvYJ1F" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/presentation&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;SalesFact.csv&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_EMR" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:zUk9I7dgpzClFRBncSj9yfopBGr1ZxsQOeB2cGU/" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_EMR" value="enc:system.encryption.key.v1:hyAubZSOS3sk7+RZ8mnoAiJBooKDCH3H82GhfcYD" show="false"/>
     <elementParameter field="TEXT" name="EMR_CLUSTER_ID" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="HDFS_FILEPATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_DYNAMODB" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:ej05qkD3QlebOOCgrFETFy3yKlObghh+x3Tdse2Z" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_DYNAMODB" value="enc:system.encryption.key.v1:f9S+89zHaMrznY1z4pR0yACCjNboAiqs79WzmwNu" show="false"/>
     <elementParameter field="TEXT" name="TABLENAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="READRATIO" value="50" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY_SSH" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:u+j9W6Ogf25jyfNjyuSgcin10kcwNhHc0deWTI7v" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY_SSH" value="enc:system.encryption.key.v1:N1dgjFea1A4p2ta77SuIRR4eYpPTGTUe1FgxQhcT" show="false"/>
     <elementParameter field="TEXT" name="BUCKET_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="KEY_SSH" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
@@ -676,7 +676,7 @@
     <elementParameter field="CHECK" name="COMPRESS" value="false"/>
     <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP" show="false"/>
     <elementParameter field="CHECK" name="ENCRYPT" value="false" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:WXUxJlsgvEJAowBU1v6KyAOAwNLVcCWtom4v7AWz" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY" value="enc:system.encryption.key.v1:toMHcdftm9lkTA8Sa5cGKGVxT+Q2i+CpboUax29b" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="&quot;UTF8&quot;"/>
     <elementParameter field="CLOSED_LIST" name="DATEFORMAT" value="NONE"/>
     <elementParameter field="TEXT" name="DATE_PATTERN" value="&quot;YYYY-MM-DD&quot;" show="false"/>

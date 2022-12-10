@@ -514,7 +514,7 @@ public class redshift_load_job implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:+2Gf5OTslUrcHhnIfx3K2vlxk9wEdGg+N62SO+9fHcagoPy99IZDB8HG83QUev5H91FNpbYebTguJMj0gcfoBTTPbYo=");
+						"enc:routine.encryption.key.v1:IKuBNqzhmT0nwJBOgqi/1F1QOW3RX7WMczqhE+8qvdX6XeFNkXa2cgNn5AzLBwb1k+18ekDhxPfhiHVj4Jnhi+52+js=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4LMU54AJ", decryptedPassword_tS3Connection_1);
@@ -688,7 +688,7 @@ public class redshift_load_job implements TalendJob {
 				String dbUser_tDBConnection_1 = "awsuser";
 
 				final String decryptedPassword_tDBConnection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:lJssLzc74ULw5dXY/Zndax8noQMogZNiUvdko0TrhVCes4RN0A==");
+						"enc:routine.encryption.key.v1:BFVZGTGSc5MbQn1N5OyVlwzY+tDHeleWSwyoOgnf5xiN6qQzqg==");
 				String dbPwd_tDBConnection_1 = decryptedPassword_tDBConnection_1;
 
 				java.sql.Connection conn_tDBConnection_1 = null;
@@ -846,6 +846,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_1 = null;
 				conn_tDBBulkExec_1 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_1 = conn_tDBBulkExec_1.createStatement();
+
+				stmtClear_tDBBulkExec_1
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_1 + "\"");
+
+				stmtClear_tDBBulkExec_1.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_1.getAutoCommit()) {
+					conn_tDBBulkExec_1.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_1 = new StringBuilder();
 				command_tDBBulkExec_1.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_1 = String.valueOf(';').charAt(0);
@@ -855,7 +868,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:C1OYk80kFUkUe+yKCDSEVmFOdl4TSXjwSeei2HgJGdWTb04meMsVeqbaOyuhCMGMH2gJgCMdANTYrtr+imRs/KaSWME=");
+						"enc:routine.encryption.key.v1:9k+xeVL8GX9iLSE00ywMj3VhSI4SUT9C8froQyMUEGSp9znXbnA8XvcN1aroEqhHvUt/Npnd9bg8mYHU7TqLBdwqgr8=");
 				command_tDBBulkExec_1.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimCustomer.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1011,6 +1024,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_2 = null;
 				conn_tDBBulkExec_2 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_2 = conn_tDBBulkExec_2.createStatement();
+
+				stmtClear_tDBBulkExec_2
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_2 + "\"");
+
+				stmtClear_tDBBulkExec_2.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_2.getAutoCommit()) {
+					conn_tDBBulkExec_2.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_2 = new StringBuilder();
 				command_tDBBulkExec_2.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_2 = String.valueOf(';').charAt(0);
@@ -1020,7 +1046,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_2 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:rL7zS3Laymb08VRg3GbJMY4o1BE4bTRMNPClSftVr0ft+8SXhwmXacxax3VhG1bkZ62aStrDOUYWbW5Nr5xYMdwS13c=");
+						"enc:routine.encryption.key.v1:Y0tIbx9SPkCLHo/E5eRBRsL0ZfW7p7V+zKmjgD7epNybO0zUNv+8W7pJ0mJnma6D0y+iZ9qhcmq6PE1WZxbnH6nZw2c=");
 				command_tDBBulkExec_2.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("AttributeGroupBridge.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1176,6 +1202,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_3 = null;
 				conn_tDBBulkExec_3 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_3 = conn_tDBBulkExec_3.createStatement();
+
+				stmtClear_tDBBulkExec_3
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_3 + "\"");
+
+				stmtClear_tDBBulkExec_3.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_3.getAutoCommit()) {
+					conn_tDBBulkExec_3.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_3 = new StringBuilder();
 				command_tDBBulkExec_3.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_3 = String.valueOf(';').charAt(0);
@@ -1185,7 +1224,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_3 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:se21UNRiHm+NEAzMy0NTkvW2xsHqmQPVtwNziL45/KPLocSB4hUOlJDDY/mZQX9zszzwXCboFkau6FdLQksjeTJjqkU=");
+						"enc:routine.encryption.key.v1:ZYOrlAyOGAAua/b0MVLizPqs0hIgvQIkBDUoU7IGNQHY6AWBclbARDE3D3Sd8k+2F2LsgIrRELcm5VcsLO3KPuAk1g4=");
 				command_tDBBulkExec_3.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimAttribute.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1341,6 +1380,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_4 = null;
 				conn_tDBBulkExec_4 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_4 = conn_tDBBulkExec_4.createStatement();
+
+				stmtClear_tDBBulkExec_4
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_4 + "\"");
+
+				stmtClear_tDBBulkExec_4.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_4.getAutoCommit()) {
+					conn_tDBBulkExec_4.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_4 = new StringBuilder();
 				command_tDBBulkExec_4.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_4 = String.valueOf(';').charAt(0);
@@ -1350,7 +1402,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_4 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:QcANh1DUdN5jNch0U1fSt0JBorJPzRZlpg0hZs7o+oTxz8riTPU1tt/t6qvHxoD8L5Emh55tVtNyldJDulVEiZROsIs=");
+						"enc:routine.encryption.key.v1:oUHZ7gAepBUujln0KOfsH0NSRnOSRkSy7P0x2QLQvsVPKR/SUqSw/K99gJWXTv3EcBFc1AZ2PlBHgvHjKjEUIcyM2Mw=");
 				command_tDBBulkExec_4.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimDate.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1506,6 +1558,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_5 = null;
 				conn_tDBBulkExec_5 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_5 = conn_tDBBulkExec_5.createStatement();
+
+				stmtClear_tDBBulkExec_5
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_5 + "\"");
+
+				stmtClear_tDBBulkExec_5.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_5.getAutoCommit()) {
+					conn_tDBBulkExec_5.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_5 = new StringBuilder();
 				command_tDBBulkExec_5.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_5 = String.valueOf(';').charAt(0);
@@ -1515,7 +1580,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_5 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:Pe/GAWdQSFaYSaRliBGGWrmihQT3HZOSMHHrI7/YOXlwyZJfumoQtaVPqu/F9fP2/r+2Ph4DTMC3Jhb1LecDPJm+Bb0=");
+						"enc:routine.encryption.key.v1:e3ICpxsb19YXmHiDoH7tiyVPVHMkqg9Niam8G8GFSIRn7dixOQWDw+0qLeedc593tTCp0ezAVNU7CeLgnRBzo2n+E7Y=");
 				command_tDBBulkExec_5.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimPaymentMethod.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1671,6 +1736,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_6 = null;
 				conn_tDBBulkExec_6 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_6 = conn_tDBBulkExec_6.createStatement();
+
+				stmtClear_tDBBulkExec_6
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_6 + "\"");
+
+				stmtClear_tDBBulkExec_6.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_6.getAutoCommit()) {
+					conn_tDBBulkExec_6.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_6 = new StringBuilder();
 				command_tDBBulkExec_6.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_6 = String.valueOf(';').charAt(0);
@@ -1680,7 +1758,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_6 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:UZxd60caJ0NT6VVWSgbGi7Y7V+KcyzNVGx3g/zfqRh1mcJabtAJWm9da4dwDeH6IesEogASTgRESQSln+6SfCGNpRO8=");
+						"enc:routine.encryption.key.v1:7xRYc3CfZ6cTD4OI8mZF572pyQlQhUKZyAE4eoNNidoFYSRaeZrP+EN6WifAnTg+IkMZYQwnNk1jQVmNJAEfQSQw3sQ=");
 				command_tDBBulkExec_6.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimProduct.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -1836,6 +1914,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_7 = null;
 				conn_tDBBulkExec_7 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_7 = conn_tDBBulkExec_7.createStatement();
+
+				stmtClear_tDBBulkExec_7
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_7 + "\"");
+
+				stmtClear_tDBBulkExec_7.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_7.getAutoCommit()) {
+					conn_tDBBulkExec_7.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_7 = new StringBuilder();
 				command_tDBBulkExec_7.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_7 = String.valueOf(';').charAt(0);
@@ -1845,7 +1936,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_7 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:CdDb53vtUcCafzPT0IFtaGvlnV2Ep+gb1NE2EYgaIN0UTrzyyttTxG1ouHO4KslZqDuMKZB0A4n6vekem+hv9slHhdg=");
+						"enc:routine.encryption.key.v1:Y89PKeaf/2F4YlBHTJ1dkSkSfz4XtBSpx+P03z5hXTDMsx79WlsIR3pUqz8Sv1/Wfo8JF282GKIvoqTVn/jHLH/bstE=");
 				command_tDBBulkExec_7.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("DimStore.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -2001,6 +2092,19 @@ public class redshift_load_job implements TalendJob {
 
 				java.sql.Connection conn_tDBBulkExec_8 = null;
 				conn_tDBBulkExec_8 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				java.sql.Statement stmtClear_tDBBulkExec_8 = conn_tDBBulkExec_8.createStatement();
+
+				stmtClear_tDBBulkExec_8
+						.executeUpdate("--Talend -v 8.0 \n DELETE FROM \"" + tableName_tDBBulkExec_8 + "\"");
+
+				stmtClear_tDBBulkExec_8.close();
+
+				// in mysql when autoCommit=true don't commit.
+				if (!conn_tDBBulkExec_8.getAutoCommit()) {
+					conn_tDBBulkExec_8.commit();
+				}
+
 				StringBuilder command_tDBBulkExec_8 = new StringBuilder();
 				command_tDBBulkExec_8.append("--Talend -v 8.0 ").append('\n');
 				char fieldSeparator_tDBBulkExec_8 = String.valueOf(';').charAt(0);
@@ -2010,7 +2114,7 @@ public class redshift_load_job implements TalendJob {
 
 						.append(" FROM '");
 				final String decryptedPwd_tDBBulkExec_8 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:nF5AlKnUrQKOC01+/XUk+ooib5izTyrBVX7SXVExrgQtnevxyp+jRnRO7lHYbTGrUHUlVv51OAUyHYbUtuJMLgBu+3s=");
+						"enc:routine.encryption.key.v1:ssA4QZXJJ8fQQ0qlQoIjWDqkeKnA8Ksw9R6eANq2WulWkY1ZWjfdQNwvOs+m0nwTG1d1IbLJxEAufqfBejqjO/PGOx4=");
 				command_tDBBulkExec_8.append("s3://").append("libreriapacifico/presentation").append("/")
 						.append("SalesFact.csv").append("' credentials '").append("aws_access_key_id=")
 						.append("AKIAVMNG53PS4LMU54AJ").append(";aws_secret_access_key=")
@@ -2647,6 +2751,6 @@ public class redshift_load_job implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 85986 characters generated by Talend Open Studio for Data Integration on the
- * December 8, 2022 at 12:04:11 AM CST
+ * 89122 characters generated by Talend Open Studio for Data Integration on the
+ * December 9, 2022 at 11:32:54 PM CST
  ************************************************************************************************/
