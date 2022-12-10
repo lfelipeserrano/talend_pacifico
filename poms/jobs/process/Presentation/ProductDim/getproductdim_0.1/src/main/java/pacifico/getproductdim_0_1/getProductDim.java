@@ -334,6 +334,26 @@ public class getProductDim implements TalendJob {
 		tS3Get_4_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tS3Get_5_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tS3Get_5_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tS3Get_6_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tS3Get_6_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -374,6 +394,22 @@ public class getProductDim implements TalendJob {
 
 	}
 
+	public void tS3Get_5_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tS3Get_6_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
 	public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
 
@@ -406,7 +442,7 @@ public class getProductDim implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:Siwk0WbDTjF6HAkOzuQ6I3oXD4KRQ28qJQyRakZkJfm0L+MPsJqdbZy8a515+Um5D3CY+Vqspo2RR9M6AmErjNKh5l0=");
+						"enc:routine.encryption.key.v1:/QzZ8RCfPc1aEHz75qS8Jtm3C4+7U+inJ4R0crjD/9bjfY1QsupCWzKwkxNFwis2+2g4+b1mU8uJxX9LNvZPjhlxU4c=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -1136,6 +1172,17 @@ public class getProductDim implements TalendJob {
 				 */
 			} // end the resume
 
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_4:OnSubjobOk", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk5", 0, "ok");
+			}
+
+			tS3Get_5Process(globalMap);
+
 		} catch (java.lang.Exception e) {
 
 			TalendException te = new TalendException(e, currentComponent, globalMap);
@@ -1168,6 +1215,312 @@ public class getProductDim implements TalendJob {
 		}
 
 		globalMap.put("tS3Get_4_SUBPROCESS_STATE", 1);
+	}
+
+	public void tS3Get_5Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tS3Get_5_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tS3Get_5 begin ] start
+				 */
+
+				ok_Hash.put("tS3Get_5", false);
+				start_Hash.put("tS3Get_5", System.currentTimeMillis());
+
+				currentComponent = "tS3Get_5";
+
+				int tos_count_tS3Get_5 = 0;
+
+				com.amazonaws.services.s3.AmazonS3Client conn_tS3Get_5 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
+						.get("conn_tS3Connection_1");
+
+				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Get_5 = null;
+
+				try {
+
+					tm_tS3Get_5 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
+							.withS3Client(conn_tS3Get_5).build();
+
+					com.amazonaws.services.s3.model.GetObjectRequest getObjectRequest_tS3Get_5 = new com.amazonaws.services.s3.model.GetObjectRequest(
+							"libreriapacifico/stage", "productAttributeProductTemplateRel.csv");
+
+					com.amazonaws.services.s3.transfer.Download download_tS3Get_5 = tm_tS3Get_5.download(
+							getObjectRequest_tS3Get_5,
+							new java.io.File(
+									"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productAttributeProductTemplateRel.csv"),
+							null, 0l, true);
+
+					download_tS3Get_5.waitForCompletion();
+
+				} catch (java.lang.Exception e_tS3Get_5) {
+					globalMap.put("tS3Get_5_ERROR_MESSAGE", e_tS3Get_5.getMessage());
+
+					System.err.println(e_tS3Get_5.getMessage());
+
+				} finally {
+
+					if (tm_tS3Get_5 != null) {
+						tm_tS3Get_5.shutdownNow(false);
+					}
+				}
+
+				/**
+				 * [tS3Get_5 begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_5 main ] start
+				 */
+
+				currentComponent = "tS3Get_5";
+
+				tos_count_tS3Get_5++;
+
+				/**
+				 * [tS3Get_5 main ] stop
+				 */
+
+				/**
+				 * [tS3Get_5 process_data_begin ] start
+				 */
+
+				currentComponent = "tS3Get_5";
+
+				/**
+				 * [tS3Get_5 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_5 process_data_end ] start
+				 */
+
+				currentComponent = "tS3Get_5";
+
+				/**
+				 * [tS3Get_5 process_data_end ] stop
+				 */
+
+				/**
+				 * [tS3Get_5 end ] start
+				 */
+
+				currentComponent = "tS3Get_5";
+
+				ok_Hash.put("tS3Get_5", true);
+				end_Hash.put("tS3Get_5", System.currentTimeMillis());
+
+				/**
+				 * [tS3Get_5 end ] stop
+				 */
+			} // end the resume
+
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_5:OnSubjobOk", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk6", 0, "ok");
+			}
+
+			tS3Get_6Process(globalMap);
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tS3Get_5 finally ] start
+				 */
+
+				currentComponent = "tS3Get_5";
+
+				/**
+				 * [tS3Get_5 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tS3Get_5_SUBPROCESS_STATE", 1);
+	}
+
+	public void tS3Get_6Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tS3Get_6_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tS3Get_6 begin ] start
+				 */
+
+				ok_Hash.put("tS3Get_6", false);
+				start_Hash.put("tS3Get_6", System.currentTimeMillis());
+
+				currentComponent = "tS3Get_6";
+
+				int tos_count_tS3Get_6 = 0;
+
+				com.amazonaws.services.s3.AmazonS3Client conn_tS3Get_6 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
+						.get("conn_tS3Connection_1");
+
+				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Get_6 = null;
+
+				try {
+
+					tm_tS3Get_6 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
+							.withS3Client(conn_tS3Get_6).build();
+
+					com.amazonaws.services.s3.model.GetObjectRequest getObjectRequest_tS3Get_6 = new com.amazonaws.services.s3.model.GetObjectRequest(
+							"libreriapacifico/presentation", "DimAttribute.csv");
+
+					com.amazonaws.services.s3.transfer.Download download_tS3Get_6 = tm_tS3Get_6.download(
+							getObjectRequest_tS3Get_6,
+							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv"),
+							null, 0l, true);
+
+					download_tS3Get_6.waitForCompletion();
+
+				} catch (java.lang.Exception e_tS3Get_6) {
+					globalMap.put("tS3Get_6_ERROR_MESSAGE", e_tS3Get_6.getMessage());
+
+					System.err.println(e_tS3Get_6.getMessage());
+
+				} finally {
+
+					if (tm_tS3Get_6 != null) {
+						tm_tS3Get_6.shutdownNow(false);
+					}
+				}
+
+				/**
+				 * [tS3Get_6 begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_6 main ] start
+				 */
+
+				currentComponent = "tS3Get_6";
+
+				tos_count_tS3Get_6++;
+
+				/**
+				 * [tS3Get_6 main ] stop
+				 */
+
+				/**
+				 * [tS3Get_6 process_data_begin ] start
+				 */
+
+				currentComponent = "tS3Get_6";
+
+				/**
+				 * [tS3Get_6 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_6 process_data_end ] start
+				 */
+
+				currentComponent = "tS3Get_6";
+
+				/**
+				 * [tS3Get_6 process_data_end ] stop
+				 */
+
+				/**
+				 * [tS3Get_6 end ] start
+				 */
+
+				currentComponent = "tS3Get_6";
+
+				ok_Hash.put("tS3Get_6", true);
+				end_Hash.put("tS3Get_6", System.currentTimeMillis());
+
+				/**
+				 * [tS3Get_6 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tS3Get_6 finally ] start
+				 */
+
+				currentComponent = "tS3Get_6";
+
+				/**
+				 * [tS3Get_6 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tS3Get_6_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -1552,6 +1905,6 @@ public class getProductDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 48137 characters generated by Talend Open Studio for Data Integration on the
- * December 7, 2022 at 11:51:00 PM CST
+ * 57582 characters generated by Talend Open Studio for Data Integration on the
+ * December 9, 2022 at 12:28:35 AM CST
  ************************************************************************************************/

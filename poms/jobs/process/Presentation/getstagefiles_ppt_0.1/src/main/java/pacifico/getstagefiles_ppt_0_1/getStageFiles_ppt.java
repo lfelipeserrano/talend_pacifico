@@ -394,6 +394,16 @@ public class getStageFiles_ppt implements TalendJob {
 		tS3Get_10_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tS3Get_11_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tS3Get_11_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -482,6 +492,14 @@ public class getStageFiles_ppt implements TalendJob {
 
 	}
 
+	public void tS3Get_11_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
 	public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
 		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
 
@@ -514,7 +532,7 @@ public class getStageFiles_ppt implements TalendJob {
 				int tos_count_tS3Connection_1 = 0;
 
 				final String decryptedPassword_tS3Connection_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:O7+tnzxZIgil0HUAQjT5xkZ6rpm+whGZZaa/3KzHXEFwMsg0l9pAOEMXaEdeZebUqsS7JG5Cr2Vxr4F35O9QY7CIOck=");
+						"enc:routine.encryption.key.v1:g2dFppdPmWU0GtJdV6/tqOm12L5yBuX+LRyv8x5hpBzmRqt0+AoxFByen8mNeBzXKeY/TVXGBg/uZxfiusNBKQYAPMM=");
 
 				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
 						"AKIAVMNG53PS4OCUVYGK", decryptedPassword_tS3Connection_1);
@@ -2194,6 +2212,17 @@ public class getStageFiles_ppt implements TalendJob {
 				 */
 			} // end the resume
 
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tS3Get_10:OnSubjobOk", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk15", 0, "ok");
+			}
+
+			tS3Get_11Process(globalMap);
+
 		} catch (java.lang.Exception e) {
 
 			TalendException te = new TalendException(e, currentComponent, globalMap);
@@ -2226,6 +2255,153 @@ public class getStageFiles_ppt implements TalendJob {
 		}
 
 		globalMap.put("tS3Get_10_SUBPROCESS_STATE", 1);
+	}
+
+	public void tS3Get_11Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tS3Get_11_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tS3Get_11 begin ] start
+				 */
+
+				ok_Hash.put("tS3Get_11", false);
+				start_Hash.put("tS3Get_11", System.currentTimeMillis());
+
+				currentComponent = "tS3Get_11";
+
+				int tos_count_tS3Get_11 = 0;
+
+				com.amazonaws.services.s3.AmazonS3Client conn_tS3Get_11 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
+						.get("conn_tS3Connection_1");
+
+				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Get_11 = null;
+
+				try {
+
+					tm_tS3Get_11 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
+							.withS3Client(conn_tS3Get_11).build();
+
+					com.amazonaws.services.s3.model.GetObjectRequest getObjectRequest_tS3Get_11 = new com.amazonaws.services.s3.model.GetObjectRequest(
+							"libreriapacifico/stage", "posPayment.csv");
+
+					com.amazonaws.services.s3.transfer.Download download_tS3Get_11 = tm_tS3Get_11.download(
+							getObjectRequest_tS3Get_11,
+							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posPayment.csv"),
+							null, 0l, true);
+
+					download_tS3Get_11.waitForCompletion();
+
+				} catch (java.lang.Exception e_tS3Get_11) {
+					globalMap.put("tS3Get_11_ERROR_MESSAGE", e_tS3Get_11.getMessage());
+
+					System.err.println(e_tS3Get_11.getMessage());
+
+				} finally {
+
+					if (tm_tS3Get_11 != null) {
+						tm_tS3Get_11.shutdownNow(false);
+					}
+				}
+
+				/**
+				 * [tS3Get_11 begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_11 main ] start
+				 */
+
+				currentComponent = "tS3Get_11";
+
+				tos_count_tS3Get_11++;
+
+				/**
+				 * [tS3Get_11 main ] stop
+				 */
+
+				/**
+				 * [tS3Get_11 process_data_begin ] start
+				 */
+
+				currentComponent = "tS3Get_11";
+
+				/**
+				 * [tS3Get_11 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tS3Get_11 process_data_end ] start
+				 */
+
+				currentComponent = "tS3Get_11";
+
+				/**
+				 * [tS3Get_11 process_data_end ] stop
+				 */
+
+				/**
+				 * [tS3Get_11 end ] start
+				 */
+
+				currentComponent = "tS3Get_11";
+
+				ok_Hash.put("tS3Get_11", true);
+				end_Hash.put("tS3Get_11", System.currentTimeMillis());
+
+				/**
+				 * [tS3Get_11 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tS3Get_11 finally ] start
+				 */
+
+				currentComponent = "tS3Get_11";
+
+				/**
+				 * [tS3Get_11 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tS3Get_11_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -2610,6 +2786,6 @@ public class getStageFiles_ppt implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 76404 characters generated by Talend Open Studio for Data Integration on the
- * December 7, 2022 at 11:49:14 PM CST
+ * 81145 characters generated by Talend Open Studio for Data Integration on the
+ * December 9, 2022 at 1:04:41 AM CST
  ************************************************************************************************/
