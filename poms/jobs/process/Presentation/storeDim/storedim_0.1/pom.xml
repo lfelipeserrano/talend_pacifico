@@ -14,14 +14,14 @@
   <name>PACIFICO storeDim-0.1.0 (0.1,Job Designs)</name>
   <properties>
     <talend.job.type>Standard</talend.job.type>
-    <talend.pigudf.groupid>org.example.pacifico.pigudf</talend.pigudf.groupid>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
-    <talend.job.folder>templates/dailyjobs_templates/ppt/storedim/</talend.job.folder>
+    <talend.pigudf.groupid>org.example.pacifico.pigudf</talend.pigudf.groupid>
+    <talend.job.folder>presentation/storedim/</talend.job.folder>
     <talend.job.context>Default</talend.job.context>
     <talend.job.path>pacifico</talend.job.path>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
     <talend.job.stat>true</talend.job.stat>
-    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8</talend.job.jvmargs>
+    <talend.job.jvmargs>-Xms256M -Xmx1024M -Dfile.encoding=UTF-8 </talend.job.jvmargs>
     <talend.job.id>_OG360HOQEe2pjaT5UwUfZw</talend.job.id>
     <talend.job.version>0.1</talend.job.version>
     <talend.job.framework></talend.job.framework>

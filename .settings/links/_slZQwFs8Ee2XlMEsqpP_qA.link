@@ -1,0 +1,14 @@
+{
+  "itemId" : "_slZQwFs8Ee2XlMEsqpP_qA",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_YROnEI5MEe2XLOQ1rk7jrw",
+    "parameterList" : [ {
+      "id" : "_YRa0UY5MEe2XLOQ1rk7jrw",
+      "name" : "AccessKeyId"
+    }, {
+      "id" : "_YRa0Uo5MEe2XLOQ1rk7jrw",
+      "name" : "SecretAccessKey"
+    } ]
+  } ]
+}
