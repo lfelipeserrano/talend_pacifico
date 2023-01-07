@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <recyclebin:RecycleBin xmlns:recyclebin="http://www.talend.org/recyclebin">
+  <deletedFolders>process/AWSConnection</deletedFolders>
   <deletedFolders>process/Temp/dailyJobs_templates</deletedFolders>
   <deletedFolders>process/Temp/dailyJobs_templates/ppt</deletedFolders>
   <deletedFolders>process/pf15002</deletedFolders>
@@ -26,6 +27,7 @@
   <deletedFolders>process/zp12001/first_load/stage</deletedFolders>
   <deletedItems id="_zlIvMHRYEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_CdWEAFsHEe2svv36Y068bQ" path="" type="PROCESS"/>
+  <deletedItems id="_IdaDMI6zEe2fA4dI3PZbsg" path="AWSConnection" type="PROCESS"/>
   <deletedItems id="_He4x4FpwEe2ls9afLJpI4Q" path="Templates" type="PROCESS"/>
   <deletedItems id="_msrogFmdEe219LD33WVmtA" path="pf15002/dailyJobs" type="PROCESS"/>
   <deletedItems id="_mLiRAFmiEe2EtZD-YglpCA" path="pf15002/dailyJobs/stage" type="PROCESS"/>
