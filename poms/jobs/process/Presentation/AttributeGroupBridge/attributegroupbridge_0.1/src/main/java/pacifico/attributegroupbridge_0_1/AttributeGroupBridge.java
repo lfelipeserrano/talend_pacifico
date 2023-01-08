@@ -377,7 +377,27 @@ public class AttributeGroupBridge implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tAdvancedHash_row2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tAdvancedHash_row3_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -425,6 +445,12 @@ public class AttributeGroupBridge implements TalendJob {
 
 		public Integer getAttribute_key() {
 			return this.attribute_key;
+		}
+
+		public Integer product_key;
+
+		public Integer getProduct_key() {
+			return this.product_key;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -481,6 +507,8 @@ public class AttributeGroupBridge implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.product_key = readInteger(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -502,6 +530,8 @@ public class AttributeGroupBridge implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.product_key = readInteger(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -522,6 +552,10 @@ public class AttributeGroupBridge implements TalendJob {
 
 				writeInteger(this.attribute_key, dos);
 
+				// Integer
+
+				writeInteger(this.product_key, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -539,6 +573,10 @@ public class AttributeGroupBridge implements TalendJob {
 
 				writeInteger(this.attribute_key, dos);
 
+				// Integer
+
+				writeInteger(this.product_key, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -552,6 +590,7 @@ public class AttributeGroupBridge implements TalendJob {
 			sb.append("[");
 			sb.append("attribute_group_key=" + String.valueOf(attribute_group_key));
 			sb.append(",attribute_key=" + String.valueOf(attribute_key));
+			sb.append(",product_key=" + String.valueOf(product_key));
 			sb.append("]");
 
 			return sb.toString();
@@ -607,6 +646,12 @@ public class AttributeGroupBridge implements TalendJob {
 			return this.attribute_key;
 		}
 
+		public Integer product_key;
+
+		public Integer getProduct_key() {
+			return this.product_key;
+		}
+
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -661,6 +706,8 @@ public class AttributeGroupBridge implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.product_key = readInteger(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -682,6 +729,8 @@ public class AttributeGroupBridge implements TalendJob {
 
 					this.attribute_key = readInteger(dis);
 
+					this.product_key = readInteger(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -702,6 +751,10 @@ public class AttributeGroupBridge implements TalendJob {
 
 				writeInteger(this.attribute_key, dos);
 
+				// Integer
+
+				writeInteger(this.product_key, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -719,6 +772,10 @@ public class AttributeGroupBridge implements TalendJob {
 
 				writeInteger(this.attribute_key, dos);
 
+				// Integer
+
+				writeInteger(this.product_key, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -732,6 +789,7 @@ public class AttributeGroupBridge implements TalendJob {
 			sb.append("[");
 			sb.append("attribute_group_key=" + String.valueOf(attribute_group_key));
 			sb.append(",attribute_key=" + String.valueOf(attribute_key));
+			sb.append(",product_key=" + String.valueOf(product_key));
 			sb.append("]");
 
 			return sb.toString();
@@ -1151,6 +1209,7 @@ public class AttributeGroupBridge implements TalendJob {
 				globalResumeTicket = true;
 
 				tFileInputDelimited_2Process(globalMap);
+				tFileInputDelimited_3Process(globalMap);
 
 				productAttributeProductTemplateRelStruct productAttributeProductTemplateRel = new productAttributeProductTemplateRelStruct();
 				AttributeGroupBridgeStruct AttributeGroupBridge = new AttributeGroupBridgeStruct();
@@ -1242,6 +1301,8 @@ public class AttributeGroupBridge implements TalendJob {
 					outtFileOutputDelimited_1.write("attribute_group_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("attribute_key");
+					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
+					outtFileOutputDelimited_1.write("product_key");
 					outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.flush();
 				}
@@ -1282,11 +1343,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[2];
+					int[] colLengths = new int[3];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 2; i++) {
+						for (int i = 0; i < 3; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -1313,11 +1374,11 @@ public class AttributeGroupBridge implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 1 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 2 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 1 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 2 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -1337,6 +1398,10 @@ public class AttributeGroupBridge implements TalendJob {
 
 							sbformat.append("|%2$-");
 							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -1362,8 +1427,13 @@ public class AttributeGroupBridge implements TalendJob {
 						}
 						sb.append(fillChars[3]);
 
+						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
 						// last column
-						for (int i = 0; i < colLengths[1] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[2] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -1379,7 +1449,7 @@ public class AttributeGroupBridge implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "attribute_group_key", "attribute_key", });
+				util_tLogRow_1.addRow(new String[] { "attribute_group_key", "attribute_key", "product_key", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -1411,6 +1481,12 @@ public class AttributeGroupBridge implements TalendJob {
 
 				row2Struct row2HashKey = new row2Struct();
 				row2Struct row2Default = new row2Struct();
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct> tHash_Lookup_row3 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct>) globalMap
+						.get("tHash_Lookup_row3"));
+
+				row3Struct row3HashKey = new row3Struct();
+				row3Struct row3Default = new row3Struct();
 // ###############################        
 
 // ###############################
@@ -1641,6 +1717,54 @@ public class AttributeGroupBridge implements TalendJob {
 								row2 = fromLookup_row2;
 							}
 
+							///////////////////////////////////////////////
+							// Starting Lookup Table "row3"
+							///////////////////////////////////////////////
+
+							boolean forceLooprow3 = false;
+
+							row3Struct row3ObjectFromLookup = null;
+
+							if (!rejectedInnerJoin_tMap_1) { // G_TM_M_020
+
+								hasCasePrimitiveKeyWithNull_tMap_1 = false;
+
+								row3HashKey.product_tmpl_id = productAttributeProductTemplateRel.product_template_id;
+
+								row3HashKey.hashCodeDirty = true;
+
+								tHash_Lookup_row3.lookup(row3HashKey);
+
+								if (!tHash_Lookup_row3.hasNext()) { // G_TM_M_090
+
+									rejectedInnerJoin_tMap_1 = true;
+
+								} // G_TM_M_090
+
+							} // G_TM_M_020
+
+							if (tHash_Lookup_row3 != null && tHash_Lookup_row3.getCount(row3HashKey) > 1) { // G 071
+
+								// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup 'row3'
+								// and it contains more one result from keys : row3.product_tmpl_id = '" +
+								// row3HashKey.product_tmpl_id + "'");
+							} // G 071
+
+							row3Struct row3 = null;
+
+							row3Struct fromLookup_row3 = null;
+							row3 = row3Default;
+
+							if (tHash_Lookup_row3 != null && tHash_Lookup_row3.hasNext()) { // G 099
+
+								fromLookup_row3 = tHash_Lookup_row3.next();
+
+							} // G 099
+
+							if (fromLookup_row3 != null) {
+								row3 = fromLookup_row3;
+							}
+
 							// ###############################
 							{ // start of Var scope
 
@@ -1659,6 +1783,7 @@ public class AttributeGroupBridge implements TalendJob {
 									AttributeGroupBridge_tmp.attribute_group_key = Numeric.sequence("paymentMethodSeq",
 											1, 1);
 									AttributeGroupBridge_tmp.attribute_key = row2.attribute_key;
+									AttributeGroupBridge_tmp.product_key = row3.id;
 									AttributeGroupBridge = AttributeGroupBridge_tmp;
 								} // closing inner join bracket (2)
 // ###############################
@@ -1701,7 +1826,7 @@ public class AttributeGroupBridge implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[2];
+								String[] row_tLogRow_1 = new String[3];
 
 								if (AttributeGroupBridge.attribute_group_key != null) { //
 									row_tLogRow_1[0] = String.valueOf(AttributeGroupBridge.attribute_group_key);
@@ -1710,6 +1835,11 @@ public class AttributeGroupBridge implements TalendJob {
 
 								if (AttributeGroupBridge.attribute_key != null) { //
 									row_tLogRow_1[1] = String.valueOf(AttributeGroupBridge.attribute_key);
+
+								} //
+
+								if (AttributeGroupBridge.product_key != null) { //
+									row_tLogRow_1[2] = String.valueOf(AttributeGroupBridge.product_key);
 
 								} //
 
@@ -1760,6 +1890,10 @@ public class AttributeGroupBridge implements TalendJob {
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
 								if (row1.attribute_key != null) {
 									sb_tFileOutputDelimited_1.append(row1.attribute_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.product_key != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_key);
 								}
 								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 
@@ -1867,6 +2001,11 @@ public class AttributeGroupBridge implements TalendJob {
 				}
 				globalMap.remove("tHash_Lookup_row2");
 
+				if (tHash_Lookup_row3 != null) {
+					tHash_Lookup_row3.endGet();
+				}
+				globalMap.remove("tHash_Lookup_row3");
+
 // ###############################      
 
 				if (execStat) {
@@ -1962,6 +2101,9 @@ public class AttributeGroupBridge implements TalendJob {
 
 			// free memory for "tMap_1"
 			globalMap.remove("tHash_Lookup_row2");
+
+			// free memory for "tMap_1"
+			globalMap.remove("tHash_Lookup_row3");
 
 			try {
 
@@ -2927,7 +3069,7 @@ public class AttributeGroupBridge implements TalendJob {
 				// source node:tFileInputDelimited_2 - inputs:(after_tFileInputDelimited_1)
 				// outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2)
 				// outputs:()
-				// linked node: tMap_1 - inputs:(productAttributeProductTemplateRel,row2)
+				// linked node: tMap_1 - inputs:(productAttributeProductTemplateRel,row2,row3)
 				// outputs:(AttributeGroupBridge)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
@@ -3246,6 +3388,1203 @@ public class AttributeGroupBridge implements TalendJob {
 		}
 
 		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
+	}
+
+	public static class row3Struct implements routines.system.IPersistableComparableLookupRow<row3Struct> {
+		final static byte[] commonByteArrayLock_PACIFICO_AttributeGroupBridge = new byte[0];
+		static byte[] commonByteArray_PACIFICO_AttributeGroupBridge = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
+		}
+
+		public String message_main_attachment_id;
+
+		public String getMessage_main_attachment_id() {
+			return this.message_main_attachment_id;
+		}
+
+		public String default_code;
+
+		public String getDefault_code() {
+			return this.default_code;
+		}
+
+		public Boolean active;
+
+		public Boolean getActive() {
+			return this.active;
+		}
+
+		public Integer product_tmpl_id;
+
+		public Integer getProduct_tmpl_id() {
+			return this.product_tmpl_id;
+		}
+
+		public String barcode;
+
+		public String getBarcode() {
+			return this.barcode;
+		}
+
+		public String combination_indices;
+
+		public String getCombination_indices() {
+			return this.combination_indices;
+		}
+
+		public String volume;
+
+		public String getVolume() {
+			return this.volume;
+		}
+
+		public String weight;
+
+		public String getWeight() {
+			return this.weight;
+		}
+
+		public Boolean can_image_variant_1024_be_zoomed;
+
+		public Boolean getCan_image_variant_1024_be_zoomed() {
+			return this.can_image_variant_1024_be_zoomed;
+		}
+
+		public Integer create_uid;
+
+		public Integer getCreate_uid() {
+			return this.create_uid;
+		}
+
+		public java.util.Date create_date;
+
+		public java.util.Date getCreate_date() {
+			return this.create_date;
+		}
+
+		public Integer write_uid;
+
+		public Integer getWrite_uid() {
+			return this.write_uid;
+		}
+
+		public java.util.Date write_date;
+
+		public java.util.Date getWrite_date() {
+			return this.write_date;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.product_tmpl_id == null) ? 0 : this.product_tmpl_id.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row3Struct other = (row3Struct) obj;
+
+			if (this.product_tmpl_id == null) {
+				if (other.product_tmpl_id != null)
+					return false;
+
+			} else if (!this.product_tmpl_id.equals(other.product_tmpl_id))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row3Struct other) {
+
+			other.id = this.id;
+			other.message_main_attachment_id = this.message_main_attachment_id;
+			other.default_code = this.default_code;
+			other.active = this.active;
+			other.product_tmpl_id = this.product_tmpl_id;
+			other.barcode = this.barcode;
+			other.combination_indices = this.combination_indices;
+			other.volume = this.volume;
+			other.weight = this.weight;
+			other.can_image_variant_1024_be_zoomed = this.can_image_variant_1024_be_zoomed;
+			other.create_uid = this.create_uid;
+			other.create_date = this.create_date;
+			other.write_uid = this.write_uid;
+			other.write_date = this.write_date;
+
+		}
+
+		public void copyKeysDataTo(row3Struct other) {
+
+			other.product_tmpl_id = this.product_tmpl_id;
+
+		}
+
+		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = unmarshaller.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				dis.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				byte[] byteArray = new byte[length];
+				unmarshaller.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readKeysData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_AttributeGroupBridge) {
+
+				try {
+
+					int length = 0;
+
+					this.product_tmpl_id = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_PACIFICO_AttributeGroupBridge) {
+
+				try {
+
+					int length = 0;
+
+					this.product_tmpl_id = readInteger(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeKeysData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.product_tmpl_id, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.product_tmpl_id, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		/**
+		 * Fill Values data by reading ObjectInputStream.
+		 */
+		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
+			try {
+
+				int length = 0;
+
+				this.id = readInteger(dis, ois);
+
+				this.message_main_attachment_id = readString(dis, ois);
+
+				this.default_code = readString(dis, ois);
+
+				length = dis.readByte();
+				if (length == -1) {
+					this.active = null;
+				} else {
+					this.active = dis.readBoolean();
+				}
+
+				this.barcode = readString(dis, ois);
+
+				this.combination_indices = readString(dis, ois);
+
+				this.volume = readString(dis, ois);
+
+				this.weight = readString(dis, ois);
+
+				length = dis.readByte();
+				if (length == -1) {
+					this.can_image_variant_1024_be_zoomed = null;
+				} else {
+					this.can_image_variant_1024_be_zoomed = dis.readBoolean();
+				}
+
+				this.create_uid = readInteger(dis, ois);
+
+				this.create_date = readDate(dis, ois);
+
+				this.write_uid = readInteger(dis, ois);
+
+				this.write_date = readDate(dis, ois);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
+			try {
+				int length = 0;
+
+				this.id = readInteger(dis, objectIn);
+
+				this.message_main_attachment_id = readString(dis, objectIn);
+
+				this.default_code = readString(dis, objectIn);
+
+				length = objectIn.readByte();
+				if (length == -1) {
+					this.active = null;
+				} else {
+					this.active = objectIn.readBoolean();
+				}
+
+				this.barcode = readString(dis, objectIn);
+
+				this.combination_indices = readString(dis, objectIn);
+
+				this.volume = readString(dis, objectIn);
+
+				this.weight = readString(dis, objectIn);
+
+				length = objectIn.readByte();
+				if (length == -1) {
+					this.can_image_variant_1024_be_zoomed = null;
+				} else {
+					this.can_image_variant_1024_be_zoomed = objectIn.readBoolean();
+				}
+
+				this.create_uid = readInteger(dis, objectIn);
+
+				this.create_date = readDate(dis, objectIn);
+
+				this.write_uid = readInteger(dis, objectIn);
+
+				this.write_date = readDate(dis, objectIn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		/**
+		 * Return a byte array which represents Values data.
+		 */
+		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
+			try {
+
+				writeInteger(this.id, dos, oos);
+
+				writeString(this.message_main_attachment_id, dos, oos);
+
+				writeString(this.default_code, dos, oos);
+
+				if (this.active == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.active);
+				}
+
+				writeString(this.barcode, dos, oos);
+
+				writeString(this.combination_indices, dos, oos);
+
+				writeString(this.volume, dos, oos);
+
+				writeString(this.weight, dos, oos);
+
+				if (this.can_image_variant_1024_be_zoomed == null) {
+					dos.writeByte(-1);
+				} else {
+					dos.writeByte(0);
+					dos.writeBoolean(this.can_image_variant_1024_be_zoomed);
+				}
+
+				writeInteger(this.create_uid, dos, oos);
+
+				writeDate(this.create_date, dos, oos);
+
+				writeInteger(this.write_uid, dos, oos);
+
+				writeDate(this.write_date, dos, oos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
+			try {
+
+				writeInteger(this.id, dos, objectOut);
+
+				writeString(this.message_main_attachment_id, dos, objectOut);
+
+				writeString(this.default_code, dos, objectOut);
+
+				if (this.active == null) {
+					objectOut.writeByte(-1);
+				} else {
+					objectOut.writeByte(0);
+					objectOut.writeBoolean(this.active);
+				}
+
+				writeString(this.barcode, dos, objectOut);
+
+				writeString(this.combination_indices, dos, objectOut);
+
+				writeString(this.volume, dos, objectOut);
+
+				writeString(this.weight, dos, objectOut);
+
+				if (this.can_image_variant_1024_be_zoomed == null) {
+					objectOut.writeByte(-1);
+				} else {
+					objectOut.writeByte(0);
+					objectOut.writeBoolean(this.can_image_variant_1024_be_zoomed);
+				}
+
+				writeInteger(this.create_uid, dos, objectOut);
+
+				writeDate(this.create_date, dos, objectOut);
+
+				writeInteger(this.write_uid, dos, objectOut);
+
+				writeDate(this.write_date, dos, objectOut);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		public boolean supportMarshaller() {
+			return true;
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",message_main_attachment_id=" + message_main_attachment_id);
+			sb.append(",default_code=" + default_code);
+			sb.append(",active=" + String.valueOf(active));
+			sb.append(",product_tmpl_id=" + String.valueOf(product_tmpl_id));
+			sb.append(",barcode=" + barcode);
+			sb.append(",combination_indices=" + combination_indices);
+			sb.append(",volume=" + volume);
+			sb.append(",weight=" + weight);
+			sb.append(",can_image_variant_1024_be_zoomed=" + String.valueOf(can_image_variant_1024_be_zoomed));
+			sb.append(",create_uid=" + String.valueOf(create_uid));
+			sb.append(",create_date=" + String.valueOf(create_date));
+			sb.append(",write_uid=" + String.valueOf(write_uid));
+			sb.append(",write_date=" + String.valueOf(write_date));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row3Struct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.product_tmpl_id, other.product_tmpl_id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_3Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				row3Struct row3 = new row3Struct();
+
+				/**
+				 * [tAdvancedHash_row3 begin ] start
+				 */
+
+				ok_Hash.put("tAdvancedHash_row3", false);
+				start_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
+
+				currentComponent = "tAdvancedHash_row3";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
+				}
+
+				int tos_count_tAdvancedHash_row3 = 0;
+
+				// connection name:row3
+				// source node:tFileInputDelimited_3 - inputs:(after_tFileInputDelimited_1)
+				// outputs:(row3,row3) | target node:tAdvancedHash_row3 - inputs:(row3)
+				// outputs:()
+				// linked node: tMap_1 - inputs:(productAttributeProductTemplateRel,row2,row3)
+				// outputs:(AttributeGroupBridge)
+
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row3 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
+
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row3Struct> tHash_Lookup_row3 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
+						.<row3Struct>getLookup(matchingModeEnum_row3);
+
+				globalMap.put("tHash_Lookup_row3", tHash_Lookup_row3);
+
+				/**
+				 * [tAdvancedHash_row3 begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_3 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_3", false);
+				start_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_3";
+
+				int tos_count_tFileInputDelimited_3 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_3 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_3 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_3 = null;
+				int limit_tFileInputDelimited_3 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_3 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productProduct.csv";
+					if (filename_tFileInputDelimited_3 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
+						if (footer_value_tFileInputDelimited_3 > 0 || random_value_tFileInputDelimited_3 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productProduct.csv",
+								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_3, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_3 != null && fid_tFileInputDelimited_3.nextRecord()) {
+						rowstate_tFileInputDelimited_3.reset();
+
+						row3 = null;
+
+						row3 = null;
+
+						boolean whetherReject_tFileInputDelimited_3 = false;
+						row3 = new row3Struct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_3 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_3 = 0;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row3", temp, ex_tFileInputDelimited_3), ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 1;
+
+							row3.message_main_attachment_id = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 2;
+
+							row3.default_code = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 3;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.active = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"active", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.active = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 4;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.product_tmpl_id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"product_tmpl_id", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.product_tmpl_id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 5;
+
+							row3.barcode = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 6;
+
+							row3.combination_indices = fid_tFileInputDelimited_3
+									.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 7;
+
+							row3.volume = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 8;
+
+							row3.weight = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+
+							columnIndexWithD_tFileInputDelimited_3 = 9;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.can_image_variant_1024_be_zoomed = ParserUtils.parseTo_Boolean(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"can_image_variant_1024_be_zoomed", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.can_image_variant_1024_be_zoomed = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 10;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.create_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_uid", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.create_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 11;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_date", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.create_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 12;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.write_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_uid", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.write_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_3 = 13;
+
+							temp = fid_tFileInputDelimited_3.get(columnIndexWithD_tFileInputDelimited_3);
+							if (temp.length() > 0) {
+
+								try {
+
+									row3.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_3) {
+									globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE",
+											ex_tFileInputDelimited_3.getMessage());
+									rowstate_tFileInputDelimited_3.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_date", "row3", temp, ex_tFileInputDelimited_3),
+											ex_tFileInputDelimited_3));
+								}
+
+							} else {
+
+								row3.write_date = null;
+
+							}
+
+							if (rowstate_tFileInputDelimited_3.getException() != null) {
+								throw rowstate_tFileInputDelimited_3.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_3_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_3 = true;
+
+							System.err.println(e.getMessage());
+							row3 = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_3 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						tos_count_tFileInputDelimited_3++;
+
+						/**
+						 * [tFileInputDelimited_3 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						/**
+						 * [tFileInputDelimited_3 process_data_begin ] stop
+						 */
+// Start of branch "row3"
+						if (row3 != null) {
+
+							/**
+							 * [tAdvancedHash_row3 main ] start
+							 */
+
+							currentComponent = "tAdvancedHash_row3";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row3"
+
+								);
+							}
+
+							row3Struct row3_HashRow = new row3Struct();
+
+							row3_HashRow.id = row3.id;
+
+							row3_HashRow.message_main_attachment_id = row3.message_main_attachment_id;
+
+							row3_HashRow.default_code = row3.default_code;
+
+							row3_HashRow.active = row3.active;
+
+							row3_HashRow.product_tmpl_id = row3.product_tmpl_id;
+
+							row3_HashRow.barcode = row3.barcode;
+
+							row3_HashRow.combination_indices = row3.combination_indices;
+
+							row3_HashRow.volume = row3.volume;
+
+							row3_HashRow.weight = row3.weight;
+
+							row3_HashRow.can_image_variant_1024_be_zoomed = row3.can_image_variant_1024_be_zoomed;
+
+							row3_HashRow.create_uid = row3.create_uid;
+
+							row3_HashRow.create_date = row3.create_date;
+
+							row3_HashRow.write_uid = row3.write_uid;
+
+							row3_HashRow.write_date = row3.write_date;
+
+							tHash_Lookup_row3.put(row3_HashRow);
+
+							tos_count_tAdvancedHash_row3++;
+
+							/**
+							 * [tAdvancedHash_row3 main ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_row3 process_data_begin ] start
+							 */
+
+							currentComponent = "tAdvancedHash_row3";
+
+							/**
+							 * [tAdvancedHash_row3 process_data_begin ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_row3 process_data_end ] start
+							 */
+
+							currentComponent = "tAdvancedHash_row3";
+
+							/**
+							 * [tAdvancedHash_row3 process_data_end ] stop
+							 */
+
+						} // End of branch "row3"
+
+						/**
+						 * [tFileInputDelimited_3 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+						/**
+						 * [tFileInputDelimited_3 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_3 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_3";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productProduct.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_3 != null) {
+							fid_tFileInputDelimited_3.close();
+						}
+					}
+					if (fid_tFileInputDelimited_3 != null) {
+						globalMap.put("tFileInputDelimited_3_NB_LINE", fid_tFileInputDelimited_3.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_3", true);
+				end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_3 end ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_row3 end ] start
+				 */
+
+				currentComponent = "tAdvancedHash_row3";
+
+				tHash_Lookup_row3.endPut();
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
+				}
+
+				ok_Hash.put("tAdvancedHash_row3", true);
+				end_Hash.put("tAdvancedHash_row3", System.currentTimeMillis());
+
+				/**
+				 * [tAdvancedHash_row3 end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_3 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_3";
+
+				/**
+				 * [tFileInputDelimited_3 finally ] stop
+				 */
+
+				/**
+				 * [tAdvancedHash_row3 finally ] start
+				 */
+
+				currentComponent = "tAdvancedHash_row3";
+
+				/**
+				 * [tAdvancedHash_row3 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -3648,6 +4987,6 @@ public class AttributeGroupBridge implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 113598 characters generated by Talend Open Studio for Data Integration on the
- * January 7, 2023 at 11:06:33 PM CST
+ * 154558 characters generated by Talend Open Studio for Data Integration on the
+ * January 8, 2023 at 12:50:46 AM CST
  ************************************************************************************************/

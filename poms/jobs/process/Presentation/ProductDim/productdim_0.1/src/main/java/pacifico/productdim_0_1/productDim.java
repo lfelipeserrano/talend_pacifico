@@ -307,7 +307,7 @@ public class productDim implements TalendJob {
 		}
 	}
 
-	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -328,66 +328,6 @@ public class productDim implements TalendJob {
 	}
 
 	public void tLogRow_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tMap_2_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tLogRow_2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tMap_3_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tLogRow_3_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tMap_4_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tLogRow_4_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -427,7 +367,7 @@ public class productDim implements TalendJob {
 		tS3Put_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -438,36 +378,6 @@ public class productDim implements TalendJob {
 	}
 
 	public void tFileInputDelimited_3_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_4_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_5_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_8_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -497,44 +407,6 @@ public class productDim implements TalendJob {
 		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tAdvancedHash_row6_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tAdvancedHash_row2_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tAdvancedHash_row4_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
-
-	}
-
 	public void tS3Connection_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -551,74 +423,146 @@ public class productDim implements TalendJob {
 
 	}
 
-	public static class row7Struct implements routines.system.IPersistableRow<row7Struct> {
+	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public static class productCategoryStruct
+			implements routines.system.IPersistableComparableLookupRow<productCategoryStruct> {
 		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
 		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
 
-		public Integer product_key;
+		public String loopKey;
 
-		public Integer getProduct_key() {
-			return this.product_key;
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
 		}
 
-		public Integer product_id;
+		public String name;
 
-		public Integer getProduct_id() {
-			return this.product_id;
+		public String getName() {
+			return this.name;
 		}
 
-		public Integer attribute_group_key;
+		public String complete_name;
 
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
+		public String getComplete_name() {
+			return this.complete_name;
 		}
 
-		public String product_name;
+		public String parent_id;
 
-		public String getProduct_name() {
-			return this.product_name;
+		public String getParent_id() {
+			return this.parent_id;
 		}
 
-		public String product_description;
+		public String parent_path;
 
-		public String getProduct_description() {
-			return this.product_description;
+		public String getParent_path() {
+			return this.parent_path;
 		}
 
-		public String category;
+		public Integer create_uid;
 
-		public String getCategory() {
-			return this.category;
+		public Integer getCreate_uid() {
+			return this.create_uid;
 		}
 
-		public String category_description;
+		public java.util.Date create_date;
 
-		public String getCategory_description() {
-			return this.category_description;
+		public java.util.Date getCreate_date() {
+			return this.create_date;
 		}
 
-		public String weight;
+		public Integer write_uid;
 
-		public String getWeight() {
-			return this.weight;
+		public Integer getWrite_uid() {
+			return this.write_uid;
 		}
 
-		public String volume;
+		public java.util.Date write_date;
 
-		public String getVolume() {
-			return this.volume;
+		public java.util.Date getWrite_date() {
+			return this.write_date;
 		}
 
-		public String barcode;
+		public String removal_strategy_id;
 
-		public String getBarcode() {
-			return this.barcode;
+		public String getRemoval_strategy_id() {
+			return this.removal_strategy_id;
 		}
 
-		public String product_code;
+		public String packaging_reserve_method;
 
-		public String getProduct_code() {
-			return this.product_code;
+		public String getPackaging_reserve_method() {
+			return this.packaging_reserve_method;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final productCategoryStruct other = (productCategoryStruct) obj;
+
+			if (this.id == null) {
+				if (other.id != null)
+					return false;
+
+			} else if (!this.id.equals(other.id))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(productCategoryStruct other) {
+
+			other.id = this.id;
+			other.name = this.name;
+			other.complete_name = this.complete_name;
+			other.parent_id = this.parent_id;
+			other.parent_path = this.parent_path;
+			other.create_uid = this.create_uid;
+			other.create_date = this.create_date;
+			other.write_uid = this.write_uid;
+			other.write_date = this.write_date;
+			other.removal_strategy_id = this.removal_strategy_id;
+			other.packaging_reserve_method = this.packaging_reserve_method;
+
+		}
+
+		public void copyKeysDataTo(productCategoryStruct other) {
+
+			other.id = this.id;
+
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -663,57 +607,37 @@ public class productDim implements TalendJob {
 			}
 		}
 
-		private String readString(ObjectInputStream dis) throws IOException {
+		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
 			String strReturn = null;
 			int length = 0;
 			length = dis.readInt();
 			if (length == -1) {
 				strReturn = null;
 			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
+				byte[] byteArray = new byte[length];
+				dis.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
 			}
 			return strReturn;
 		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
 			String strReturn = null;
 			int length = 0;
 			length = unmarshaller.readInt();
 			if (length == -1) {
 				strReturn = null;
 			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
+				byte[] byteArray = new byte[length];
+				unmarshaller.read(byteArray);
+				strReturn = new String(byteArray, utf8Charset);
 			}
 			return strReturn;
 		}
 
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
 			if (str == null) {
 				marshaller.writeInt(-1);
 			} else {
@@ -723,7 +647,105 @@ public class productDim implements TalendJob {
 			}
 		}
 
-		public void readData(ObjectInputStream dis) {
+		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = unmarshaller.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(dis.readLong());
+			}
+			return dateReturn;
+		}
+
+		private java.util.Date readDate(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
+				throws IOException {
+			java.util.Date dateReturn = null;
+			int length = 0;
+			length = unmarshaller.readByte();
+			if (length == -1) {
+				dateReturn = null;
+			} else {
+				dateReturn = new Date(unmarshaller.readLong());
+			}
+			return dateReturn;
+		}
+
+		private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
+			if (date1 == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeLong(date1.getTime());
+			}
+		}
+
+		private void writeDate(java.util.Date date1, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
+				throws IOException {
+			if (date1 == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeLong(date1.getTime());
+			}
+		}
+
+		public void readKeysData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_PACIFICO_productDim) {
 
@@ -731,27 +753,7 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
-					this.product_key = readInteger(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
+					this.id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -762,7 +764,7 @@ public class productDim implements TalendJob {
 
 		}
 
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
 
 			synchronized (commonByteArrayLock_PACIFICO_productDim) {
 
@@ -770,27 +772,7 @@ public class productDim implements TalendJob {
 
 					int length = 0;
 
-					this.product_key = readInteger(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
+					this.id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -801,52 +783,12 @@ public class productDim implements TalendJob {
 
 		}
 
-		public void writeData(ObjectOutputStream dos) {
+		public void writeKeysData(ObjectOutputStream dos) {
 			try {
 
 				// Integer
 
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
+				writeInteger(this.id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -854,57 +796,147 @@ public class productDim implements TalendJob {
 
 		}
 
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
+		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
 				// Integer
 
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
+				writeInteger(this.id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
 
+		}
+
+		/**
+		 * Fill Values data by reading ObjectInputStream.
+		 */
+		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
+			try {
+
+				int length = 0;
+
+				this.name = readString(dis, ois);
+
+				this.complete_name = readString(dis, ois);
+
+				this.parent_id = readString(dis, ois);
+
+				this.parent_path = readString(dis, ois);
+
+				this.create_uid = readInteger(dis, ois);
+
+				this.create_date = readDate(dis, ois);
+
+				this.write_uid = readInteger(dis, ois);
+
+				this.write_date = readDate(dis, ois);
+
+				this.removal_strategy_id = readString(dis, ois);
+
+				this.packaging_reserve_method = readString(dis, ois);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
+			try {
+				int length = 0;
+
+				this.name = readString(dis, objectIn);
+
+				this.complete_name = readString(dis, objectIn);
+
+				this.parent_id = readString(dis, objectIn);
+
+				this.parent_path = readString(dis, objectIn);
+
+				this.create_uid = readInteger(dis, objectIn);
+
+				this.create_date = readDate(dis, objectIn);
+
+				this.write_uid = readInteger(dis, objectIn);
+
+				this.write_date = readDate(dis, objectIn);
+
+				this.removal_strategy_id = readString(dis, objectIn);
+
+				this.packaging_reserve_method = readString(dis, objectIn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+
+			}
+
+		}
+
+		/**
+		 * Return a byte array which represents Values data.
+		 */
+		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
+			try {
+
+				writeString(this.name, dos, oos);
+
+				writeString(this.complete_name, dos, oos);
+
+				writeString(this.parent_id, dos, oos);
+
+				writeString(this.parent_path, dos, oos);
+
+				writeInteger(this.create_uid, dos, oos);
+
+				writeDate(this.create_date, dos, oos);
+
+				writeInteger(this.write_uid, dos, oos);
+
+				writeDate(this.write_date, dos, oos);
+
+				writeString(this.removal_strategy_id, dos, oos);
+
+				writeString(this.packaging_reserve_method, dos, oos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
+			try {
+
+				writeString(this.name, dos, objectOut);
+
+				writeString(this.complete_name, dos, objectOut);
+
+				writeString(this.parent_id, dos, objectOut);
+
+				writeString(this.parent_path, dos, objectOut);
+
+				writeInteger(this.create_uid, dos, objectOut);
+
+				writeDate(this.create_date, dos, objectOut);
+
+				writeInteger(this.write_uid, dos, objectOut);
+
+				writeDate(this.write_date, dos, objectOut);
+
+				writeString(this.removal_strategy_id, dos, objectOut);
+
+				writeString(this.packaging_reserve_method, dos, objectOut);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		public boolean supportMarshaller() {
+			return true;
 		}
 
 		public String toString() {
@@ -912,17 +944,17 @@ public class productDim implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
-			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",product_name=" + product_name);
-			sb.append(",product_description=" + product_description);
-			sb.append(",category=" + category);
-			sb.append(",category_description=" + category_description);
-			sb.append(",weight=" + weight);
-			sb.append(",volume=" + volume);
-			sb.append(",barcode=" + barcode);
-			sb.append(",product_code=" + product_code);
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",name=" + name);
+			sb.append(",complete_name=" + complete_name);
+			sb.append(",parent_id=" + parent_id);
+			sb.append(",parent_path=" + parent_path);
+			sb.append(",create_uid=" + String.valueOf(create_uid));
+			sb.append(",create_date=" + String.valueOf(create_date));
+			sb.append(",write_uid=" + String.valueOf(write_uid));
+			sb.append(",write_date=" + String.valueOf(write_date));
+			sb.append(",removal_strategy_id=" + removal_strategy_id);
+			sb.append(",packaging_reserve_method=" + packaging_reserve_method);
 			sb.append("]");
 
 			return sb.toString();
@@ -931,9 +963,14 @@ public class productDim implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(row7Struct other) {
+		public int compareTo(productCategoryStruct other) {
 
 			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.id, other.id);
+			if (returnValue != 0) {
+				return returnValue;
+			}
 
 			return returnValue;
 		}
@@ -961,2244 +998,923 @@ public class productDim implements TalendJob {
 
 	}
 
-	public static class out3Struct implements routines.system.IPersistableRow<out3Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
+	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
 
-		public Integer product_key;
+		final boolean execStat = this.execStat;
 
-		public Integer getProduct_key() {
-			return this.product_key;
-		}
+		String iterateId = "";
 
-		public Integer product_id;
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
-		public Integer getProduct_id() {
-			return this.product_id;
-		}
-
-		public Integer attribute_group_key;
-
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
-		public String product_name;
-
-		public String getProduct_name() {
-			return this.product_name;
-		}
-
-		public String product_description;
-
-		public String getProduct_description() {
-			return this.product_description;
-		}
-
-		public String category;
-
-		public String getCategory() {
-			return this.category;
-		}
-
-		public String category_description;
-
-		public String getCategory_description() {
-			return this.category_description;
-		}
-
-		public String weight;
-
-		public String getWeight() {
-			return this.weight;
-		}
-
-		public String volume;
-
-		public String getVolume() {
-			return this.volume;
-		}
-
-		public String barcode;
-
-		public String getBarcode() {
-			return this.barcode;
-		}
-
-		public String product_code;
-
-		public String getProduct_code() {
-			return this.product_code;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
 			}
-			return intReturn;
-		}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
 
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
+				productCategoryStruct productCategory = new productCategoryStruct();
 
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
+				/**
+				 * [tAdvancedHash_productCategory begin ] start
+				 */
 
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
+				ok_Hash.put("tAdvancedHash_productCategory", false);
+				start_Hash.put("tAdvancedHash_productCategory", System.currentTimeMillis());
 
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
+				currentComponent = "tAdvancedHash_productCategory";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "productCategory");
 				}
-				dis.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
+				int tos_count_tAdvancedHash_productCategory = 0;
 
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
+				// connection name:productCategory
+				// source node:tFileInputDelimited_1 - inputs:(after_tFileInputDelimited_2)
+				// outputs:(productCategory,productCategory) | target
+				// node:tAdvancedHash_productCategory - inputs:(productCategory) outputs:()
+				// linked node: tMap_1 - inputs:(productCategory,productProduct,productTemplate)
+				// outputs:(DimProduct)
 
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
+				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_productCategory = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
 
-		public void readData(ObjectInputStream dis) {
+				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<productCategoryStruct> tHash_Lookup_productCategory = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
+						.<productCategoryStruct>getLookup(matchingModeEnum_productCategory);
 
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
+				globalMap.put("tHash_Lookup_productCategory", tHash_Lookup_productCategory);
 
+				/**
+				 * [tAdvancedHash_productCategory begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_1 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_1", false);
+				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_1";
+
+				int tos_count_tFileInputDelimited_1 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_1 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
+				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					int length = 0;
+					Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv";
+					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
-					this.product_key = readInteger(dis);
+						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
+						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
 
-					this.product_id = readInteger(dis);
+					}
+					try {
+						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
+								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv",
+								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_1, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
 
-					this.attribute_group_key = readInteger(dis);
+						System.err.println(e.getMessage());
 
-					this.product_name = readString(dis);
+					}
 
-					this.product_description = readString(dis);
+					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
+						rowstate_tFileInputDelimited_1.reset();
 
-					this.category = readString(dis);
+						productCategory = null;
 
-					this.category_description = readString(dis);
+						productCategory = null;
 
-					this.weight = readString(dis);
+						boolean whetherReject_tFileInputDelimited_1 = false;
+						productCategory = new productCategoryStruct();
+						try {
 
-					this.volume = readString(dis);
+							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
-					this.barcode = readString(dis);
+							String temp = "";
 
-					this.product_code = readString(dis);
+							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-				} catch (IOException e) {
-					throw new RuntimeException(e);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
 
+								try {
+
+									productCategory.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "productCategory", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								productCategory.id = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 1;
+
+							productCategory.name = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 2;
+
+							productCategory.complete_name = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 3;
+
+							productCategory.parent_id = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 4;
+
+							productCategory.parent_path = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 5;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									productCategory.create_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_uid", "productCategory", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								productCategory.create_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 6;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									productCategory.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"create_date", "productCategory", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								productCategory.create_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 7;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									productCategory.write_uid = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_uid", "productCategory", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								productCategory.write_uid = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 8;
+
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									productCategory.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"write_date", "productCategory", temp, ex_tFileInputDelimited_1),
+											ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								productCategory.write_date = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_1 = 9;
+
+							productCategory.removal_strategy_id = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 10;
+
+							productCategory.packaging_reserve_method = fid_tFileInputDelimited_1
+									.get(columnIndexWithD_tFileInputDelimited_1);
+
+							if (rowstate_tFileInputDelimited_1.getException() != null) {
+								throw rowstate_tFileInputDelimited_1.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_1 = true;
+
+							System.err.println(e.getMessage());
+							productCategory = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_1 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_1 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+						tos_count_tFileInputDelimited_1++;
+
+						/**
+						 * [tFileInputDelimited_1 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+						/**
+						 * [tFileInputDelimited_1 process_data_begin ] stop
+						 */
+// Start of branch "productCategory"
+						if (productCategory != null) {
+
+							/**
+							 * [tAdvancedHash_productCategory main ] start
+							 */
+
+							currentComponent = "tAdvancedHash_productCategory";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "productCategory"
+
+								);
+							}
+
+							productCategoryStruct productCategory_HashRow = new productCategoryStruct();
+
+							productCategory_HashRow.id = productCategory.id;
+
+							productCategory_HashRow.name = productCategory.name;
+
+							productCategory_HashRow.complete_name = productCategory.complete_name;
+
+							productCategory_HashRow.parent_id = productCategory.parent_id;
+
+							productCategory_HashRow.parent_path = productCategory.parent_path;
+
+							productCategory_HashRow.create_uid = productCategory.create_uid;
+
+							productCategory_HashRow.create_date = productCategory.create_date;
+
+							productCategory_HashRow.write_uid = productCategory.write_uid;
+
+							productCategory_HashRow.write_date = productCategory.write_date;
+
+							productCategory_HashRow.removal_strategy_id = productCategory.removal_strategy_id;
+
+							productCategory_HashRow.packaging_reserve_method = productCategory.packaging_reserve_method;
+
+							tHash_Lookup_productCategory.put(productCategory_HashRow);
+
+							tos_count_tAdvancedHash_productCategory++;
+
+							/**
+							 * [tAdvancedHash_productCategory main ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_productCategory process_data_begin ] start
+							 */
+
+							currentComponent = "tAdvancedHash_productCategory";
+
+							/**
+							 * [tAdvancedHash_productCategory process_data_begin ] stop
+							 */
+
+							/**
+							 * [tAdvancedHash_productCategory process_data_end ] start
+							 */
+
+							currentComponent = "tAdvancedHash_productCategory";
+
+							/**
+							 * [tAdvancedHash_productCategory process_data_end ] stop
+							 */
+
+						} // End of branch "productCategory"
+
+						/**
+						 * [tFileInputDelimited_1 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+						/**
+						 * [tFileInputDelimited_1 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_1 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_1";
+
+					}
+				} finally {
+					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_1 != null) {
+							fid_tFileInputDelimited_1.close();
+						}
+					}
+					if (fid_tFileInputDelimited_1 != null) {
+						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
+
+					}
 				}
 
-			}
+				ok_Hash.put("tFileInputDelimited_1", true);
+				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
 
-		}
+				/**
+				 * [tFileInputDelimited_1 end ] stop
+				 */
 
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+				/**
+				 * [tAdvancedHash_productCategory end ] start
+				 */
 
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
+				currentComponent = "tAdvancedHash_productCategory";
 
-				try {
+				tHash_Lookup_productCategory.endPut();
 
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "productCategory");
 				}
 
-			}
+				ok_Hash.put("tAdvancedHash_productCategory", true);
+				end_Hash.put("tAdvancedHash_productCategory", System.currentTimeMillis());
 
-		}
+				/**
+				 * [tAdvancedHash_productCategory end ] stop
+				 */
 
-		public void writeData(ObjectOutputStream dos) {
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
 			try {
 
-				// Integer
+				/**
+				 * [tFileInputDelimited_1 finally ] start
+				 */
 
-				writeInteger(this.product_key, dos);
+				currentComponent = "tFileInputDelimited_1";
 
-				// Integer
+				/**
+				 * [tFileInputDelimited_1 finally ] stop
+				 */
 
-				writeInteger(this.product_id, dos);
+				/**
+				 * [tAdvancedHash_productCategory finally ] start
+				 */
 
-				// Integer
+				currentComponent = "tAdvancedHash_productCategory";
 
-				writeInteger(this.attribute_group_key, dos);
+				/**
+				 * [tAdvancedHash_productCategory finally ] stop
+				 */
 
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
 			}
-
+			resourceMap = null;
 		}
 
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
-			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",product_name=" + product_name);
-			sb.append(",product_description=" + product_description);
-			sb.append(",category=" + category);
-			sb.append(",category_description=" + category_description);
-			sb.append(",weight=" + weight);
-			sb.append(",volume=" + volume);
-			sb.append(",barcode=" + barcode);
-			sb.append(",product_code=" + product_code);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(out3Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
+		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
 	}
 
-	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
+	public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
 
-		public Integer product_key;
+		final boolean execStat = this.execStat;
 
-		public Integer getProduct_key() {
-			return this.product_key;
-		}
+		String iterateId = "";
 
-		public Integer attribute_group_key;
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
-		public String product_name;
-
-		public String getProduct_name() {
-			return this.product_name;
-		}
-
-		public String product_description;
-
-		public String getProduct_description() {
-			return this.product_description;
-		}
-
-		public String category;
-
-		public String getCategory() {
-			return this.category;
-		}
-
-		public String category_description;
-
-		public String getCategory_description() {
-			return this.category_description;
-		}
-
-		public String weight;
-
-		public String getWeight() {
-			return this.weight;
-		}
-
-		public String volume;
-
-		public String getVolume() {
-			return this.volume;
-		}
-
-		public String barcode;
-
-		public String getBarcode() {
-			return this.barcode;
-		}
-
-		public String product_code;
-
-		public String getProduct_code() {
-			return this.product_code;
-		}
-
-		public Integer product_id;
-
-		public Integer getProduct_id() {
-			return this.product_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		public Integer attribute_key;
-
-		public Integer getAttribute_key() {
-			return this.attribute_key;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
 			}
-			return intReturn;
-		}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
 
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
+				/**
+				 * [tS3Connection_1 begin ] start
+				 */
 
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
+				ok_Hash.put("tS3Connection_1", false);
+				start_Hash.put("tS3Connection_1", System.currentTimeMillis());
 
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
+				currentComponent = "tS3Connection_1";
 
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
+				int tos_count_tS3Connection_1 = 0;
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
+				final String decryptedPassword_tS3Connection_1 = context.SecretAccessKey;
 
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
+				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
+						context.AccessKeyId, decryptedPassword_tS3Connection_1);
+				com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(
+						credentials_tS3Connection_1);
 
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
+				com.amazonaws.ClientConfiguration cc_tS3Connection_1 = new com.amazonaws.ClientConfiguration();
+				cc_tS3Connection_1.setUserAgent("APN/1.0 Talend/8.0 Studio/8.0 (Talend Open Studio)");
 
-		public void readData(ObjectInputStream dis) {
+				com.amazonaws.services.s3.AmazonS3ClientBuilder builder_tS3Connection_1 = com.amazonaws.services.s3.AmazonS3ClientBuilder
+						.standard();
 
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
+				final boolean useRegionEndpoint_tS3Connection_1 = false;
+				final String regionEndpoint_tS3Connection_1 = "s3.amazonaws.com";
+				final boolean enableAccelerateMode_tS3Connection_1 = false;
+				final boolean enablePathStyleAccess_tS3Connection_1 = false;
 
-				try {
-
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.attribute_key = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
+				if (useRegionEndpoint_tS3Connection_1 && regionEndpoint_tS3Connection_1 != null
+						&& !regionEndpoint_tS3Connection_1.isEmpty()) {
+					builder_tS3Connection_1
+							.withEndpointConfiguration(
+									new com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration(
+											regionEndpoint_tS3Connection_1, null))
+							.withForceGlobalBucketAccessEnabled(true);
+				} else {
+					builder_tS3Connection_1.withRegion("us-east-1") // The first region to try your request against
+							.withForceGlobalBucketAccessEnabled(true); // If a bucket is in a different region, try
+																		// again in the correct region
 				}
 
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.attribute_key = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
+				if (enableAccelerateMode_tS3Connection_1) {
+					builder_tS3Connection_1.withAccelerateModeEnabled(true);
 				}
 
-			}
+				builder_tS3Connection_1.withCredentials(credentialsProvider_tS3Connection_1)
+						.withClientConfiguration(cc_tS3Connection_1);
 
-		}
+				if (useRegionEndpoint_tS3Connection_1 && enablePathStyleAccess_tS3Connection_1) {
+					builder_tS3Connection_1.enablePathStyleAccess();
+				}
 
-		public void writeData(ObjectOutputStream dos) {
+				com.amazonaws.services.s3.AmazonS3 conn_tS3Connection_1 = builder_tS3Connection_1.build();
+
+				// This method is just for test connection.
+				conn_tS3Connection_1.getS3AccountOwner();
+
+				globalMap.put("conn_" + "tS3Connection_1", conn_tS3Connection_1);
+
+				/**
+				 * [tS3Connection_1 begin ] stop
+				 */
+
+				/**
+				 * [tS3Connection_1 main ] start
+				 */
+
+				currentComponent = "tS3Connection_1";
+
+				tos_count_tS3Connection_1++;
+
+				/**
+				 * [tS3Connection_1 main ] stop
+				 */
+
+				/**
+				 * [tS3Connection_1 process_data_begin ] start
+				 */
+
+				currentComponent = "tS3Connection_1";
+
+				/**
+				 * [tS3Connection_1 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tS3Connection_1 process_data_end ] start
+				 */
+
+				currentComponent = "tS3Connection_1";
+
+				/**
+				 * [tS3Connection_1 process_data_end ] stop
+				 */
+
+				/**
+				 * [tS3Connection_1 end ] start
+				 */
+
+				currentComponent = "tS3Connection_1";
+
+				ok_Hash.put("tS3Connection_1", true);
+				end_Hash.put("tS3Connection_1", System.currentTimeMillis());
+
+				if (execStat) {
+					runStat.updateStatOnConnection("OnComponentOk2", 0, "ok");
+				}
+				tS3Put_1Process(globalMap);
+
+				/**
+				 * [tS3Connection_1 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
 			try {
 
-				// Integer
+				/**
+				 * [tS3Connection_1 finally ] start
+				 */
 
-				writeInteger(this.product_key, dos);
+				currentComponent = "tS3Connection_1";
 
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_key, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
+				/**
+				 * [tS3Connection_1 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
 			}
-
+			resourceMap = null;
 		}
 
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_key, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",product_name=" + product_name);
-			sb.append(",product_description=" + product_description);
-			sb.append(",category=" + category);
-			sb.append(",category_description=" + category_description);
-			sb.append(",weight=" + weight);
-			sb.append(",volume=" + volume);
-			sb.append(",barcode=" + barcode);
-			sb.append(",product_code=" + product_code);
-			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append(",attribute_key=" + String.valueOf(attribute_key));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row5Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
+		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 1);
 	}
 
-	public static class out2Struct implements routines.system.IPersistableRow<out2Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
+	public void tS3Put_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 0);
 
-		public Integer product_key;
+		final boolean execStat = this.execStat;
 
-		public Integer getProduct_key() {
-			return this.product_key;
-		}
+		String iterateId = "";
 
-		public Integer attribute_group_key;
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
-		public String product_name;
-
-		public String getProduct_name() {
-			return this.product_name;
-		}
-
-		public String product_description;
-
-		public String getProduct_description() {
-			return this.product_description;
-		}
-
-		public String category;
-
-		public String getCategory() {
-			return this.category;
-		}
-
-		public String category_description;
-
-		public String getCategory_description() {
-			return this.category_description;
-		}
-
-		public String weight;
-
-		public String getWeight() {
-			return this.weight;
-		}
-
-		public String volume;
-
-		public String getVolume() {
-			return this.volume;
-		}
-
-		public String barcode;
-
-		public String getBarcode() {
-			return this.barcode;
-		}
-
-		public String product_code;
-
-		public String getProduct_code() {
-			return this.product_code;
-		}
-
-		public Integer product_id;
-
-		public Integer getProduct_id() {
-			return this.product_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		public Integer attribute_key;
-
-		public Integer getAttribute_key() {
-			return this.attribute_key;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
 			}
-			return intReturn;
-		}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
 
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
+				/**
+				 * [tS3Put_1 begin ] start
+				 */
 
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
+				ok_Hash.put("tS3Put_1", false);
+				start_Hash.put("tS3Put_1", System.currentTimeMillis());
 
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
+				currentComponent = "tS3Put_1";
 
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
+				int tos_count_tS3Put_1 = 0;
+
+				String millisecTime_tS3Put_1 = null;
+
+				com.amazonaws.services.s3.AmazonS3Client conn_tS3Put_1 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
+						.get("conn_tS3Connection_1");
+
+				String key_tS3Put_1 = "DimProduct.csv";
+
+				int partSizeInBytes_tS3Put_1 = 5 * 1024 * 1024;
+				if (partSizeInBytes_tS3Put_1 < 5 << 20) {
+
+					partSizeInBytes_tS3Put_1 = 5 << 20;
 				}
-				dis.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
+				Object fileOrStream_tS3Put_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimProduct.csv";
 
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
+				boolean useStream_tS3Put_1 = false;
+				java.io.InputStream uploadStream_tS3Put_1 = null;
 
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
+				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Put_1 = null;
 
 				try {
 
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.attribute_key = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-					this.attribute_key = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_key, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_key, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",product_name=" + product_name);
-			sb.append(",product_description=" + product_description);
-			sb.append(",category=" + category);
-			sb.append(",category_description=" + category_description);
-			sb.append(",weight=" + weight);
-			sb.append(",volume=" + volume);
-			sb.append(",barcode=" + barcode);
-			sb.append(",product_code=" + product_code);
-			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append(",attribute_key=" + String.valueOf(attribute_key));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(out2Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row3Struct implements routines.system.IPersistableRow<row3Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-
-		public Integer product_key;
-
-		public Integer getProduct_key() {
-			return this.product_key;
-		}
-
-		public Integer attribute_group_key;
-
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
-		public String product_name;
-
-		public String getProduct_name() {
-			return this.product_name;
-		}
-
-		public String product_description;
-
-		public String getProduct_description() {
-			return this.product_description;
-		}
-
-		public String category;
-
-		public String getCategory() {
-			return this.category;
-		}
-
-		public String category_description;
-
-		public String getCategory_description() {
-			return this.category_description;
-		}
-
-		public String weight;
-
-		public String getWeight() {
-			return this.weight;
-		}
-
-		public String volume;
-
-		public String getVolume() {
-			return this.volume;
-		}
-
-		public String barcode;
-
-		public String getBarcode() {
-			return this.barcode;
-		}
-
-		public String product_code;
-
-		public String getProduct_code() {
-			return this.product_code;
-		}
-
-		public Integer product_id;
-
-		public Integer getProduct_id() {
-			return this.product_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
+					if (fileOrStream_tS3Put_1 instanceof String) {
+						useStream_tS3Put_1 = false;
+					} else if (fileOrStream_tS3Put_1 instanceof java.io.InputStream) {
+						useStream_tS3Put_1 = true;
 					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
+					com.amazonaws.services.s3.model.ObjectMetadata objectMetadata_tS3Put_1 = new com.amazonaws.services.s3.model.ObjectMetadata();
+
+					if (!useStream_tS3Put_1) {
+						java.io.File inputFile_tS3Put_1 = new java.io.File((String) fileOrStream_tS3Put_1);
+
+						long multipart_upload_threshold_tS3Put_1 = 5 * 1024 * 1024;
+
+						tm_tS3Put_1 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
+								.withMinimumUploadPartSize((long) partSizeInBytes_tS3Put_1)
+								.withMultipartUploadThreshold(multipart_upload_threshold_tS3Put_1)
+								.withS3Client(conn_tS3Put_1).build();
+
+						com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest(
+								"libreriapacifico/presentation", key_tS3Put_1, inputFile_tS3Put_1)
+										.withMetadata(objectMetadata_tS3Put_1);
+
+						com.amazonaws.services.s3.transfer.Upload upload_tS3Put_1 = tm_tS3Put_1
+								.upload(putRequest_tS3Put_1);
+
+						upload_tS3Put_1.waitForCompletion();
+
 					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
+						java.io.InputStream sourceStream_tS3Put_1 = ((java.io.InputStream) fileOrStream_tS3Put_1);
+
+						class S3StreamUtil {
+							// read content to buffer as many as possible
+							public int readFully(final java.io.InputStream input, final byte[] buffer)
+									throws java.io.IOException {
+								return readFully(input, buffer, 0, buffer.length);
+							}
+
+							public int readFully(final java.io.InputStream input, final byte[] buffer, final int offset,
+									final int length) throws java.io.IOException {
+								if (length < 0) {
+									throw new java.lang.IllegalArgumentException(
+											"Length must not be negative: " + length);
+								}
+
+								int remaining = length;
+								while (remaining > 0) {
+									final int location = length - remaining;
+									final int count = input.read(buffer, offset + location, remaining);
+									if (count == -1) {
+										break;
+									}
+									remaining -= count;
+								}
+								return length - remaining;
+							}
+						}
+
+						S3StreamUtil streamUtil_tS3Put_1 = new S3StreamUtil();
+						byte[] buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
+						long curPartSize_tS3Put_1 = streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
+								buffer_tS3Put_1);
+
+						boolean multiUpload_tS3Put_1 = curPartSize_tS3Put_1 == partSizeInBytes_tS3Put_1;
+
+						if (!multiUpload_tS3Put_1) {
+							objectMetadata_tS3Put_1.setContentLength(curPartSize_tS3Put_1);
+							uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1, 0,
+									Long.valueOf(curPartSize_tS3Put_1).intValue());
+							com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest(
+									"libreriapacifico/presentation", key_tS3Put_1, uploadStream_tS3Put_1,
+									objectMetadata_tS3Put_1);
+
+							conn_tS3Put_1.putObject(putRequest_tS3Put_1);
+						} else {
+							uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
+							java.util.List<com.amazonaws.services.s3.model.PartETag> partTags_tS3Put_1 = new java.util.ArrayList<com.amazonaws.services.s3.model.PartETag>();
+							com.amazonaws.services.s3.model.InitiateMultipartUploadRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.InitiateMultipartUploadRequest(
+									"libreriapacifico/presentation", key_tS3Put_1, objectMetadata_tS3Put_1);
+
+							com.amazonaws.services.s3.model.InitiateMultipartUploadResult initResponse_tS3Put_1 = conn_tS3Put_1
+									.initiateMultipartUpload(putRequest_tS3Put_1);
+							String uploadId_tS3Put_1 = initResponse_tS3Put_1.getUploadId();
+							int partNumber_tS3Put_1 = 1;
+							boolean streamHasNext_tS3Put_1 = true;
+							byte[] probeAvailability_tS3Put_1 = new byte[1];
+							try {
+								while (streamHasNext_tS3Put_1) {
+									com.amazonaws.services.s3.model.UploadPartRequest uploadRequest_tS3Put_1 = new com.amazonaws.services.s3.model.UploadPartRequest()
+											.withBucketName("libreriapacifico/presentation").withKey(key_tS3Put_1)
+											.withUploadId(uploadId_tS3Put_1).withPartNumber(partNumber_tS3Put_1)
+											.withPartSize(curPartSize_tS3Put_1);
+									uploadRequest_tS3Put_1.setInputStream(uploadStream_tS3Put_1);
+									streamHasNext_tS3Put_1 = (1 == streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
+											probeAvailability_tS3Put_1));
+									if (!streamHasNext_tS3Put_1) {
+										uploadRequest_tS3Put_1.setLastPart(true);
+									}
+
+									partTags_tS3Put_1
+											.add(conn_tS3Put_1.uploadPart(uploadRequest_tS3Put_1).getPartETag());
+									partNumber_tS3Put_1++;
+
+									if (uploadStream_tS3Put_1 != null) {
+										uploadStream_tS3Put_1.close();
+									}
+									buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
+									curPartSize_tS3Put_1 = 1 + streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
+											buffer_tS3Put_1, 1, partSizeInBytes_tS3Put_1 - 1);
+									buffer_tS3Put_1[0] = probeAvailability_tS3Put_1[0];
+									probeAvailability_tS3Put_1 = new byte[1];
+									uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
+								}
+
+								com.amazonaws.services.s3.model.CompleteMultipartUploadRequest compRequest_tS3Put_1 = new com.amazonaws.services.s3.model.CompleteMultipartUploadRequest(
+										"libreriapacifico/presentation", key_tS3Put_1, uploadId_tS3Put_1,
+										partTags_tS3Put_1);
+								conn_tS3Put_1.completeMultipartUpload(compRequest_tS3Put_1);
+							} catch (java.lang.Exception uploadException_tS3Put_1) {
+								globalMap.put("tS3Put_1_ERROR_MESSAGE", uploadException_tS3Put_1.getMessage());
+								conn_tS3Put_1.abortMultipartUpload(
+										new com.amazonaws.services.s3.model.AbortMultipartUploadRequest(
+												"libreriapacifico/presentation", key_tS3Put_1, uploadId_tS3Put_1));
+								throw uploadException_tS3Put_1;
+							}
+						}
 					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
 
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
+				} catch (java.lang.Exception e_tS3Put_1) {
+					globalMap.put("tS3Put_1_ERROR_MESSAGE", e_tS3Put_1.getMessage());
 
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
+					System.err.println(e_tS3Put_1.getMessage());
 
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",product_name=" + product_name);
-			sb.append(",product_description=" + product_description);
-			sb.append(",category=" + category);
-			sb.append(",category_description=" + category_description);
-			sb.append(",weight=" + weight);
-			sb.append(",volume=" + volume);
-			sb.append(",barcode=" + barcode);
-			sb.append(",product_code=" + product_code);
-			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row3Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class out1Struct implements routines.system.IPersistableRow<out1Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-
-		public Integer product_key;
-
-		public Integer getProduct_key() {
-			return this.product_key;
-		}
-
-		public Integer attribute_group_key;
-
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
-		public String product_name;
-
-		public String getProduct_name() {
-			return this.product_name;
-		}
-
-		public String product_description;
-
-		public String getProduct_description() {
-			return this.product_description;
-		}
-
-		public String category;
-
-		public String getCategory() {
-			return this.category;
-		}
-
-		public String category_description;
-
-		public String getCategory_description() {
-			return this.category_description;
-		}
-
-		public String weight;
-
-		public String getWeight() {
-			return this.weight;
-		}
-
-		public String volume;
-
-		public String getVolume() {
-			return this.volume;
-		}
-
-		public String barcode;
-
-		public String getBarcode() {
-			return this.barcode;
-		}
-
-		public String product_code;
-
-		public String getProduct_code() {
-			return this.product_code;
-		}
-
-		public Integer product_id;
-
-		public Integer getProduct_id() {
-			return this.product_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
-		}
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
+				} finally {
+					if (useStream_tS3Put_1 && uploadStream_tS3Put_1 != null) {
+						uploadStream_tS3Put_1.close();
 					}
-				}
-				dis.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_PACIFICO_productDim.length) {
-					if (length < 1024 && commonByteArray_PACIFICO_productDim.length == 0) {
-						commonByteArray_PACIFICO_productDim = new byte[1024];
-					} else {
-						commonByteArray_PACIFICO_productDim = new byte[2 * length];
+					if (tm_tS3Put_1 != null) {
+						tm_tS3Put_1.shutdownNow(false);
 					}
-				}
-				unmarshaller.readFully(commonByteArray_PACIFICO_productDim, 0, length);
-				strReturn = new String(commonByteArray_PACIFICO_productDim, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_key = readInteger(dis);
-
-					this.attribute_group_key = readInteger(dis);
-
-					this.product_name = readString(dis);
-
-					this.product_description = readString(dis);
-
-					this.category = readString(dis);
-
-					this.category_description = readString(dis);
-
-					this.weight = readString(dis);
-
-					this.volume = readString(dis);
-
-					this.barcode = readString(dis);
-
-					this.product_code = readString(dis);
-
-					this.product_id = readInteger(dis);
-
-					this.product_template_id = readInteger(dis);
-
-					this.product_attribute_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
 
 				}
 
-			}
+				/**
+				 * [tS3Put_1 begin ] stop
+				 */
 
-		}
+				/**
+				 * [tS3Put_1 main ] start
+				 */
 
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+				currentComponent = "tS3Put_1";
 
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
+				tos_count_tS3Put_1++;
 
-				try {
+				/**
+				 * [tS3Put_1 main ] stop
+				 */
 
-					int length = 0;
+				/**
+				 * [tS3Put_1 process_data_begin ] start
+				 */
 
-					this.product_key = readInteger(dis);
+				currentComponent = "tS3Put_1";
 
-					this.attribute_group_key = readInteger(dis);
+				/**
+				 * [tS3Put_1 process_data_begin ] stop
+				 */
 
-					this.product_name = readString(dis);
+				/**
+				 * [tS3Put_1 process_data_end ] start
+				 */
 
-					this.product_description = readString(dis);
+				currentComponent = "tS3Put_1";
 
-					this.category = readString(dis);
+				/**
+				 * [tS3Put_1 process_data_end ] stop
+				 */
 
-					this.category_description = readString(dis);
+				/**
+				 * [tS3Put_1 end ] start
+				 */
 
-					this.weight = readString(dis);
+				currentComponent = "tS3Put_1";
 
-					this.volume = readString(dis);
+				ok_Hash.put("tS3Put_1", true);
+				end_Hash.put("tS3Put_1", System.currentTimeMillis());
 
-					this.barcode = readString(dis);
+				/**
+				 * [tS3Put_1 end ] stop
+				 */
+			} // end the resume
 
-					this.product_code = readString(dis);
+		} catch (java.lang.Exception e) {
 
-					this.product_id = readInteger(dis);
+			TalendException te = new TalendException(e, currentComponent, globalMap);
 
-					this.product_template_id = readInteger(dis);
+			throw te;
+		} catch (java.lang.Error error) {
 
-					this.product_attribute_id = readInteger(dis);
+			runStat.stopThreadStat();
 
-				} catch (IOException e) {
-					throw new RuntimeException(e);
+			throw error;
+		} finally {
 
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// Integer
+				/**
+				 * [tS3Put_1 finally ] start
+				 */
 
-				writeInteger(this.product_key, dos);
+				currentComponent = "tS3Put_1";
 
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
+				/**
+				 * [tS3Put_1 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
 			}
-
+			resourceMap = null;
 		}
 
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_key, dos);
-
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
-				// String
-
-				writeString(this.product_name, dos);
-
-				// String
-
-				writeString(this.product_description, dos);
-
-				// String
-
-				writeString(this.category, dos);
-
-				// String
-
-				writeString(this.category_description, dos);
-
-				// String
-
-				writeString(this.weight, dos);
-
-				// String
-
-				writeString(this.volume, dos);
-
-				// String
-
-				writeString(this.barcode, dos);
-
-				// String
-
-				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-				// Integer
-
-				writeInteger(this.product_attribute_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("product_key=" + String.valueOf(product_key));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",product_name=" + product_name);
-			sb.append(",product_description=" + product_description);
-			sb.append(",category=" + category);
-			sb.append(",category_description=" + category_description);
-			sb.append(",weight=" + weight);
-			sb.append(",volume=" + volume);
-			sb.append(",barcode=" + barcode);
-			sb.append(",product_code=" + product_code);
-			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
-			sb.append(",product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(out1Struct other) {
-
-			int returnValue = -1;
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
+		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 1);
 	}
 
 	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
@@ -3217,12 +1933,6 @@ public class productDim implements TalendJob {
 			return this.product_id;
 		}
 
-		public Integer attribute_group_key;
-
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
 		public String product_name;
 
 		public String getProduct_name() {
@@ -3269,12 +1979,6 @@ public class productDim implements TalendJob {
 
 		public String getProduct_code() {
 			return this.product_code;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -3391,8 +2095,6 @@ public class productDim implements TalendJob {
 
 					this.product_id = readInteger(dis);
 
-					this.attribute_group_key = readInteger(dis);
-
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -3408,8 +2110,6 @@ public class productDim implements TalendJob {
 					this.barcode = readString(dis);
 
 					this.product_code = readString(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3432,8 +2132,6 @@ public class productDim implements TalendJob {
 
 					this.product_id = readInteger(dis);
 
-					this.attribute_group_key = readInteger(dis);
-
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -3449,8 +2147,6 @@ public class productDim implements TalendJob {
 					this.barcode = readString(dis);
 
 					this.product_code = readString(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3472,10 +2168,6 @@ public class productDim implements TalendJob {
 
 				writeInteger(this.product_id, dos);
 
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
 				// String
 
 				writeString(this.product_name, dos);
@@ -3507,10 +2199,6 @@ public class productDim implements TalendJob {
 				// String
 
 				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -3529,10 +2217,6 @@ public class productDim implements TalendJob {
 
 				writeInteger(this.product_id, dos);
 
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
 				// String
 
 				writeString(this.product_name, dos);
@@ -3565,10 +2249,6 @@ public class productDim implements TalendJob {
 
 				writeString(this.product_code, dos);
 
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3582,7 +2262,6 @@ public class productDim implements TalendJob {
 			sb.append("[");
 			sb.append("product_key=" + String.valueOf(product_key));
 			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
 			sb.append(",product_name=" + product_name);
 			sb.append(",product_description=" + product_description);
 			sb.append(",category=" + category);
@@ -3591,7 +2270,6 @@ public class productDim implements TalendJob {
 			sb.append(",volume=" + volume);
 			sb.append(",barcode=" + barcode);
 			sb.append(",product_code=" + product_code);
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
 			sb.append("]");
 
 			return sb.toString();
@@ -3646,12 +2324,6 @@ public class productDim implements TalendJob {
 			return this.product_id;
 		}
 
-		public Integer attribute_group_key;
-
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
 		public String product_name;
 
 		public String getProduct_name() {
@@ -3698,12 +2370,6 @@ public class productDim implements TalendJob {
 
 		public String getProduct_code() {
 			return this.product_code;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -3820,8 +2486,6 @@ public class productDim implements TalendJob {
 
 					this.product_id = readInteger(dis);
 
-					this.attribute_group_key = readInteger(dis);
-
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -3837,8 +2501,6 @@ public class productDim implements TalendJob {
 					this.barcode = readString(dis);
 
 					this.product_code = readString(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3861,8 +2523,6 @@ public class productDim implements TalendJob {
 
 					this.product_id = readInteger(dis);
 
-					this.attribute_group_key = readInteger(dis);
-
 					this.product_name = readString(dis);
 
 					this.product_description = readString(dis);
@@ -3878,8 +2538,6 @@ public class productDim implements TalendJob {
 					this.barcode = readString(dis);
 
 					this.product_code = readString(dis);
-
-					this.product_template_id = readInteger(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3901,10 +2559,6 @@ public class productDim implements TalendJob {
 
 				writeInteger(this.product_id, dos);
 
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
 				// String
 
 				writeString(this.product_name, dos);
@@ -3936,10 +2590,6 @@ public class productDim implements TalendJob {
 				// String
 
 				writeString(this.product_code, dos);
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -3958,10 +2608,6 @@ public class productDim implements TalendJob {
 
 				writeInteger(this.product_id, dos);
 
-				// Integer
-
-				writeInteger(this.attribute_group_key, dos);
-
 				// String
 
 				writeString(this.product_name, dos);
@@ -3994,10 +2640,6 @@ public class productDim implements TalendJob {
 
 				writeString(this.product_code, dos);
 
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -4011,7 +2653,6 @@ public class productDim implements TalendJob {
 			sb.append("[");
 			sb.append("product_key=" + String.valueOf(product_key));
 			sb.append(",product_id=" + String.valueOf(product_id));
-			sb.append(",attribute_group_key=" + String.valueOf(attribute_group_key));
 			sb.append(",product_name=" + product_name);
 			sb.append(",product_description=" + product_description);
 			sb.append(",category=" + category);
@@ -4020,7 +2661,6 @@ public class productDim implements TalendJob {
 			sb.append(",volume=" + volume);
 			sb.append(",barcode=" + barcode);
 			sb.append(",product_code=" + product_code);
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
 			sb.append("]");
 
 			return sb.toString();
@@ -5180,19 +3820,10 @@ public class productDim implements TalendJob {
 
 				tFileInputDelimited_1Process(globalMap);
 				tFileInputDelimited_3Process(globalMap);
-				tFileInputDelimited_4Process(globalMap);
-				tFileInputDelimited_5Process(globalMap);
-				tFileInputDelimited_8Process(globalMap);
 
 				productProductStruct productProduct = new productProductStruct();
 				DimProductStruct DimProduct = new DimProductStruct();
 				DimProductStruct row1 = DimProduct;
-				out1Struct out1 = new out1Struct();
-				out1Struct row3 = out1;
-				out2Struct out2 = new out2Struct();
-				out2Struct row5 = out2;
-				out3Struct out3 = new out3Struct();
-				out3Struct row7 = out3;
 
 				/**
 				 * [tFileOutputDelimited_1 begin ] start
@@ -5204,7 +3835,7 @@ public class productDim implements TalendJob {
 				currentComponent = "tFileOutputDelimited_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row7");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
 				}
 
 				int tos_count_tFileOutputDelimited_1 = 0;
@@ -5281,8 +3912,6 @@ public class productDim implements TalendJob {
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_id");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
-					outtFileOutputDelimited_1.write("attribute_group_key");
-					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_name");
 					outtFileOutputDelimited_1.write(OUT_DELIM_tFileOutputDelimited_1);
 					outtFileOutputDelimited_1.write("product_description");
@@ -5307,800 +3936,6 @@ public class productDim implements TalendJob {
 
 				/**
 				 * [tFileOutputDelimited_1 begin ] stop
-				 */
-
-				/**
-				 * [tLogRow_4 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_4", false);
-				start_Hash.put("tLogRow_4", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_4";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out3");
-				}
-
-				int tos_count_tLogRow_4 = 0;
-
-				///////////////////////
-
-				class Util_tLogRow_4 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[11];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 11; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
-					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
-					}
-
-					public StringBuilder format() {
-
-						StringBuilder sb = new StringBuilder();
-
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 10 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 10 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[10] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
-					}
-				}
-				Util_tLogRow_4 util_tLogRow_4 = new Util_tLogRow_4();
-				util_tLogRow_4.setTableName("tLogRow_4");
-				util_tLogRow_4.addRow(new String[] { "product_key", "product_id", "attribute_group_key", "product_name",
-						"product_description", "category", "category_description", "weight", "volume", "barcode",
-						"product_code", });
-				StringBuilder strBuffer_tLogRow_4 = null;
-				int nb_line_tLogRow_4 = 0;
-///////////////////////    			
-
-				/**
-				 * [tLogRow_4 begin ] stop
-				 */
-
-				/**
-				 * [tMap_4 begin ] start
-				 */
-
-				ok_Hash.put("tMap_4", false);
-				start_Hash.put("tMap_4", System.currentTimeMillis());
-
-				currentComponent = "tMap_4";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5");
-				}
-
-				int tos_count_tMap_4 = 0;
-
-// ###############################
-// # Lookup's keys initialization
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row6Struct> tHash_Lookup_row6 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row6Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row6Struct>) globalMap
-						.get("tHash_Lookup_row6"));
-
-				row6Struct row6HashKey = new row6Struct();
-				row6Struct row6Default = new row6Struct();
-// ###############################        
-
-// ###############################
-// # Vars initialization
-				class Var__tMap_4__Struct {
-				}
-				Var__tMap_4__Struct Var__tMap_4 = new Var__tMap_4__Struct();
-// ###############################
-
-// ###############################
-// # Outputs initialization
-				out3Struct out3_tmp = new out3Struct();
-// ###############################
-
-				/**
-				 * [tMap_4 begin ] stop
-				 */
-
-				/**
-				 * [tLogRow_3 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_3", false);
-				start_Hash.put("tLogRow_3", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_3";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out2");
-				}
-
-				int tos_count_tLogRow_3 = 0;
-
-				///////////////////////
-
-				class Util_tLogRow_3 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[14];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 14; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
-					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
-					}
-
-					public StringBuilder format() {
-
-						StringBuilder sb = new StringBuilder();
-
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 13 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 13 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
-							sbformat.append("s");
-
-							sbformat.append("|%13$-");
-							sbformat.append(colLengths[12]);
-							sbformat.append("s");
-
-							sbformat.append("|%14$-");
-							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[12] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[13] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
-					}
-				}
-				Util_tLogRow_3 util_tLogRow_3 = new Util_tLogRow_3();
-				util_tLogRow_3.setTableName("tLogRow_3");
-				util_tLogRow_3.addRow(
-						new String[] { "product_key", "attribute_group_key", "product_name", "product_description",
-								"category", "category_description", "weight", "volume", "barcode", "product_code",
-								"product_id", "product_template_id", "product_attribute_id", "attribute_key", });
-				StringBuilder strBuffer_tLogRow_3 = null;
-				int nb_line_tLogRow_3 = 0;
-///////////////////////    			
-
-				/**
-				 * [tLogRow_3 begin ] stop
-				 */
-
-				/**
-				 * [tMap_3 begin ] start
-				 */
-
-				ok_Hash.put("tMap_3", false);
-				start_Hash.put("tMap_3", System.currentTimeMillis());
-
-				currentComponent = "tMap_3";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row3");
-				}
-
-				int tos_count_tMap_3 = 0;
-
-// ###############################
-// # Lookup's keys initialization
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct> tHash_Lookup_row4 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct>) globalMap
-						.get("tHash_Lookup_row4"));
-
-				row4Struct row4HashKey = new row4Struct();
-				row4Struct row4Default = new row4Struct();
-// ###############################        
-
-// ###############################
-// # Vars initialization
-				class Var__tMap_3__Struct {
-				}
-				Var__tMap_3__Struct Var__tMap_3 = new Var__tMap_3__Struct();
-// ###############################
-
-// ###############################
-// # Outputs initialization
-				out2Struct out2_tmp = new out2Struct();
-// ###############################
-
-				/**
-				 * [tMap_3 begin ] stop
-				 */
-
-				/**
-				 * [tLogRow_2 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_2", false);
-				start_Hash.put("tLogRow_2", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_2";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "out1");
-				}
-
-				int tos_count_tLogRow_2 = 0;
-
-				///////////////////////
-
-				class Util_tLogRow_2 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[13];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 13; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
-					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
-					}
-
-					public StringBuilder format() {
-
-						StringBuilder sb = new StringBuilder();
-
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 12 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 12 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
-							sbformat.append("s");
-
-							sbformat.append("|%13$-");
-							sbformat.append(colLengths[12]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[11] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[12] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
-					}
-				}
-				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
-				util_tLogRow_2.setTableName("tLogRow_2");
-				util_tLogRow_2.addRow(new String[] { "product_key", "attribute_group_key", "product_name",
-						"product_description", "category", "category_description", "weight", "volume", "barcode",
-						"product_code", "product_id", "product_template_id", "product_attribute_id", });
-				StringBuilder strBuffer_tLogRow_2 = null;
-				int nb_line_tLogRow_2 = 0;
-///////////////////////    			
-
-				/**
-				 * [tLogRow_2 begin ] stop
-				 */
-
-				/**
-				 * [tMap_2 begin ] start
-				 */
-
-				ok_Hash.put("tMap_2", false);
-				start_Hash.put("tMap_2", System.currentTimeMillis());
-
-				currentComponent = "tMap_2";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
-				}
-
-				int tos_count_tMap_2 = 0;
-
-// ###############################
-// # Lookup's keys initialization
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = (org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) ((org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct>) globalMap
-						.get("tHash_Lookup_row2"));
-
-				row2Struct row2HashKey = new row2Struct();
-				row2Struct row2Default = new row2Struct();
-// ###############################        
-
-// ###############################
-// # Vars initialization
-				class Var__tMap_2__Struct {
-				}
-				Var__tMap_2__Struct Var__tMap_2 = new Var__tMap_2__Struct();
-// ###############################
-
-// ###############################
-// # Outputs initialization
-				out1Struct out1_tmp = new out1Struct();
-// ###############################
-
-				/**
-				 * [tMap_2 begin ] stop
 				 */
 
 				/**
@@ -6132,11 +3967,11 @@ public class productDim implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[12];
+					int[] colLengths = new int[10];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 12; i++) {
+						for (int i = 0; i < 10; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -6163,11 +3998,11 @@ public class productDim implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 11 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 9 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 11 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 9 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -6219,14 +4054,6 @@ public class productDim implements TalendJob {
 
 							sbformat.append("|%10$-");
 							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -6284,17 +4111,9 @@ public class productDim implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[11] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[9] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -6310,9 +4129,8 @@ public class productDim implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "product_key", "product_id", "attribute_group_key", "product_name",
-						"product_description", "category", "category_description", "weight", "volume", "barcode",
-						"product_code", "product_template_id", });
+				util_tLogRow_1.addRow(new String[] { "product_key", "product_id", "product_name", "product_description",
+						"category", "category_description", "weight", "volume", "barcode", "product_code", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -6821,7 +4639,6 @@ public class productDim implements TalendJob {
 // # Output table : 'DimProduct'
 									DimProduct_tmp.product_key = Numeric.sequence("DimProductSeq", 1, 1);
 									DimProduct_tmp.product_id = productProduct.id;
-									DimProduct_tmp.attribute_group_key = null;
 									DimProduct_tmp.product_name = productTemplate.name;
 									DimProduct_tmp.product_description = productTemplate.description_sale;
 									DimProduct_tmp.category = productCategory.name;
@@ -6830,7 +4647,6 @@ public class productDim implements TalendJob {
 									DimProduct_tmp.volume = productProduct.volume;
 									DimProduct_tmp.barcode = productProduct.barcode;
 									DimProduct_tmp.product_code = productProduct.default_code;
-									DimProduct_tmp.product_template_id = productProduct.product_tmpl_id;
 									DimProduct = DimProduct_tmp;
 								} // closing inner join bracket (2)
 // ###############################
@@ -6873,7 +4689,7 @@ public class productDim implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[12];
+								String[] row_tLogRow_1 = new String[10];
 
 								if (DimProduct.product_key != null) { //
 									row_tLogRow_1[0] = String.valueOf(DimProduct.product_key);
@@ -6885,53 +4701,43 @@ public class productDim implements TalendJob {
 
 								} //
 
-								if (DimProduct.attribute_group_key != null) { //
-									row_tLogRow_1[2] = String.valueOf(DimProduct.attribute_group_key);
-
-								} //
-
 								if (DimProduct.product_name != null) { //
-									row_tLogRow_1[3] = String.valueOf(DimProduct.product_name);
+									row_tLogRow_1[2] = String.valueOf(DimProduct.product_name);
 
 								} //
 
 								if (DimProduct.product_description != null) { //
-									row_tLogRow_1[4] = String.valueOf(DimProduct.product_description);
+									row_tLogRow_1[3] = String.valueOf(DimProduct.product_description);
 
 								} //
 
 								if (DimProduct.category != null) { //
-									row_tLogRow_1[5] = String.valueOf(DimProduct.category);
+									row_tLogRow_1[4] = String.valueOf(DimProduct.category);
 
 								} //
 
 								if (DimProduct.category_description != null) { //
-									row_tLogRow_1[6] = String.valueOf(DimProduct.category_description);
+									row_tLogRow_1[5] = String.valueOf(DimProduct.category_description);
 
 								} //
 
 								if (DimProduct.weight != null) { //
-									row_tLogRow_1[7] = String.valueOf(DimProduct.weight);
+									row_tLogRow_1[6] = String.valueOf(DimProduct.weight);
 
 								} //
 
 								if (DimProduct.volume != null) { //
-									row_tLogRow_1[8] = String.valueOf(DimProduct.volume);
+									row_tLogRow_1[7] = String.valueOf(DimProduct.volume);
 
 								} //
 
 								if (DimProduct.barcode != null) { //
-									row_tLogRow_1[9] = String.valueOf(DimProduct.barcode);
+									row_tLogRow_1[8] = String.valueOf(DimProduct.barcode);
 
 								} //
 
 								if (DimProduct.product_code != null) { //
-									row_tLogRow_1[10] = String.valueOf(DimProduct.product_code);
-
-								} //
-
-								if (DimProduct.product_template_id != null) { //
-									row_tLogRow_1[11] = String.valueOf(DimProduct.product_template_id);
+									row_tLogRow_1[9] = String.valueOf(DimProduct.product_code);
 
 								} //
 
@@ -6962,10 +4768,10 @@ public class productDim implements TalendJob {
 								 */
 
 								/**
-								 * [tMap_2 main ] start
+								 * [tFileOutputDelimited_1 main ] start
 								 */
 
-								currentComponent = "tMap_2";
+								currentComponent = "tFileOutputDelimited_1";
 
 								if (execStat) {
 									runStat.updateStatOnConnection(iterateId, 1, 1
@@ -6975,848 +4781,77 @@ public class productDim implements TalendJob {
 									);
 								}
 
-								boolean hasCasePrimitiveKeyWithNull_tMap_2 = false;
-
-								// ###############################
-								// # Input tables (lookups)
-								boolean rejectedInnerJoin_tMap_2 = false;
-								boolean mainRowRejected_tMap_2 = false;
-
-								///////////////////////////////////////////////
-								// Starting Lookup Table "row2"
-								///////////////////////////////////////////////
-
-								boolean forceLooprow2 = false;
-
-								row2Struct row2ObjectFromLookup = null;
-
-								if (!rejectedInnerJoin_tMap_2) { // G_TM_M_020
-
-									hasCasePrimitiveKeyWithNull_tMap_2 = false;
-
-									row2HashKey.product_template_id = row1.product_template_id;
-
-									row2HashKey.hashCodeDirty = true;
-
-									tHash_Lookup_row2.lookup(row2HashKey);
-
-									if (!tHash_Lookup_row2.hasNext()) { // G_TM_M_090
-
-										rejectedInnerJoin_tMap_2 = true;
-
-										forceLooprow2 = true;
-
-									} // G_TM_M_090
-
-								} // G_TM_M_020
-
-								else { // G 20 - G 21
-									forceLooprow2 = true;
-								} // G 21
-
-								row2Struct row2 = null;
-
-								while ((tHash_Lookup_row2 != null && tHash_Lookup_row2.hasNext()) || forceLooprow2) { // G_TM_M_043
-
-									// CALL close loop of lookup 'row2'
-
-									row2Struct fromLookup_row2 = null;
-									row2 = row2Default;
-
-									if (!forceLooprow2) { // G 46
-
-										fromLookup_row2 = tHash_Lookup_row2.next();
-
-										if (fromLookup_row2 != null) {
-											row2 = fromLookup_row2;
-										}
-
-									} // G 46
-
-									forceLooprow2 = false;
-
-									// ###############################
-									{ // start of Var scope
-
-										// ###############################
-										// # Vars tables
-
-										Var__tMap_2__Struct Var = Var__tMap_2;// ###############################
-										// ###############################
-										// # Output tables
-
-										out1 = null;
-
-										if (!rejectedInnerJoin_tMap_2) {
-
-// # Output table : 'out1'
-											out1_tmp.product_key = row1.product_key;
-											out1_tmp.attribute_group_key = row1.attribute_group_key;
-											out1_tmp.product_name = row1.product_name;
-											out1_tmp.product_description = row1.product_description;
-											out1_tmp.category = row1.category;
-											out1_tmp.category_description = row1.category_description;
-											out1_tmp.weight = row1.weight;
-											out1_tmp.volume = row1.volume;
-											out1_tmp.barcode = row1.barcode;
-											out1_tmp.product_code = row1.product_code;
-											out1_tmp.product_id = row1.product_id;
-											out1_tmp.product_template_id = row1.product_template_id;
-											out1_tmp.product_attribute_id = row2.product_attribute_id;
-											out1 = out1_tmp;
-										} // closing inner join bracket (2)
-// ###############################
-
-									} // end of Var scope
-
-									rejectedInnerJoin_tMap_2 = false;
-
-									tos_count_tMap_2++;
-
-									/**
-									 * [tMap_2 main ] stop
-									 */
-
-									/**
-									 * [tMap_2 process_data_begin ] start
-									 */
-
-									currentComponent = "tMap_2";
-
-									/**
-									 * [tMap_2 process_data_begin ] stop
-									 */
-// Start of branch "out1"
-									if (out1 != null) {
-
-										/**
-										 * [tLogRow_2 main ] start
-										 */
-
-										currentComponent = "tLogRow_2";
-
-										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1
-
-													, "out1"
-
-											);
-										}
-
-///////////////////////		
-
-										String[] row_tLogRow_2 = new String[13];
-
-										if (out1.product_key != null) { //
-											row_tLogRow_2[0] = String.valueOf(out1.product_key);
-
-										} //
-
-										if (out1.attribute_group_key != null) { //
-											row_tLogRow_2[1] = String.valueOf(out1.attribute_group_key);
-
-										} //
-
-										if (out1.product_name != null) { //
-											row_tLogRow_2[2] = String.valueOf(out1.product_name);
-
-										} //
-
-										if (out1.product_description != null) { //
-											row_tLogRow_2[3] = String.valueOf(out1.product_description);
-
-										} //
-
-										if (out1.category != null) { //
-											row_tLogRow_2[4] = String.valueOf(out1.category);
-
-										} //
-
-										if (out1.category_description != null) { //
-											row_tLogRow_2[5] = String.valueOf(out1.category_description);
-
-										} //
-
-										if (out1.weight != null) { //
-											row_tLogRow_2[6] = String.valueOf(out1.weight);
-
-										} //
-
-										if (out1.volume != null) { //
-											row_tLogRow_2[7] = String.valueOf(out1.volume);
-
-										} //
-
-										if (out1.barcode != null) { //
-											row_tLogRow_2[8] = String.valueOf(out1.barcode);
-
-										} //
-
-										if (out1.product_code != null) { //
-											row_tLogRow_2[9] = String.valueOf(out1.product_code);
-
-										} //
-
-										if (out1.product_id != null) { //
-											row_tLogRow_2[10] = String.valueOf(out1.product_id);
-
-										} //
-
-										if (out1.product_template_id != null) { //
-											row_tLogRow_2[11] = String.valueOf(out1.product_template_id);
-
-										} //
-
-										if (out1.product_attribute_id != null) { //
-											row_tLogRow_2[12] = String.valueOf(out1.product_attribute_id);
-
-										} //
-
-										util_tLogRow_2.addRow(row_tLogRow_2);
-										nb_line_tLogRow_2++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-										row3 = out1;
-
-										tos_count_tLogRow_2++;
-
-										/**
-										 * [tLogRow_2 main ] stop
-										 */
-
-										/**
-										 * [tLogRow_2 process_data_begin ] start
-										 */
-
-										currentComponent = "tLogRow_2";
-
-										/**
-										 * [tLogRow_2 process_data_begin ] stop
-										 */
-
-										/**
-										 * [tMap_3 main ] start
-										 */
-
-										currentComponent = "tMap_3";
-
-										if (execStat) {
-											runStat.updateStatOnConnection(iterateId, 1, 1
-
-													, "row3"
-
-											);
-										}
-
-										boolean hasCasePrimitiveKeyWithNull_tMap_3 = false;
-
-										// ###############################
-										// # Input tables (lookups)
-										boolean rejectedInnerJoin_tMap_3 = false;
-										boolean mainRowRejected_tMap_3 = false;
-
-										///////////////////////////////////////////////
-										// Starting Lookup Table "row4"
-										///////////////////////////////////////////////
-
-										boolean forceLooprow4 = false;
-
-										row4Struct row4ObjectFromLookup = null;
-
-										if (!rejectedInnerJoin_tMap_3) { // G_TM_M_020
-
-											hasCasePrimitiveKeyWithNull_tMap_3 = false;
-
-											row4HashKey.attribute_id = row3.product_attribute_id;
-
-											row4HashKey.hashCodeDirty = true;
-
-											tHash_Lookup_row4.lookup(row4HashKey);
-
-											if (!tHash_Lookup_row4.hasNext()) { // G_TM_M_090
-
-												rejectedInnerJoin_tMap_3 = true;
-
-											} // G_TM_M_090
-
-										} // G_TM_M_020
-
-										if (tHash_Lookup_row4 != null && tHash_Lookup_row4.getCount(row4HashKey) > 1) { // G
-																														// 071
-
-											// System.out.println("WARNING: UNIQUE MATCH is configured for the lookup
-											// 'row4' and it contains more one result from keys : row4.attribute_id = '"
-											// + row4HashKey.attribute_id + "'");
-										} // G 071
-
-										row4Struct row4 = null;
-
-										row4Struct fromLookup_row4 = null;
-										row4 = row4Default;
-
-										if (tHash_Lookup_row4 != null && tHash_Lookup_row4.hasNext()) { // G 099
-
-											fromLookup_row4 = tHash_Lookup_row4.next();
-
-										} // G 099
-
-										if (fromLookup_row4 != null) {
-											row4 = fromLookup_row4;
-										}
-
-										// ###############################
-										{ // start of Var scope
-
-											// ###############################
-											// # Vars tables
-
-											Var__tMap_3__Struct Var = Var__tMap_3;// ###############################
-											// ###############################
-											// # Output tables
-
-											out2 = null;
-
-											if (!rejectedInnerJoin_tMap_3) {
-
-// # Output table : 'out2'
-												out2_tmp.product_key = row3.product_key;
-												out2_tmp.attribute_group_key = row3.attribute_group_key;
-												out2_tmp.product_name = row3.product_name;
-												out2_tmp.product_description = row3.product_description;
-												out2_tmp.category = row3.category;
-												out2_tmp.category_description = row3.category_description;
-												out2_tmp.weight = row3.weight;
-												out2_tmp.volume = row3.volume;
-												out2_tmp.barcode = row3.barcode;
-												out2_tmp.product_code = row3.product_code;
-												out2_tmp.product_id = row3.product_id;
-												out2_tmp.product_template_id = row3.product_template_id;
-												out2_tmp.product_attribute_id = row3.product_attribute_id;
-												out2_tmp.attribute_key = row4.attribute_key;
-												out2 = out2_tmp;
-											} // closing inner join bracket (2)
-// ###############################
-
-										} // end of Var scope
-
-										rejectedInnerJoin_tMap_3 = false;
-
-										tos_count_tMap_3++;
-
-										/**
-										 * [tMap_3 main ] stop
-										 */
-
-										/**
-										 * [tMap_3 process_data_begin ] start
-										 */
-
-										currentComponent = "tMap_3";
-
-										/**
-										 * [tMap_3 process_data_begin ] stop
-										 */
-// Start of branch "out2"
-										if (out2 != null) {
-
-											/**
-											 * [tLogRow_3 main ] start
-											 */
-
-											currentComponent = "tLogRow_3";
-
-											if (execStat) {
-												runStat.updateStatOnConnection(iterateId, 1, 1
-
-														, "out2"
-
-												);
-											}
-
-///////////////////////		
-
-											String[] row_tLogRow_3 = new String[14];
-
-											if (out2.product_key != null) { //
-												row_tLogRow_3[0] = String.valueOf(out2.product_key);
-
-											} //
-
-											if (out2.attribute_group_key != null) { //
-												row_tLogRow_3[1] = String.valueOf(out2.attribute_group_key);
-
-											} //
-
-											if (out2.product_name != null) { //
-												row_tLogRow_3[2] = String.valueOf(out2.product_name);
-
-											} //
-
-											if (out2.product_description != null) { //
-												row_tLogRow_3[3] = String.valueOf(out2.product_description);
-
-											} //
-
-											if (out2.category != null) { //
-												row_tLogRow_3[4] = String.valueOf(out2.category);
-
-											} //
-
-											if (out2.category_description != null) { //
-												row_tLogRow_3[5] = String.valueOf(out2.category_description);
-
-											} //
-
-											if (out2.weight != null) { //
-												row_tLogRow_3[6] = String.valueOf(out2.weight);
-
-											} //
-
-											if (out2.volume != null) { //
-												row_tLogRow_3[7] = String.valueOf(out2.volume);
-
-											} //
-
-											if (out2.barcode != null) { //
-												row_tLogRow_3[8] = String.valueOf(out2.barcode);
-
-											} //
-
-											if (out2.product_code != null) { //
-												row_tLogRow_3[9] = String.valueOf(out2.product_code);
-
-											} //
-
-											if (out2.product_id != null) { //
-												row_tLogRow_3[10] = String.valueOf(out2.product_id);
-
-											} //
-
-											if (out2.product_template_id != null) { //
-												row_tLogRow_3[11] = String.valueOf(out2.product_template_id);
-
-											} //
-
-											if (out2.product_attribute_id != null) { //
-												row_tLogRow_3[12] = String.valueOf(out2.product_attribute_id);
-
-											} //
-
-											if (out2.attribute_key != null) { //
-												row_tLogRow_3[13] = String.valueOf(out2.attribute_key);
-
-											} //
-
-											util_tLogRow_3.addRow(row_tLogRow_3);
-											nb_line_tLogRow_3++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-											row5 = out2;
-
-											tos_count_tLogRow_3++;
-
-											/**
-											 * [tLogRow_3 main ] stop
-											 */
-
-											/**
-											 * [tLogRow_3 process_data_begin ] start
-											 */
-
-											currentComponent = "tLogRow_3";
-
-											/**
-											 * [tLogRow_3 process_data_begin ] stop
-											 */
-
-											/**
-											 * [tMap_4 main ] start
-											 */
-
-											currentComponent = "tMap_4";
-
-											if (execStat) {
-												runStat.updateStatOnConnection(iterateId, 1, 1
-
-														, "row5"
-
-												);
-											}
-
-											boolean hasCasePrimitiveKeyWithNull_tMap_4 = false;
-
-											// ###############################
-											// # Input tables (lookups)
-											boolean rejectedInnerJoin_tMap_4 = false;
-											boolean mainRowRejected_tMap_4 = false;
-
-											///////////////////////////////////////////////
-											// Starting Lookup Table "row6"
-											///////////////////////////////////////////////
-
-											boolean forceLooprow6 = false;
-
-											row6Struct row6ObjectFromLookup = null;
-
-											if (!rejectedInnerJoin_tMap_4) { // G_TM_M_020
-
-												hasCasePrimitiveKeyWithNull_tMap_4 = false;
-
-												row6HashKey.attribute_key = row5.attribute_key;
-
-												row6HashKey.hashCodeDirty = true;
-
-												tHash_Lookup_row6.lookup(row6HashKey);
-
-												if (!tHash_Lookup_row6.hasNext()) { // G_TM_M_090
-
-													rejectedInnerJoin_tMap_4 = true;
-
-												} // G_TM_M_090
-
-											} // G_TM_M_020
-
-											if (tHash_Lookup_row6 != null
-													&& tHash_Lookup_row6.getCount(row6HashKey) > 1) { // G 071
-
-												// System.out.println("WARNING: UNIQUE MATCH is configured for the
-												// lookup 'row6' and it contains more one result from keys :
-												// row6.attribute_key = '" + row6HashKey.attribute_key + "'");
-											} // G 071
-
-											row6Struct row6 = null;
-
-											row6Struct fromLookup_row6 = null;
-											row6 = row6Default;
-
-											if (tHash_Lookup_row6 != null && tHash_Lookup_row6.hasNext()) { // G 099
-
-												fromLookup_row6 = tHash_Lookup_row6.next();
-
-											} // G 099
-
-											if (fromLookup_row6 != null) {
-												row6 = fromLookup_row6;
-											}
-
-											// ###############################
-											{ // start of Var scope
-
-												// ###############################
-												// # Vars tables
-
-												Var__tMap_4__Struct Var = Var__tMap_4;// ###############################
-												// ###############################
-												// # Output tables
-
-												out3 = null;
-
-												if (!rejectedInnerJoin_tMap_4) {
-
-// # Output table : 'out3'
-													out3_tmp.product_key = row5.product_key;
-													out3_tmp.product_id = row5.product_id;
-													out3_tmp.attribute_group_key = row6.attribute_group_key;
-													out3_tmp.product_name = row5.product_name;
-													out3_tmp.product_description = row5.product_description;
-													out3_tmp.category = row5.category;
-													out3_tmp.category_description = row5.category_description;
-													out3_tmp.weight = row5.weight;
-													out3_tmp.volume = row5.volume;
-													out3_tmp.barcode = row5.barcode;
-													out3_tmp.product_code = row5.product_code;
-													out3 = out3_tmp;
-												} // closing inner join bracket (2)
-// ###############################
-
-											} // end of Var scope
-
-											rejectedInnerJoin_tMap_4 = false;
-
-											tos_count_tMap_4++;
-
-											/**
-											 * [tMap_4 main ] stop
-											 */
-
-											/**
-											 * [tMap_4 process_data_begin ] start
-											 */
-
-											currentComponent = "tMap_4";
-
-											/**
-											 * [tMap_4 process_data_begin ] stop
-											 */
-// Start of branch "out3"
-											if (out3 != null) {
-
-												/**
-												 * [tLogRow_4 main ] start
-												 */
-
-												currentComponent = "tLogRow_4";
-
-												if (execStat) {
-													runStat.updateStatOnConnection(iterateId, 1, 1
-
-															, "out3"
-
-													);
-												}
-
-///////////////////////		
-
-												String[] row_tLogRow_4 = new String[11];
-
-												if (out3.product_key != null) { //
-													row_tLogRow_4[0] = String.valueOf(out3.product_key);
-
-												} //
-
-												if (out3.product_id != null) { //
-													row_tLogRow_4[1] = String.valueOf(out3.product_id);
-
-												} //
-
-												if (out3.attribute_group_key != null) { //
-													row_tLogRow_4[2] = String.valueOf(out3.attribute_group_key);
-
-												} //
-
-												if (out3.product_name != null) { //
-													row_tLogRow_4[3] = String.valueOf(out3.product_name);
-
-												} //
-
-												if (out3.product_description != null) { //
-													row_tLogRow_4[4] = String.valueOf(out3.product_description);
-
-												} //
-
-												if (out3.category != null) { //
-													row_tLogRow_4[5] = String.valueOf(out3.category);
-
-												} //
-
-												if (out3.category_description != null) { //
-													row_tLogRow_4[6] = String.valueOf(out3.category_description);
-
-												} //
-
-												if (out3.weight != null) { //
-													row_tLogRow_4[7] = String.valueOf(out3.weight);
-
-												} //
-
-												if (out3.volume != null) { //
-													row_tLogRow_4[8] = String.valueOf(out3.volume);
-
-												} //
-
-												if (out3.barcode != null) { //
-													row_tLogRow_4[9] = String.valueOf(out3.barcode);
-
-												} //
-
-												if (out3.product_code != null) { //
-													row_tLogRow_4[10] = String.valueOf(out3.product_code);
-
-												} //
-
-												util_tLogRow_4.addRow(row_tLogRow_4);
-												nb_line_tLogRow_4++;
-//////
-
-//////                    
-
-///////////////////////    			
-
-												row7 = out3;
-
-												tos_count_tLogRow_4++;
-
-												/**
-												 * [tLogRow_4 main ] stop
-												 */
-
-												/**
-												 * [tLogRow_4 process_data_begin ] start
-												 */
-
-												currentComponent = "tLogRow_4";
-
-												/**
-												 * [tLogRow_4 process_data_begin ] stop
-												 */
-
-												/**
-												 * [tFileOutputDelimited_1 main ] start
-												 */
-
-												currentComponent = "tFileOutputDelimited_1";
-
-												if (execStat) {
-													runStat.updateStatOnConnection(iterateId, 1, 1
-
-															, "row7"
-
-													);
-												}
-
-												StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-												if (row7.product_key != null) {
-													sb_tFileOutputDelimited_1.append(row7.product_key);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.product_id != null) {
-													sb_tFileOutputDelimited_1.append(row7.product_id);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.attribute_group_key != null) {
-													sb_tFileOutputDelimited_1.append(row7.attribute_group_key);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.product_name != null) {
-													sb_tFileOutputDelimited_1.append(row7.product_name);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.product_description != null) {
-													sb_tFileOutputDelimited_1.append(row7.product_description);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.category != null) {
-													sb_tFileOutputDelimited_1.append(row7.category);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.category_description != null) {
-													sb_tFileOutputDelimited_1.append(row7.category_description);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.weight != null) {
-													sb_tFileOutputDelimited_1.append(row7.weight);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.volume != null) {
-													sb_tFileOutputDelimited_1.append(row7.volume);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.barcode != null) {
-													sb_tFileOutputDelimited_1.append(row7.barcode);
-												}
-												sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
-												if (row7.product_code != null) {
-													sb_tFileOutputDelimited_1.append(row7.product_code);
-												}
-												sb_tFileOutputDelimited_1
-														.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
-
-												nb_line_tFileOutputDelimited_1++;
-												resourceMap.put("nb_line_tFileOutputDelimited_1",
-														nb_line_tFileOutputDelimited_1);
-
-												outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
-
-												tos_count_tFileOutputDelimited_1++;
-
-												/**
-												 * [tFileOutputDelimited_1 main ] stop
-												 */
-
-												/**
-												 * [tFileOutputDelimited_1 process_data_begin ] start
-												 */
-
-												currentComponent = "tFileOutputDelimited_1";
-
-												/**
-												 * [tFileOutputDelimited_1 process_data_begin ] stop
-												 */
-
-												/**
-												 * [tFileOutputDelimited_1 process_data_end ] start
-												 */
-
-												currentComponent = "tFileOutputDelimited_1";
-
-												/**
-												 * [tFileOutputDelimited_1 process_data_end ] stop
-												 */
-
-												/**
-												 * [tLogRow_4 process_data_end ] start
-												 */
-
-												currentComponent = "tLogRow_4";
-
-												/**
-												 * [tLogRow_4 process_data_end ] stop
-												 */
-
-											} // End of branch "out3"
-
-											/**
-											 * [tMap_4 process_data_end ] start
-											 */
-
-											currentComponent = "tMap_4";
-
-											/**
-											 * [tMap_4 process_data_end ] stop
-											 */
-
-											/**
-											 * [tLogRow_3 process_data_end ] start
-											 */
-
-											currentComponent = "tLogRow_3";
-
-											/**
-											 * [tLogRow_3 process_data_end ] stop
-											 */
-
-										} // End of branch "out2"
-
-										/**
-										 * [tMap_3 process_data_end ] start
-										 */
-
-										currentComponent = "tMap_3";
-
-										/**
-										 * [tMap_3 process_data_end ] stop
-										 */
-
-										/**
-										 * [tLogRow_2 process_data_end ] start
-										 */
-
-										currentComponent = "tLogRow_2";
-
-										/**
-										 * [tLogRow_2 process_data_end ] stop
-										 */
-
-									} // End of branch "out1"
-
-								} // close loop of lookup 'row2' // G_TM_M_043
+								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+								if (row1.product_key != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_key);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.product_id != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_id);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.product_name != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_name);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.product_description != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_description);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.category != null) {
+									sb_tFileOutputDelimited_1.append(row1.category);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.category_description != null) {
+									sb_tFileOutputDelimited_1.append(row1.category_description);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.weight != null) {
+									sb_tFileOutputDelimited_1.append(row1.weight);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.volume != null) {
+									sb_tFileOutputDelimited_1.append(row1.volume);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.barcode != null) {
+									sb_tFileOutputDelimited_1.append(row1.barcode);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (row1.product_code != null) {
+									sb_tFileOutputDelimited_1.append(row1.product_code);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+
+								nb_line_tFileOutputDelimited_1++;
+								resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
+
+								outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+
+								tos_count_tFileOutputDelimited_1++;
 
 								/**
-								 * [tMap_2 process_data_end ] start
+								 * [tFileOutputDelimited_1 main ] stop
 								 */
 
-								currentComponent = "tMap_2";
+								/**
+								 * [tFileOutputDelimited_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_1";
 
 								/**
-								 * [tMap_2 process_data_end ] stop
+								 * [tFileOutputDelimited_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_1 process_data_end ] start
+								 */
+
+								currentComponent = "tFileOutputDelimited_1";
+
+								/**
+								 * [tFileOutputDelimited_1 process_data_end ] stop
 								 */
 
 								/**
@@ -7945,186 +4980,6 @@ public class productDim implements TalendJob {
 				 */
 
 				/**
-				 * [tMap_2 end ] start
-				 */
-
-				currentComponent = "tMap_2";
-
-// ###############################
-// # Lookup hashes releasing
-				if (tHash_Lookup_row2 != null) {
-					tHash_Lookup_row2.endGet();
-				}
-				globalMap.remove("tHash_Lookup_row2");
-
-// ###############################      
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
-				}
-
-				ok_Hash.put("tMap_2", true);
-				end_Hash.put("tMap_2", System.currentTimeMillis());
-
-				/**
-				 * [tMap_2 end ] stop
-				 */
-
-				/**
-				 * [tLogRow_2 end ] start
-				 */
-
-				currentComponent = "tLogRow_2";
-
-//////
-
-				java.io.PrintStream consoleOut_tLogRow_2 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_2 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_2);
-				}
-
-				consoleOut_tLogRow_2.println(util_tLogRow_2.format().toString());
-				consoleOut_tLogRow_2.flush();
-//////
-				globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
-
-///////////////////////    			
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "out1");
-				}
-
-				ok_Hash.put("tLogRow_2", true);
-				end_Hash.put("tLogRow_2", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_2 end ] stop
-				 */
-
-				/**
-				 * [tMap_3 end ] start
-				 */
-
-				currentComponent = "tMap_3";
-
-// ###############################
-// # Lookup hashes releasing
-				if (tHash_Lookup_row4 != null) {
-					tHash_Lookup_row4.endGet();
-				}
-				globalMap.remove("tHash_Lookup_row4");
-
-// ###############################      
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row3");
-				}
-
-				ok_Hash.put("tMap_3", true);
-				end_Hash.put("tMap_3", System.currentTimeMillis());
-
-				/**
-				 * [tMap_3 end ] stop
-				 */
-
-				/**
-				 * [tLogRow_3 end ] start
-				 */
-
-				currentComponent = "tLogRow_3";
-
-//////
-
-				java.io.PrintStream consoleOut_tLogRow_3 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_3 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_3 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_3);
-				}
-
-				consoleOut_tLogRow_3.println(util_tLogRow_3.format().toString());
-				consoleOut_tLogRow_3.flush();
-//////
-				globalMap.put("tLogRow_3_NB_LINE", nb_line_tLogRow_3);
-
-///////////////////////    			
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "out2");
-				}
-
-				ok_Hash.put("tLogRow_3", true);
-				end_Hash.put("tLogRow_3", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_3 end ] stop
-				 */
-
-				/**
-				 * [tMap_4 end ] start
-				 */
-
-				currentComponent = "tMap_4";
-
-// ###############################
-// # Lookup hashes releasing
-				if (tHash_Lookup_row6 != null) {
-					tHash_Lookup_row6.endGet();
-				}
-				globalMap.remove("tHash_Lookup_row6");
-
-// ###############################      
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5");
-				}
-
-				ok_Hash.put("tMap_4", true);
-				end_Hash.put("tMap_4", System.currentTimeMillis());
-
-				/**
-				 * [tMap_4 end ] stop
-				 */
-
-				/**
-				 * [tLogRow_4 end ] start
-				 */
-
-				currentComponent = "tLogRow_4";
-
-//////
-
-				java.io.PrintStream consoleOut_tLogRow_4 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_4 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_4 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_4);
-				}
-
-				consoleOut_tLogRow_4.println(util_tLogRow_4.format().toString());
-				consoleOut_tLogRow_4.flush();
-//////
-				globalMap.put("tLogRow_4_NB_LINE", nb_line_tLogRow_4);
-
-///////////////////////    			
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "out3");
-				}
-
-				ok_Hash.put("tLogRow_4", true);
-				end_Hash.put("tLogRow_4", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_4 end ] stop
-				 */
-
-				/**
 				 * [tFileOutputDelimited_1 end ] start
 				 */
 
@@ -8141,7 +4996,7 @@ public class productDim implements TalendJob {
 				resourceMap.put("finish_tFileOutputDelimited_1", true);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row7");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
 				}
 
 				ok_Hash.put("tFileOutputDelimited_1", true);
@@ -8169,15 +5024,6 @@ public class productDim implements TalendJob {
 
 			throw error;
 		} finally {
-
-			// free memory for "tMap_4"
-			globalMap.remove("tHash_Lookup_row6");
-
-			// free memory for "tMap_3"
-			globalMap.remove("tHash_Lookup_row4");
-
-			// free memory for "tMap_2"
-			globalMap.remove("tHash_Lookup_row2");
 
 			// free memory for "tMap_1"
 			globalMap.remove("tHash_Lookup_productCategory");
@@ -8218,66 +5064,6 @@ public class productDim implements TalendJob {
 				 */
 
 				/**
-				 * [tMap_2 finally ] start
-				 */
-
-				currentComponent = "tMap_2";
-
-				/**
-				 * [tMap_2 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_2 finally ] start
-				 */
-
-				currentComponent = "tLogRow_2";
-
-				/**
-				 * [tLogRow_2 finally ] stop
-				 */
-
-				/**
-				 * [tMap_3 finally ] start
-				 */
-
-				currentComponent = "tMap_3";
-
-				/**
-				 * [tMap_3 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_3 finally ] start
-				 */
-
-				currentComponent = "tLogRow_3";
-
-				/**
-				 * [tLogRow_3 finally ] stop
-				 */
-
-				/**
-				 * [tMap_4 finally ] start
-				 */
-
-				currentComponent = "tMap_4";
-
-				/**
-				 * [tMap_4 finally ] stop
-				 */
-
-				/**
-				 * [tLogRow_4 finally ] start
-				 */
-
-				currentComponent = "tLogRow_4";
-
-				/**
-				 * [tLogRow_4 finally ] stop
-				 */
-
-				/**
 				 * [tFileOutputDelimited_1 finally ] start
 				 */
 
@@ -8307,1492 +5093,6 @@ public class productDim implements TalendJob {
 		}
 
 		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
-	}
-
-	public void tS3Connection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tS3Connection_1 begin ] start
-				 */
-
-				ok_Hash.put("tS3Connection_1", false);
-				start_Hash.put("tS3Connection_1", System.currentTimeMillis());
-
-				currentComponent = "tS3Connection_1";
-
-				int tos_count_tS3Connection_1 = 0;
-
-				final String decryptedPassword_tS3Connection_1 = context.SecretAccessKey;
-
-				com.amazonaws.auth.AWSCredentials credentials_tS3Connection_1 = new com.amazonaws.auth.BasicAWSCredentials(
-						context.AccessKeyId, decryptedPassword_tS3Connection_1);
-				com.amazonaws.auth.AWSCredentialsProvider credentialsProvider_tS3Connection_1 = new com.amazonaws.auth.AWSStaticCredentialsProvider(
-						credentials_tS3Connection_1);
-
-				com.amazonaws.ClientConfiguration cc_tS3Connection_1 = new com.amazonaws.ClientConfiguration();
-				cc_tS3Connection_1.setUserAgent("APN/1.0 Talend/8.0 Studio/8.0 (Talend Open Studio)");
-
-				com.amazonaws.services.s3.AmazonS3ClientBuilder builder_tS3Connection_1 = com.amazonaws.services.s3.AmazonS3ClientBuilder
-						.standard();
-
-				final boolean useRegionEndpoint_tS3Connection_1 = false;
-				final String regionEndpoint_tS3Connection_1 = "s3.amazonaws.com";
-				final boolean enableAccelerateMode_tS3Connection_1 = false;
-				final boolean enablePathStyleAccess_tS3Connection_1 = false;
-
-				if (useRegionEndpoint_tS3Connection_1 && regionEndpoint_tS3Connection_1 != null
-						&& !regionEndpoint_tS3Connection_1.isEmpty()) {
-					builder_tS3Connection_1
-							.withEndpointConfiguration(
-									new com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration(
-											regionEndpoint_tS3Connection_1, null))
-							.withForceGlobalBucketAccessEnabled(true);
-				} else {
-					builder_tS3Connection_1.withRegion("us-east-1") // The first region to try your request against
-							.withForceGlobalBucketAccessEnabled(true); // If a bucket is in a different region, try
-																		// again in the correct region
-				}
-
-				if (enableAccelerateMode_tS3Connection_1) {
-					builder_tS3Connection_1.withAccelerateModeEnabled(true);
-				}
-
-				builder_tS3Connection_1.withCredentials(credentialsProvider_tS3Connection_1)
-						.withClientConfiguration(cc_tS3Connection_1);
-
-				if (useRegionEndpoint_tS3Connection_1 && enablePathStyleAccess_tS3Connection_1) {
-					builder_tS3Connection_1.enablePathStyleAccess();
-				}
-
-				com.amazonaws.services.s3.AmazonS3 conn_tS3Connection_1 = builder_tS3Connection_1.build();
-
-				// This method is just for test connection.
-				conn_tS3Connection_1.getS3AccountOwner();
-
-				globalMap.put("conn_" + "tS3Connection_1", conn_tS3Connection_1);
-
-				/**
-				 * [tS3Connection_1 begin ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 main ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				tos_count_tS3Connection_1++;
-
-				/**
-				 * [tS3Connection_1 main ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 process_data_begin ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 process_data_begin ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 process_data_end ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 process_data_end ] stop
-				 */
-
-				/**
-				 * [tS3Connection_1 end ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				ok_Hash.put("tS3Connection_1", true);
-				end_Hash.put("tS3Connection_1", System.currentTimeMillis());
-
-				if (execStat) {
-					runStat.updateStatOnConnection("OnComponentOk2", 0, "ok");
-				}
-				tS3Put_1Process(globalMap);
-
-				/**
-				 * [tS3Connection_1 end ] stop
-				 */
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tS3Connection_1 finally ] start
-				 */
-
-				currentComponent = "tS3Connection_1";
-
-				/**
-				 * [tS3Connection_1 finally ] stop
-				 */
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tS3Connection_1_SUBPROCESS_STATE", 1);
-	}
-
-	public void tS3Put_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tS3Put_1 begin ] start
-				 */
-
-				ok_Hash.put("tS3Put_1", false);
-				start_Hash.put("tS3Put_1", System.currentTimeMillis());
-
-				currentComponent = "tS3Put_1";
-
-				int tos_count_tS3Put_1 = 0;
-
-				String millisecTime_tS3Put_1 = null;
-
-				com.amazonaws.services.s3.AmazonS3Client conn_tS3Put_1 = (com.amazonaws.services.s3.AmazonS3Client) globalMap
-						.get("conn_tS3Connection_1");
-
-				String key_tS3Put_1 = "DimProduct.csv";
-
-				int partSizeInBytes_tS3Put_1 = 5 * 1024 * 1024;
-				if (partSizeInBytes_tS3Put_1 < 5 << 20) {
-
-					partSizeInBytes_tS3Put_1 = 5 << 20;
-				}
-
-				Object fileOrStream_tS3Put_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimProduct.csv";
-
-				boolean useStream_tS3Put_1 = false;
-				java.io.InputStream uploadStream_tS3Put_1 = null;
-
-				com.amazonaws.services.s3.transfer.TransferManager tm_tS3Put_1 = null;
-
-				try {
-
-					if (fileOrStream_tS3Put_1 instanceof String) {
-						useStream_tS3Put_1 = false;
-					} else if (fileOrStream_tS3Put_1 instanceof java.io.InputStream) {
-						useStream_tS3Put_1 = true;
-					}
-
-					com.amazonaws.services.s3.model.ObjectMetadata objectMetadata_tS3Put_1 = new com.amazonaws.services.s3.model.ObjectMetadata();
-
-					if (!useStream_tS3Put_1) {
-						java.io.File inputFile_tS3Put_1 = new java.io.File((String) fileOrStream_tS3Put_1);
-
-						long multipart_upload_threshold_tS3Put_1 = 5 * 1024 * 1024;
-
-						tm_tS3Put_1 = com.amazonaws.services.s3.transfer.TransferManagerBuilder.standard()
-								.withMinimumUploadPartSize((long) partSizeInBytes_tS3Put_1)
-								.withMultipartUploadThreshold(multipart_upload_threshold_tS3Put_1)
-								.withS3Client(conn_tS3Put_1).build();
-
-						com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest(
-								"libreriapacifico/presentation", key_tS3Put_1, inputFile_tS3Put_1)
-										.withMetadata(objectMetadata_tS3Put_1);
-
-						com.amazonaws.services.s3.transfer.Upload upload_tS3Put_1 = tm_tS3Put_1
-								.upload(putRequest_tS3Put_1);
-
-						upload_tS3Put_1.waitForCompletion();
-
-					} else {
-						java.io.InputStream sourceStream_tS3Put_1 = ((java.io.InputStream) fileOrStream_tS3Put_1);
-
-						class S3StreamUtil {
-							// read content to buffer as many as possible
-							public int readFully(final java.io.InputStream input, final byte[] buffer)
-									throws java.io.IOException {
-								return readFully(input, buffer, 0, buffer.length);
-							}
-
-							public int readFully(final java.io.InputStream input, final byte[] buffer, final int offset,
-									final int length) throws java.io.IOException {
-								if (length < 0) {
-									throw new java.lang.IllegalArgumentException(
-											"Length must not be negative: " + length);
-								}
-
-								int remaining = length;
-								while (remaining > 0) {
-									final int location = length - remaining;
-									final int count = input.read(buffer, offset + location, remaining);
-									if (count == -1) {
-										break;
-									}
-									remaining -= count;
-								}
-								return length - remaining;
-							}
-						}
-
-						S3StreamUtil streamUtil_tS3Put_1 = new S3StreamUtil();
-						byte[] buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
-						long curPartSize_tS3Put_1 = streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
-								buffer_tS3Put_1);
-
-						boolean multiUpload_tS3Put_1 = curPartSize_tS3Put_1 == partSizeInBytes_tS3Put_1;
-
-						if (!multiUpload_tS3Put_1) {
-							objectMetadata_tS3Put_1.setContentLength(curPartSize_tS3Put_1);
-							uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1, 0,
-									Long.valueOf(curPartSize_tS3Put_1).intValue());
-							com.amazonaws.services.s3.model.PutObjectRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.PutObjectRequest(
-									"libreriapacifico/presentation", key_tS3Put_1, uploadStream_tS3Put_1,
-									objectMetadata_tS3Put_1);
-
-							conn_tS3Put_1.putObject(putRequest_tS3Put_1);
-						} else {
-							uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
-							java.util.List<com.amazonaws.services.s3.model.PartETag> partTags_tS3Put_1 = new java.util.ArrayList<com.amazonaws.services.s3.model.PartETag>();
-							com.amazonaws.services.s3.model.InitiateMultipartUploadRequest putRequest_tS3Put_1 = new com.amazonaws.services.s3.model.InitiateMultipartUploadRequest(
-									"libreriapacifico/presentation", key_tS3Put_1, objectMetadata_tS3Put_1);
-
-							com.amazonaws.services.s3.model.InitiateMultipartUploadResult initResponse_tS3Put_1 = conn_tS3Put_1
-									.initiateMultipartUpload(putRequest_tS3Put_1);
-							String uploadId_tS3Put_1 = initResponse_tS3Put_1.getUploadId();
-							int partNumber_tS3Put_1 = 1;
-							boolean streamHasNext_tS3Put_1 = true;
-							byte[] probeAvailability_tS3Put_1 = new byte[1];
-							try {
-								while (streamHasNext_tS3Put_1) {
-									com.amazonaws.services.s3.model.UploadPartRequest uploadRequest_tS3Put_1 = new com.amazonaws.services.s3.model.UploadPartRequest()
-											.withBucketName("libreriapacifico/presentation").withKey(key_tS3Put_1)
-											.withUploadId(uploadId_tS3Put_1).withPartNumber(partNumber_tS3Put_1)
-											.withPartSize(curPartSize_tS3Put_1);
-									uploadRequest_tS3Put_1.setInputStream(uploadStream_tS3Put_1);
-									streamHasNext_tS3Put_1 = (1 == streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
-											probeAvailability_tS3Put_1));
-									if (!streamHasNext_tS3Put_1) {
-										uploadRequest_tS3Put_1.setLastPart(true);
-									}
-
-									partTags_tS3Put_1
-											.add(conn_tS3Put_1.uploadPart(uploadRequest_tS3Put_1).getPartETag());
-									partNumber_tS3Put_1++;
-
-									if (uploadStream_tS3Put_1 != null) {
-										uploadStream_tS3Put_1.close();
-									}
-									buffer_tS3Put_1 = new byte[partSizeInBytes_tS3Put_1];
-									curPartSize_tS3Put_1 = 1 + streamUtil_tS3Put_1.readFully(sourceStream_tS3Put_1,
-											buffer_tS3Put_1, 1, partSizeInBytes_tS3Put_1 - 1);
-									buffer_tS3Put_1[0] = probeAvailability_tS3Put_1[0];
-									probeAvailability_tS3Put_1 = new byte[1];
-									uploadStream_tS3Put_1 = new java.io.ByteArrayInputStream(buffer_tS3Put_1);
-								}
-
-								com.amazonaws.services.s3.model.CompleteMultipartUploadRequest compRequest_tS3Put_1 = new com.amazonaws.services.s3.model.CompleteMultipartUploadRequest(
-										"libreriapacifico/presentation", key_tS3Put_1, uploadId_tS3Put_1,
-										partTags_tS3Put_1);
-								conn_tS3Put_1.completeMultipartUpload(compRequest_tS3Put_1);
-							} catch (java.lang.Exception uploadException_tS3Put_1) {
-								globalMap.put("tS3Put_1_ERROR_MESSAGE", uploadException_tS3Put_1.getMessage());
-								conn_tS3Put_1.abortMultipartUpload(
-										new com.amazonaws.services.s3.model.AbortMultipartUploadRequest(
-												"libreriapacifico/presentation", key_tS3Put_1, uploadId_tS3Put_1));
-								throw uploadException_tS3Put_1;
-							}
-						}
-					}
-
-				} catch (java.lang.Exception e_tS3Put_1) {
-					globalMap.put("tS3Put_1_ERROR_MESSAGE", e_tS3Put_1.getMessage());
-
-					System.err.println(e_tS3Put_1.getMessage());
-
-				} finally {
-					if (useStream_tS3Put_1 && uploadStream_tS3Put_1 != null) {
-						uploadStream_tS3Put_1.close();
-					}
-
-					if (tm_tS3Put_1 != null) {
-						tm_tS3Put_1.shutdownNow(false);
-					}
-
-				}
-
-				/**
-				 * [tS3Put_1 begin ] stop
-				 */
-
-				/**
-				 * [tS3Put_1 main ] start
-				 */
-
-				currentComponent = "tS3Put_1";
-
-				tos_count_tS3Put_1++;
-
-				/**
-				 * [tS3Put_1 main ] stop
-				 */
-
-				/**
-				 * [tS3Put_1 process_data_begin ] start
-				 */
-
-				currentComponent = "tS3Put_1";
-
-				/**
-				 * [tS3Put_1 process_data_begin ] stop
-				 */
-
-				/**
-				 * [tS3Put_1 process_data_end ] start
-				 */
-
-				currentComponent = "tS3Put_1";
-
-				/**
-				 * [tS3Put_1 process_data_end ] stop
-				 */
-
-				/**
-				 * [tS3Put_1 end ] start
-				 */
-
-				currentComponent = "tS3Put_1";
-
-				ok_Hash.put("tS3Put_1", true);
-				end_Hash.put("tS3Put_1", System.currentTimeMillis());
-
-				/**
-				 * [tS3Put_1 end ] stop
-				 */
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tS3Put_1 finally ] start
-				 */
-
-				currentComponent = "tS3Put_1";
-
-				/**
-				 * [tS3Put_1 finally ] stop
-				 */
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tS3Put_1_SUBPROCESS_STATE", 1);
-	}
-
-	public static class productCategoryStruct
-			implements routines.system.IPersistableComparableLookupRow<productCategoryStruct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public Integer id;
-
-		public Integer getId() {
-			return this.id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public String complete_name;
-
-		public String getComplete_name() {
-			return this.complete_name;
-		}
-
-		public String parent_id;
-
-		public String getParent_id() {
-			return this.parent_id;
-		}
-
-		public String parent_path;
-
-		public String getParent_path() {
-			return this.parent_path;
-		}
-
-		public Integer create_uid;
-
-		public Integer getCreate_uid() {
-			return this.create_uid;
-		}
-
-		public java.util.Date create_date;
-
-		public java.util.Date getCreate_date() {
-			return this.create_date;
-		}
-
-		public Integer write_uid;
-
-		public Integer getWrite_uid() {
-			return this.write_uid;
-		}
-
-		public java.util.Date write_date;
-
-		public java.util.Date getWrite_date() {
-			return this.write_date;
-		}
-
-		public String removal_strategy_id;
-
-		public String getRemoval_strategy_id() {
-			return this.removal_strategy_id;
-		}
-
-		public String packaging_reserve_method;
-
-		public String getPackaging_reserve_method() {
-			return this.packaging_reserve_method;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final productCategoryStruct other = (productCategoryStruct) obj;
-
-			if (this.id == null) {
-				if (other.id != null)
-					return false;
-
-			} else if (!this.id.equals(other.id))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(productCategoryStruct other) {
-
-			other.id = this.id;
-			other.name = this.name;
-			other.complete_name = this.complete_name;
-			other.parent_id = this.parent_id;
-			other.parent_path = this.parent_path;
-			other.create_uid = this.create_uid;
-			other.create_date = this.create_date;
-			other.write_uid = this.write_uid;
-			other.write_date = this.write_date;
-			other.removal_strategy_id = this.removal_strategy_id;
-			other.packaging_reserve_method = this.packaging_reserve_method;
-
-		}
-
-		public void copyKeysDataTo(productCategoryStruct other) {
-
-			other.id = this.id;
-
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				unmarshaller.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = unmarshaller.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private java.util.Date readDate(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private java.util.Date readDate(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.name = readString(dis, ois);
-
-				this.complete_name = readString(dis, ois);
-
-				this.parent_id = readString(dis, ois);
-
-				this.parent_path = readString(dis, ois);
-
-				this.create_uid = readInteger(dis, ois);
-
-				this.create_date = readDate(dis, ois);
-
-				this.write_uid = readInteger(dis, ois);
-
-				this.write_date = readDate(dis, ois);
-
-				this.removal_strategy_id = readString(dis, ois);
-
-				this.packaging_reserve_method = readString(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
-			try {
-				int length = 0;
-
-				this.name = readString(dis, objectIn);
-
-				this.complete_name = readString(dis, objectIn);
-
-				this.parent_id = readString(dis, objectIn);
-
-				this.parent_path = readString(dis, objectIn);
-
-				this.create_uid = readInteger(dis, objectIn);
-
-				this.create_date = readDate(dis, objectIn);
-
-				this.write_uid = readInteger(dis, objectIn);
-
-				this.write_date = readDate(dis, objectIn);
-
-				this.removal_strategy_id = readString(dis, objectIn);
-
-				this.packaging_reserve_method = readString(dis, objectIn);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeString(this.name, dos, oos);
-
-				writeString(this.complete_name, dos, oos);
-
-				writeString(this.parent_id, dos, oos);
-
-				writeString(this.parent_path, dos, oos);
-
-				writeInteger(this.create_uid, dos, oos);
-
-				writeDate(this.create_date, dos, oos);
-
-				writeInteger(this.write_uid, dos, oos);
-
-				writeDate(this.write_date, dos, oos);
-
-				writeString(this.removal_strategy_id, dos, oos);
-
-				writeString(this.packaging_reserve_method, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
-			try {
-
-				writeString(this.name, dos, objectOut);
-
-				writeString(this.complete_name, dos, objectOut);
-
-				writeString(this.parent_id, dos, objectOut);
-
-				writeString(this.parent_path, dos, objectOut);
-
-				writeInteger(this.create_uid, dos, objectOut);
-
-				writeDate(this.create_date, dos, objectOut);
-
-				writeInteger(this.write_uid, dos, objectOut);
-
-				writeDate(this.write_date, dos, objectOut);
-
-				writeString(this.removal_strategy_id, dos, objectOut);
-
-				writeString(this.packaging_reserve_method, dos, objectOut);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
-		public boolean supportMarshaller() {
-			return true;
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("id=" + String.valueOf(id));
-			sb.append(",name=" + name);
-			sb.append(",complete_name=" + complete_name);
-			sb.append(",parent_id=" + parent_id);
-			sb.append(",parent_path=" + parent_path);
-			sb.append(",create_uid=" + String.valueOf(create_uid));
-			sb.append(",create_date=" + String.valueOf(create_date));
-			sb.append(",write_uid=" + String.valueOf(write_uid));
-			sb.append(",write_date=" + String.valueOf(write_date));
-			sb.append(",removal_strategy_id=" + removal_strategy_id);
-			sb.append(",packaging_reserve_method=" + packaging_reserve_method);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(productCategoryStruct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.id, other.id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				productCategoryStruct productCategory = new productCategoryStruct();
-
-				/**
-				 * [tAdvancedHash_productCategory begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_productCategory", false);
-				start_Hash.put("tAdvancedHash_productCategory", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_productCategory";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "productCategory");
-				}
-
-				int tos_count_tAdvancedHash_productCategory = 0;
-
-				// connection name:productCategory
-				// source node:tFileInputDelimited_1 - inputs:(after_tFileInputDelimited_2)
-				// outputs:(productCategory,productCategory) | target
-				// node:tAdvancedHash_productCategory - inputs:(productCategory) outputs:()
-				// linked node: tMap_1 - inputs:(productProduct,productCategory,productTemplate)
-				// outputs:(DimProduct)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_productCategory = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<productCategoryStruct> tHash_Lookup_productCategory = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<productCategoryStruct>getLookup(matchingModeEnum_productCategory);
-
-				globalMap.put("tHash_Lookup_productCategory", tHash_Lookup_productCategory);
-
-				/**
-				 * [tAdvancedHash_productCategory begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_1 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_1", false);
-				start_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_1";
-
-				int tos_count_tFileInputDelimited_1 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_1 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_1 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_1 = null;
-				int limit_tFileInputDelimited_1 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv";
-					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
-						if (footer_value_tFileInputDelimited_1 > 0 || random_value_tFileInputDelimited_1 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv",
-								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_1, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_1 != null && fid_tFileInputDelimited_1.nextRecord()) {
-						rowstate_tFileInputDelimited_1.reset();
-
-						productCategory = null;
-
-						productCategory = null;
-
-						boolean whetherReject_tFileInputDelimited_1 = false;
-						productCategory = new productCategoryStruct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_1 = 0;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									productCategory.id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"id", "productCategory", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								productCategory.id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 1;
-
-							productCategory.name = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 2;
-
-							productCategory.complete_name = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 3;
-
-							productCategory.parent_id = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 4;
-
-							productCategory.parent_path = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 5;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									productCategory.create_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_uid", "productCategory", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								productCategory.create_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 6;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									productCategory.create_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"create_date", "productCategory", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								productCategory.create_date = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 7;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									productCategory.write_uid = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_uid", "productCategory", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								productCategory.write_uid = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 8;
-
-							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-							if (temp.length() > 0) {
-
-								try {
-
-									productCategory.write_date = ParserUtils.parseTo_Date(temp, "dd-MM-yyyy");
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
-									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
-											ex_tFileInputDelimited_1.getMessage());
-									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"write_date", "productCategory", temp, ex_tFileInputDelimited_1),
-											ex_tFileInputDelimited_1));
-								}
-
-							} else {
-
-								productCategory.write_date = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_1 = 9;
-
-							productCategory.removal_strategy_id = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							columnIndexWithD_tFileInputDelimited_1 = 10;
-
-							productCategory.packaging_reserve_method = fid_tFileInputDelimited_1
-									.get(columnIndexWithD_tFileInputDelimited_1);
-
-							if (rowstate_tFileInputDelimited_1.getException() != null) {
-								throw rowstate_tFileInputDelimited_1.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_1 = true;
-
-							System.err.println(e.getMessage());
-							productCategory = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_1 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						tos_count_tFileInputDelimited_1++;
-
-						/**
-						 * [tFileInputDelimited_1 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_begin ] stop
-						 */
-// Start of branch "productCategory"
-						if (productCategory != null) {
-
-							/**
-							 * [tAdvancedHash_productCategory main ] start
-							 */
-
-							currentComponent = "tAdvancedHash_productCategory";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
-
-										, "productCategory"
-
-								);
-							}
-
-							productCategoryStruct productCategory_HashRow = new productCategoryStruct();
-
-							productCategory_HashRow.id = productCategory.id;
-
-							productCategory_HashRow.name = productCategory.name;
-
-							productCategory_HashRow.complete_name = productCategory.complete_name;
-
-							productCategory_HashRow.parent_id = productCategory.parent_id;
-
-							productCategory_HashRow.parent_path = productCategory.parent_path;
-
-							productCategory_HashRow.create_uid = productCategory.create_uid;
-
-							productCategory_HashRow.create_date = productCategory.create_date;
-
-							productCategory_HashRow.write_uid = productCategory.write_uid;
-
-							productCategory_HashRow.write_date = productCategory.write_date;
-
-							productCategory_HashRow.removal_strategy_id = productCategory.removal_strategy_id;
-
-							productCategory_HashRow.packaging_reserve_method = productCategory.packaging_reserve_method;
-
-							tHash_Lookup_productCategory.put(productCategory_HashRow);
-
-							tos_count_tAdvancedHash_productCategory++;
-
-							/**
-							 * [tAdvancedHash_productCategory main ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_productCategory process_data_begin ] start
-							 */
-
-							currentComponent = "tAdvancedHash_productCategory";
-
-							/**
-							 * [tAdvancedHash_productCategory process_data_begin ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_productCategory process_data_end ] start
-							 */
-
-							currentComponent = "tAdvancedHash_productCategory";
-
-							/**
-							 * [tAdvancedHash_productCategory process_data_end ] stop
-							 */
-
-						} // End of branch "productCategory"
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-						/**
-						 * [tFileInputDelimited_1 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_1 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_1";
-
-					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_1 != null) {
-							fid_tFileInputDelimited_1.close();
-						}
-					}
-					if (fid_tFileInputDelimited_1 != null) {
-						globalMap.put("tFileInputDelimited_1_NB_LINE", fid_tFileInputDelimited_1.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_1", true);
-				end_Hash.put("tFileInputDelimited_1", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_1 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_productCategory end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_productCategory";
-
-				tHash_Lookup_productCategory.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "productCategory");
-				}
-
-				ok_Hash.put("tAdvancedHash_productCategory", true);
-				end_Hash.put("tAdvancedHash_productCategory", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_productCategory end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_1 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_1";
-
-				/**
-				 * [tFileInputDelimited_1 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_productCategory finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_productCategory";
-
-				/**
-				 * [tAdvancedHash_productCategory finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
 	}
 
 	public static class productTemplateStruct
@@ -11003,7 +6303,7 @@ public class productDim implements TalendJob {
 				// source node:tFileInputDelimited_3 - inputs:(after_tFileInputDelimited_2)
 				// outputs:(productTemplate,productTemplate) | target
 				// node:tAdvancedHash_productTemplate - inputs:(productTemplate) outputs:()
-				// linked node: tMap_1 - inputs:(productProduct,productCategory,productTemplate)
+				// linked node: tMap_1 - inputs:(productCategory,productProduct,productTemplate)
 				// outputs:(DimProduct)
 
 				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_productTemplate = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
@@ -11908,2132 +7208,6 @@ public class productDim implements TalendJob {
 		globalMap.put("tFileInputDelimited_3_SUBPROCESS_STATE", 1);
 	}
 
-	public static class row6Struct implements routines.system.IPersistableComparableLookupRow<row6Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public Integer attribute_group_key;
-
-		public Integer getAttribute_group_key() {
-			return this.attribute_group_key;
-		}
-
-		public Integer attribute_key;
-
-		public Integer getAttribute_key() {
-			return this.attribute_key;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.attribute_key == null) ? 0 : this.attribute_key.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row6Struct other = (row6Struct) obj;
-
-			if (this.attribute_key == null) {
-				if (other.attribute_key != null)
-					return false;
-
-			} else if (!this.attribute_key.equals(other.attribute_key))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row6Struct other) {
-
-			other.attribute_group_key = this.attribute_group_key;
-			other.attribute_key = this.attribute_key;
-
-		}
-
-		public void copyKeysDataTo(row6Struct other) {
-
-			other.attribute_key = this.attribute_key;
-
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = unmarshaller.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.attribute_key = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.attribute_key = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.attribute_key, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.attribute_key, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.attribute_group_key = readInteger(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
-			try {
-				int length = 0;
-
-				this.attribute_group_key = readInteger(dis, objectIn);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeInteger(this.attribute_group_key, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
-			try {
-
-				writeInteger(this.attribute_group_key, dos, objectOut);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
-		public boolean supportMarshaller() {
-			return true;
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("attribute_group_key=" + String.valueOf(attribute_group_key));
-			sb.append(",attribute_key=" + String.valueOf(attribute_key));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row6Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.attribute_key, other.attribute_key);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_4Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_4_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				row6Struct row6 = new row6Struct();
-
-				/**
-				 * [tAdvancedHash_row6 begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_row6", false);
-				start_Hash.put("tAdvancedHash_row6", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_row6";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
-				}
-
-				int tos_count_tAdvancedHash_row6 = 0;
-
-				// connection name:row6
-				// source node:tFileInputDelimited_4 - inputs:(after_tFileInputDelimited_2)
-				// outputs:(row6,row6) | target node:tAdvancedHash_row6 - inputs:(row6)
-				// outputs:()
-				// linked node: tMap_4 - inputs:(row5,row6) outputs:(out3)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row6 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row6Struct> tHash_Lookup_row6 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<row6Struct>getLookup(matchingModeEnum_row6);
-
-				globalMap.put("tHash_Lookup_row6", tHash_Lookup_row6);
-
-				/**
-				 * [tAdvancedHash_row6 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_4 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_4", false);
-				start_Hash.put("tFileInputDelimited_4", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_4";
-
-				int tos_count_tFileInputDelimited_4 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_4 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_4 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_4 = null;
-				int limit_tFileInputDelimited_4 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_4 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv";
-					if (filename_tFileInputDelimited_4 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_4 = 0, random_value_tFileInputDelimited_4 = -1;
-						if (footer_value_tFileInputDelimited_4 > 0 || random_value_tFileInputDelimited_4 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_4 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv",
-								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_4, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE", e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_4 != null && fid_tFileInputDelimited_4.nextRecord()) {
-						rowstate_tFileInputDelimited_4.reset();
-
-						row6 = null;
-
-						row6 = null;
-
-						boolean whetherReject_tFileInputDelimited_4 = false;
-						row6 = new row6Struct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_4 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_4 = 0;
-
-							temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-							if (temp.length() > 0) {
-
-								try {
-
-									row6.attribute_group_key = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_4) {
-									globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",
-											ex_tFileInputDelimited_4.getMessage());
-									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"attribute_group_key", "row6", temp, ex_tFileInputDelimited_4),
-											ex_tFileInputDelimited_4));
-								}
-
-							} else {
-
-								row6.attribute_group_key = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_4 = 1;
-
-							temp = fid_tFileInputDelimited_4.get(columnIndexWithD_tFileInputDelimited_4);
-							if (temp.length() > 0) {
-
-								try {
-
-									row6.attribute_key = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_4) {
-									globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE",
-											ex_tFileInputDelimited_4.getMessage());
-									rowstate_tFileInputDelimited_4.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"attribute_key", "row6", temp, ex_tFileInputDelimited_4),
-											ex_tFileInputDelimited_4));
-								}
-
-							} else {
-
-								row6.attribute_key = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_4.getException() != null) {
-								throw rowstate_tFileInputDelimited_4.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_4_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_4 = true;
-
-							System.err.println(e.getMessage());
-							row6 = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_4 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_4 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_4";
-
-						tos_count_tFileInputDelimited_4++;
-
-						/**
-						 * [tFileInputDelimited_4 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_4 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_4";
-
-						/**
-						 * [tFileInputDelimited_4 process_data_begin ] stop
-						 */
-// Start of branch "row6"
-						if (row6 != null) {
-
-							/**
-							 * [tAdvancedHash_row6 main ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row6";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
-
-										, "row6"
-
-								);
-							}
-
-							row6Struct row6_HashRow = new row6Struct();
-
-							row6_HashRow.attribute_group_key = row6.attribute_group_key;
-
-							row6_HashRow.attribute_key = row6.attribute_key;
-
-							tHash_Lookup_row6.put(row6_HashRow);
-
-							tos_count_tAdvancedHash_row6++;
-
-							/**
-							 * [tAdvancedHash_row6 main ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row6 process_data_begin ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row6";
-
-							/**
-							 * [tAdvancedHash_row6 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row6 process_data_end ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row6";
-
-							/**
-							 * [tAdvancedHash_row6 process_data_end ] stop
-							 */
-
-						} // End of branch "row6"
-
-						/**
-						 * [tFileInputDelimited_4 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_4";
-
-						/**
-						 * [tFileInputDelimited_4 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_4 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_4";
-
-					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/AttributeGroupBridge.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_4 != null) {
-							fid_tFileInputDelimited_4.close();
-						}
-					}
-					if (fid_tFileInputDelimited_4 != null) {
-						globalMap.put("tFileInputDelimited_4_NB_LINE", fid_tFileInputDelimited_4.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_4", true);
-				end_Hash.put("tFileInputDelimited_4", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_4 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row6 end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row6";
-
-				tHash_Lookup_row6.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
-				}
-
-				ok_Hash.put("tAdvancedHash_row6", true);
-				end_Hash.put("tAdvancedHash_row6", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_row6 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_4 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_4";
-
-				/**
-				 * [tFileInputDelimited_4 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row6 finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row6";
-
-				/**
-				 * [tAdvancedHash_row6 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_4_SUBPROCESS_STATE", 1);
-	}
-
-	public static class row2Struct implements routines.system.IPersistableComparableLookupRow<row2Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public Integer product_attribute_id;
-
-		public Integer getProduct_attribute_id() {
-			return this.product_attribute_id;
-		}
-
-		public Integer product_template_id;
-
-		public Integer getProduct_template_id() {
-			return this.product_template_id;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result
-						+ ((this.product_template_id == null) ? 0 : this.product_template_id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row2Struct other = (row2Struct) obj;
-
-			if (this.product_template_id == null) {
-				if (other.product_template_id != null)
-					return false;
-
-			} else if (!this.product_template_id.equals(other.product_template_id))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row2Struct other) {
-
-			other.product_attribute_id = this.product_attribute_id;
-			other.product_template_id = this.product_template_id;
-
-		}
-
-		public void copyKeysDataTo(row2Struct other) {
-
-			other.product_template_id = this.product_template_id;
-
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = unmarshaller.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_template_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.product_template_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.product_template_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.product_attribute_id = readInteger(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
-			try {
-				int length = 0;
-
-				this.product_attribute_id = readInteger(dis, objectIn);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeInteger(this.product_attribute_id, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
-			try {
-
-				writeInteger(this.product_attribute_id, dos, objectOut);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
-		public boolean supportMarshaller() {
-			return true;
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("product_attribute_id=" + String.valueOf(product_attribute_id));
-			sb.append(",product_template_id=" + String.valueOf(product_template_id));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row2Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.product_template_id, other.product_template_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_5Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_5_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				row2Struct row2 = new row2Struct();
-
-				/**
-				 * [tAdvancedHash_row2 begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_row2", false);
-				start_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_row2";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row2");
-				}
-
-				int tos_count_tAdvancedHash_row2 = 0;
-
-				// connection name:row2
-				// source node:tFileInputDelimited_5 - inputs:(after_tFileInputDelimited_2)
-				// outputs:(row2,row2) | target node:tAdvancedHash_row2 - inputs:(row2)
-				// outputs:()
-				// linked node: tMap_2 - inputs:(row1,row2) outputs:(out1)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row2 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.ALL_MATCHES;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row2Struct> tHash_Lookup_row2 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<row2Struct>getLookup(matchingModeEnum_row2);
-
-				globalMap.put("tHash_Lookup_row2", tHash_Lookup_row2);
-
-				/**
-				 * [tAdvancedHash_row2 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_5 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_5", false);
-				start_Hash.put("tFileInputDelimited_5", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_5";
-
-				int tos_count_tFileInputDelimited_5 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_5 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_5 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_5 = null;
-				int limit_tFileInputDelimited_5 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_5 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productAttributeProductTemplateRel.csv";
-					if (filename_tFileInputDelimited_5 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_5 = 0, random_value_tFileInputDelimited_5 = -1;
-						if (footer_value_tFileInputDelimited_5 > 0 || random_value_tFileInputDelimited_5 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_5 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productAttributeProductTemplateRel.csv",
-								"ISO-8859-15", ";", "\n", true, 1, 0, limit_tFileInputDelimited_5, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE", e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_5 != null && fid_tFileInputDelimited_5.nextRecord()) {
-						rowstate_tFileInputDelimited_5.reset();
-
-						row2 = null;
-
-						row2 = null;
-
-						boolean whetherReject_tFileInputDelimited_5 = false;
-						row2 = new row2Struct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_5 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_5 = 0;
-
-							temp = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.product_attribute_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
-									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
-											ex_tFileInputDelimited_5.getMessage());
-									rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"product_attribute_id", "row2", temp, ex_tFileInputDelimited_5),
-											ex_tFileInputDelimited_5));
-								}
-
-							} else {
-
-								row2.product_attribute_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_5 = 1;
-
-							temp = fid_tFileInputDelimited_5.get(columnIndexWithD_tFileInputDelimited_5);
-							if (temp.length() > 0) {
-
-								try {
-
-									row2.product_template_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_5) {
-									globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE",
-											ex_tFileInputDelimited_5.getMessage());
-									rowstate_tFileInputDelimited_5.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"product_template_id", "row2", temp, ex_tFileInputDelimited_5),
-											ex_tFileInputDelimited_5));
-								}
-
-							} else {
-
-								row2.product_template_id = null;
-
-							}
-
-							if (rowstate_tFileInputDelimited_5.getException() != null) {
-								throw rowstate_tFileInputDelimited_5.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_5_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_5 = true;
-
-							System.err.println(e.getMessage());
-							row2 = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_5 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_5 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_5";
-
-						tos_count_tFileInputDelimited_5++;
-
-						/**
-						 * [tFileInputDelimited_5 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_5 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_5";
-
-						/**
-						 * [tFileInputDelimited_5 process_data_begin ] stop
-						 */
-// Start of branch "row2"
-						if (row2 != null) {
-
-							/**
-							 * [tAdvancedHash_row2 main ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row2";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
-
-										, "row2"
-
-								);
-							}
-
-							row2Struct row2_HashRow = new row2Struct();
-
-							row2_HashRow.product_attribute_id = row2.product_attribute_id;
-
-							row2_HashRow.product_template_id = row2.product_template_id;
-
-							tHash_Lookup_row2.put(row2_HashRow);
-
-							tos_count_tAdvancedHash_row2++;
-
-							/**
-							 * [tAdvancedHash_row2 main ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row2 process_data_begin ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row2";
-
-							/**
-							 * [tAdvancedHash_row2 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row2 process_data_end ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row2";
-
-							/**
-							 * [tAdvancedHash_row2 process_data_end ] stop
-							 */
-
-						} // End of branch "row2"
-
-						/**
-						 * [tFileInputDelimited_5 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_5";
-
-						/**
-						 * [tFileInputDelimited_5 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_5 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_5";
-
-					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productAttributeProductTemplateRel.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_5 != null) {
-							fid_tFileInputDelimited_5.close();
-						}
-					}
-					if (fid_tFileInputDelimited_5 != null) {
-						globalMap.put("tFileInputDelimited_5_NB_LINE", fid_tFileInputDelimited_5.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_5", true);
-				end_Hash.put("tFileInputDelimited_5", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_5 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row2 end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row2";
-
-				tHash_Lookup_row2.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row2");
-				}
-
-				ok_Hash.put("tAdvancedHash_row2", true);
-				end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_row2 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_5 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_5";
-
-				/**
-				 * [tFileInputDelimited_5 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row2 finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row2";
-
-				/**
-				 * [tAdvancedHash_row2 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_5_SUBPROCESS_STATE", 1);
-	}
-
-	public static class row4Struct implements routines.system.IPersistableComparableLookupRow<row4Struct> {
-		final static byte[] commonByteArrayLock_PACIFICO_productDim = new byte[0];
-		static byte[] commonByteArray_PACIFICO_productDim = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public Integer attribute_key;
-
-		public Integer getAttribute_key() {
-			return this.attribute_key;
-		}
-
-		public Integer attribute_id;
-
-		public Integer getAttribute_id() {
-			return this.attribute_id;
-		}
-
-		public String name;
-
-		public String getName() {
-			return this.name;
-		}
-
-		public String value;
-
-		public String getValue() {
-			return this.value;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + ((this.attribute_id == null) ? 0 : this.attribute_id.hashCode());
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row4Struct other = (row4Struct) obj;
-
-			if (this.attribute_id == null) {
-				if (other.attribute_id != null)
-					return false;
-
-			} else if (!this.attribute_id.equals(other.attribute_id))
-
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row4Struct other) {
-
-			other.attribute_key = this.attribute_key;
-			other.attribute_id = this.attribute_id;
-			other.name = this.name;
-			other.value = this.value;
-
-		}
-
-		public void copyKeysDataTo(row4Struct other) {
-
-			other.attribute_id = this.attribute_id;
-
-		}
-
-		private Integer readInteger(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = unmarshaller.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
-			}
-		}
-
-		private String readString(DataInputStream dis, ObjectInputStream ois) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				dis.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(DataInputStream dis, org.jboss.marshalling.Unmarshaller unmarshaller)
-				throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				byte[] byteArray = new byte[length];
-				unmarshaller.read(byteArray);
-				strReturn = new String(byteArray, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, DataOutputStream dos, org.jboss.marshalling.Marshaller marshaller)
-				throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, DataOutputStream dos, ObjectOutputStream oos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		public void readKeysData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.attribute_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void readKeysData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_PACIFICO_productDim) {
-
-				try {
-
-					int length = 0;
-
-					this.attribute_id = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeKeysData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.attribute_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeKeysData(org.jboss.marshalling.Marshaller dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.attribute_id, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		/**
-		 * Fill Values data by reading ObjectInputStream.
-		 */
-		public void readValuesData(DataInputStream dis, ObjectInputStream ois) {
-			try {
-
-				int length = 0;
-
-				this.attribute_key = readInteger(dis, ois);
-
-				this.name = readString(dis, ois);
-
-				this.value = readString(dis, ois);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		public void readValuesData(DataInputStream dis, org.jboss.marshalling.Unmarshaller objectIn) {
-			try {
-				int length = 0;
-
-				this.attribute_key = readInteger(dis, objectIn);
-
-				this.name = readString(dis, objectIn);
-
-				this.value = readString(dis, objectIn);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-
-			}
-
-		}
-
-		/**
-		 * Return a byte array which represents Values data.
-		 */
-		public void writeValuesData(DataOutputStream dos, ObjectOutputStream oos) {
-			try {
-
-				writeInteger(this.attribute_key, dos, oos);
-
-				writeString(this.name, dos, oos);
-
-				writeString(this.value, dos, oos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeValuesData(DataOutputStream dos, org.jboss.marshalling.Marshaller objectOut) {
-			try {
-
-				writeInteger(this.attribute_key, dos, objectOut);
-
-				writeString(this.name, dos, objectOut);
-
-				writeString(this.value, dos, objectOut);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
-		public boolean supportMarshaller() {
-			return true;
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("attribute_key=" + String.valueOf(attribute_key));
-			sb.append(",attribute_id=" + String.valueOf(attribute_id));
-			sb.append(",name=" + name);
-			sb.append(",value=" + value);
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row4Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.attribute_id, other.attribute_id);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tFileInputDelimited_8Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tFileInputDelimited_8_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-			// TDI-39566 avoid throwing an useless Exception
-			boolean resumeIt = true;
-			if (globalResumeTicket == false && resumeEntryMethodName != null) {
-				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
-				resumeIt = resumeEntryMethodName.equals(currentMethodName);
-			}
-			if (resumeIt || globalResumeTicket) { // start the resume
-				globalResumeTicket = true;
-
-				row4Struct row4 = new row4Struct();
-
-				/**
-				 * [tAdvancedHash_row4 begin ] start
-				 */
-
-				ok_Hash.put("tAdvancedHash_row4", false);
-				start_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
-
-				currentComponent = "tAdvancedHash_row4";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row4");
-				}
-
-				int tos_count_tAdvancedHash_row4 = 0;
-
-				// connection name:row4
-				// source node:tFileInputDelimited_8 - inputs:(after_tFileInputDelimited_2)
-				// outputs:(row4,row4) | target node:tAdvancedHash_row4 - inputs:(row4)
-				// outputs:()
-				// linked node: tMap_3 - inputs:(row3,row4) outputs:(out2)
-
-				org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE matchingModeEnum_row4 = org.talend.designer.components.lookup.common.ICommonLookup.MATCHING_MODE.UNIQUE_MATCH;
-
-				org.talend.designer.components.lookup.memory.AdvancedMemoryLookup<row4Struct> tHash_Lookup_row4 = org.talend.designer.components.lookup.memory.AdvancedMemoryLookup
-						.<row4Struct>getLookup(matchingModeEnum_row4);
-
-				globalMap.put("tHash_Lookup_row4", tHash_Lookup_row4);
-
-				/**
-				 * [tAdvancedHash_row4 begin ] stop
-				 */
-
-				/**
-				 * [tFileInputDelimited_8 begin ] start
-				 */
-
-				ok_Hash.put("tFileInputDelimited_8", false);
-				start_Hash.put("tFileInputDelimited_8", System.currentTimeMillis());
-
-				currentComponent = "tFileInputDelimited_8";
-
-				int tos_count_tFileInputDelimited_8 = 0;
-
-				final routines.system.RowState rowstate_tFileInputDelimited_8 = new routines.system.RowState();
-
-				int nb_line_tFileInputDelimited_8 = 0;
-				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_8 = null;
-				int limit_tFileInputDelimited_8 = -1;
-				try {
-
-					Object filename_tFileInputDelimited_8 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv";
-					if (filename_tFileInputDelimited_8 instanceof java.io.InputStream) {
-
-						int footer_value_tFileInputDelimited_8 = 0, random_value_tFileInputDelimited_8 = -1;
-						if (footer_value_tFileInputDelimited_8 > 0 || random_value_tFileInputDelimited_8 > 0) {
-							throw new java.lang.Exception(
-									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
-						}
-
-					}
-					try {
-						fid_tFileInputDelimited_8 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv", "ISO-8859-15",
-								";", "\n", true, 1, 0, limit_tFileInputDelimited_8, -1, false);
-					} catch (java.lang.Exception e) {
-						globalMap.put("tFileInputDelimited_8_ERROR_MESSAGE", e.getMessage());
-
-						System.err.println(e.getMessage());
-
-					}
-
-					while (fid_tFileInputDelimited_8 != null && fid_tFileInputDelimited_8.nextRecord()) {
-						rowstate_tFileInputDelimited_8.reset();
-
-						row4 = null;
-
-						row4 = null;
-
-						boolean whetherReject_tFileInputDelimited_8 = false;
-						row4 = new row4Struct();
-						try {
-
-							int columnIndexWithD_tFileInputDelimited_8 = 0;
-
-							String temp = "";
-
-							columnIndexWithD_tFileInputDelimited_8 = 0;
-
-							temp = fid_tFileInputDelimited_8.get(columnIndexWithD_tFileInputDelimited_8);
-							if (temp.length() > 0) {
-
-								try {
-
-									row4.attribute_key = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_8) {
-									globalMap.put("tFileInputDelimited_8_ERROR_MESSAGE",
-											ex_tFileInputDelimited_8.getMessage());
-									rowstate_tFileInputDelimited_8.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"attribute_key", "row4", temp, ex_tFileInputDelimited_8),
-											ex_tFileInputDelimited_8));
-								}
-
-							} else {
-
-								row4.attribute_key = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_8 = 1;
-
-							temp = fid_tFileInputDelimited_8.get(columnIndexWithD_tFileInputDelimited_8);
-							if (temp.length() > 0) {
-
-								try {
-
-									row4.attribute_id = ParserUtils.parseTo_Integer(temp);
-
-								} catch (java.lang.Exception ex_tFileInputDelimited_8) {
-									globalMap.put("tFileInputDelimited_8_ERROR_MESSAGE",
-											ex_tFileInputDelimited_8.getMessage());
-									rowstate_tFileInputDelimited_8.setException(new RuntimeException(String.format(
-											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
-											"attribute_id", "row4", temp, ex_tFileInputDelimited_8),
-											ex_tFileInputDelimited_8));
-								}
-
-							} else {
-
-								row4.attribute_id = null;
-
-							}
-
-							columnIndexWithD_tFileInputDelimited_8 = 2;
-
-							row4.name = fid_tFileInputDelimited_8.get(columnIndexWithD_tFileInputDelimited_8);
-
-							columnIndexWithD_tFileInputDelimited_8 = 3;
-
-							row4.value = fid_tFileInputDelimited_8.get(columnIndexWithD_tFileInputDelimited_8);
-
-							if (rowstate_tFileInputDelimited_8.getException() != null) {
-								throw rowstate_tFileInputDelimited_8.getException();
-							}
-
-						} catch (java.lang.Exception e) {
-							globalMap.put("tFileInputDelimited_8_ERROR_MESSAGE", e.getMessage());
-							whetherReject_tFileInputDelimited_8 = true;
-
-							System.err.println(e.getMessage());
-							row4 = null;
-
-						}
-
-						/**
-						 * [tFileInputDelimited_8 begin ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_8 main ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_8";
-
-						tos_count_tFileInputDelimited_8++;
-
-						/**
-						 * [tFileInputDelimited_8 main ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_8 process_data_begin ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_8";
-
-						/**
-						 * [tFileInputDelimited_8 process_data_begin ] stop
-						 */
-// Start of branch "row4"
-						if (row4 != null) {
-
-							/**
-							 * [tAdvancedHash_row4 main ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row4";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1
-
-										, "row4"
-
-								);
-							}
-
-							row4Struct row4_HashRow = new row4Struct();
-
-							row4_HashRow.attribute_key = row4.attribute_key;
-
-							row4_HashRow.attribute_id = row4.attribute_id;
-
-							row4_HashRow.name = row4.name;
-
-							row4_HashRow.value = row4.value;
-
-							tHash_Lookup_row4.put(row4_HashRow);
-
-							tos_count_tAdvancedHash_row4++;
-
-							/**
-							 * [tAdvancedHash_row4 main ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row4 process_data_begin ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row4";
-
-							/**
-							 * [tAdvancedHash_row4 process_data_begin ] stop
-							 */
-
-							/**
-							 * [tAdvancedHash_row4 process_data_end ] start
-							 */
-
-							currentComponent = "tAdvancedHash_row4";
-
-							/**
-							 * [tAdvancedHash_row4 process_data_end ] stop
-							 */
-
-						} // End of branch "row4"
-
-						/**
-						 * [tFileInputDelimited_8 process_data_end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_8";
-
-						/**
-						 * [tFileInputDelimited_8 process_data_end ] stop
-						 */
-
-						/**
-						 * [tFileInputDelimited_8 end ] start
-						 */
-
-						currentComponent = "tFileInputDelimited_8";
-
-					}
-				} finally {
-					if (!((Object) ("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/DimAttribute.csv") instanceof java.io.InputStream)) {
-						if (fid_tFileInputDelimited_8 != null) {
-							fid_tFileInputDelimited_8.close();
-						}
-					}
-					if (fid_tFileInputDelimited_8 != null) {
-						globalMap.put("tFileInputDelimited_8_NB_LINE", fid_tFileInputDelimited_8.getRowNumber());
-
-					}
-				}
-
-				ok_Hash.put("tFileInputDelimited_8", true);
-				end_Hash.put("tFileInputDelimited_8", System.currentTimeMillis());
-
-				/**
-				 * [tFileInputDelimited_8 end ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row4 end ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row4";
-
-				tHash_Lookup_row4.endPut();
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row4");
-				}
-
-				ok_Hash.put("tAdvancedHash_row4", true);
-				end_Hash.put("tAdvancedHash_row4", System.currentTimeMillis());
-
-				/**
-				 * [tAdvancedHash_row4 end ] stop
-				 */
-
-			} // end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent, globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			runStat.stopThreadStat();
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileInputDelimited_8 finally ] start
-				 */
-
-				currentComponent = "tFileInputDelimited_8";
-
-				/**
-				 * [tFileInputDelimited_8 finally ] stop
-				 */
-
-				/**
-				 * [tAdvancedHash_row4 finally ] start
-				 */
-
-				currentComponent = "tAdvancedHash_row4";
-
-				/**
-				 * [tAdvancedHash_row4 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileInputDelimited_8_SUBPROCESS_STATE", 1);
-	}
-
 	public String resuming_logs_dir_path = null;
 	public String resuming_checkpoint_path = null;
 	public String parent_part_launcher = null;
@@ -14433,6 +7607,6 @@ public class productDim implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 431973 characters generated by Talend Open Studio for Data Integration on the
- * January 7, 2023 at 11:06:56 PM CST
+ * 238048 characters generated by Talend Open Studio for Data Integration on the
+ * January 8, 2023 at 1:07:13 AM CST
  ************************************************************************************************/

@@ -1,7 +1,9 @@
 CREATE TABLE "public"."attributegroupbridge"(attribute_group_key integer NOT NULL encode az64,
     attribute_key       integer encode az64,
+    product_key           integer encode az64,
     CONSTRAINT attributegroupbridge_pkey PRIMARY KEY(attribute_group_key),
-    CONSTRAINT attributegroupbridge_attribute_key_fkey FOREIGN KEY (attribute_key) REFERENCES dimattribute(attribute_key));
+    CONSTRAINT attributegroupbridge_attribute_key_fkey FOREIGN KEY (attribute_key) REFERENCES dimattribute(attribute_key),
+    CONSTRAINT attributegroupbridge_product_key_fkey FOREIGN KEY (product_key) REFERENCES dimproduct(product_key));
 
 CREATE TABLE "public"."dimattribute"(attribute_key integer NOT NULL encode az64,
     attribute_id  integer encode az64,
@@ -11,7 +13,6 @@ CREATE TABLE "public"."dimattribute"(attribute_key integer NOT NULL encode az64,
 
 CREATE TABLE "public"."dimproduct"(product_key integer NOT NULL encode az64,
     product_id           integer encode az64,
-    attribute_group_key  integer encode az64,
     product_name         character varying(256) encode lzo,
     product_description  character varying(256) encode lzo,
     category             character varying(256) encode lzo,
