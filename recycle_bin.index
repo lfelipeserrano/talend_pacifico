@@ -28,6 +28,9 @@
   <deletedFolders>process/zp12001/first_load/stage</deletedFolders>
   <deletedItems id="_zlIvMHRYEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_CdWEAFsHEe2svv36Y068bQ" path="" type="PROCESS"/>
+  <deletedItems id="_nYXusJzZEe2Ry-_IRq70kA" path="" type="PROCESS"/>
+  <deletedItems id="_tGuwUJ00Ee2ycZHM3M6QwQ" path="" type="PROCESS"/>
+  <deletedItems id="_uBSUEJ00Ee2ycZHM3M6QwQ" path="" type="PROCESS"/>
   <deletedItems id="_IdaDMI6zEe2fA4dI3PZbsg" path="AWSConnection" type="PROCESS"/>
   <deletedItems id="_5Oi5sHOSEe2pjaT5UwUfZw" path="Presentation/CustomerDim" type="PROCESS"/>
   <deletedItems id="_uoW-IHOSEe2pjaT5UwUfZw" path="Presentation/CustomerDim" type="PROCESS"/>

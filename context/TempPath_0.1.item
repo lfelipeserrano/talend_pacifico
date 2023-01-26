@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_hNPzIJ0vEe2ITY2uvGe4FA" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_hNPzIZ0vEe2ITY2uvGe4FA" comment="" name="temp_path" prompt="temp_path?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="C:/pacifico_temp"/>
+</talendfile:ContextType>
