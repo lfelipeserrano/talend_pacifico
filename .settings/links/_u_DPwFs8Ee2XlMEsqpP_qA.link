@@ -2,6 +2,16 @@
   "itemId" : "_u_DPwFs8Ee2XlMEsqpP_qA",
   "contextList" : [ {
     "contextName" : "Default",
+    "repoId" : "_p1-IIJudEe2ttP2EnR1Ynw",
+    "parameterList" : [ {
+      "id" : "_cq6-4JxoEe2XgaIa55TseQ",
+      "name" : "fechaFin"
+    }, {
+      "id" : "_p2HSEZudEe2ttP2EnR1Ynw",
+      "name" : "fechaInicio"
+    } ]
+  }, {
+    "contextName" : "Default",
     "repoId" : "_YROnEI5MEe2XLOQ1rk7jrw",
     "parameterList" : [ {
       "id" : "_YRa0UY5MEe2XLOQ1rk7jrw",
