@@ -130,6 +130,12 @@ public class getStageFiles_ppt implements TalendJob {
 
 			}
 
+			if (temp_path != null) {
+
+				this.setProperty("temp_path", temp_path.toString());
+
+			}
+
 		}
 
 		// if the stored or passed value is "<TALEND_NULL>" string, it mean null
@@ -151,6 +157,12 @@ public class getStageFiles_ppt implements TalendJob {
 
 		public String getSecretAccessKey() {
 			return this.SecretAccessKey;
+		}
+
+		public String temp_path;
+
+		public String getTemp_path() {
+			return this.temp_path;
 		}
 	}
 
@@ -739,9 +751,7 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "productTemplate.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_1 = tm_tS3Get_1.download(
-							getObjectRequest_tS3Get_1,
-							new java.io.File(
-									"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productTemplate.csv"),
+							getObjectRequest_tS3Get_1, new java.io.File(context.temp_path + "/productTemplate.csv"),
 							null, 0l, true);
 
 					download_tS3Get_1.waitForCompletion();
@@ -898,9 +908,7 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "productCategory.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_2 = tm_tS3Get_2.download(
-							getObjectRequest_tS3Get_2,
-							new java.io.File(
-									"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productCategory.csv"),
+							getObjectRequest_tS3Get_2, new java.io.File(context.temp_path + "/productCategory.csv"),
 							null, 0l, true);
 
 					download_tS3Get_2.waitForCompletion();
@@ -1057,8 +1065,7 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "productProduct.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_3 = tm_tS3Get_3.download(
-							getObjectRequest_tS3Get_3,
-							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productProduct.csv"),
+							getObjectRequest_tS3Get_3, new java.io.File(context.temp_path + "/productProduct.csv"),
 							null, 0l, true);
 
 					download_tS3Get_3.waitForCompletion();
@@ -1215,9 +1222,8 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "resPartner.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_6 = tm_tS3Get_6.download(
-							getObjectRequest_tS3Get_6,
-							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/resPartner.csv"),
-							null, 0l, true);
+							getObjectRequest_tS3Get_6, new java.io.File(context.temp_path + "/resPartner.csv"), null,
+							0l, true);
 
 					download_tS3Get_6.waitForCompletion();
 
@@ -1373,9 +1379,7 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "posPaymentMethod.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_7 = tm_tS3Get_7.download(
-							getObjectRequest_tS3Get_7,
-							new java.io.File(
-									"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posPaymentMehtod.csv"),
+							getObjectRequest_tS3Get_7, new java.io.File(context.temp_path + "/posPaymentMehtod.csv"),
 							null, 0l, true);
 
 					download_tS3Get_7.waitForCompletion();
@@ -1532,9 +1536,8 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "posConfig.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_8 = tm_tS3Get_8.download(
-							getObjectRequest_tS3Get_8,
-							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posConfig.csv"),
-							null, 0l, true);
+							getObjectRequest_tS3Get_8, new java.io.File(context.temp_path + "/posConfig.csv"), null, 0l,
+							true);
 
 					download_tS3Get_8.waitForCompletion();
 
@@ -1690,9 +1693,8 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "resCountry.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_5 = tm_tS3Get_5.download(
-							getObjectRequest_tS3Get_5,
-							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/resCountry.csv"),
-							null, 0l, true);
+							getObjectRequest_tS3Get_5, new java.io.File(context.temp_path + "/resCountry.csv"), null,
+							0l, true);
 
 					download_tS3Get_5.waitForCompletion();
 
@@ -1848,9 +1850,8 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "resCompany.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_4 = tm_tS3Get_4.download(
-							getObjectRequest_tS3Get_4,
-							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/resCompany.csv"),
-							null, 0l, true);
+							getObjectRequest_tS3Get_4, new java.io.File(context.temp_path + "/resCompany.csv"), null,
+							0l, true);
 
 					download_tS3Get_4.waitForCompletion();
 
@@ -2006,9 +2007,7 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "resCountryState.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_9 = tm_tS3Get_9.download(
-							getObjectRequest_tS3Get_9,
-							new java.io.File(
-									"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/resCountryState.csv"),
+							getObjectRequest_tS3Get_9, new java.io.File(context.temp_path + "/resCountryState.csv"),
 							null, 0l, true);
 
 					download_tS3Get_9.waitForCompletion();
@@ -2165,9 +2164,7 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "productAttribute.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_10 = tm_tS3Get_10.download(
-							getObjectRequest_tS3Get_10,
-							new java.io.File(
-									"C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/productAttribute.csv"),
+							getObjectRequest_tS3Get_10, new java.io.File(context.temp_path + "/productAttribute.csv"),
 							null, 0l, true);
 
 					download_tS3Get_10.waitForCompletion();
@@ -2324,9 +2321,8 @@ public class getStageFiles_ppt implements TalendJob {
 							"libreriapacifico/stage", "posPayment.csv");
 
 					com.amazonaws.services.s3.transfer.Download download_tS3Get_11 = tm_tS3Get_11.download(
-							getObjectRequest_tS3Get_11,
-							new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posPayment.csv"),
-							null, 0l, true);
+							getObjectRequest_tS3Get_11, new java.io.File(context.temp_path + "/posPayment.csv"), null,
+							0l, true);
 
 					download_tS3Get_11.waitForCompletion();
 
@@ -2590,6 +2586,12 @@ public class getStageFiles_ppt implements TalendJob {
 					} else {
 						context.SecretAccessKey = (String) context.getProperty("SecretAccessKey");
 					}
+					context.setContextType("temp_path", "id_String");
+					if (context.getStringValue("temp_path") == null) {
+						context.temp_path = null;
+					} else {
+						context.temp_path = (String) context.getProperty("temp_path");
+					}
 				}
 
 				public void processAllContext() {
@@ -2610,6 +2612,9 @@ public class getStageFiles_ppt implements TalendJob {
 			}
 			if (parentContextMap.containsKey("SecretAccessKey")) {
 				context.SecretAccessKey = (String) parentContextMap.get("SecretAccessKey");
+			}
+			if (parentContextMap.containsKey("temp_path")) {
+				context.temp_path = (String) parentContextMap.get("temp_path");
 			}
 		}
 
@@ -2826,6 +2831,6 @@ public class getStageFiles_ppt implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 82488 characters generated by Talend Open Studio for Data Integration on the
- * January 7, 2023 at 10:37:54 PM CST
+ * 82808 characters generated by Talend Open Studio for Data Integration on the
+ * January 25, 2023 at 10:43:05 PM CST
  ************************************************************************************************/
