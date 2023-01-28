@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_p2HSEJudEe2ttP2EnR1Ynw" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_p2HSEZudEe2ttP2EnR1Ynw" comment="" name="fechaInicio" prompt="fechaInicio?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value=""/>
+  <contextParameter xmi:id="_cq6-4JxoEe2XgaIa55TseQ" comment="" name="fechaFin" prompt="fechaFin?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value=""/>
+</talendfile:ContextType>
