@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="AccessKeyId" prompt="AccessKeyId?" promptNeeded="false" repositoryContextId="_YROnEI5MEe2XLOQ1rk7jrw" type="id_String" value="AKIAVMNG53PS53F4G4UM" internalId="_79p2kI61Ee2fA4dI3PZbsg"/>
-    <contextParameter comment="" name="SecretAccessKey" prompt="SecretAccessKey?" promptNeeded="false" repositoryContextId="_YROnEI5MEe2XLOQ1rk7jrw" type="id_String" value="o1aXaRUO8pziq8+Imi9IffXRA+16wn6fxdt9kwEl" internalId="_79p2kY61Ee2fA4dI3PZbsg"/>
+    <contextParameter comment="" name="AccessKeyId" prompt="AccessKeyId?" promptNeeded="false" repositoryContextId="_YROnEI5MEe2XLOQ1rk7jrw" type="id_String" value="AKIAVMNG53PS53F4G4UM" internalId="_jR1AYJ-oEe2atsHC-bFrdw"/>
+    <contextParameter comment="" name="SecretAccessKey" prompt="SecretAccessKey?" promptNeeded="false" repositoryContextId="_YROnEI5MEe2XLOQ1rk7jrw" type="id_String" value="o1aXaRUO8pziq8+Imi9IffXRA+16wn6fxdt9kwEl" internalId="_jR1AYZ-oEe2atsHC-bFrdw"/>
+    <contextParameter comment="" name="temp_path" prompt="temp_path?" promptNeeded="false" repositoryContextId="_hNBJoJ0vEe2ITY2uvGe4FA" type="id_String" value="C:/pacifico_temp" internalId="_jR1AYp-oEe2atsHC-bFrdw"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
@@ -46,7 +47,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:KLEAeKkLuYSNnRo51Ekfdn5rmYd8Hj5iTYHXwdAG" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:nz++gPbk1S18p+Ytu4lifM1gPJSxSw0uLVyYONEJ" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -81,7 +82,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:coXeaLZHSymXEsc6Nctk1aJHXkOXQzh2VQMTAwH0" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:Hpq96zKQg4b9m91+9Tbdk20CKiqVCtcTA0PL8AbN" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -116,7 +117,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="context.AccessKeyId"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:dcGu+QKtsJzIEcrMXvuEjYPeImHQk7FoNiiEBI3cazmMAUqTjGHbichKr0KdTYxF4otu"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:x4Vpfy1mlYkPzh+PZ5atxU5cEezfM2WdY5J0Pz64nujzXVlj/tr2c2s+oAnVm4AYQipR"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -127,8 +128,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:PCd5+MmKXO2r0Pve3R/PfZ4QU1esIkeeZE4b8Q3u" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:GRDsdpPl7g/4Bm8eSDnM7/UP3WG8nFjrpAExRKFs" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:/7l1qJaKJqsfc2yhArGvcdsq82WC2AnJ5dp/cdCC" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:xKTgdyWUMzVHeETn4rwQ2sCpRKjMccVw5lTQSaBr" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
@@ -162,7 +163,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:8M6eTLN861xNu502UF28XyT38/yQz4cG8DMzi7Vm" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:xDXAOamzQQ7mqAw7yack6yU2G30xOCPDLiJn8k2p" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -173,14 +174,14 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:wky1YpCUin9E6CH/+PjxtyO9DGA4ZLFG2UACEGR5" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:Z7FshEqnTwhynvimbmEWJw0Oneko1aDO4VC53uHv" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:FipBUvn38PBNiN7OnN4VOj1n2eS7vwhVrZVtcfnj" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:8DUOe34yqzIDK7qUTx1Z1mAmhuThe2bYzzPssxfY" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="BUCKET" value="&quot;libreriapacifico/stage&quot;"/>
     <elementParameter field="TEXT" name="KEY" value="&quot;posPaymentMethod.csv&quot;"/>
-    <elementParameter field="FILE" name="FILE" value="&quot;C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/posPaymentMethod.csv&quot;"/>
+    <elementParameter field="FILE" name="FILE" value="context.temp_path+&quot;/posPaymentMethod.csv&quot;"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="FILE" name="WEB_IDENTITY_TOKEN_FILE" value="" show="false"/>
     <elementParameter field="TEXT" name="WEB_TOKEN_ARN" value="" show="false"/>

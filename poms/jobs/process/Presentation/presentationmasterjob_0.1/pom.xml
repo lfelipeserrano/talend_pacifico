@@ -141,11 +141,6 @@
     </dependency>
     <dependency>
       <groupId>org.example.pacifico.job</groupId>
-      <artifactId>DateDim</artifactId>
-      <version>0.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.example.pacifico.job</groupId>
       <artifactId>StoreMaster</artifactId>
       <version>0.1.0</version>
     </dependency>
