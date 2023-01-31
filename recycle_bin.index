@@ -26,15 +26,20 @@
   <deletedFolders>process/zp12001/first_load</deletedFolders>
   <deletedFolders>process/zp12001/first_load/raw</deletedFolders>
   <deletedFolders>process/zp12001/first_load/stage</deletedFolders>
+  <deletedItems id="_9S48AHRaEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_zlIvMHRYEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_CdWEAFsHEe2svv36Y068bQ" path="" type="PROCESS"/>
   <deletedItems id="_nYXusJzZEe2Ry-_IRq70kA" path="" type="PROCESS"/>
   <deletedItems id="_tGuwUJ00Ee2ycZHM3M6QwQ" path="" type="PROCESS"/>
   <deletedItems id="_uBSUEJ00Ee2ycZHM3M6QwQ" path="" type="PROCESS"/>
   <deletedItems id="_IdaDMI6zEe2fA4dI3PZbsg" path="AWSConnection" type="PROCESS"/>
+  <deletedItems id="_8EbukJubEe28V-fH4SzwXg" path="ConfigFileContext" type="PROCESS"/>
+  <deletedItems id="_ka0BsJ03Ee2xZdo_ZfiACg" path="ConfigFileContext" type="PROCESS"/>
   <deletedItems id="_5Oi5sHOSEe2pjaT5UwUfZw" path="Presentation/CustomerDim" type="PROCESS"/>
   <deletedItems id="_uoW-IHOSEe2pjaT5UwUfZw" path="Presentation/CustomerDim" type="PROCESS"/>
   <deletedItems id="_BVlK0HRaEe2iCY_i5o0tjA" path="Presentation/SalesFact" type="PROCESS"/>
+  <deletedItems id="_oK8BgFKSEe2v4YJIxtnyyA" path="Raw/DailyJobs" type="PROCESS"/>
+  <deletedItems id="_rC920FmeEe22K4rRCAJOwg" path="Raw/DailyJobs" type="PROCESS"/>
   <deletedItems id="_He4x4FpwEe2ls9afLJpI4Q" path="Templates" type="PROCESS"/>
   <deletedItems id="_msrogFmdEe219LD33WVmtA" path="pf15002/dailyJobs" type="PROCESS"/>
   <deletedItems id="_mLiRAFmiEe2EtZD-YglpCA" path="pf15002/dailyJobs/stage" type="PROCESS"/>

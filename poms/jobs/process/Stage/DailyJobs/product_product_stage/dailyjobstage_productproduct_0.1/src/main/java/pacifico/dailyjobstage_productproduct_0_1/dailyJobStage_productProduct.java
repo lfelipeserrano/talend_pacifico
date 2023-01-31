@@ -133,6 +133,12 @@ protected static void logIgnoredError(String message, Throwable cause) {
 				
 			}
 			
+			if(temp_path != null){
+				
+					this.setProperty("temp_path", temp_path.toString());
+				
+			}
+			
 		}
 		
 		//if the stored or passed value is "<TALEND_NULL>" string, it mean null
@@ -151,6 +157,10 @@ public String getAccessKeyId(){
 public String SecretAccessKey;
 public String getSecretAccessKey(){
 	return this.SecretAccessKey;
+}
+public String temp_path;
+public String getTemp_path(){
+	return this.temp_path;
 }
 	}
 	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
@@ -492,7 +502,7 @@ public void tS3Put_1Process(final java.util.Map<String, Object> globalMap) throw
 	}
 	
 	
-	Object fileOrStream_tS3Put_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageOut.csv";
+	Object fileOrStream_tS3Put_1 = context.temp_path+"/stageOut.csv";
 	
 	boolean useStream_tS3Put_1 = false;
 	java.io.InputStream uploadStream_tS3Put_1 = null;
@@ -5659,7 +5669,7 @@ row6Struct row7 = row6;
 		
 
 String fileName_tFileOutputDelimited_1 = "";
-    fileName_tFileOutputDelimited_1 = (new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stageOut.csv")).getAbsolutePath().replace("\\","/");
+    fileName_tFileOutputDelimited_1 = (new java.io.File(context.temp_path+"/stageOut.csv")).getAbsolutePath().replace("\\","/");
     String fullName_tFileOutputDelimited_1 = null;
     String extension_tFileOutputDelimited_1 = null;
     String directory_tFileOutputDelimited_1 = null;
@@ -6070,7 +6080,7 @@ int nb_line_tUnite_1 = 0;
 				int limit_tFileInputDelimited_3 = -1;
 				try{
 					
-						Object filename_tFileInputDelimited_3 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+						Object filename_tFileInputDelimited_3 = context.temp_path+"/stage.csv";
 						if(filename_tFileInputDelimited_3 instanceof java.io.InputStream){
 							
 			int footer_value_tFileInputDelimited_3 = 0, random_value_tFileInputDelimited_3 = -1;
@@ -6080,7 +6090,7 @@ int nb_line_tUnite_1 = 0;
 		
 						}
 						try {
-							fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15",";","\n",true,1,0,
+							fid_tFileInputDelimited_3 = new org.talend.fileprocess.FileInputDelimited(context.temp_path+"/stage.csv", "ISO-8859-15",";","\n",true,1,0,
 									limit_tFileInputDelimited_3
 								,-1, false);
 						} catch(java.lang.Exception e) {
@@ -6889,7 +6899,7 @@ if(row5 != null) {
 
             }
             }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)){
+                if(!((Object)(context.temp_path+"/stage.csv") instanceof java.io.InputStream)){
                 	if(fid_tFileInputDelimited_3!=null){
                 		fid_tFileInputDelimited_3.close();
                 	}
@@ -6939,7 +6949,7 @@ end_Hash.put("tFileInputDelimited_3", System.currentTimeMillis());
 		
 
 String fileName_tFileOutputDelimited_2 = "";
-    fileName_tFileOutputDelimited_2 = (new java.io.File("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/delta.csv")).getAbsolutePath().replace("\\","/");
+    fileName_tFileOutputDelimited_2 = (new java.io.File(context.temp_path+"/delta.csv")).getAbsolutePath().replace("\\","/");
     String fullName_tFileOutputDelimited_2 = null;
     String extension_tFileOutputDelimited_2 = null;
     String directory_tFileOutputDelimited_2 = null;
@@ -7364,7 +7374,7 @@ out1Struct out1_tmp = new out1Struct();
 				int limit_tFileInputDelimited_1 = -1;
 				try{
 					
-						Object filename_tFileInputDelimited_1 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv";
+						Object filename_tFileInputDelimited_1 = context.temp_path+"/raw.csv";
 						if(filename_tFileInputDelimited_1 instanceof java.io.InputStream){
 							
 			int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
@@ -7374,7 +7384,7 @@ out1Struct out1_tmp = new out1Struct();
 		
 						}
 						try {
-							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv", "ISO-8859-15",";","\n",false,1,0,
+							fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(context.temp_path+"/raw.csv", "ISO-8859-15",";","\n",false,1,0,
 									limit_tFileInputDelimited_1
 								,-1, false);
 						} catch(java.lang.Exception e) {
@@ -8782,7 +8792,7 @@ if(out1 != null) {
 
             }
             }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/raw.csv") instanceof java.io.InputStream)){
+                if(!((Object)(context.temp_path+"/raw.csv") instanceof java.io.InputStream)){
                 	if(fid_tFileInputDelimited_1!=null){
                 		fid_tFileInputDelimited_1.close();
                 	}
@@ -10133,7 +10143,7 @@ public void tFileInputDelimited_2Process(final java.util.Map<String, Object> glo
 				int limit_tFileInputDelimited_2 = -1;
 				try{
 					
-						Object filename_tFileInputDelimited_2 = "C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv";
+						Object filename_tFileInputDelimited_2 = context.temp_path+"/stage.csv";
 						if(filename_tFileInputDelimited_2 instanceof java.io.InputStream){
 							
 			int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
@@ -10143,7 +10153,7 @@ public void tFileInputDelimited_2Process(final java.util.Map<String, Object> glo
 		
 						}
 						try {
-							fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv", "ISO-8859-15",";","\n",true,1,0,
+							fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(context.temp_path+"/stage.csv", "ISO-8859-15",";","\n",true,1,0,
 									limit_tFileInputDelimited_2
 								,-1, false);
 						} catch(java.lang.Exception e) {
@@ -10618,7 +10628,7 @@ if(row2 != null) {
 
             }
             }finally{
-                if(!((Object)("C:/Program Files (x86)/TOS_DI-8.0.1/studio/workspace/stage.csv") instanceof java.io.InputStream)){
+                if(!((Object)(context.temp_path+"/stage.csv") instanceof java.io.InputStream)){
                 	if(fid_tFileInputDelimited_2!=null){
                 		fid_tFileInputDelimited_2.close();
                 	}
@@ -10919,6 +10929,12 @@ end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
                         } else {
                             context.SecretAccessKey=(String) context.getProperty("SecretAccessKey");
                         }
+                        context.setContextType("temp_path", "id_String");
+                        if(context.getStringValue("temp_path") == null) {
+                            context.temp_path = null;
+                        } else {
+                            context.temp_path=(String) context.getProperty("temp_path");
+                        }
                 } 
                 public void processAllContext() {
                         processContext_0();
@@ -10936,6 +10952,8 @@ end_Hash.put("tAdvancedHash_row2", System.currentTimeMillis());
                 context.AccessKeyId = (String) parentContextMap.get("AccessKeyId");
             }if (parentContextMap.containsKey("SecretAccessKey")) {
                 context.SecretAccessKey = (String) parentContextMap.get("SecretAccessKey");
+            }if (parentContextMap.containsKey("temp_path")) {
+                context.temp_path = (String) parentContextMap.get("temp_path");
             }
         }
 
@@ -11176,6 +11194,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     297810 characters generated by Talend Open Studio for Data Integration 
- *     on the January 7, 2023 at 10:32:58 PM CST
+ *     298096 characters generated by Talend Open Studio for Data Integration 
+ *     on the January 30, 2023 at 11:19:26 PM CST
  ************************************************************************************************/

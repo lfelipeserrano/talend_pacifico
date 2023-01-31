@@ -10,5 +10,12 @@
       "id" : "_YRa0Uo5MEe2XLOQ1rk7jrw",
       "name" : "SecretAccessKey"
     } ]
+  }, {
+    "contextName" : "Default",
+    "repoId" : "_hNBJoJ0vEe2ITY2uvGe4FA",
+    "parameterList" : [ {
+      "id" : "_hNPzIZ0vEe2ITY2uvGe4FA",
+      "name" : "temp_path"
+    } ]
   } ]
 }
