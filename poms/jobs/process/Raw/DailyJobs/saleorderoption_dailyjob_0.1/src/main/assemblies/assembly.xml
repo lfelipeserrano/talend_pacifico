@@ -262,12 +262,21 @@
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
             <includes>
+                <include>com.fasterxml.jackson.core:jackson-databind:jar:2.11.4</include>
+                <include>com.fasterxml.jackson.core:jackson-annotations:jar:2.11.4</include>
+                <include>commons-codec:commons-codec:jar:1.14</include>
+                <include>org.apache.httpcomponents:httpcore:jar:4.4.13</include>
+                <include>commons-logging:commons-logging:jar:1.2</include>
+                <include>org.apache.logging.log4j:log4j-slf4j-impl:jar:2.13.2</include>
+                <include>joda-time:joda-time:jar:2.8.1</include>
                 <include>org.postgresql:postgresql:jar:42.2.14</include>
                 <include>org.apache.logging.log4j:log4j-api:jar:2.13.2</include>
+                <include>com.fasterxml.jackson.core:jackson-core:jar:2.11.4</include>
+                <include>org.apache.httpcomponents:httpclient:jar:4.5.13</include>
                 <include>org.apache.logging.log4j:log4j-core:jar:2.13.2</include>
                 <include>org.talend.components:talendcsv:jar:1.0.0</include>
+                <include>com.amazonaws:aws-java-sdk:jar:1.11.848</include>
                 <include>org.talend.components.lib:talend_file_enhanced:jar:1.1</include>
-                <include>org.apache.logging.log4j:log4j-slf4j-impl:jar:2.13.2</include>
             </includes>
             <useProjectArtifact>false</useProjectArtifact>
         </dependencySet>

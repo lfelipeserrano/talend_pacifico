@@ -26,6 +26,7 @@
   <deletedFolders>process/zp12001/first_load</deletedFolders>
   <deletedFolders>process/zp12001/first_load/raw</deletedFolders>
   <deletedFolders>process/zp12001/first_load/stage</deletedFolders>
+  <deletedItems id="_9S48AHRaEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_zlIvMHRYEe2iCY_i5o0tjA" path="dbSchemas" type="METADATA_FILE_DELIMITED"/>
   <deletedItems id="_CdWEAFsHEe2svv36Y068bQ" path="" type="PROCESS"/>
   <deletedItems id="_nYXusJzZEe2Ry-_IRq70kA" path="" type="PROCESS"/>
