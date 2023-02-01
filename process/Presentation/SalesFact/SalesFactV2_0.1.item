@@ -47,7 +47,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:n4YnTSwrH1hVQB7xvgL5OfvdQ0me3a/l7kVFfaMF" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:RbqgasrkNADzrbICxHMoc7oj+Xw7W1jMuD7iowZN" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -82,7 +82,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:bFpPLoLChz+Xv0IHC1msEN1gX18TDB0d5PQukLAC" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:MtnVJOaXs33b1o0LKDhhsNM/rZSwFGPW2K6mUs2H" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -1557,11 +1557,11 @@
         <mapperTableEntries name="pos_transaction" expression=" PosOrder.id " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="sales_quantity" expression="PosOrderLine.qty " type="id_Integer" nullable="true"/>
         <mapperTableEntries name="regular_unit_price" expression="PosOrderLine.price_unit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="discount_unit_price" expression="PosOrderLine.discount * PosOrderLine.price_unit " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="net_unit_price" expression="(PosOrderLine.price_unit + (PosOrderLine.price_unit * PosOrder.amount_tax) - PosOrderLine.price_unit * PosOrderLine.discount) * PosOrderLine.qty " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="extended_discount_dollar_amount" expression="(PosOrderLine.price_unit - (PosOrderLine.discount * PosOrderLine.price_unit)) * PosOrderLine.qty " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="extended_sales_dollar_amount" expression="((PosOrderLine.price_unit + (PosOrderLine.price_unit * PosOrder.amount_tax) - PosOrderLine.price_unit * PosOrderLine.discount) * PosOrderLine.qty) * PosOrderLine.qty " type="id_Float" nullable="true"/>
-        <mapperTableEntries name="extended_gross_profit_dollar_amount" expression="(((PosOrderLine.price_unit + (PosOrderLine.price_unit * PosOrder.amount_tax) - PosOrderLine.price_unit * PosOrderLine.discount) * PosOrderLine.qty) - PosOrderLine.price_unit) * PosOrderLine.qty " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="discount_unit_price" expression="PosOrderLine.discount > 0 ? PosOrderLine.price_unit + (PosOrderLine.discount * PosOrderLine.price_unit) : 0 " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="net_unit_price" expression="PosOrderLine.price_unit - (PosOrderLine.price_unit * 0.1f) " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="extended_discount_dollar_amount" expression="PosOrderLine.discount > 0 ?(PosOrderLine.price_unit - (PosOrderLine.discount * PosOrderLine.price_unit)) * PosOrderLine.qty : 0 " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="extended_sales_dollar_amount" expression="PosOrderLine.price_unit * PosOrderLine.qty " type="id_Float" nullable="true"/>
+        <mapperTableEntries name="extended_gross_profit_dollar_amount" expression="(PosOrderLine.price_unit - (PosOrderLine.price_unit - (PosOrderLine.price_unit * 0.1f))) * PosOrderLine.qty " type="id_Float" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="copyOfout1_0" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="sale_id" type="id_Integer" nullable="true"/>
@@ -3480,7 +3480,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="context.AccessKeyId"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:eRPxCviP8XyUgBOlw+V/lPX+6oDadAFmH3c4WZlmmB5rgwGcSZo4/ctNGB+NH/LlVA0G"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:Y5Wx1rBLgZJGY/Ng5bYNPpk8G9VQgk8XvA00MHXsNv1KmYxAYXdEgSZ+o55zjfxx3ibA"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -3491,8 +3491,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:57R/QvdocL8CqpxuduO28DBSJkN3c3yT7OlUIUQr" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:kbRzEte7w/SgpRnBmft2Bk9B3XaW1HAzyhy6MgTI" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:VvcwroGOA6L99FMg3MvemZ0iIeh2vVE/rxCq0Xl5" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:mN8pTWsbQU8Epwq0ApZfASN0OCDmslhJCqyPIbyW" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
@@ -3526,7 +3526,7 @@
     <elementParameter field="FILE" name="PROFILE_PATH" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:eDqqLY70N0J756PYxN08LOvtqA2255bZ8t8zV+ob" show="false"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:ZeLeydQmhJqsxeQbuLtqxA5M6cs8+1BlU2LNY+XW" show="false"/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false" show="false"/>
     <elementParameter field="TEXT" name="ARN" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" value="&quot;&quot;" show="false"/>
@@ -3537,8 +3537,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" value="AES" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" value="RSA" show="false"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" value="BASE64" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:USNaft3K658DMZgPnFSEPY/DAi3ca70u25IGa6Ka" show="false"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:AIycchjHzjsFESNtvF3bry8vcJq02IY/72W7FxQy" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" value="enc:system.encryption.key.v1:MiFIE+jRPpiDqX/nq51JfyG1fZe/TwZ9qXRpvuuD" show="false"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" value="enc:system.encryption.key.v1:8ZGxk+3rIkIk+zZpU++ASuCI0W7a3HsxL+YthLCW" show="false"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" value="&quot;&quot;" show="false"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" value="&quot;&quot;" show="false"/>
