@@ -493,6 +493,15 @@ private class TalendException extends Exception {
 					tRunJob_21_onSubJobError(exception, errorComponent, globalMap);
 			}
 			
+			public void tRunJob_18_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tRunJob_18_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
 			public void tFileDelete_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 				
 				end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -608,6 +617,11 @@ resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThrea
 
 			}
 			public void tRunJob_21_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
+			public void tRunJob_18_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
 
 resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
 
@@ -6518,7 +6532,7 @@ end_Hash.put("tRunJob_21", System.currentTimeMillis());
 				if(execStat){   
    	 				runStat.updateStatOnConnection("OnComponentOk1", 0, "ok");
 				}
-				tFileDelete_1Process(globalMap);
+				tRunJob_18Process(globalMap);
 
 
 
@@ -6576,6 +6590,271 @@ end_Hash.put("tRunJob_21", System.currentTimeMillis());
 		
 
 		globalMap.put("tRunJob_21_SUBPROCESS_STATE", 1);
+	}
+	
+
+public void tRunJob_18Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tRunJob_18_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
+		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+	try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { //start the resume
+				globalResumeTicket = true;
+
+
+
+		
+
+
+	
+	/**
+	 * [tRunJob_18 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tRunJob_18", false);
+		start_Hash.put("tRunJob_18", System.currentTimeMillis());
+		
+	
+	currentComponent="tRunJob_18";
+
+	
+		int tos_count_tRunJob_18 = 0;
+		
+
+
+ 
+
+
+
+/**
+ * [tRunJob_18 begin ] stop
+ */
+	
+	/**
+	 * [tRunJob_18 main ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_18";
+
+	
+	java.util.List<String> paraList_tRunJob_18 = new java.util.ArrayList<String>();
+	
+	        				paraList_tRunJob_18.add("--father_pid="+pid);
+	      			
+	        				paraList_tRunJob_18.add("--root_pid="+rootPid);
+	      			
+	        				paraList_tRunJob_18.add("--father_node=tRunJob_18");
+	      			
+	        				paraList_tRunJob_18.add("--context=Default");
+	      			
+		if(enableLogStash){
+			paraList_tRunJob_18.add("--audit.enabled="+enableLogStash);
+		}
+		
+	//for feature:10589
+	
+		paraList_tRunJob_18.add("--stat_port=" + portStats);
+	
+
+	if(resuming_logs_dir_path != null){
+		paraList_tRunJob_18.add("--resuming_logs_dir_path=" + resuming_logs_dir_path);
+	}
+	String childResumePath_tRunJob_18 = ResumeUtil.getChildJobCheckPointPath(resuming_checkpoint_path);
+	String tRunJobName_tRunJob_18 = ResumeUtil.getRighttRunJob(resuming_checkpoint_path);
+	if("tRunJob_18".equals(tRunJobName_tRunJob_18) && childResumePath_tRunJob_18 != null){
+		paraList_tRunJob_18.add("--resuming_checkpoint_path=" + ResumeUtil.getChildJobCheckPointPath(resuming_checkpoint_path));
+	}
+	paraList_tRunJob_18.add("--parent_part_launcher=JOB:" + jobName + "/NODE:tRunJob_18");
+	
+	java.util.Map<String, Object> parentContextMap_tRunJob_18 = new java.util.HashMap<String, Object>();
+
+	
+
+	Object obj_tRunJob_18 = null;
+
+	
+	
+		pacifico.updateconfigfilecontext_0_1.UpdateConfigFileContext childJob_tRunJob_18 = new pacifico.updateconfigfilecontext_0_1.UpdateConfigFileContext();
+	    // pass DataSources
+	    java.util.Map<String, routines.system.TalendDataSource> talendDataSources_tRunJob_18 = (java.util.Map<String, routines.system.TalendDataSource>) globalMap
+	            .get(KEY_DB_DATASOURCES);
+	    if (null != talendDataSources_tRunJob_18) {
+	        java.util.Map<String, javax.sql.DataSource> dataSources_tRunJob_18 = new java.util.HashMap<String, javax.sql.DataSource>();
+	        for (java.util.Map.Entry<String, routines.system.TalendDataSource> talendDataSourceEntry_tRunJob_18 : talendDataSources_tRunJob_18
+			        .entrySet()) {
+	            dataSources_tRunJob_18.put(talendDataSourceEntry_tRunJob_18.getKey(),
+	                    talendDataSourceEntry_tRunJob_18.getValue().getRawDataSource());
+	        }
+	        childJob_tRunJob_18.setDataSources(dataSources_tRunJob_18);
+	    }
+		  
+			childJob_tRunJob_18.parentContextMap = parentContextMap_tRunJob_18;
+		  
+		
+		String[][] childReturn_tRunJob_18 = childJob_tRunJob_18.runJob((String[]) paraList_tRunJob_18.toArray(new String[paraList_tRunJob_18.size()]));
+		
+            if(childJob_tRunJob_18.getErrorCode() == null){
+                globalMap.put("tRunJob_18_CHILD_RETURN_CODE", childJob_tRunJob_18.getStatus() != null && ("failure").equals(childJob_tRunJob_18.getStatus()) ? 1 : 0);
+            }else{
+                globalMap.put("tRunJob_18_CHILD_RETURN_CODE", childJob_tRunJob_18.getErrorCode());
+            }
+            if (childJob_tRunJob_18.getExceptionStackTrace() != null) {
+                globalMap.put("tRunJob_18_CHILD_EXCEPTION_STACKTRACE", childJob_tRunJob_18.getExceptionStackTrace());
+            }
+                    errorCode = childJob_tRunJob_18.getErrorCode();
+                if (childJob_tRunJob_18.getErrorCode() != null || ("failure").equals(childJob_tRunJob_18.getStatus())) {
+                    java.lang.Exception ce_tRunJob_18 = childJob_tRunJob_18.getException();
+                    throw new RuntimeException("Child job running failed.\n" + ((ce_tRunJob_18!=null) ? (ce_tRunJob_18.getClass().getName() + ": " + ce_tRunJob_18.getMessage()) : ""));
+                }
+
+ 
+
+
+	tos_count_tRunJob_18++;
+
+/**
+ * [tRunJob_18 main ] stop
+ */
+	
+	/**
+	 * [tRunJob_18 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_18";
+
+	
+
+ 
+
+
+
+/**
+ * [tRunJob_18 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tRunJob_18 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_18";
+
+	
+
+ 
+
+
+
+/**
+ * [tRunJob_18 process_data_end ] stop
+ */
+	
+	/**
+	 * [tRunJob_18 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_18";
+
+	
+
+ 
+
+ok_Hash.put("tRunJob_18", true);
+end_Hash.put("tRunJob_18", System.currentTimeMillis());
+
+				if(execStat){   
+   	 				runStat.updateStatOnConnection("OnComponentOk2", 0, "ok");
+				}
+				tFileDelete_1Process(globalMap);
+
+
+
+/**
+ * [tRunJob_18 end ] stop
+ */
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tRunJob_18 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tRunJob_18";
+
+	
+
+ 
+
+
+
+/**
+ * [tRunJob_18 finally ] stop
+ */
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
+
+		globalMap.put("tRunJob_18_SUBPROCESS_STATE", 1);
 	}
 	
 
@@ -7226,6 +7505,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     187487 characters generated by Talend Open Studio for Data Integration 
- *     on the January 30, 2023 at 11:19:46 PM CST
+ *     194445 characters generated by Talend Open Studio for Data Integration 
+ *     on the February 1, 2023 at 11:45:41 PM CST
  ************************************************************************************************/

@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_5=>" expression="(PosOrderLine.price_unit - (PosOrderLine.price_unit - (PosOrderLine.price_unit * 0.1f))) * PosOrderLine.qty">
+<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_5=>" expression="PosOrderLine.discount > 0 ? (PosOrderLine.discount / 100f) * PosOrderLine.price_unit * PosOrderLine.qty : 0">
   <variables name="copyOfout1_0.sale_id" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="copyOfout1_0.date_key" value="null" talendType="id_Integer" nullable="true"/>
   <variables name="copyOfout1_0.product_key" value="null" talendType="id_Integer" nullable="true"/>

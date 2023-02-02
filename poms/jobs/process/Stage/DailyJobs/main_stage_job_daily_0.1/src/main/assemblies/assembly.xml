@@ -317,6 +317,7 @@
                 <include>org.example.pacifico.job:dailyJobStage_productAttribute:jar:0.1.0</include>
                 <include>org.example.pacifico.job:runDailyJob_posPayment:jar:0.1.0</include>
                 <include>org.example.pacifico.job:putSaleOrderTemplateLine_DailyJob:jar:0.1.0</include>
+                <include>org.example.pacifico.job:UpdateConfigFileContext:jar:0.1.0</include>
                 <include>org.example.pacifico.job:runDailyJob_posOrder:jar:0.1.0</include>
                 <include>org.example.pacifico.job:runDailyJob_posOrderLine:jar:0.1.0</include>
                 <include>org.example.pacifico.job:runSaleOrderTemplateOptionStage_DailyJob:jar:0.1.0</include>

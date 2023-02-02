@@ -312,6 +312,7 @@
                 <include>org.example.pacifico.job:runPosConfigStage_DailyJob:jar:0.1.0</include>
                 <include>org.example.pacifico.job:dailyJobStage_productAttribute:jar:0.1.0</include>
                 <include>org.example.pacifico.job:paymentMethodDim:jar:0.1.0</include>
+                <include>org.example.pacifico.job:UpdateConfigFileContext:jar:0.1.0</include>
                 <include>org.example.pacifico.job:runSaleOrderTemplateOptionStage_DailyJob:jar:0.1.0</include>
                 <include>org.example.pacifico.job:getStageFiles_ppt:jar:0.1.0</include>
                 <include>org.example.pacifico.job:res_country_state_job:jar:0.1.0</include>
